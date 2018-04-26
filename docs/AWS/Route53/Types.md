@@ -176,7 +176,7 @@ Encode AssociateVPCComment
 
 ``` purescript
 newtype AssociateVPCWithHostedZoneRequest
-  = AssociateVPCWithHostedZoneRequest { "HostedZoneId" :: ResourceId, "VPC" :: VPC, "Comment" :: NullOrUndefined (AssociateVPCComment) }
+  = AssociateVPCWithHostedZoneRequest { "HostedZoneId" :: ResourceId, "VPC" :: VPC, "Comment" :: Maybe (AssociateVPCComment) }
 ```
 
 <p>A complex type that contains information about the request to associate a VPC with a private hosted zone.</p>
@@ -201,7 +201,7 @@ Constructs AssociateVPCWithHostedZoneRequest from required parameters
 #### `newAssociateVPCWithHostedZoneRequest'`
 
 ``` purescript
-newAssociateVPCWithHostedZoneRequest' :: ResourceId -> VPC -> ({ "HostedZoneId" :: ResourceId, "VPC" :: VPC, "Comment" :: NullOrUndefined (AssociateVPCComment) } -> { "HostedZoneId" :: ResourceId, "VPC" :: VPC, "Comment" :: NullOrUndefined (AssociateVPCComment) }) -> AssociateVPCWithHostedZoneRequest
+newAssociateVPCWithHostedZoneRequest' :: ResourceId -> VPC -> ({ "HostedZoneId" :: ResourceId, "VPC" :: VPC, "Comment" :: Maybe (AssociateVPCComment) } -> { "HostedZoneId" :: ResourceId, "VPC" :: VPC, "Comment" :: Maybe (AssociateVPCComment) }) -> AssociateVPCWithHostedZoneRequest
 ```
 
 Constructs AssociateVPCWithHostedZoneRequest's fields from required parameters
@@ -294,7 +294,7 @@ Encode ChangeAction
 
 ``` purescript
 newtype ChangeBatch
-  = ChangeBatch { "Comment" :: NullOrUndefined (ResourceDescription), "Changes" :: Changes }
+  = ChangeBatch { "Comment" :: Maybe (ResourceDescription), "Changes" :: Changes }
 ```
 
 <p>The information for a change request.</p>
@@ -319,7 +319,7 @@ Constructs ChangeBatch from required parameters
 #### `newChangeBatch'`
 
 ``` purescript
-newChangeBatch' :: Changes -> ({ "Comment" :: NullOrUndefined (ResourceDescription), "Changes" :: Changes } -> { "Comment" :: NullOrUndefined (ResourceDescription), "Changes" :: Changes }) -> ChangeBatch
+newChangeBatch' :: Changes -> ({ "Comment" :: Maybe (ResourceDescription), "Changes" :: Changes } -> { "Comment" :: Maybe (ResourceDescription), "Changes" :: Changes }) -> ChangeBatch
 ```
 
 Constructs ChangeBatch's fields from required parameters
@@ -328,7 +328,7 @@ Constructs ChangeBatch's fields from required parameters
 
 ``` purescript
 newtype ChangeInfo
-  = ChangeInfo { "Id" :: ResourceId, "Status" :: ChangeStatus, "SubmittedAt" :: TimeStamp, "Comment" :: NullOrUndefined (ResourceDescription) }
+  = ChangeInfo { "Id" :: ResourceId, "Status" :: ChangeStatus, "SubmittedAt" :: TimeStamp, "Comment" :: Maybe (ResourceDescription) }
 ```
 
 <p>A complex type that describes change information about changes made to your hosted zone.</p>
@@ -353,7 +353,7 @@ Constructs ChangeInfo from required parameters
 #### `newChangeInfo'`
 
 ``` purescript
-newChangeInfo' :: ResourceId -> ChangeStatus -> TimeStamp -> ({ "Id" :: ResourceId, "Status" :: ChangeStatus, "SubmittedAt" :: TimeStamp, "Comment" :: NullOrUndefined (ResourceDescription) } -> { "Id" :: ResourceId, "Status" :: ChangeStatus, "SubmittedAt" :: TimeStamp, "Comment" :: NullOrUndefined (ResourceDescription) }) -> ChangeInfo
+newChangeInfo' :: ResourceId -> ChangeStatus -> TimeStamp -> ({ "Id" :: ResourceId, "Status" :: ChangeStatus, "SubmittedAt" :: TimeStamp, "Comment" :: Maybe (ResourceDescription) } -> { "Id" :: ResourceId, "Status" :: ChangeStatus, "SubmittedAt" :: TimeStamp, "Comment" :: Maybe (ResourceDescription) }) -> ChangeInfo
 ```
 
 Constructs ChangeInfo's fields from required parameters
@@ -446,7 +446,7 @@ Encode ChangeStatus
 
 ``` purescript
 newtype ChangeTagsForResourceRequest
-  = ChangeTagsForResourceRequest { "ResourceType" :: TagResourceType, "ResourceId" :: TagResourceId, "AddTags" :: NullOrUndefined (TagList), "RemoveTagKeys" :: NullOrUndefined (TagKeyList) }
+  = ChangeTagsForResourceRequest { "ResourceType" :: TagResourceType, "ResourceId" :: TagResourceId, "AddTags" :: Maybe (TagList), "RemoveTagKeys" :: Maybe (TagKeyList) }
 ```
 
 <p>A complex type that contains information about the tags that you want to add, edit, or delete.</p>
@@ -471,7 +471,7 @@ Constructs ChangeTagsForResourceRequest from required parameters
 #### `newChangeTagsForResourceRequest'`
 
 ``` purescript
-newChangeTagsForResourceRequest' :: TagResourceId -> TagResourceType -> ({ "ResourceType" :: TagResourceType, "ResourceId" :: TagResourceId, "AddTags" :: NullOrUndefined (TagList), "RemoveTagKeys" :: NullOrUndefined (TagKeyList) } -> { "ResourceType" :: TagResourceType, "ResourceId" :: TagResourceId, "AddTags" :: NullOrUndefined (TagList), "RemoveTagKeys" :: NullOrUndefined (TagKeyList) }) -> ChangeTagsForResourceRequest
+newChangeTagsForResourceRequest' :: TagResourceId -> TagResourceType -> ({ "ResourceType" :: TagResourceType, "ResourceId" :: TagResourceId, "AddTags" :: Maybe (TagList), "RemoveTagKeys" :: Maybe (TagKeyList) } -> { "ResourceType" :: TagResourceType, "ResourceId" :: TagResourceId, "AddTags" :: Maybe (TagList), "RemoveTagKeys" :: Maybe (TagKeyList) }) -> ChangeTagsForResourceRequest
 ```
 
 Constructs ChangeTagsForResourceRequest's fields from required parameters
@@ -546,7 +546,7 @@ Encode ChildHealthCheckList
 
 ``` purescript
 newtype CloudWatchAlarmConfiguration
-  = CloudWatchAlarmConfiguration { "EvaluationPeriods" :: EvaluationPeriods, "Threshold" :: Threshold, "ComparisonOperator" :: ComparisonOperator, "Period" :: Period, "MetricName" :: MetricName, "Namespace" :: Namespace, "Statistic" :: Statistic, "Dimensions" :: NullOrUndefined (DimensionList) }
+  = CloudWatchAlarmConfiguration { "EvaluationPeriods" :: EvaluationPeriods, "Threshold" :: Threshold, "ComparisonOperator" :: ComparisonOperator, "Period" :: Period, "MetricName" :: MetricName, "Namespace" :: Namespace, "Statistic" :: Statistic, "Dimensions" :: Maybe (DimensionList) }
 ```
 
 <p>A complex type that contains information about the CloudWatch alarm that Amazon Route 53 is monitoring for this health check.</p>
@@ -571,7 +571,7 @@ Constructs CloudWatchAlarmConfiguration from required parameters
 #### `newCloudWatchAlarmConfiguration'`
 
 ``` purescript
-newCloudWatchAlarmConfiguration' :: ComparisonOperator -> EvaluationPeriods -> MetricName -> Namespace -> Period -> Statistic -> Threshold -> ({ "EvaluationPeriods" :: EvaluationPeriods, "Threshold" :: Threshold, "ComparisonOperator" :: ComparisonOperator, "Period" :: Period, "MetricName" :: MetricName, "Namespace" :: Namespace, "Statistic" :: Statistic, "Dimensions" :: NullOrUndefined (DimensionList) } -> { "EvaluationPeriods" :: EvaluationPeriods, "Threshold" :: Threshold, "ComparisonOperator" :: ComparisonOperator, "Period" :: Period, "MetricName" :: MetricName, "Namespace" :: Namespace, "Statistic" :: Statistic, "Dimensions" :: NullOrUndefined (DimensionList) }) -> CloudWatchAlarmConfiguration
+newCloudWatchAlarmConfiguration' :: ComparisonOperator -> EvaluationPeriods -> MetricName -> Namespace -> Period -> Statistic -> Threshold -> ({ "EvaluationPeriods" :: EvaluationPeriods, "Threshold" :: Threshold, "ComparisonOperator" :: ComparisonOperator, "Period" :: Period, "MetricName" :: MetricName, "Namespace" :: Namespace, "Statistic" :: Statistic, "Dimensions" :: Maybe (DimensionList) } -> { "EvaluationPeriods" :: EvaluationPeriods, "Threshold" :: Threshold, "ComparisonOperator" :: ComparisonOperator, "Period" :: Period, "MetricName" :: MetricName, "Namespace" :: Namespace, "Statistic" :: Statistic, "Dimensions" :: Maybe (DimensionList) }) -> CloudWatchAlarmConfiguration
 ```
 
 Constructs CloudWatchAlarmConfiguration's fields from required parameters
@@ -628,7 +628,7 @@ Encode ComparisonOperator
 
 ``` purescript
 newtype ConcurrentModification
-  = ConcurrentModification { message :: NullOrUndefined (ErrorMessage) }
+  = ConcurrentModification { message :: Maybe (ErrorMessage) }
 ```
 
 <p>Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request. </p>
@@ -653,7 +653,7 @@ Constructs ConcurrentModification from required parameters
 #### `newConcurrentModification'`
 
 ``` purescript
-newConcurrentModification' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> ConcurrentModification
+newConcurrentModification' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> ConcurrentModification
 ```
 
 Constructs ConcurrentModification's fields from required parameters
@@ -662,7 +662,7 @@ Constructs ConcurrentModification's fields from required parameters
 
 ``` purescript
 newtype ConflictingDomainExists
-  = ConflictingDomainExists { message :: NullOrUndefined (ErrorMessage) }
+  = ConflictingDomainExists { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The cause of this error depends on whether you're trying to create a public or a private hosted zone:</p> <ul> <li> <p> <b>Public hosted zone:</b> Two hosted zones that have the same name or that have a parent/child relationship (example.com and test.example.com) can't have any common name servers. You tried to create a hosted zone that has the same name as an existing hosted zone or that's the parent or child of an existing hosted zone, and you specified a delegation set that shares one or more name servers with the existing hosted zone. For more information, see <a>CreateReusableDelegationSet</a>.</p> </li> <li> <p> <b>Private hosted zone:</b> You specified an Amazon VPC that you're already using for another hosted zone, and the domain that you specified for one of the hosted zones is a subdomain of the domain that you specified for the other hosted zone. For example, you can't use the same Amazon VPC for the hosted zones for example.com and test.example.com.</p> </li> </ul>
@@ -687,7 +687,7 @@ Constructs ConflictingDomainExists from required parameters
 #### `newConflictingDomainExists'`
 
 ``` purescript
-newConflictingDomainExists' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> ConflictingDomainExists
+newConflictingDomainExists' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> ConflictingDomainExists
 ```
 
 Constructs ConflictingDomainExists's fields from required parameters
@@ -696,7 +696,7 @@ Constructs ConflictingDomainExists's fields from required parameters
 
 ``` purescript
 newtype ConflictingTypes
-  = ConflictingTypes { message :: NullOrUndefined (ErrorMessage) }
+  = ConflictingTypes { message :: Maybe (ErrorMessage) }
 ```
 
 <p>You tried to update a traffic policy instance by using a traffic policy version that has a different DNS type than the current type for the instance. You specified the type in the JSON document in the <code>CreateTrafficPolicy</code> or <code>CreateTrafficPolicyVersion</code>request. </p>
@@ -721,7 +721,7 @@ Constructs ConflictingTypes from required parameters
 #### `newConflictingTypes'`
 
 ``` purescript
-newConflictingTypes' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> ConflictingTypes
+newConflictingTypes' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> ConflictingTypes
 ```
 
 Constructs ConflictingTypes's fields from required parameters
@@ -798,7 +798,7 @@ Constructs CreateHealthCheckResponse's fields from required parameters
 
 ``` purescript
 newtype CreateHostedZoneRequest
-  = CreateHostedZoneRequest { "Name" :: DNSName, "VPC" :: NullOrUndefined (VPC), "CallerReference" :: Nonce, "HostedZoneConfig" :: NullOrUndefined (HostedZoneConfig), "DelegationSetId" :: NullOrUndefined (ResourceId) }
+  = CreateHostedZoneRequest { "Name" :: DNSName, "VPC" :: Maybe (VPC), "CallerReference" :: Nonce, "HostedZoneConfig" :: Maybe (HostedZoneConfig), "DelegationSetId" :: Maybe (ResourceId) }
 ```
 
 <p>A complex type that contains information about the request to create a hosted zone.</p>
@@ -823,7 +823,7 @@ Constructs CreateHostedZoneRequest from required parameters
 #### `newCreateHostedZoneRequest'`
 
 ``` purescript
-newCreateHostedZoneRequest' :: Nonce -> DNSName -> ({ "Name" :: DNSName, "VPC" :: NullOrUndefined (VPC), "CallerReference" :: Nonce, "HostedZoneConfig" :: NullOrUndefined (HostedZoneConfig), "DelegationSetId" :: NullOrUndefined (ResourceId) } -> { "Name" :: DNSName, "VPC" :: NullOrUndefined (VPC), "CallerReference" :: Nonce, "HostedZoneConfig" :: NullOrUndefined (HostedZoneConfig), "DelegationSetId" :: NullOrUndefined (ResourceId) }) -> CreateHostedZoneRequest
+newCreateHostedZoneRequest' :: Nonce -> DNSName -> ({ "Name" :: DNSName, "VPC" :: Maybe (VPC), "CallerReference" :: Nonce, "HostedZoneConfig" :: Maybe (HostedZoneConfig), "DelegationSetId" :: Maybe (ResourceId) } -> { "Name" :: DNSName, "VPC" :: Maybe (VPC), "CallerReference" :: Nonce, "HostedZoneConfig" :: Maybe (HostedZoneConfig), "DelegationSetId" :: Maybe (ResourceId) }) -> CreateHostedZoneRequest
 ```
 
 Constructs CreateHostedZoneRequest's fields from required parameters
@@ -832,7 +832,7 @@ Constructs CreateHostedZoneRequest's fields from required parameters
 
 ``` purescript
 newtype CreateHostedZoneResponse
-  = CreateHostedZoneResponse { "HostedZone" :: HostedZone, "ChangeInfo" :: ChangeInfo, "DelegationSet" :: DelegationSet, "VPC" :: NullOrUndefined (VPC), "Location" :: ResourceURI }
+  = CreateHostedZoneResponse { "HostedZone" :: HostedZone, "ChangeInfo" :: ChangeInfo, "DelegationSet" :: DelegationSet, "VPC" :: Maybe (VPC), "Location" :: ResourceURI }
 ```
 
 <p>A complex type containing the response information for the hosted zone.</p>
@@ -857,7 +857,7 @@ Constructs CreateHostedZoneResponse from required parameters
 #### `newCreateHostedZoneResponse'`
 
 ``` purescript
-newCreateHostedZoneResponse' :: ChangeInfo -> DelegationSet -> HostedZone -> ResourceURI -> ({ "HostedZone" :: HostedZone, "ChangeInfo" :: ChangeInfo, "DelegationSet" :: DelegationSet, "VPC" :: NullOrUndefined (VPC), "Location" :: ResourceURI } -> { "HostedZone" :: HostedZone, "ChangeInfo" :: ChangeInfo, "DelegationSet" :: DelegationSet, "VPC" :: NullOrUndefined (VPC), "Location" :: ResourceURI }) -> CreateHostedZoneResponse
+newCreateHostedZoneResponse' :: ChangeInfo -> DelegationSet -> HostedZone -> ResourceURI -> ({ "HostedZone" :: HostedZone, "ChangeInfo" :: ChangeInfo, "DelegationSet" :: DelegationSet, "VPC" :: Maybe (VPC), "Location" :: ResourceURI } -> { "HostedZone" :: HostedZone, "ChangeInfo" :: ChangeInfo, "DelegationSet" :: DelegationSet, "VPC" :: Maybe (VPC), "Location" :: ResourceURI }) -> CreateHostedZoneResponse
 ```
 
 Constructs CreateHostedZoneResponse's fields from required parameters
@@ -930,7 +930,7 @@ Constructs CreateQueryLoggingConfigResponse's fields from required parameters
 
 ``` purescript
 newtype CreateReusableDelegationSetRequest
-  = CreateReusableDelegationSetRequest { "CallerReference" :: Nonce, "HostedZoneId" :: NullOrUndefined (ResourceId) }
+  = CreateReusableDelegationSetRequest { "CallerReference" :: Nonce, "HostedZoneId" :: Maybe (ResourceId) }
 ```
 
 ##### Instances
@@ -953,7 +953,7 @@ Constructs CreateReusableDelegationSetRequest from required parameters
 #### `newCreateReusableDelegationSetRequest'`
 
 ``` purescript
-newCreateReusableDelegationSetRequest' :: Nonce -> ({ "CallerReference" :: Nonce, "HostedZoneId" :: NullOrUndefined (ResourceId) } -> { "CallerReference" :: Nonce, "HostedZoneId" :: NullOrUndefined (ResourceId) }) -> CreateReusableDelegationSetRequest
+newCreateReusableDelegationSetRequest' :: Nonce -> ({ "CallerReference" :: Nonce, "HostedZoneId" :: Maybe (ResourceId) } -> { "CallerReference" :: Nonce, "HostedZoneId" :: Maybe (ResourceId) }) -> CreateReusableDelegationSetRequest
 ```
 
 Constructs CreateReusableDelegationSetRequest's fields from required parameters
@@ -1062,7 +1062,7 @@ Constructs CreateTrafficPolicyInstanceResponse's fields from required parameters
 
 ``` purescript
 newtype CreateTrafficPolicyRequest
-  = CreateTrafficPolicyRequest { "Name" :: TrafficPolicyName, "Document" :: TrafficPolicyDocument, "Comment" :: NullOrUndefined (TrafficPolicyComment) }
+  = CreateTrafficPolicyRequest { "Name" :: TrafficPolicyName, "Document" :: TrafficPolicyDocument, "Comment" :: Maybe (TrafficPolicyComment) }
 ```
 
 <p>A complex type that contains information about the traffic policy that you want to create.</p>
@@ -1087,7 +1087,7 @@ Constructs CreateTrafficPolicyRequest from required parameters
 #### `newCreateTrafficPolicyRequest'`
 
 ``` purescript
-newCreateTrafficPolicyRequest' :: TrafficPolicyDocument -> TrafficPolicyName -> ({ "Name" :: TrafficPolicyName, "Document" :: TrafficPolicyDocument, "Comment" :: NullOrUndefined (TrafficPolicyComment) } -> { "Name" :: TrafficPolicyName, "Document" :: TrafficPolicyDocument, "Comment" :: NullOrUndefined (TrafficPolicyComment) }) -> CreateTrafficPolicyRequest
+newCreateTrafficPolicyRequest' :: TrafficPolicyDocument -> TrafficPolicyName -> ({ "Name" :: TrafficPolicyName, "Document" :: TrafficPolicyDocument, "Comment" :: Maybe (TrafficPolicyComment) } -> { "Name" :: TrafficPolicyName, "Document" :: TrafficPolicyDocument, "Comment" :: Maybe (TrafficPolicyComment) }) -> CreateTrafficPolicyRequest
 ```
 
 Constructs CreateTrafficPolicyRequest's fields from required parameters
@@ -1130,7 +1130,7 @@ Constructs CreateTrafficPolicyResponse's fields from required parameters
 
 ``` purescript
 newtype CreateTrafficPolicyVersionRequest
-  = CreateTrafficPolicyVersionRequest { "Id" :: TrafficPolicyId, "Document" :: TrafficPolicyDocument, "Comment" :: NullOrUndefined (TrafficPolicyComment) }
+  = CreateTrafficPolicyVersionRequest { "Id" :: TrafficPolicyId, "Document" :: TrafficPolicyDocument, "Comment" :: Maybe (TrafficPolicyComment) }
 ```
 
 <p>A complex type that contains information about the traffic policy that you want to create a new version for.</p>
@@ -1155,7 +1155,7 @@ Constructs CreateTrafficPolicyVersionRequest from required parameters
 #### `newCreateTrafficPolicyVersionRequest'`
 
 ``` purescript
-newCreateTrafficPolicyVersionRequest' :: TrafficPolicyDocument -> TrafficPolicyId -> ({ "Id" :: TrafficPolicyId, "Document" :: TrafficPolicyDocument, "Comment" :: NullOrUndefined (TrafficPolicyComment) } -> { "Id" :: TrafficPolicyId, "Document" :: TrafficPolicyDocument, "Comment" :: NullOrUndefined (TrafficPolicyComment) }) -> CreateTrafficPolicyVersionRequest
+newCreateTrafficPolicyVersionRequest' :: TrafficPolicyDocument -> TrafficPolicyId -> ({ "Id" :: TrafficPolicyId, "Document" :: TrafficPolicyDocument, "Comment" :: Maybe (TrafficPolicyComment) } -> { "Id" :: TrafficPolicyId, "Document" :: TrafficPolicyDocument, "Comment" :: Maybe (TrafficPolicyComment) }) -> CreateTrafficPolicyVersionRequest
 ```
 
 Constructs CreateTrafficPolicyVersionRequest's fields from required parameters
@@ -1298,7 +1298,7 @@ Encode DNSRCode
 
 ``` purescript
 newtype DelegationSet
-  = DelegationSet { "Id" :: NullOrUndefined (ResourceId), "CallerReference" :: NullOrUndefined (Nonce), "NameServers" :: DelegationSetNameServers }
+  = DelegationSet { "Id" :: Maybe (ResourceId), "CallerReference" :: Maybe (Nonce), "NameServers" :: DelegationSetNameServers }
 ```
 
 <p>A complex type that lists the name servers in a delegation set, as well as the <code>CallerReference</code> and the <code>ID</code> for the delegation set.</p>
@@ -1323,7 +1323,7 @@ Constructs DelegationSet from required parameters
 #### `newDelegationSet'`
 
 ``` purescript
-newDelegationSet' :: DelegationSetNameServers -> ({ "Id" :: NullOrUndefined (ResourceId), "CallerReference" :: NullOrUndefined (Nonce), "NameServers" :: DelegationSetNameServers } -> { "Id" :: NullOrUndefined (ResourceId), "CallerReference" :: NullOrUndefined (Nonce), "NameServers" :: DelegationSetNameServers }) -> DelegationSet
+newDelegationSet' :: DelegationSetNameServers -> ({ "Id" :: Maybe (ResourceId), "CallerReference" :: Maybe (Nonce), "NameServers" :: DelegationSetNameServers } -> { "Id" :: Maybe (ResourceId), "CallerReference" :: Maybe (Nonce), "NameServers" :: DelegationSetNameServers }) -> DelegationSet
 ```
 
 Constructs DelegationSet's fields from required parameters
@@ -1332,7 +1332,7 @@ Constructs DelegationSet's fields from required parameters
 
 ``` purescript
 newtype DelegationSetAlreadyCreated
-  = DelegationSetAlreadyCreated { message :: NullOrUndefined (ErrorMessage) }
+  = DelegationSetAlreadyCreated { message :: Maybe (ErrorMessage) }
 ```
 
 <p>A delegation set with the same owner and caller reference combination has already been created.</p>
@@ -1357,7 +1357,7 @@ Constructs DelegationSetAlreadyCreated from required parameters
 #### `newDelegationSetAlreadyCreated'`
 
 ``` purescript
-newDelegationSetAlreadyCreated' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> DelegationSetAlreadyCreated
+newDelegationSetAlreadyCreated' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> DelegationSetAlreadyCreated
 ```
 
 Constructs DelegationSetAlreadyCreated's fields from required parameters
@@ -1366,7 +1366,7 @@ Constructs DelegationSetAlreadyCreated's fields from required parameters
 
 ``` purescript
 newtype DelegationSetAlreadyReusable
-  = DelegationSetAlreadyReusable { message :: NullOrUndefined (ErrorMessage) }
+  = DelegationSetAlreadyReusable { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The specified delegation set has already been marked as reusable.</p>
@@ -1391,7 +1391,7 @@ Constructs DelegationSetAlreadyReusable from required parameters
 #### `newDelegationSetAlreadyReusable'`
 
 ``` purescript
-newDelegationSetAlreadyReusable' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> DelegationSetAlreadyReusable
+newDelegationSetAlreadyReusable' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> DelegationSetAlreadyReusable
 ```
 
 Constructs DelegationSetAlreadyReusable's fields from required parameters
@@ -1400,7 +1400,7 @@ Constructs DelegationSetAlreadyReusable's fields from required parameters
 
 ``` purescript
 newtype DelegationSetInUse
-  = DelegationSetInUse { message :: NullOrUndefined (ErrorMessage) }
+  = DelegationSetInUse { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The specified delegation contains associated hosted zones which must be deleted before the reusable delegation set can be deleted.</p>
@@ -1425,7 +1425,7 @@ Constructs DelegationSetInUse from required parameters
 #### `newDelegationSetInUse'`
 
 ``` purescript
-newDelegationSetInUse' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> DelegationSetInUse
+newDelegationSetInUse' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> DelegationSetInUse
 ```
 
 Constructs DelegationSetInUse's fields from required parameters
@@ -1450,7 +1450,7 @@ Encode DelegationSetNameServers
 
 ``` purescript
 newtype DelegationSetNotAvailable
-  = DelegationSetNotAvailable { message :: NullOrUndefined (ErrorMessage) }
+  = DelegationSetNotAvailable { message :: Maybe (ErrorMessage) }
 ```
 
 <p>You can create a hosted zone that has the same name as an existing hosted zone (example.com is common), but there is a limit to the number of hosted zones that have the same name. If you get this error, Amazon Route 53 has reached that limit. If you own the domain name and Amazon Route 53 generates this error, contact Customer Support.</p>
@@ -1475,7 +1475,7 @@ Constructs DelegationSetNotAvailable from required parameters
 #### `newDelegationSetNotAvailable'`
 
 ``` purescript
-newDelegationSetNotAvailable' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> DelegationSetNotAvailable
+newDelegationSetNotAvailable' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> DelegationSetNotAvailable
 ```
 
 Constructs DelegationSetNotAvailable's fields from required parameters
@@ -1484,7 +1484,7 @@ Constructs DelegationSetNotAvailable's fields from required parameters
 
 ``` purescript
 newtype DelegationSetNotReusable
-  = DelegationSetNotReusable { message :: NullOrUndefined (ErrorMessage) }
+  = DelegationSetNotReusable { message :: Maybe (ErrorMessage) }
 ```
 
 <p>A reusable delegation set with the specified ID does not exist.</p>
@@ -1509,7 +1509,7 @@ Constructs DelegationSetNotReusable from required parameters
 #### `newDelegationSetNotReusable'`
 
 ``` purescript
-newDelegationSetNotReusable' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> DelegationSetNotReusable
+newDelegationSetNotReusable' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> DelegationSetNotReusable
 ```
 
 Constructs DelegationSetNotReusable's fields from required parameters
@@ -1992,7 +1992,7 @@ Encode DisassociateVPCComment
 
 ``` purescript
 newtype DisassociateVPCFromHostedZoneRequest
-  = DisassociateVPCFromHostedZoneRequest { "HostedZoneId" :: ResourceId, "VPC" :: VPC, "Comment" :: NullOrUndefined (DisassociateVPCComment) }
+  = DisassociateVPCFromHostedZoneRequest { "HostedZoneId" :: ResourceId, "VPC" :: VPC, "Comment" :: Maybe (DisassociateVPCComment) }
 ```
 
 <p>A complex type that contains information about the VPC that you want to disassociate from a specified private hosted zone.</p>
@@ -2017,7 +2017,7 @@ Constructs DisassociateVPCFromHostedZoneRequest from required parameters
 #### `newDisassociateVPCFromHostedZoneRequest'`
 
 ``` purescript
-newDisassociateVPCFromHostedZoneRequest' :: ResourceId -> VPC -> ({ "HostedZoneId" :: ResourceId, "VPC" :: VPC, "Comment" :: NullOrUndefined (DisassociateVPCComment) } -> { "HostedZoneId" :: ResourceId, "VPC" :: VPC, "Comment" :: NullOrUndefined (DisassociateVPCComment) }) -> DisassociateVPCFromHostedZoneRequest
+newDisassociateVPCFromHostedZoneRequest' :: ResourceId -> VPC -> ({ "HostedZoneId" :: ResourceId, "VPC" :: VPC, "Comment" :: Maybe (DisassociateVPCComment) } -> { "HostedZoneId" :: ResourceId, "VPC" :: VPC, "Comment" :: Maybe (DisassociateVPCComment) }) -> DisassociateVPCFromHostedZoneRequest
 ```
 
 Constructs DisassociateVPCFromHostedZoneRequest's fields from required parameters
@@ -2156,7 +2156,7 @@ Encode FullyQualifiedDomainName
 
 ``` purescript
 newtype GeoLocation
-  = GeoLocation { "ContinentCode" :: NullOrUndefined (GeoLocationContinentCode), "CountryCode" :: NullOrUndefined (GeoLocationCountryCode), "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode) }
+  = GeoLocation { "ContinentCode" :: Maybe (GeoLocationContinentCode), "CountryCode" :: Maybe (GeoLocationCountryCode), "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode) }
 ```
 
 <p>A complex type that contains information about a geo location.</p>
@@ -2181,7 +2181,7 @@ Constructs GeoLocation from required parameters
 #### `newGeoLocation'`
 
 ``` purescript
-newGeoLocation' :: ({ "ContinentCode" :: NullOrUndefined (GeoLocationContinentCode), "CountryCode" :: NullOrUndefined (GeoLocationCountryCode), "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode) } -> { "ContinentCode" :: NullOrUndefined (GeoLocationContinentCode), "CountryCode" :: NullOrUndefined (GeoLocationCountryCode), "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode) }) -> GeoLocation
+newGeoLocation' :: ({ "ContinentCode" :: Maybe (GeoLocationContinentCode), "CountryCode" :: Maybe (GeoLocationCountryCode), "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode) } -> { "ContinentCode" :: Maybe (GeoLocationContinentCode), "CountryCode" :: Maybe (GeoLocationCountryCode), "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode) }) -> GeoLocation
 ```
 
 Constructs GeoLocation's fields from required parameters
@@ -2254,7 +2254,7 @@ Encode GeoLocationCountryName
 
 ``` purescript
 newtype GeoLocationDetails
-  = GeoLocationDetails { "ContinentCode" :: NullOrUndefined (GeoLocationContinentCode), "ContinentName" :: NullOrUndefined (GeoLocationContinentName), "CountryCode" :: NullOrUndefined (GeoLocationCountryCode), "CountryName" :: NullOrUndefined (GeoLocationCountryName), "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode), "SubdivisionName" :: NullOrUndefined (GeoLocationSubdivisionName) }
+  = GeoLocationDetails { "ContinentCode" :: Maybe (GeoLocationContinentCode), "ContinentName" :: Maybe (GeoLocationContinentName), "CountryCode" :: Maybe (GeoLocationCountryCode), "CountryName" :: Maybe (GeoLocationCountryName), "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode), "SubdivisionName" :: Maybe (GeoLocationSubdivisionName) }
 ```
 
 <p>A complex type that contains the codes and full continent, country, and subdivision names for the specified <code>geolocation</code> code.</p>
@@ -2279,7 +2279,7 @@ Constructs GeoLocationDetails from required parameters
 #### `newGeoLocationDetails'`
 
 ``` purescript
-newGeoLocationDetails' :: ({ "ContinentCode" :: NullOrUndefined (GeoLocationContinentCode), "ContinentName" :: NullOrUndefined (GeoLocationContinentName), "CountryCode" :: NullOrUndefined (GeoLocationCountryCode), "CountryName" :: NullOrUndefined (GeoLocationCountryName), "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode), "SubdivisionName" :: NullOrUndefined (GeoLocationSubdivisionName) } -> { "ContinentCode" :: NullOrUndefined (GeoLocationContinentCode), "ContinentName" :: NullOrUndefined (GeoLocationContinentName), "CountryCode" :: NullOrUndefined (GeoLocationCountryCode), "CountryName" :: NullOrUndefined (GeoLocationCountryName), "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode), "SubdivisionName" :: NullOrUndefined (GeoLocationSubdivisionName) }) -> GeoLocationDetails
+newGeoLocationDetails' :: ({ "ContinentCode" :: Maybe (GeoLocationContinentCode), "ContinentName" :: Maybe (GeoLocationContinentName), "CountryCode" :: Maybe (GeoLocationCountryCode), "CountryName" :: Maybe (GeoLocationCountryName), "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode), "SubdivisionName" :: Maybe (GeoLocationSubdivisionName) } -> { "ContinentCode" :: Maybe (GeoLocationContinentCode), "ContinentName" :: Maybe (GeoLocationContinentName), "CountryCode" :: Maybe (GeoLocationCountryCode), "CountryName" :: Maybe (GeoLocationCountryName), "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode), "SubdivisionName" :: Maybe (GeoLocationSubdivisionName) }) -> GeoLocationDetails
 ```
 
 Constructs GeoLocationDetails's fields from required parameters
@@ -2520,7 +2520,7 @@ Constructs GetCheckerIpRangesResponse's fields from required parameters
 
 ``` purescript
 newtype GetGeoLocationRequest
-  = GetGeoLocationRequest { "ContinentCode" :: NullOrUndefined (GeoLocationContinentCode), "CountryCode" :: NullOrUndefined (GeoLocationCountryCode), "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode) }
+  = GetGeoLocationRequest { "ContinentCode" :: Maybe (GeoLocationContinentCode), "CountryCode" :: Maybe (GeoLocationCountryCode), "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode) }
 ```
 
 <p>A request for information about whether a specified geographic location is supported for Amazon Route 53 geolocation resource record sets.</p>
@@ -2545,7 +2545,7 @@ Constructs GetGeoLocationRequest from required parameters
 #### `newGetGeoLocationRequest'`
 
 ``` purescript
-newGetGeoLocationRequest' :: ({ "ContinentCode" :: NullOrUndefined (GeoLocationContinentCode), "CountryCode" :: NullOrUndefined (GeoLocationCountryCode), "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode) } -> { "ContinentCode" :: NullOrUndefined (GeoLocationContinentCode), "CountryCode" :: NullOrUndefined (GeoLocationCountryCode), "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode) }) -> GetGeoLocationRequest
+newGetGeoLocationRequest' :: ({ "ContinentCode" :: Maybe (GeoLocationContinentCode), "CountryCode" :: Maybe (GeoLocationCountryCode), "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode) } -> { "ContinentCode" :: Maybe (GeoLocationContinentCode), "CountryCode" :: Maybe (GeoLocationCountryCode), "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode) }) -> GetGeoLocationRequest
 ```
 
 Constructs GetGeoLocationRequest's fields from required parameters
@@ -2998,7 +2998,7 @@ Constructs GetHostedZoneRequest's fields from required parameters
 
 ``` purescript
 newtype GetHostedZoneResponse
-  = GetHostedZoneResponse { "HostedZone" :: HostedZone, "DelegationSet" :: NullOrUndefined (DelegationSet), "VPCs" :: NullOrUndefined (VPCs) }
+  = GetHostedZoneResponse { "HostedZone" :: HostedZone, "DelegationSet" :: Maybe (DelegationSet), "VPCs" :: Maybe (VPCs) }
 ```
 
 <p>A complex type that contain the response to a <code>GetHostedZone</code> request.</p>
@@ -3023,7 +3023,7 @@ Constructs GetHostedZoneResponse from required parameters
 #### `newGetHostedZoneResponse'`
 
 ``` purescript
-newGetHostedZoneResponse' :: HostedZone -> ({ "HostedZone" :: HostedZone, "DelegationSet" :: NullOrUndefined (DelegationSet), "VPCs" :: NullOrUndefined (VPCs) } -> { "HostedZone" :: HostedZone, "DelegationSet" :: NullOrUndefined (DelegationSet), "VPCs" :: NullOrUndefined (VPCs) }) -> GetHostedZoneResponse
+newGetHostedZoneResponse' :: HostedZone -> ({ "HostedZone" :: HostedZone, "DelegationSet" :: Maybe (DelegationSet), "VPCs" :: Maybe (VPCs) } -> { "HostedZone" :: HostedZone, "DelegationSet" :: Maybe (DelegationSet), "VPCs" :: Maybe (VPCs) }) -> GetHostedZoneResponse
 ```
 
 Constructs GetHostedZoneResponse's fields from required parameters
@@ -3420,7 +3420,7 @@ Constructs GetTrafficPolicyResponse's fields from required parameters
 
 ``` purescript
 newtype HealthCheck
-  = HealthCheck { "Id" :: HealthCheckId, "CallerReference" :: HealthCheckNonce, "LinkedService" :: NullOrUndefined (LinkedService), "HealthCheckConfig" :: HealthCheckConfig, "HealthCheckVersion" :: HealthCheckVersion, "CloudWatchAlarmConfiguration" :: NullOrUndefined (CloudWatchAlarmConfiguration) }
+  = HealthCheck { "Id" :: HealthCheckId, "CallerReference" :: HealthCheckNonce, "LinkedService" :: Maybe (LinkedService), "HealthCheckConfig" :: HealthCheckConfig, "HealthCheckVersion" :: HealthCheckVersion, "CloudWatchAlarmConfiguration" :: Maybe (CloudWatchAlarmConfiguration) }
 ```
 
 <p>A complex type that contains information about one health check that is associated with the current AWS account.</p>
@@ -3445,7 +3445,7 @@ Constructs HealthCheck from required parameters
 #### `newHealthCheck'`
 
 ``` purescript
-newHealthCheck' :: HealthCheckNonce -> HealthCheckConfig -> HealthCheckVersion -> HealthCheckId -> ({ "Id" :: HealthCheckId, "CallerReference" :: HealthCheckNonce, "LinkedService" :: NullOrUndefined (LinkedService), "HealthCheckConfig" :: HealthCheckConfig, "HealthCheckVersion" :: HealthCheckVersion, "CloudWatchAlarmConfiguration" :: NullOrUndefined (CloudWatchAlarmConfiguration) } -> { "Id" :: HealthCheckId, "CallerReference" :: HealthCheckNonce, "LinkedService" :: NullOrUndefined (LinkedService), "HealthCheckConfig" :: HealthCheckConfig, "HealthCheckVersion" :: HealthCheckVersion, "CloudWatchAlarmConfiguration" :: NullOrUndefined (CloudWatchAlarmConfiguration) }) -> HealthCheck
+newHealthCheck' :: HealthCheckNonce -> HealthCheckConfig -> HealthCheckVersion -> HealthCheckId -> ({ "Id" :: HealthCheckId, "CallerReference" :: HealthCheckNonce, "LinkedService" :: Maybe (LinkedService), "HealthCheckConfig" :: HealthCheckConfig, "HealthCheckVersion" :: HealthCheckVersion, "CloudWatchAlarmConfiguration" :: Maybe (CloudWatchAlarmConfiguration) } -> { "Id" :: HealthCheckId, "CallerReference" :: HealthCheckNonce, "LinkedService" :: Maybe (LinkedService), "HealthCheckConfig" :: HealthCheckConfig, "HealthCheckVersion" :: HealthCheckVersion, "CloudWatchAlarmConfiguration" :: Maybe (CloudWatchAlarmConfiguration) }) -> HealthCheck
 ```
 
 Constructs HealthCheck's fields from required parameters
@@ -3454,7 +3454,7 @@ Constructs HealthCheck's fields from required parameters
 
 ``` purescript
 newtype HealthCheckAlreadyExists
-  = HealthCheckAlreadyExists { message :: NullOrUndefined (ErrorMessage) }
+  = HealthCheckAlreadyExists { message :: Maybe (ErrorMessage) }
 ```
 
 <p> The health check you're attempting to create already exists. Amazon Route 53 returns this error when you submit a request that has the following values:</p> <ul> <li> <p>The same value for <code>CallerReference</code> as an existing health check, and one or more values that differ from the existing health check that has the same caller reference.</p> </li> <li> <p>The same value for <code>CallerReference</code> as a health check that you created and later deleted, regardless of the other settings in the request.</p> </li> </ul>
@@ -3479,7 +3479,7 @@ Constructs HealthCheckAlreadyExists from required parameters
 #### `newHealthCheckAlreadyExists'`
 
 ``` purescript
-newHealthCheckAlreadyExists' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> HealthCheckAlreadyExists
+newHealthCheckAlreadyExists' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> HealthCheckAlreadyExists
 ```
 
 Constructs HealthCheckAlreadyExists's fields from required parameters
@@ -3488,7 +3488,7 @@ Constructs HealthCheckAlreadyExists's fields from required parameters
 
 ``` purescript
 newtype HealthCheckConfig
-  = HealthCheckConfig { "IPAddress" :: NullOrUndefined (IPAddress), "Port" :: NullOrUndefined (Port), "Type" :: HealthCheckType, "ResourcePath" :: NullOrUndefined (ResourcePath), "FullyQualifiedDomainName" :: NullOrUndefined (FullyQualifiedDomainName), "SearchString" :: NullOrUndefined (SearchString), "RequestInterval" :: NullOrUndefined (RequestInterval), "FailureThreshold" :: NullOrUndefined (FailureThreshold), "MeasureLatency" :: NullOrUndefined (MeasureLatency), "Inverted" :: NullOrUndefined (Inverted), "HealthThreshold" :: NullOrUndefined (HealthThreshold), "ChildHealthChecks" :: NullOrUndefined (ChildHealthCheckList), "EnableSNI" :: NullOrUndefined (EnableSNI), "Regions" :: NullOrUndefined (HealthCheckRegionList), "AlarmIdentifier" :: NullOrUndefined (AlarmIdentifier), "InsufficientDataHealthStatus" :: NullOrUndefined (InsufficientDataHealthStatus) }
+  = HealthCheckConfig { "IPAddress" :: Maybe (IPAddress), "Port" :: Maybe (Port), "Type" :: HealthCheckType, "ResourcePath" :: Maybe (ResourcePath), "FullyQualifiedDomainName" :: Maybe (FullyQualifiedDomainName), "SearchString" :: Maybe (SearchString), "RequestInterval" :: Maybe (RequestInterval), "FailureThreshold" :: Maybe (FailureThreshold), "MeasureLatency" :: Maybe (MeasureLatency), "Inverted" :: Maybe (Inverted), "HealthThreshold" :: Maybe (HealthThreshold), "ChildHealthChecks" :: Maybe (ChildHealthCheckList), "EnableSNI" :: Maybe (EnableSNI), "Regions" :: Maybe (HealthCheckRegionList), "AlarmIdentifier" :: Maybe (AlarmIdentifier), "InsufficientDataHealthStatus" :: Maybe (InsufficientDataHealthStatus) }
 ```
 
 <p>A complex type that contains information about the health check.</p>
@@ -3513,7 +3513,7 @@ Constructs HealthCheckConfig from required parameters
 #### `newHealthCheckConfig'`
 
 ``` purescript
-newHealthCheckConfig' :: HealthCheckType -> ({ "IPAddress" :: NullOrUndefined (IPAddress), "Port" :: NullOrUndefined (Port), "Type" :: HealthCheckType, "ResourcePath" :: NullOrUndefined (ResourcePath), "FullyQualifiedDomainName" :: NullOrUndefined (FullyQualifiedDomainName), "SearchString" :: NullOrUndefined (SearchString), "RequestInterval" :: NullOrUndefined (RequestInterval), "FailureThreshold" :: NullOrUndefined (FailureThreshold), "MeasureLatency" :: NullOrUndefined (MeasureLatency), "Inverted" :: NullOrUndefined (Inverted), "HealthThreshold" :: NullOrUndefined (HealthThreshold), "ChildHealthChecks" :: NullOrUndefined (ChildHealthCheckList), "EnableSNI" :: NullOrUndefined (EnableSNI), "Regions" :: NullOrUndefined (HealthCheckRegionList), "AlarmIdentifier" :: NullOrUndefined (AlarmIdentifier), "InsufficientDataHealthStatus" :: NullOrUndefined (InsufficientDataHealthStatus) } -> { "IPAddress" :: NullOrUndefined (IPAddress), "Port" :: NullOrUndefined (Port), "Type" :: HealthCheckType, "ResourcePath" :: NullOrUndefined (ResourcePath), "FullyQualifiedDomainName" :: NullOrUndefined (FullyQualifiedDomainName), "SearchString" :: NullOrUndefined (SearchString), "RequestInterval" :: NullOrUndefined (RequestInterval), "FailureThreshold" :: NullOrUndefined (FailureThreshold), "MeasureLatency" :: NullOrUndefined (MeasureLatency), "Inverted" :: NullOrUndefined (Inverted), "HealthThreshold" :: NullOrUndefined (HealthThreshold), "ChildHealthChecks" :: NullOrUndefined (ChildHealthCheckList), "EnableSNI" :: NullOrUndefined (EnableSNI), "Regions" :: NullOrUndefined (HealthCheckRegionList), "AlarmIdentifier" :: NullOrUndefined (AlarmIdentifier), "InsufficientDataHealthStatus" :: NullOrUndefined (InsufficientDataHealthStatus) }) -> HealthCheckConfig
+newHealthCheckConfig' :: HealthCheckType -> ({ "IPAddress" :: Maybe (IPAddress), "Port" :: Maybe (Port), "Type" :: HealthCheckType, "ResourcePath" :: Maybe (ResourcePath), "FullyQualifiedDomainName" :: Maybe (FullyQualifiedDomainName), "SearchString" :: Maybe (SearchString), "RequestInterval" :: Maybe (RequestInterval), "FailureThreshold" :: Maybe (FailureThreshold), "MeasureLatency" :: Maybe (MeasureLatency), "Inverted" :: Maybe (Inverted), "HealthThreshold" :: Maybe (HealthThreshold), "ChildHealthChecks" :: Maybe (ChildHealthCheckList), "EnableSNI" :: Maybe (EnableSNI), "Regions" :: Maybe (HealthCheckRegionList), "AlarmIdentifier" :: Maybe (AlarmIdentifier), "InsufficientDataHealthStatus" :: Maybe (InsufficientDataHealthStatus) } -> { "IPAddress" :: Maybe (IPAddress), "Port" :: Maybe (Port), "Type" :: HealthCheckType, "ResourcePath" :: Maybe (ResourcePath), "FullyQualifiedDomainName" :: Maybe (FullyQualifiedDomainName), "SearchString" :: Maybe (SearchString), "RequestInterval" :: Maybe (RequestInterval), "FailureThreshold" :: Maybe (FailureThreshold), "MeasureLatency" :: Maybe (MeasureLatency), "Inverted" :: Maybe (Inverted), "HealthThreshold" :: Maybe (HealthThreshold), "ChildHealthChecks" :: Maybe (ChildHealthCheckList), "EnableSNI" :: Maybe (EnableSNI), "Regions" :: Maybe (HealthCheckRegionList), "AlarmIdentifier" :: Maybe (AlarmIdentifier), "InsufficientDataHealthStatus" :: Maybe (InsufficientDataHealthStatus) }) -> HealthCheckConfig
 ```
 
 Constructs HealthCheckConfig's fields from required parameters
@@ -3554,7 +3554,7 @@ Encode HealthCheckId
 
 ``` purescript
 newtype HealthCheckInUse
-  = HealthCheckInUse { message :: NullOrUndefined (ErrorMessage) }
+  = HealthCheckInUse { message :: Maybe (ErrorMessage) }
 ```
 
 <p>This error code is not in use.</p>
@@ -3579,7 +3579,7 @@ Constructs HealthCheckInUse from required parameters
 #### `newHealthCheckInUse'`
 
 ``` purescript
-newHealthCheckInUse' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> HealthCheckInUse
+newHealthCheckInUse' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> HealthCheckInUse
 ```
 
 Constructs HealthCheckInUse's fields from required parameters
@@ -3604,7 +3604,7 @@ Encode HealthCheckNonce
 
 ``` purescript
 newtype HealthCheckObservation
-  = HealthCheckObservation { "Region" :: NullOrUndefined (HealthCheckRegion), "IPAddress" :: NullOrUndefined (IPAddress), "StatusReport" :: NullOrUndefined (StatusReport) }
+  = HealthCheckObservation { "Region" :: Maybe (HealthCheckRegion), "IPAddress" :: Maybe (IPAddress), "StatusReport" :: Maybe (StatusReport) }
 ```
 
 <p>A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker.</p>
@@ -3629,7 +3629,7 @@ Constructs HealthCheckObservation from required parameters
 #### `newHealthCheckObservation'`
 
 ``` purescript
-newHealthCheckObservation' :: ({ "Region" :: NullOrUndefined (HealthCheckRegion), "IPAddress" :: NullOrUndefined (IPAddress), "StatusReport" :: NullOrUndefined (StatusReport) } -> { "Region" :: NullOrUndefined (HealthCheckRegion), "IPAddress" :: NullOrUndefined (IPAddress), "StatusReport" :: NullOrUndefined (StatusReport) }) -> HealthCheckObservation
+newHealthCheckObservation' :: ({ "Region" :: Maybe (HealthCheckRegion), "IPAddress" :: Maybe (IPAddress), "StatusReport" :: Maybe (StatusReport) } -> { "Region" :: Maybe (HealthCheckRegion), "IPAddress" :: Maybe (IPAddress), "StatusReport" :: Maybe (StatusReport) }) -> HealthCheckObservation
 ```
 
 Constructs HealthCheckObservation's fields from required parameters
@@ -3718,7 +3718,7 @@ Encode HealthCheckVersion
 
 ``` purescript
 newtype HealthCheckVersionMismatch
-  = HealthCheckVersionMismatch { message :: NullOrUndefined (ErrorMessage) }
+  = HealthCheckVersionMismatch { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The value of <code>HealthCheckVersion</code> in the request doesn't match the value of <code>HealthCheckVersion</code> in the health check.</p>
@@ -3743,7 +3743,7 @@ Constructs HealthCheckVersionMismatch from required parameters
 #### `newHealthCheckVersionMismatch'`
 
 ``` purescript
-newHealthCheckVersionMismatch' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> HealthCheckVersionMismatch
+newHealthCheckVersionMismatch' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> HealthCheckVersionMismatch
 ```
 
 Constructs HealthCheckVersionMismatch's fields from required parameters
@@ -3784,7 +3784,7 @@ Encode HealthThreshold
 
 ``` purescript
 newtype HostedZone
-  = HostedZone { "Id" :: ResourceId, "Name" :: DNSName, "CallerReference" :: Nonce, "Config" :: NullOrUndefined (HostedZoneConfig), "ResourceRecordSetCount" :: NullOrUndefined (HostedZoneRRSetCount), "LinkedService" :: NullOrUndefined (LinkedService) }
+  = HostedZone { "Id" :: ResourceId, "Name" :: DNSName, "CallerReference" :: Nonce, "Config" :: Maybe (HostedZoneConfig), "ResourceRecordSetCount" :: Maybe (HostedZoneRRSetCount), "LinkedService" :: Maybe (LinkedService) }
 ```
 
 <p>A complex type that contains general information about the hosted zone.</p>
@@ -3809,7 +3809,7 @@ Constructs HostedZone from required parameters
 #### `newHostedZone'`
 
 ``` purescript
-newHostedZone' :: Nonce -> ResourceId -> DNSName -> ({ "Id" :: ResourceId, "Name" :: DNSName, "CallerReference" :: Nonce, "Config" :: NullOrUndefined (HostedZoneConfig), "ResourceRecordSetCount" :: NullOrUndefined (HostedZoneRRSetCount), "LinkedService" :: NullOrUndefined (LinkedService) } -> { "Id" :: ResourceId, "Name" :: DNSName, "CallerReference" :: Nonce, "Config" :: NullOrUndefined (HostedZoneConfig), "ResourceRecordSetCount" :: NullOrUndefined (HostedZoneRRSetCount), "LinkedService" :: NullOrUndefined (LinkedService) }) -> HostedZone
+newHostedZone' :: Nonce -> ResourceId -> DNSName -> ({ "Id" :: ResourceId, "Name" :: DNSName, "CallerReference" :: Nonce, "Config" :: Maybe (HostedZoneConfig), "ResourceRecordSetCount" :: Maybe (HostedZoneRRSetCount), "LinkedService" :: Maybe (LinkedService) } -> { "Id" :: ResourceId, "Name" :: DNSName, "CallerReference" :: Nonce, "Config" :: Maybe (HostedZoneConfig), "ResourceRecordSetCount" :: Maybe (HostedZoneRRSetCount), "LinkedService" :: Maybe (LinkedService) }) -> HostedZone
 ```
 
 Constructs HostedZone's fields from required parameters
@@ -3818,7 +3818,7 @@ Constructs HostedZone's fields from required parameters
 
 ``` purescript
 newtype HostedZoneAlreadyExists
-  = HostedZoneAlreadyExists { message :: NullOrUndefined (ErrorMessage) }
+  = HostedZoneAlreadyExists { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The hosted zone you're trying to create already exists. Amazon Route 53 returns this error when a hosted zone has already been created with the specified <code>CallerReference</code>.</p>
@@ -3843,7 +3843,7 @@ Constructs HostedZoneAlreadyExists from required parameters
 #### `newHostedZoneAlreadyExists'`
 
 ``` purescript
-newHostedZoneAlreadyExists' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> HostedZoneAlreadyExists
+newHostedZoneAlreadyExists' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> HostedZoneAlreadyExists
 ```
 
 Constructs HostedZoneAlreadyExists's fields from required parameters
@@ -3852,7 +3852,7 @@ Constructs HostedZoneAlreadyExists's fields from required parameters
 
 ``` purescript
 newtype HostedZoneConfig
-  = HostedZoneConfig { "Comment" :: NullOrUndefined (ResourceDescription), "PrivateZone" :: NullOrUndefined (IsPrivateZone) }
+  = HostedZoneConfig { "Comment" :: Maybe (ResourceDescription), "PrivateZone" :: Maybe (IsPrivateZone) }
 ```
 
 <p>A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the <code>HostedZoneConfig</code> and <code>Comment</code> elements.</p>
@@ -3877,7 +3877,7 @@ Constructs HostedZoneConfig from required parameters
 #### `newHostedZoneConfig'`
 
 ``` purescript
-newHostedZoneConfig' :: ({ "Comment" :: NullOrUndefined (ResourceDescription), "PrivateZone" :: NullOrUndefined (IsPrivateZone) } -> { "Comment" :: NullOrUndefined (ResourceDescription), "PrivateZone" :: NullOrUndefined (IsPrivateZone) }) -> HostedZoneConfig
+newHostedZoneConfig' :: ({ "Comment" :: Maybe (ResourceDescription), "PrivateZone" :: Maybe (IsPrivateZone) } -> { "Comment" :: Maybe (ResourceDescription), "PrivateZone" :: Maybe (IsPrivateZone) }) -> HostedZoneConfig
 ```
 
 Constructs HostedZoneConfig's fields from required parameters
@@ -3952,7 +3952,7 @@ Encode HostedZoneLimitType
 
 ``` purescript
 newtype HostedZoneNotEmpty
-  = HostedZoneNotEmpty { message :: NullOrUndefined (ErrorMessage) }
+  = HostedZoneNotEmpty { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The hosted zone contains resource records that are not SOA or NS records.</p>
@@ -3977,7 +3977,7 @@ Constructs HostedZoneNotEmpty from required parameters
 #### `newHostedZoneNotEmpty'`
 
 ``` purescript
-newHostedZoneNotEmpty' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> HostedZoneNotEmpty
+newHostedZoneNotEmpty' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> HostedZoneNotEmpty
 ```
 
 Constructs HostedZoneNotEmpty's fields from required parameters
@@ -3986,7 +3986,7 @@ Constructs HostedZoneNotEmpty's fields from required parameters
 
 ``` purescript
 newtype HostedZoneNotFound
-  = HostedZoneNotFound { message :: NullOrUndefined (ErrorMessage) }
+  = HostedZoneNotFound { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The specified HostedZone can't be found.</p>
@@ -4011,7 +4011,7 @@ Constructs HostedZoneNotFound from required parameters
 #### `newHostedZoneNotFound'`
 
 ``` purescript
-newHostedZoneNotFound' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> HostedZoneNotFound
+newHostedZoneNotFound' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> HostedZoneNotFound
 ```
 
 Constructs HostedZoneNotFound's fields from required parameters
@@ -4020,7 +4020,7 @@ Constructs HostedZoneNotFound's fields from required parameters
 
 ``` purescript
 newtype HostedZoneNotPrivate
-  = HostedZoneNotPrivate { message :: NullOrUndefined (ErrorMessage) }
+  = HostedZoneNotPrivate { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The specified hosted zone is a public hosted zone, not a private hosted zone.</p>
@@ -4045,7 +4045,7 @@ Constructs HostedZoneNotPrivate from required parameters
 #### `newHostedZoneNotPrivate'`
 
 ``` purescript
-newHostedZoneNotPrivate' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> HostedZoneNotPrivate
+newHostedZoneNotPrivate' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> HostedZoneNotPrivate
 ```
 
 Constructs HostedZoneNotPrivate's fields from required parameters
@@ -4118,7 +4118,7 @@ Encode IPAddressCidr
 
 ``` purescript
 newtype IncompatibleVersion
-  = IncompatibleVersion { message :: NullOrUndefined (ErrorMessage) }
+  = IncompatibleVersion { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The resource you're trying to access is unsupported on this Amazon Route 53 endpoint.</p>
@@ -4143,7 +4143,7 @@ Constructs IncompatibleVersion from required parameters
 #### `newIncompatibleVersion'`
 
 ``` purescript
-newIncompatibleVersion' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> IncompatibleVersion
+newIncompatibleVersion' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> IncompatibleVersion
 ```
 
 Constructs IncompatibleVersion's fields from required parameters
@@ -4152,7 +4152,7 @@ Constructs IncompatibleVersion's fields from required parameters
 
 ``` purescript
 newtype InsufficientCloudWatchLogsResourcePolicy
-  = InsufficientCloudWatchLogsResourcePolicy { message :: NullOrUndefined (ErrorMessage) }
+  = InsufficientCloudWatchLogsResourcePolicy { message :: Maybe (ErrorMessage) }
 ```
 
 <p>Amazon Route 53 doesn't have the permissions required to create log streams and send query logs to log streams. Possible causes include the following:</p> <ul> <li> <p>There is no resource policy that specifies the log group ARN in the value for <code>Resource</code>.</p> </li> <li> <p>The resource policy that includes the log group ARN in the value for <code>Resource</code> doesn't have the necessary permissions.</p> </li> <li> <p>The resource policy hasn't finished propagating yet.</p> </li> </ul>
@@ -4177,7 +4177,7 @@ Constructs InsufficientCloudWatchLogsResourcePolicy from required parameters
 #### `newInsufficientCloudWatchLogsResourcePolicy'`
 
 ``` purescript
-newInsufficientCloudWatchLogsResourcePolicy' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> InsufficientCloudWatchLogsResourcePolicy
+newInsufficientCloudWatchLogsResourcePolicy' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> InsufficientCloudWatchLogsResourcePolicy
 ```
 
 Constructs InsufficientCloudWatchLogsResourcePolicy's fields from required parameters
@@ -4202,7 +4202,7 @@ Encode InsufficientDataHealthStatus
 
 ``` purescript
 newtype InvalidArgument
-  = InvalidArgument { message :: NullOrUndefined (ErrorMessage) }
+  = InvalidArgument { message :: Maybe (ErrorMessage) }
 ```
 
 <p>Parameter name is invalid.</p>
@@ -4227,7 +4227,7 @@ Constructs InvalidArgument from required parameters
 #### `newInvalidArgument'`
 
 ``` purescript
-newInvalidArgument' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> InvalidArgument
+newInvalidArgument' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> InvalidArgument
 ```
 
 Constructs InvalidArgument's fields from required parameters
@@ -4236,7 +4236,7 @@ Constructs InvalidArgument's fields from required parameters
 
 ``` purescript
 newtype InvalidChangeBatch
-  = InvalidChangeBatch { messages :: NullOrUndefined (ErrorMessages), message :: NullOrUndefined (ErrorMessage) }
+  = InvalidChangeBatch { messages :: Maybe (ErrorMessages), message :: Maybe (ErrorMessage) }
 ```
 
 <p>This exception contains a list of messages that might contain one or more error messages. Each error message indicates one error in the change batch.</p>
@@ -4261,7 +4261,7 @@ Constructs InvalidChangeBatch from required parameters
 #### `newInvalidChangeBatch'`
 
 ``` purescript
-newInvalidChangeBatch' :: ({ messages :: NullOrUndefined (ErrorMessages), message :: NullOrUndefined (ErrorMessage) } -> { messages :: NullOrUndefined (ErrorMessages), message :: NullOrUndefined (ErrorMessage) }) -> InvalidChangeBatch
+newInvalidChangeBatch' :: ({ messages :: Maybe (ErrorMessages), message :: Maybe (ErrorMessage) } -> { messages :: Maybe (ErrorMessages), message :: Maybe (ErrorMessage) }) -> InvalidChangeBatch
 ```
 
 Constructs InvalidChangeBatch's fields from required parameters
@@ -4270,7 +4270,7 @@ Constructs InvalidChangeBatch's fields from required parameters
 
 ``` purescript
 newtype InvalidDomainName
-  = InvalidDomainName { message :: NullOrUndefined (ErrorMessage) }
+  = InvalidDomainName { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The specified domain name is not valid.</p>
@@ -4295,7 +4295,7 @@ Constructs InvalidDomainName from required parameters
 #### `newInvalidDomainName'`
 
 ``` purescript
-newInvalidDomainName' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> InvalidDomainName
+newInvalidDomainName' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> InvalidDomainName
 ```
 
 Constructs InvalidDomainName's fields from required parameters
@@ -4304,7 +4304,7 @@ Constructs InvalidDomainName's fields from required parameters
 
 ``` purescript
 newtype InvalidInput
-  = InvalidInput { message :: NullOrUndefined (ErrorMessage) }
+  = InvalidInput { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The input is not valid.</p>
@@ -4329,7 +4329,7 @@ Constructs InvalidInput from required parameters
 #### `newInvalidInput'`
 
 ``` purescript
-newInvalidInput' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> InvalidInput
+newInvalidInput' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> InvalidInput
 ```
 
 Constructs InvalidInput's fields from required parameters
@@ -4338,7 +4338,7 @@ Constructs InvalidInput's fields from required parameters
 
 ``` purescript
 newtype InvalidPaginationToken
-  = InvalidPaginationToken { message :: NullOrUndefined (ErrorMessage) }
+  = InvalidPaginationToken { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The value that you specified to get the second or subsequent page of results is invalid.</p>
@@ -4363,7 +4363,7 @@ Constructs InvalidPaginationToken from required parameters
 #### `newInvalidPaginationToken'`
 
 ``` purescript
-newInvalidPaginationToken' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> InvalidPaginationToken
+newInvalidPaginationToken' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> InvalidPaginationToken
 ```
 
 Constructs InvalidPaginationToken's fields from required parameters
@@ -4372,7 +4372,7 @@ Constructs InvalidPaginationToken's fields from required parameters
 
 ``` purescript
 newtype InvalidTrafficPolicyDocument
-  = InvalidTrafficPolicyDocument { message :: NullOrUndefined (ErrorMessage) }
+  = InvalidTrafficPolicyDocument { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The format of the traffic policy document that you specified in the <code>Document</code> element is invalid.</p>
@@ -4397,7 +4397,7 @@ Constructs InvalidTrafficPolicyDocument from required parameters
 #### `newInvalidTrafficPolicyDocument'`
 
 ``` purescript
-newInvalidTrafficPolicyDocument' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> InvalidTrafficPolicyDocument
+newInvalidTrafficPolicyDocument' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> InvalidTrafficPolicyDocument
 ```
 
 Constructs InvalidTrafficPolicyDocument's fields from required parameters
@@ -4406,7 +4406,7 @@ Constructs InvalidTrafficPolicyDocument's fields from required parameters
 
 ``` purescript
 newtype InvalidVPCId
-  = InvalidVPCId { message :: NullOrUndefined (ErrorMessage) }
+  = InvalidVPCId { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The VPC ID that you specified either isn't a valid ID or the current account is not authorized to access this VPC.</p>
@@ -4431,7 +4431,7 @@ Constructs InvalidVPCId from required parameters
 #### `newInvalidVPCId'`
 
 ``` purescript
-newInvalidVPCId' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> InvalidVPCId
+newInvalidVPCId' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> InvalidVPCId
 ```
 
 Constructs InvalidVPCId's fields from required parameters
@@ -4472,7 +4472,7 @@ Encode IsPrivateZone
 
 ``` purescript
 newtype LastVPCAssociation
-  = LastVPCAssociation { message :: NullOrUndefined (ErrorMessage) }
+  = LastVPCAssociation { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The VPC that you're trying to disassociate from the private hosted zone is the last VPC that is associated with the hosted zone. Amazon Route 53 doesn't support disassociating the last VPC from a hosted zone.</p>
@@ -4497,7 +4497,7 @@ Constructs LastVPCAssociation from required parameters
 #### `newLastVPCAssociation'`
 
 ``` purescript
-newLastVPCAssociation' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> LastVPCAssociation
+newLastVPCAssociation' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> LastVPCAssociation
 ```
 
 Constructs LastVPCAssociation's fields from required parameters
@@ -4522,7 +4522,7 @@ Encode LimitValue
 
 ``` purescript
 newtype LimitsExceeded
-  = LimitsExceeded { message :: NullOrUndefined (ErrorMessage) }
+  = LimitsExceeded { message :: Maybe (ErrorMessage) }
 ```
 
 <p>This operation can't be completed either because the current account has reached the limit on reusable delegation sets that it can create or because you've reached the limit on the number of Amazon VPCs that you can associate with a private hosted zone. To get the current limit on the number of reusable delegation sets, see <a>GetAccountLimit</a>. To get the current limit on the number of Amazon VPCs that you can associate with a private hosted zone, see <a>GetHostedZoneLimit</a>. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
@@ -4547,7 +4547,7 @@ Constructs LimitsExceeded from required parameters
 #### `newLimitsExceeded'`
 
 ``` purescript
-newLimitsExceeded' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> LimitsExceeded
+newLimitsExceeded' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> LimitsExceeded
 ```
 
 Constructs LimitsExceeded's fields from required parameters
@@ -4556,7 +4556,7 @@ Constructs LimitsExceeded's fields from required parameters
 
 ``` purescript
 newtype LinkedService
-  = LinkedService { "ServicePrincipal" :: NullOrUndefined (ServicePrincipal), "Description" :: NullOrUndefined (ResourceDescription) }
+  = LinkedService { "ServicePrincipal" :: Maybe (ServicePrincipal), "Description" :: Maybe (ResourceDescription) }
 ```
 
 <p>If a health check or hosted zone was created by another service, <code>LinkedService</code> is a complex type that describes the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. </p>
@@ -4581,7 +4581,7 @@ Constructs LinkedService from required parameters
 #### `newLinkedService'`
 
 ``` purescript
-newLinkedService' :: ({ "ServicePrincipal" :: NullOrUndefined (ServicePrincipal), "Description" :: NullOrUndefined (ResourceDescription) } -> { "ServicePrincipal" :: NullOrUndefined (ServicePrincipal), "Description" :: NullOrUndefined (ResourceDescription) }) -> LinkedService
+newLinkedService' :: ({ "ServicePrincipal" :: Maybe (ServicePrincipal), "Description" :: Maybe (ResourceDescription) } -> { "ServicePrincipal" :: Maybe (ServicePrincipal), "Description" :: Maybe (ResourceDescription) }) -> LinkedService
 ```
 
 Constructs LinkedService's fields from required parameters
@@ -4590,7 +4590,7 @@ Constructs LinkedService's fields from required parameters
 
 ``` purescript
 newtype ListGeoLocationsRequest
-  = ListGeoLocationsRequest { "StartContinentCode" :: NullOrUndefined (GeoLocationContinentCode), "StartCountryCode" :: NullOrUndefined (GeoLocationCountryCode), "StartSubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode), "MaxItems" :: NullOrUndefined (PageMaxItems) }
+  = ListGeoLocationsRequest { "StartContinentCode" :: Maybe (GeoLocationContinentCode), "StartCountryCode" :: Maybe (GeoLocationCountryCode), "StartSubdivisionCode" :: Maybe (GeoLocationSubdivisionCode), "MaxItems" :: Maybe (PageMaxItems) }
 ```
 
 <p>A request to get a list of geographic locations that Amazon Route 53 supports for geolocation resource record sets. </p>
@@ -4615,7 +4615,7 @@ Constructs ListGeoLocationsRequest from required parameters
 #### `newListGeoLocationsRequest'`
 
 ``` purescript
-newListGeoLocationsRequest' :: ({ "StartContinentCode" :: NullOrUndefined (GeoLocationContinentCode), "StartCountryCode" :: NullOrUndefined (GeoLocationCountryCode), "StartSubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode), "MaxItems" :: NullOrUndefined (PageMaxItems) } -> { "StartContinentCode" :: NullOrUndefined (GeoLocationContinentCode), "StartCountryCode" :: NullOrUndefined (GeoLocationCountryCode), "StartSubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode), "MaxItems" :: NullOrUndefined (PageMaxItems) }) -> ListGeoLocationsRequest
+newListGeoLocationsRequest' :: ({ "StartContinentCode" :: Maybe (GeoLocationContinentCode), "StartCountryCode" :: Maybe (GeoLocationCountryCode), "StartSubdivisionCode" :: Maybe (GeoLocationSubdivisionCode), "MaxItems" :: Maybe (PageMaxItems) } -> { "StartContinentCode" :: Maybe (GeoLocationContinentCode), "StartCountryCode" :: Maybe (GeoLocationCountryCode), "StartSubdivisionCode" :: Maybe (GeoLocationSubdivisionCode), "MaxItems" :: Maybe (PageMaxItems) }) -> ListGeoLocationsRequest
 ```
 
 Constructs ListGeoLocationsRequest's fields from required parameters
@@ -4624,7 +4624,7 @@ Constructs ListGeoLocationsRequest's fields from required parameters
 
 ``` purescript
 newtype ListGeoLocationsResponse
-  = ListGeoLocationsResponse { "GeoLocationDetailsList" :: GeoLocationDetailsList, "IsTruncated" :: PageTruncated, "NextContinentCode" :: NullOrUndefined (GeoLocationContinentCode), "NextCountryCode" :: NullOrUndefined (GeoLocationCountryCode), "NextSubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode), "MaxItems" :: PageMaxItems }
+  = ListGeoLocationsResponse { "GeoLocationDetailsList" :: GeoLocationDetailsList, "IsTruncated" :: PageTruncated, "NextContinentCode" :: Maybe (GeoLocationContinentCode), "NextCountryCode" :: Maybe (GeoLocationCountryCode), "NextSubdivisionCode" :: Maybe (GeoLocationSubdivisionCode), "MaxItems" :: PageMaxItems }
 ```
 
 <p>A complex type containing the response information for the request.</p>
@@ -4649,7 +4649,7 @@ Constructs ListGeoLocationsResponse from required parameters
 #### `newListGeoLocationsResponse'`
 
 ``` purescript
-newListGeoLocationsResponse' :: GeoLocationDetailsList -> PageTruncated -> PageMaxItems -> ({ "GeoLocationDetailsList" :: GeoLocationDetailsList, "IsTruncated" :: PageTruncated, "NextContinentCode" :: NullOrUndefined (GeoLocationContinentCode), "NextCountryCode" :: NullOrUndefined (GeoLocationCountryCode), "NextSubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode), "MaxItems" :: PageMaxItems } -> { "GeoLocationDetailsList" :: GeoLocationDetailsList, "IsTruncated" :: PageTruncated, "NextContinentCode" :: NullOrUndefined (GeoLocationContinentCode), "NextCountryCode" :: NullOrUndefined (GeoLocationCountryCode), "NextSubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode), "MaxItems" :: PageMaxItems }) -> ListGeoLocationsResponse
+newListGeoLocationsResponse' :: GeoLocationDetailsList -> PageTruncated -> PageMaxItems -> ({ "GeoLocationDetailsList" :: GeoLocationDetailsList, "IsTruncated" :: PageTruncated, "NextContinentCode" :: Maybe (GeoLocationContinentCode), "NextCountryCode" :: Maybe (GeoLocationCountryCode), "NextSubdivisionCode" :: Maybe (GeoLocationSubdivisionCode), "MaxItems" :: PageMaxItems } -> { "GeoLocationDetailsList" :: GeoLocationDetailsList, "IsTruncated" :: PageTruncated, "NextContinentCode" :: Maybe (GeoLocationContinentCode), "NextCountryCode" :: Maybe (GeoLocationCountryCode), "NextSubdivisionCode" :: Maybe (GeoLocationSubdivisionCode), "MaxItems" :: PageMaxItems }) -> ListGeoLocationsResponse
 ```
 
 Constructs ListGeoLocationsResponse's fields from required parameters
@@ -4658,7 +4658,7 @@ Constructs ListGeoLocationsResponse's fields from required parameters
 
 ``` purescript
 newtype ListHealthChecksRequest
-  = ListHealthChecksRequest { "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) }
+  = ListHealthChecksRequest { "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems) }
 ```
 
 <p>A request to retrieve a list of the health checks that are associated with the current AWS account.</p>
@@ -4683,7 +4683,7 @@ Constructs ListHealthChecksRequest from required parameters
 #### `newListHealthChecksRequest'`
 
 ``` purescript
-newListHealthChecksRequest' :: ({ "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) } -> { "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) }) -> ListHealthChecksRequest
+newListHealthChecksRequest' :: ({ "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems) } -> { "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems) }) -> ListHealthChecksRequest
 ```
 
 Constructs ListHealthChecksRequest's fields from required parameters
@@ -4692,7 +4692,7 @@ Constructs ListHealthChecksRequest's fields from required parameters
 
 ``` purescript
 newtype ListHealthChecksResponse
-  = ListHealthChecksResponse { "HealthChecks" :: HealthChecks, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: NullOrUndefined (PageMarker), "MaxItems" :: PageMaxItems }
+  = ListHealthChecksResponse { "HealthChecks" :: HealthChecks, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: Maybe (PageMarker), "MaxItems" :: PageMaxItems }
 ```
 
 <p>A complex type that contains the response to a <code>ListHealthChecks</code> request.</p>
@@ -4717,7 +4717,7 @@ Constructs ListHealthChecksResponse from required parameters
 #### `newListHealthChecksResponse'`
 
 ``` purescript
-newListHealthChecksResponse' :: HealthChecks -> PageTruncated -> PageMarker -> PageMaxItems -> ({ "HealthChecks" :: HealthChecks, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: NullOrUndefined (PageMarker), "MaxItems" :: PageMaxItems } -> { "HealthChecks" :: HealthChecks, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: NullOrUndefined (PageMarker), "MaxItems" :: PageMaxItems }) -> ListHealthChecksResponse
+newListHealthChecksResponse' :: HealthChecks -> PageTruncated -> PageMarker -> PageMaxItems -> ({ "HealthChecks" :: HealthChecks, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: Maybe (PageMarker), "MaxItems" :: PageMaxItems } -> { "HealthChecks" :: HealthChecks, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: Maybe (PageMarker), "MaxItems" :: PageMaxItems }) -> ListHealthChecksResponse
 ```
 
 Constructs ListHealthChecksResponse's fields from required parameters
@@ -4726,7 +4726,7 @@ Constructs ListHealthChecksResponse's fields from required parameters
 
 ``` purescript
 newtype ListHostedZonesByNameRequest
-  = ListHostedZonesByNameRequest { "DNSName" :: NullOrUndefined (DNSName), "HostedZoneId" :: NullOrUndefined (ResourceId), "MaxItems" :: NullOrUndefined (PageMaxItems) }
+  = ListHostedZonesByNameRequest { "DNSName" :: Maybe (DNSName), "HostedZoneId" :: Maybe (ResourceId), "MaxItems" :: Maybe (PageMaxItems) }
 ```
 
 <p>Retrieves a list of the public and private hosted zones that are associated with the current AWS account in ASCII order by domain name. </p>
@@ -4751,7 +4751,7 @@ Constructs ListHostedZonesByNameRequest from required parameters
 #### `newListHostedZonesByNameRequest'`
 
 ``` purescript
-newListHostedZonesByNameRequest' :: ({ "DNSName" :: NullOrUndefined (DNSName), "HostedZoneId" :: NullOrUndefined (ResourceId), "MaxItems" :: NullOrUndefined (PageMaxItems) } -> { "DNSName" :: NullOrUndefined (DNSName), "HostedZoneId" :: NullOrUndefined (ResourceId), "MaxItems" :: NullOrUndefined (PageMaxItems) }) -> ListHostedZonesByNameRequest
+newListHostedZonesByNameRequest' :: ({ "DNSName" :: Maybe (DNSName), "HostedZoneId" :: Maybe (ResourceId), "MaxItems" :: Maybe (PageMaxItems) } -> { "DNSName" :: Maybe (DNSName), "HostedZoneId" :: Maybe (ResourceId), "MaxItems" :: Maybe (PageMaxItems) }) -> ListHostedZonesByNameRequest
 ```
 
 Constructs ListHostedZonesByNameRequest's fields from required parameters
@@ -4760,7 +4760,7 @@ Constructs ListHostedZonesByNameRequest's fields from required parameters
 
 ``` purescript
 newtype ListHostedZonesByNameResponse
-  = ListHostedZonesByNameResponse { "HostedZones" :: HostedZones, "DNSName" :: NullOrUndefined (DNSName), "HostedZoneId" :: NullOrUndefined (ResourceId), "IsTruncated" :: PageTruncated, "NextDNSName" :: NullOrUndefined (DNSName), "NextHostedZoneId" :: NullOrUndefined (ResourceId), "MaxItems" :: PageMaxItems }
+  = ListHostedZonesByNameResponse { "HostedZones" :: HostedZones, "DNSName" :: Maybe (DNSName), "HostedZoneId" :: Maybe (ResourceId), "IsTruncated" :: PageTruncated, "NextDNSName" :: Maybe (DNSName), "NextHostedZoneId" :: Maybe (ResourceId), "MaxItems" :: PageMaxItems }
 ```
 
 <p>A complex type that contains the response information for the request.</p>
@@ -4785,7 +4785,7 @@ Constructs ListHostedZonesByNameResponse from required parameters
 #### `newListHostedZonesByNameResponse'`
 
 ``` purescript
-newListHostedZonesByNameResponse' :: HostedZones -> PageTruncated -> PageMaxItems -> ({ "HostedZones" :: HostedZones, "DNSName" :: NullOrUndefined (DNSName), "HostedZoneId" :: NullOrUndefined (ResourceId), "IsTruncated" :: PageTruncated, "NextDNSName" :: NullOrUndefined (DNSName), "NextHostedZoneId" :: NullOrUndefined (ResourceId), "MaxItems" :: PageMaxItems } -> { "HostedZones" :: HostedZones, "DNSName" :: NullOrUndefined (DNSName), "HostedZoneId" :: NullOrUndefined (ResourceId), "IsTruncated" :: PageTruncated, "NextDNSName" :: NullOrUndefined (DNSName), "NextHostedZoneId" :: NullOrUndefined (ResourceId), "MaxItems" :: PageMaxItems }) -> ListHostedZonesByNameResponse
+newListHostedZonesByNameResponse' :: HostedZones -> PageTruncated -> PageMaxItems -> ({ "HostedZones" :: HostedZones, "DNSName" :: Maybe (DNSName), "HostedZoneId" :: Maybe (ResourceId), "IsTruncated" :: PageTruncated, "NextDNSName" :: Maybe (DNSName), "NextHostedZoneId" :: Maybe (ResourceId), "MaxItems" :: PageMaxItems } -> { "HostedZones" :: HostedZones, "DNSName" :: Maybe (DNSName), "HostedZoneId" :: Maybe (ResourceId), "IsTruncated" :: PageTruncated, "NextDNSName" :: Maybe (DNSName), "NextHostedZoneId" :: Maybe (ResourceId), "MaxItems" :: PageMaxItems }) -> ListHostedZonesByNameResponse
 ```
 
 Constructs ListHostedZonesByNameResponse's fields from required parameters
@@ -4794,7 +4794,7 @@ Constructs ListHostedZonesByNameResponse's fields from required parameters
 
 ``` purescript
 newtype ListHostedZonesRequest
-  = ListHostedZonesRequest { "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems), "DelegationSetId" :: NullOrUndefined (ResourceId) }
+  = ListHostedZonesRequest { "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems), "DelegationSetId" :: Maybe (ResourceId) }
 ```
 
 <p>A request to retrieve a list of the public and private hosted zones that are associated with the current AWS account.</p>
@@ -4819,7 +4819,7 @@ Constructs ListHostedZonesRequest from required parameters
 #### `newListHostedZonesRequest'`
 
 ``` purescript
-newListHostedZonesRequest' :: ({ "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems), "DelegationSetId" :: NullOrUndefined (ResourceId) } -> { "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems), "DelegationSetId" :: NullOrUndefined (ResourceId) }) -> ListHostedZonesRequest
+newListHostedZonesRequest' :: ({ "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems), "DelegationSetId" :: Maybe (ResourceId) } -> { "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems), "DelegationSetId" :: Maybe (ResourceId) }) -> ListHostedZonesRequest
 ```
 
 Constructs ListHostedZonesRequest's fields from required parameters
@@ -4828,7 +4828,7 @@ Constructs ListHostedZonesRequest's fields from required parameters
 
 ``` purescript
 newtype ListHostedZonesResponse
-  = ListHostedZonesResponse { "HostedZones" :: HostedZones, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: NullOrUndefined (PageMarker), "MaxItems" :: PageMaxItems }
+  = ListHostedZonesResponse { "HostedZones" :: HostedZones, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: Maybe (PageMarker), "MaxItems" :: PageMaxItems }
 ```
 
 ##### Instances
@@ -4851,7 +4851,7 @@ Constructs ListHostedZonesResponse from required parameters
 #### `newListHostedZonesResponse'`
 
 ``` purescript
-newListHostedZonesResponse' :: HostedZones -> PageTruncated -> PageMarker -> PageMaxItems -> ({ "HostedZones" :: HostedZones, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: NullOrUndefined (PageMarker), "MaxItems" :: PageMaxItems } -> { "HostedZones" :: HostedZones, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: NullOrUndefined (PageMarker), "MaxItems" :: PageMaxItems }) -> ListHostedZonesResponse
+newListHostedZonesResponse' :: HostedZones -> PageTruncated -> PageMarker -> PageMaxItems -> ({ "HostedZones" :: HostedZones, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: Maybe (PageMarker), "MaxItems" :: PageMaxItems } -> { "HostedZones" :: HostedZones, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: Maybe (PageMarker), "MaxItems" :: PageMaxItems }) -> ListHostedZonesResponse
 ```
 
 Constructs ListHostedZonesResponse's fields from required parameters
@@ -4860,7 +4860,7 @@ Constructs ListHostedZonesResponse's fields from required parameters
 
 ``` purescript
 newtype ListQueryLoggingConfigsRequest
-  = ListQueryLoggingConfigsRequest { "HostedZoneId" :: NullOrUndefined (ResourceId), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (MaxResults) }
+  = ListQueryLoggingConfigsRequest { "HostedZoneId" :: Maybe (ResourceId), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -4883,7 +4883,7 @@ Constructs ListQueryLoggingConfigsRequest from required parameters
 #### `newListQueryLoggingConfigsRequest'`
 
 ``` purescript
-newListQueryLoggingConfigsRequest' :: ({ "HostedZoneId" :: NullOrUndefined (ResourceId), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (MaxResults) } -> { "HostedZoneId" :: NullOrUndefined (ResourceId), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (MaxResults) }) -> ListQueryLoggingConfigsRequest
+newListQueryLoggingConfigsRequest' :: ({ "HostedZoneId" :: Maybe (ResourceId), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (MaxResults) } -> { "HostedZoneId" :: Maybe (ResourceId), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (MaxResults) }) -> ListQueryLoggingConfigsRequest
 ```
 
 Constructs ListQueryLoggingConfigsRequest's fields from required parameters
@@ -4892,7 +4892,7 @@ Constructs ListQueryLoggingConfigsRequest's fields from required parameters
 
 ``` purescript
 newtype ListQueryLoggingConfigsResponse
-  = ListQueryLoggingConfigsResponse { "QueryLoggingConfigs" :: QueryLoggingConfigs, "NextToken" :: NullOrUndefined (PaginationToken) }
+  = ListQueryLoggingConfigsResponse { "QueryLoggingConfigs" :: QueryLoggingConfigs, "NextToken" :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -4915,7 +4915,7 @@ Constructs ListQueryLoggingConfigsResponse from required parameters
 #### `newListQueryLoggingConfigsResponse'`
 
 ``` purescript
-newListQueryLoggingConfigsResponse' :: QueryLoggingConfigs -> ({ "QueryLoggingConfigs" :: QueryLoggingConfigs, "NextToken" :: NullOrUndefined (PaginationToken) } -> { "QueryLoggingConfigs" :: QueryLoggingConfigs, "NextToken" :: NullOrUndefined (PaginationToken) }) -> ListQueryLoggingConfigsResponse
+newListQueryLoggingConfigsResponse' :: QueryLoggingConfigs -> ({ "QueryLoggingConfigs" :: QueryLoggingConfigs, "NextToken" :: Maybe (PaginationToken) } -> { "QueryLoggingConfigs" :: QueryLoggingConfigs, "NextToken" :: Maybe (PaginationToken) }) -> ListQueryLoggingConfigsResponse
 ```
 
 Constructs ListQueryLoggingConfigsResponse's fields from required parameters
@@ -4924,7 +4924,7 @@ Constructs ListQueryLoggingConfigsResponse's fields from required parameters
 
 ``` purescript
 newtype ListResourceRecordSetsRequest
-  = ListResourceRecordSetsRequest { "HostedZoneId" :: ResourceId, "StartRecordName" :: NullOrUndefined (DNSName), "StartRecordType" :: NullOrUndefined (RRType), "StartRecordIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier), "MaxItems" :: NullOrUndefined (PageMaxItems) }
+  = ListResourceRecordSetsRequest { "HostedZoneId" :: ResourceId, "StartRecordName" :: Maybe (DNSName), "StartRecordType" :: Maybe (RRType), "StartRecordIdentifier" :: Maybe (ResourceRecordSetIdentifier), "MaxItems" :: Maybe (PageMaxItems) }
 ```
 
 <p>A request for the resource record sets that are associated with a specified hosted zone.</p>
@@ -4949,7 +4949,7 @@ Constructs ListResourceRecordSetsRequest from required parameters
 #### `newListResourceRecordSetsRequest'`
 
 ``` purescript
-newListResourceRecordSetsRequest' :: ResourceId -> ({ "HostedZoneId" :: ResourceId, "StartRecordName" :: NullOrUndefined (DNSName), "StartRecordType" :: NullOrUndefined (RRType), "StartRecordIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier), "MaxItems" :: NullOrUndefined (PageMaxItems) } -> { "HostedZoneId" :: ResourceId, "StartRecordName" :: NullOrUndefined (DNSName), "StartRecordType" :: NullOrUndefined (RRType), "StartRecordIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier), "MaxItems" :: NullOrUndefined (PageMaxItems) }) -> ListResourceRecordSetsRequest
+newListResourceRecordSetsRequest' :: ResourceId -> ({ "HostedZoneId" :: ResourceId, "StartRecordName" :: Maybe (DNSName), "StartRecordType" :: Maybe (RRType), "StartRecordIdentifier" :: Maybe (ResourceRecordSetIdentifier), "MaxItems" :: Maybe (PageMaxItems) } -> { "HostedZoneId" :: ResourceId, "StartRecordName" :: Maybe (DNSName), "StartRecordType" :: Maybe (RRType), "StartRecordIdentifier" :: Maybe (ResourceRecordSetIdentifier), "MaxItems" :: Maybe (PageMaxItems) }) -> ListResourceRecordSetsRequest
 ```
 
 Constructs ListResourceRecordSetsRequest's fields from required parameters
@@ -4958,7 +4958,7 @@ Constructs ListResourceRecordSetsRequest's fields from required parameters
 
 ``` purescript
 newtype ListResourceRecordSetsResponse
-  = ListResourceRecordSetsResponse { "ResourceRecordSets" :: ResourceRecordSets, "IsTruncated" :: PageTruncated, "NextRecordName" :: NullOrUndefined (DNSName), "NextRecordType" :: NullOrUndefined (RRType), "NextRecordIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier), "MaxItems" :: PageMaxItems }
+  = ListResourceRecordSetsResponse { "ResourceRecordSets" :: ResourceRecordSets, "IsTruncated" :: PageTruncated, "NextRecordName" :: Maybe (DNSName), "NextRecordType" :: Maybe (RRType), "NextRecordIdentifier" :: Maybe (ResourceRecordSetIdentifier), "MaxItems" :: PageMaxItems }
 ```
 
 <p>A complex type that contains list information for the resource record set.</p>
@@ -4983,7 +4983,7 @@ Constructs ListResourceRecordSetsResponse from required parameters
 #### `newListResourceRecordSetsResponse'`
 
 ``` purescript
-newListResourceRecordSetsResponse' :: PageTruncated -> PageMaxItems -> ResourceRecordSets -> ({ "ResourceRecordSets" :: ResourceRecordSets, "IsTruncated" :: PageTruncated, "NextRecordName" :: NullOrUndefined (DNSName), "NextRecordType" :: NullOrUndefined (RRType), "NextRecordIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier), "MaxItems" :: PageMaxItems } -> { "ResourceRecordSets" :: ResourceRecordSets, "IsTruncated" :: PageTruncated, "NextRecordName" :: NullOrUndefined (DNSName), "NextRecordType" :: NullOrUndefined (RRType), "NextRecordIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier), "MaxItems" :: PageMaxItems }) -> ListResourceRecordSetsResponse
+newListResourceRecordSetsResponse' :: PageTruncated -> PageMaxItems -> ResourceRecordSets -> ({ "ResourceRecordSets" :: ResourceRecordSets, "IsTruncated" :: PageTruncated, "NextRecordName" :: Maybe (DNSName), "NextRecordType" :: Maybe (RRType), "NextRecordIdentifier" :: Maybe (ResourceRecordSetIdentifier), "MaxItems" :: PageMaxItems } -> { "ResourceRecordSets" :: ResourceRecordSets, "IsTruncated" :: PageTruncated, "NextRecordName" :: Maybe (DNSName), "NextRecordType" :: Maybe (RRType), "NextRecordIdentifier" :: Maybe (ResourceRecordSetIdentifier), "MaxItems" :: PageMaxItems }) -> ListResourceRecordSetsResponse
 ```
 
 Constructs ListResourceRecordSetsResponse's fields from required parameters
@@ -4992,7 +4992,7 @@ Constructs ListResourceRecordSetsResponse's fields from required parameters
 
 ``` purescript
 newtype ListReusableDelegationSetsRequest
-  = ListReusableDelegationSetsRequest { "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) }
+  = ListReusableDelegationSetsRequest { "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems) }
 ```
 
 <p>A request to get a list of the reusable delegation sets that are associated with the current AWS account.</p>
@@ -5017,7 +5017,7 @@ Constructs ListReusableDelegationSetsRequest from required parameters
 #### `newListReusableDelegationSetsRequest'`
 
 ``` purescript
-newListReusableDelegationSetsRequest' :: ({ "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) } -> { "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) }) -> ListReusableDelegationSetsRequest
+newListReusableDelegationSetsRequest' :: ({ "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems) } -> { "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems) }) -> ListReusableDelegationSetsRequest
 ```
 
 Constructs ListReusableDelegationSetsRequest's fields from required parameters
@@ -5026,7 +5026,7 @@ Constructs ListReusableDelegationSetsRequest's fields from required parameters
 
 ``` purescript
 newtype ListReusableDelegationSetsResponse
-  = ListReusableDelegationSetsResponse { "DelegationSets" :: DelegationSets, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: NullOrUndefined (PageMarker), "MaxItems" :: PageMaxItems }
+  = ListReusableDelegationSetsResponse { "DelegationSets" :: DelegationSets, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: Maybe (PageMarker), "MaxItems" :: PageMaxItems }
 ```
 
 <p>A complex type that contains information about the reusable delegation sets that are associated with the current AWS account.</p>
@@ -5051,7 +5051,7 @@ Constructs ListReusableDelegationSetsResponse from required parameters
 #### `newListReusableDelegationSetsResponse'`
 
 ``` purescript
-newListReusableDelegationSetsResponse' :: DelegationSets -> PageTruncated -> PageMarker -> PageMaxItems -> ({ "DelegationSets" :: DelegationSets, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: NullOrUndefined (PageMarker), "MaxItems" :: PageMaxItems } -> { "DelegationSets" :: DelegationSets, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: NullOrUndefined (PageMarker), "MaxItems" :: PageMaxItems }) -> ListReusableDelegationSetsResponse
+newListReusableDelegationSetsResponse' :: DelegationSets -> PageTruncated -> PageMarker -> PageMaxItems -> ({ "DelegationSets" :: DelegationSets, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: Maybe (PageMarker), "MaxItems" :: PageMaxItems } -> { "DelegationSets" :: DelegationSets, "Marker" :: PageMarker, "IsTruncated" :: PageTruncated, "NextMarker" :: Maybe (PageMarker), "MaxItems" :: PageMaxItems }) -> ListReusableDelegationSetsResponse
 ```
 
 Constructs ListReusableDelegationSetsResponse's fields from required parameters
@@ -5196,7 +5196,7 @@ Constructs ListTagsForResourcesResponse's fields from required parameters
 
 ``` purescript
 newtype ListTrafficPoliciesRequest
-  = ListTrafficPoliciesRequest { "TrafficPolicyIdMarker" :: NullOrUndefined (TrafficPolicyId), "MaxItems" :: NullOrUndefined (PageMaxItems) }
+  = ListTrafficPoliciesRequest { "TrafficPolicyIdMarker" :: Maybe (TrafficPolicyId), "MaxItems" :: Maybe (PageMaxItems) }
 ```
 
 <p>A complex type that contains the information about the request to list the traffic policies that are associated with the current AWS account.</p>
@@ -5221,7 +5221,7 @@ Constructs ListTrafficPoliciesRequest from required parameters
 #### `newListTrafficPoliciesRequest'`
 
 ``` purescript
-newListTrafficPoliciesRequest' :: ({ "TrafficPolicyIdMarker" :: NullOrUndefined (TrafficPolicyId), "MaxItems" :: NullOrUndefined (PageMaxItems) } -> { "TrafficPolicyIdMarker" :: NullOrUndefined (TrafficPolicyId), "MaxItems" :: NullOrUndefined (PageMaxItems) }) -> ListTrafficPoliciesRequest
+newListTrafficPoliciesRequest' :: ({ "TrafficPolicyIdMarker" :: Maybe (TrafficPolicyId), "MaxItems" :: Maybe (PageMaxItems) } -> { "TrafficPolicyIdMarker" :: Maybe (TrafficPolicyId), "MaxItems" :: Maybe (PageMaxItems) }) -> ListTrafficPoliciesRequest
 ```
 
 Constructs ListTrafficPoliciesRequest's fields from required parameters
@@ -5264,7 +5264,7 @@ Constructs ListTrafficPoliciesResponse's fields from required parameters
 
 ``` purescript
 newtype ListTrafficPolicyInstancesByHostedZoneRequest
-  = ListTrafficPolicyInstancesByHostedZoneRequest { "HostedZoneId" :: ResourceId, "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "MaxItems" :: NullOrUndefined (PageMaxItems) }
+  = ListTrafficPolicyInstancesByHostedZoneRequest { "HostedZoneId" :: ResourceId, "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "MaxItems" :: Maybe (PageMaxItems) }
 ```
 
 <p>A request for the traffic policy instances that you created in a specified hosted zone.</p>
@@ -5289,7 +5289,7 @@ Constructs ListTrafficPolicyInstancesByHostedZoneRequest from required parameter
 #### `newListTrafficPolicyInstancesByHostedZoneRequest'`
 
 ``` purescript
-newListTrafficPolicyInstancesByHostedZoneRequest' :: ResourceId -> ({ "HostedZoneId" :: ResourceId, "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "MaxItems" :: NullOrUndefined (PageMaxItems) } -> { "HostedZoneId" :: ResourceId, "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "MaxItems" :: NullOrUndefined (PageMaxItems) }) -> ListTrafficPolicyInstancesByHostedZoneRequest
+newListTrafficPolicyInstancesByHostedZoneRequest' :: ResourceId -> ({ "HostedZoneId" :: ResourceId, "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "MaxItems" :: Maybe (PageMaxItems) } -> { "HostedZoneId" :: ResourceId, "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "MaxItems" :: Maybe (PageMaxItems) }) -> ListTrafficPolicyInstancesByHostedZoneRequest
 ```
 
 Constructs ListTrafficPolicyInstancesByHostedZoneRequest's fields from required parameters
@@ -5298,7 +5298,7 @@ Constructs ListTrafficPolicyInstancesByHostedZoneRequest's fields from required 
 
 ``` purescript
 newtype ListTrafficPolicyInstancesByHostedZoneResponse
-  = ListTrafficPolicyInstancesByHostedZoneResponse { "TrafficPolicyInstances" :: TrafficPolicyInstances, "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems }
+  = ListTrafficPolicyInstancesByHostedZoneResponse { "TrafficPolicyInstances" :: TrafficPolicyInstances, "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems }
 ```
 
 <p>A complex type that contains the response information for the request.</p>
@@ -5323,7 +5323,7 @@ Constructs ListTrafficPolicyInstancesByHostedZoneResponse from required paramete
 #### `newListTrafficPolicyInstancesByHostedZoneResponse'`
 
 ``` purescript
-newListTrafficPolicyInstancesByHostedZoneResponse' :: PageTruncated -> PageMaxItems -> TrafficPolicyInstances -> ({ "TrafficPolicyInstances" :: TrafficPolicyInstances, "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems } -> { "TrafficPolicyInstances" :: TrafficPolicyInstances, "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems }) -> ListTrafficPolicyInstancesByHostedZoneResponse
+newListTrafficPolicyInstancesByHostedZoneResponse' :: PageTruncated -> PageMaxItems -> TrafficPolicyInstances -> ({ "TrafficPolicyInstances" :: TrafficPolicyInstances, "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems } -> { "TrafficPolicyInstances" :: TrafficPolicyInstances, "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems }) -> ListTrafficPolicyInstancesByHostedZoneResponse
 ```
 
 Constructs ListTrafficPolicyInstancesByHostedZoneResponse's fields from required parameters
@@ -5332,7 +5332,7 @@ Constructs ListTrafficPolicyInstancesByHostedZoneResponse's fields from required
 
 ``` purescript
 newtype ListTrafficPolicyInstancesByPolicyRequest
-  = ListTrafficPolicyInstancesByPolicyRequest { "TrafficPolicyId" :: TrafficPolicyId, "TrafficPolicyVersion" :: TrafficPolicyVersion, "HostedZoneIdMarker" :: NullOrUndefined (ResourceId), "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "MaxItems" :: NullOrUndefined (PageMaxItems) }
+  = ListTrafficPolicyInstancesByPolicyRequest { "TrafficPolicyId" :: TrafficPolicyId, "TrafficPolicyVersion" :: TrafficPolicyVersion, "HostedZoneIdMarker" :: Maybe (ResourceId), "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "MaxItems" :: Maybe (PageMaxItems) }
 ```
 
 <p>A complex type that contains the information about the request to list your traffic policy instances.</p>
@@ -5357,7 +5357,7 @@ Constructs ListTrafficPolicyInstancesByPolicyRequest from required parameters
 #### `newListTrafficPolicyInstancesByPolicyRequest'`
 
 ``` purescript
-newListTrafficPolicyInstancesByPolicyRequest' :: TrafficPolicyId -> TrafficPolicyVersion -> ({ "TrafficPolicyId" :: TrafficPolicyId, "TrafficPolicyVersion" :: TrafficPolicyVersion, "HostedZoneIdMarker" :: NullOrUndefined (ResourceId), "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "MaxItems" :: NullOrUndefined (PageMaxItems) } -> { "TrafficPolicyId" :: TrafficPolicyId, "TrafficPolicyVersion" :: TrafficPolicyVersion, "HostedZoneIdMarker" :: NullOrUndefined (ResourceId), "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "MaxItems" :: NullOrUndefined (PageMaxItems) }) -> ListTrafficPolicyInstancesByPolicyRequest
+newListTrafficPolicyInstancesByPolicyRequest' :: TrafficPolicyId -> TrafficPolicyVersion -> ({ "TrafficPolicyId" :: TrafficPolicyId, "TrafficPolicyVersion" :: TrafficPolicyVersion, "HostedZoneIdMarker" :: Maybe (ResourceId), "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "MaxItems" :: Maybe (PageMaxItems) } -> { "TrafficPolicyId" :: TrafficPolicyId, "TrafficPolicyVersion" :: TrafficPolicyVersion, "HostedZoneIdMarker" :: Maybe (ResourceId), "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "MaxItems" :: Maybe (PageMaxItems) }) -> ListTrafficPolicyInstancesByPolicyRequest
 ```
 
 Constructs ListTrafficPolicyInstancesByPolicyRequest's fields from required parameters
@@ -5366,7 +5366,7 @@ Constructs ListTrafficPolicyInstancesByPolicyRequest's fields from required para
 
 ``` purescript
 newtype ListTrafficPolicyInstancesByPolicyResponse
-  = ListTrafficPolicyInstancesByPolicyResponse { "TrafficPolicyInstances" :: TrafficPolicyInstances, "HostedZoneIdMarker" :: NullOrUndefined (ResourceId), "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems }
+  = ListTrafficPolicyInstancesByPolicyResponse { "TrafficPolicyInstances" :: TrafficPolicyInstances, "HostedZoneIdMarker" :: Maybe (ResourceId), "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems }
 ```
 
 <p>A complex type that contains the response information for the request.</p>
@@ -5391,7 +5391,7 @@ Constructs ListTrafficPolicyInstancesByPolicyResponse from required parameters
 #### `newListTrafficPolicyInstancesByPolicyResponse'`
 
 ``` purescript
-newListTrafficPolicyInstancesByPolicyResponse' :: PageTruncated -> PageMaxItems -> TrafficPolicyInstances -> ({ "TrafficPolicyInstances" :: TrafficPolicyInstances, "HostedZoneIdMarker" :: NullOrUndefined (ResourceId), "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems } -> { "TrafficPolicyInstances" :: TrafficPolicyInstances, "HostedZoneIdMarker" :: NullOrUndefined (ResourceId), "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems }) -> ListTrafficPolicyInstancesByPolicyResponse
+newListTrafficPolicyInstancesByPolicyResponse' :: PageTruncated -> PageMaxItems -> TrafficPolicyInstances -> ({ "TrafficPolicyInstances" :: TrafficPolicyInstances, "HostedZoneIdMarker" :: Maybe (ResourceId), "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems } -> { "TrafficPolicyInstances" :: TrafficPolicyInstances, "HostedZoneIdMarker" :: Maybe (ResourceId), "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems }) -> ListTrafficPolicyInstancesByPolicyResponse
 ```
 
 Constructs ListTrafficPolicyInstancesByPolicyResponse's fields from required parameters
@@ -5400,7 +5400,7 @@ Constructs ListTrafficPolicyInstancesByPolicyResponse's fields from required par
 
 ``` purescript
 newtype ListTrafficPolicyInstancesRequest
-  = ListTrafficPolicyInstancesRequest { "HostedZoneIdMarker" :: NullOrUndefined (ResourceId), "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "MaxItems" :: NullOrUndefined (PageMaxItems) }
+  = ListTrafficPolicyInstancesRequest { "HostedZoneIdMarker" :: Maybe (ResourceId), "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "MaxItems" :: Maybe (PageMaxItems) }
 ```
 
 <p>A request to get information about the traffic policy instances that you created by using the current AWS account.</p>
@@ -5425,7 +5425,7 @@ Constructs ListTrafficPolicyInstancesRequest from required parameters
 #### `newListTrafficPolicyInstancesRequest'`
 
 ``` purescript
-newListTrafficPolicyInstancesRequest' :: ({ "HostedZoneIdMarker" :: NullOrUndefined (ResourceId), "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "MaxItems" :: NullOrUndefined (PageMaxItems) } -> { "HostedZoneIdMarker" :: NullOrUndefined (ResourceId), "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "MaxItems" :: NullOrUndefined (PageMaxItems) }) -> ListTrafficPolicyInstancesRequest
+newListTrafficPolicyInstancesRequest' :: ({ "HostedZoneIdMarker" :: Maybe (ResourceId), "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "MaxItems" :: Maybe (PageMaxItems) } -> { "HostedZoneIdMarker" :: Maybe (ResourceId), "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "MaxItems" :: Maybe (PageMaxItems) }) -> ListTrafficPolicyInstancesRequest
 ```
 
 Constructs ListTrafficPolicyInstancesRequest's fields from required parameters
@@ -5434,7 +5434,7 @@ Constructs ListTrafficPolicyInstancesRequest's fields from required parameters
 
 ``` purescript
 newtype ListTrafficPolicyInstancesResponse
-  = ListTrafficPolicyInstancesResponse { "TrafficPolicyInstances" :: TrafficPolicyInstances, "HostedZoneIdMarker" :: NullOrUndefined (ResourceId), "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems }
+  = ListTrafficPolicyInstancesResponse { "TrafficPolicyInstances" :: TrafficPolicyInstances, "HostedZoneIdMarker" :: Maybe (ResourceId), "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems }
 ```
 
 <p>A complex type that contains the response information for the request.</p>
@@ -5459,7 +5459,7 @@ Constructs ListTrafficPolicyInstancesResponse from required parameters
 #### `newListTrafficPolicyInstancesResponse'`
 
 ``` purescript
-newListTrafficPolicyInstancesResponse' :: PageTruncated -> PageMaxItems -> TrafficPolicyInstances -> ({ "TrafficPolicyInstances" :: TrafficPolicyInstances, "HostedZoneIdMarker" :: NullOrUndefined (ResourceId), "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems } -> { "TrafficPolicyInstances" :: TrafficPolicyInstances, "HostedZoneIdMarker" :: NullOrUndefined (ResourceId), "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName), "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems }) -> ListTrafficPolicyInstancesResponse
+newListTrafficPolicyInstancesResponse' :: PageTruncated -> PageMaxItems -> TrafficPolicyInstances -> ({ "TrafficPolicyInstances" :: TrafficPolicyInstances, "HostedZoneIdMarker" :: Maybe (ResourceId), "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems } -> { "TrafficPolicyInstances" :: TrafficPolicyInstances, "HostedZoneIdMarker" :: Maybe (ResourceId), "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName), "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType), "IsTruncated" :: PageTruncated, "MaxItems" :: PageMaxItems }) -> ListTrafficPolicyInstancesResponse
 ```
 
 Constructs ListTrafficPolicyInstancesResponse's fields from required parameters
@@ -5468,7 +5468,7 @@ Constructs ListTrafficPolicyInstancesResponse's fields from required parameters
 
 ``` purescript
 newtype ListTrafficPolicyVersionsRequest
-  = ListTrafficPolicyVersionsRequest { "Id" :: TrafficPolicyId, "TrafficPolicyVersionMarker" :: NullOrUndefined (TrafficPolicyVersionMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) }
+  = ListTrafficPolicyVersionsRequest { "Id" :: TrafficPolicyId, "TrafficPolicyVersionMarker" :: Maybe (TrafficPolicyVersionMarker), "MaxItems" :: Maybe (PageMaxItems) }
 ```
 
 <p>A complex type that contains the information about the request to list your traffic policies.</p>
@@ -5493,7 +5493,7 @@ Constructs ListTrafficPolicyVersionsRequest from required parameters
 #### `newListTrafficPolicyVersionsRequest'`
 
 ``` purescript
-newListTrafficPolicyVersionsRequest' :: TrafficPolicyId -> ({ "Id" :: TrafficPolicyId, "TrafficPolicyVersionMarker" :: NullOrUndefined (TrafficPolicyVersionMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) } -> { "Id" :: TrafficPolicyId, "TrafficPolicyVersionMarker" :: NullOrUndefined (TrafficPolicyVersionMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) }) -> ListTrafficPolicyVersionsRequest
+newListTrafficPolicyVersionsRequest' :: TrafficPolicyId -> ({ "Id" :: TrafficPolicyId, "TrafficPolicyVersionMarker" :: Maybe (TrafficPolicyVersionMarker), "MaxItems" :: Maybe (PageMaxItems) } -> { "Id" :: TrafficPolicyId, "TrafficPolicyVersionMarker" :: Maybe (TrafficPolicyVersionMarker), "MaxItems" :: Maybe (PageMaxItems) }) -> ListTrafficPolicyVersionsRequest
 ```
 
 Constructs ListTrafficPolicyVersionsRequest's fields from required parameters
@@ -5536,7 +5536,7 @@ Constructs ListTrafficPolicyVersionsResponse's fields from required parameters
 
 ``` purescript
 newtype ListVPCAssociationAuthorizationsRequest
-  = ListVPCAssociationAuthorizationsRequest { "HostedZoneId" :: ResourceId, "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (MaxResults) }
+  = ListVPCAssociationAuthorizationsRequest { "HostedZoneId" :: ResourceId, "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (MaxResults) }
 ```
 
 <p>A complex type that contains information about that can be associated with your hosted zone.</p>
@@ -5561,7 +5561,7 @@ Constructs ListVPCAssociationAuthorizationsRequest from required parameters
 #### `newListVPCAssociationAuthorizationsRequest'`
 
 ``` purescript
-newListVPCAssociationAuthorizationsRequest' :: ResourceId -> ({ "HostedZoneId" :: ResourceId, "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (MaxResults) } -> { "HostedZoneId" :: ResourceId, "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (MaxResults) }) -> ListVPCAssociationAuthorizationsRequest
+newListVPCAssociationAuthorizationsRequest' :: ResourceId -> ({ "HostedZoneId" :: ResourceId, "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (MaxResults) } -> { "HostedZoneId" :: ResourceId, "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (MaxResults) }) -> ListVPCAssociationAuthorizationsRequest
 ```
 
 Constructs ListVPCAssociationAuthorizationsRequest's fields from required parameters
@@ -5570,7 +5570,7 @@ Constructs ListVPCAssociationAuthorizationsRequest's fields from required parame
 
 ``` purescript
 newtype ListVPCAssociationAuthorizationsResponse
-  = ListVPCAssociationAuthorizationsResponse { "HostedZoneId" :: ResourceId, "NextToken" :: NullOrUndefined (PaginationToken), "VPCs" :: VPCs }
+  = ListVPCAssociationAuthorizationsResponse { "HostedZoneId" :: ResourceId, "NextToken" :: Maybe (PaginationToken), "VPCs" :: VPCs }
 ```
 
 <p>A complex type that contains the response information for the request.</p>
@@ -5595,7 +5595,7 @@ Constructs ListVPCAssociationAuthorizationsResponse from required parameters
 #### `newListVPCAssociationAuthorizationsResponse'`
 
 ``` purescript
-newListVPCAssociationAuthorizationsResponse' :: ResourceId -> VPCs -> ({ "HostedZoneId" :: ResourceId, "NextToken" :: NullOrUndefined (PaginationToken), "VPCs" :: VPCs } -> { "HostedZoneId" :: ResourceId, "NextToken" :: NullOrUndefined (PaginationToken), "VPCs" :: VPCs }) -> ListVPCAssociationAuthorizationsResponse
+newListVPCAssociationAuthorizationsResponse' :: ResourceId -> VPCs -> ({ "HostedZoneId" :: ResourceId, "NextToken" :: Maybe (PaginationToken), "VPCs" :: VPCs } -> { "HostedZoneId" :: ResourceId, "NextToken" :: Maybe (PaginationToken), "VPCs" :: VPCs }) -> ListVPCAssociationAuthorizationsResponse
 ```
 
 Constructs ListVPCAssociationAuthorizationsResponse's fields from required parameters
@@ -5700,7 +5700,7 @@ Encode Namespace
 
 ``` purescript
 newtype NoSuchChange
-  = NoSuchChange { message :: NullOrUndefined (ErrorMessage) }
+  = NoSuchChange { message :: Maybe (ErrorMessage) }
 ```
 
 <p>A change with the specified change ID does not exist.</p>
@@ -5725,7 +5725,7 @@ Constructs NoSuchChange from required parameters
 #### `newNoSuchChange'`
 
 ``` purescript
-newNoSuchChange' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> NoSuchChange
+newNoSuchChange' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> NoSuchChange
 ```
 
 Constructs NoSuchChange's fields from required parameters
@@ -5734,7 +5734,7 @@ Constructs NoSuchChange's fields from required parameters
 
 ``` purescript
 newtype NoSuchCloudWatchLogsLogGroup
-  = NoSuchCloudWatchLogsLogGroup { message :: NullOrUndefined (ErrorMessage) }
+  = NoSuchCloudWatchLogsLogGroup { message :: Maybe (ErrorMessage) }
 ```
 
 <p>There is no CloudWatch Logs log group with the specified ARN.</p>
@@ -5759,7 +5759,7 @@ Constructs NoSuchCloudWatchLogsLogGroup from required parameters
 #### `newNoSuchCloudWatchLogsLogGroup'`
 
 ``` purescript
-newNoSuchCloudWatchLogsLogGroup' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> NoSuchCloudWatchLogsLogGroup
+newNoSuchCloudWatchLogsLogGroup' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> NoSuchCloudWatchLogsLogGroup
 ```
 
 Constructs NoSuchCloudWatchLogsLogGroup's fields from required parameters
@@ -5768,7 +5768,7 @@ Constructs NoSuchCloudWatchLogsLogGroup's fields from required parameters
 
 ``` purescript
 newtype NoSuchDelegationSet
-  = NoSuchDelegationSet { message :: NullOrUndefined (ErrorMessage) }
+  = NoSuchDelegationSet { message :: Maybe (ErrorMessage) }
 ```
 
 <p>A reusable delegation set with the specified ID does not exist.</p>
@@ -5793,7 +5793,7 @@ Constructs NoSuchDelegationSet from required parameters
 #### `newNoSuchDelegationSet'`
 
 ``` purescript
-newNoSuchDelegationSet' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> NoSuchDelegationSet
+newNoSuchDelegationSet' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> NoSuchDelegationSet
 ```
 
 Constructs NoSuchDelegationSet's fields from required parameters
@@ -5802,7 +5802,7 @@ Constructs NoSuchDelegationSet's fields from required parameters
 
 ``` purescript
 newtype NoSuchGeoLocation
-  = NoSuchGeoLocation { message :: NullOrUndefined (ErrorMessage) }
+  = NoSuchGeoLocation { message :: Maybe (ErrorMessage) }
 ```
 
 <p>Amazon Route 53 doesn't support the specified geolocation.</p>
@@ -5827,7 +5827,7 @@ Constructs NoSuchGeoLocation from required parameters
 #### `newNoSuchGeoLocation'`
 
 ``` purescript
-newNoSuchGeoLocation' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> NoSuchGeoLocation
+newNoSuchGeoLocation' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> NoSuchGeoLocation
 ```
 
 Constructs NoSuchGeoLocation's fields from required parameters
@@ -5836,7 +5836,7 @@ Constructs NoSuchGeoLocation's fields from required parameters
 
 ``` purescript
 newtype NoSuchHealthCheck
-  = NoSuchHealthCheck { message :: NullOrUndefined (ErrorMessage) }
+  = NoSuchHealthCheck { message :: Maybe (ErrorMessage) }
 ```
 
 <p>No health check exists with the ID that you specified in the <code>DeleteHealthCheck</code> request.</p>
@@ -5861,7 +5861,7 @@ Constructs NoSuchHealthCheck from required parameters
 #### `newNoSuchHealthCheck'`
 
 ``` purescript
-newNoSuchHealthCheck' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> NoSuchHealthCheck
+newNoSuchHealthCheck' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> NoSuchHealthCheck
 ```
 
 Constructs NoSuchHealthCheck's fields from required parameters
@@ -5870,7 +5870,7 @@ Constructs NoSuchHealthCheck's fields from required parameters
 
 ``` purescript
 newtype NoSuchHostedZone
-  = NoSuchHostedZone { message :: NullOrUndefined (ErrorMessage) }
+  = NoSuchHostedZone { message :: Maybe (ErrorMessage) }
 ```
 
 <p>No hosted zone exists with the ID that you specified.</p>
@@ -5895,7 +5895,7 @@ Constructs NoSuchHostedZone from required parameters
 #### `newNoSuchHostedZone'`
 
 ``` purescript
-newNoSuchHostedZone' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> NoSuchHostedZone
+newNoSuchHostedZone' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> NoSuchHostedZone
 ```
 
 Constructs NoSuchHostedZone's fields from required parameters
@@ -5904,7 +5904,7 @@ Constructs NoSuchHostedZone's fields from required parameters
 
 ``` purescript
 newtype NoSuchQueryLoggingConfig
-  = NoSuchQueryLoggingConfig { message :: NullOrUndefined (ErrorMessage) }
+  = NoSuchQueryLoggingConfig { message :: Maybe (ErrorMessage) }
 ```
 
 <p>There is no DNS query logging configuration with the specified ID.</p>
@@ -5929,7 +5929,7 @@ Constructs NoSuchQueryLoggingConfig from required parameters
 #### `newNoSuchQueryLoggingConfig'`
 
 ``` purescript
-newNoSuchQueryLoggingConfig' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> NoSuchQueryLoggingConfig
+newNoSuchQueryLoggingConfig' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> NoSuchQueryLoggingConfig
 ```
 
 Constructs NoSuchQueryLoggingConfig's fields from required parameters
@@ -5938,7 +5938,7 @@ Constructs NoSuchQueryLoggingConfig's fields from required parameters
 
 ``` purescript
 newtype NoSuchTrafficPolicy
-  = NoSuchTrafficPolicy { message :: NullOrUndefined (ErrorMessage) }
+  = NoSuchTrafficPolicy { message :: Maybe (ErrorMessage) }
 ```
 
 <p>No traffic policy exists with the specified ID.</p>
@@ -5963,7 +5963,7 @@ Constructs NoSuchTrafficPolicy from required parameters
 #### `newNoSuchTrafficPolicy'`
 
 ``` purescript
-newNoSuchTrafficPolicy' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> NoSuchTrafficPolicy
+newNoSuchTrafficPolicy' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> NoSuchTrafficPolicy
 ```
 
 Constructs NoSuchTrafficPolicy's fields from required parameters
@@ -5972,7 +5972,7 @@ Constructs NoSuchTrafficPolicy's fields from required parameters
 
 ``` purescript
 newtype NoSuchTrafficPolicyInstance
-  = NoSuchTrafficPolicyInstance { message :: NullOrUndefined (ErrorMessage) }
+  = NoSuchTrafficPolicyInstance { message :: Maybe (ErrorMessage) }
 ```
 
 <p>No traffic policy instance exists with the specified ID.</p>
@@ -5997,7 +5997,7 @@ Constructs NoSuchTrafficPolicyInstance from required parameters
 #### `newNoSuchTrafficPolicyInstance'`
 
 ``` purescript
-newNoSuchTrafficPolicyInstance' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> NoSuchTrafficPolicyInstance
+newNoSuchTrafficPolicyInstance' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> NoSuchTrafficPolicyInstance
 ```
 
 Constructs NoSuchTrafficPolicyInstance's fields from required parameters
@@ -6022,7 +6022,7 @@ Encode Nonce
 
 ``` purescript
 newtype NotAuthorizedException
-  = NotAuthorizedException { message :: NullOrUndefined (ErrorMessage) }
+  = NotAuthorizedException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>Associating the specified VPC with the specified hosted zone has not been authorized.</p>
@@ -6047,7 +6047,7 @@ Constructs NotAuthorizedException from required parameters
 #### `newNotAuthorizedException'`
 
 ``` purescript
-newNotAuthorizedException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> NotAuthorizedException
+newNotAuthorizedException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> NotAuthorizedException
 ```
 
 Constructs NotAuthorizedException's fields from required parameters
@@ -6152,7 +6152,7 @@ Encode Port
 
 ``` purescript
 newtype PriorRequestNotComplete
-  = PriorRequestNotComplete { message :: NullOrUndefined (ErrorMessage) }
+  = PriorRequestNotComplete { message :: Maybe (ErrorMessage) }
 ```
 
 <p>If Amazon Route 53 can't process a request before the next request arrives, it will reject subsequent requests for the same hosted zone and return an <code>HTTP 400 error</code> (<code>Bad request</code>). If Amazon Route 53 returns this error repeatedly for the same request, we recommend that you wait, in intervals of increasing duration, before you try the request again.</p>
@@ -6177,7 +6177,7 @@ Constructs PriorRequestNotComplete from required parameters
 #### `newPriorRequestNotComplete'`
 
 ``` purescript
-newPriorRequestNotComplete' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> PriorRequestNotComplete
+newPriorRequestNotComplete' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> PriorRequestNotComplete
 ```
 
 Constructs PriorRequestNotComplete's fields from required parameters
@@ -6186,7 +6186,7 @@ Constructs PriorRequestNotComplete's fields from required parameters
 
 ``` purescript
 newtype PublicZoneVPCAssociation
-  = PublicZoneVPCAssociation { message :: NullOrUndefined (ErrorMessage) }
+  = PublicZoneVPCAssociation { message :: Maybe (ErrorMessage) }
 ```
 
 <p>You're trying to associate a VPC with a public hosted zone. Amazon Route 53 doesn't support associating a VPC with a public hosted zone.</p>
@@ -6211,7 +6211,7 @@ Constructs PublicZoneVPCAssociation from required parameters
 #### `newPublicZoneVPCAssociation'`
 
 ``` purescript
-newPublicZoneVPCAssociation' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> PublicZoneVPCAssociation
+newPublicZoneVPCAssociation' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> PublicZoneVPCAssociation
 ```
 
 Constructs PublicZoneVPCAssociation's fields from required parameters
@@ -6254,7 +6254,7 @@ Constructs QueryLoggingConfig's fields from required parameters
 
 ``` purescript
 newtype QueryLoggingConfigAlreadyExists
-  = QueryLoggingConfigAlreadyExists { message :: NullOrUndefined (ErrorMessage) }
+  = QueryLoggingConfigAlreadyExists { message :: Maybe (ErrorMessage) }
 ```
 
 <p>You can create only one query logging configuration for a hosted zone, and a query logging configuration already exists for this hosted zone.</p>
@@ -6279,7 +6279,7 @@ Constructs QueryLoggingConfigAlreadyExists from required parameters
 #### `newQueryLoggingConfigAlreadyExists'`
 
 ``` purescript
-newQueryLoggingConfigAlreadyExists' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> QueryLoggingConfigAlreadyExists
+newQueryLoggingConfigAlreadyExists' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> QueryLoggingConfigAlreadyExists
 ```
 
 Constructs QueryLoggingConfigAlreadyExists's fields from required parameters
@@ -6516,7 +6516,7 @@ Constructs ResourceRecord's fields from required parameters
 
 ``` purescript
 newtype ResourceRecordSet
-  = ResourceRecordSet { "Name" :: DNSName, "Type" :: RRType, "SetIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier), "Weight" :: NullOrUndefined (ResourceRecordSetWeight), "Region" :: NullOrUndefined (ResourceRecordSetRegion), "GeoLocation" :: NullOrUndefined (GeoLocation), "Failover" :: NullOrUndefined (ResourceRecordSetFailover), "MultiValueAnswer" :: NullOrUndefined (ResourceRecordSetMultiValueAnswer), "TTL" :: NullOrUndefined (TTL), "ResourceRecords" :: NullOrUndefined (ResourceRecords), "AliasTarget" :: NullOrUndefined (AliasTarget), "HealthCheckId" :: NullOrUndefined (HealthCheckId), "TrafficPolicyInstanceId" :: NullOrUndefined (TrafficPolicyInstanceId) }
+  = ResourceRecordSet { "Name" :: DNSName, "Type" :: RRType, "SetIdentifier" :: Maybe (ResourceRecordSetIdentifier), "Weight" :: Maybe (ResourceRecordSetWeight), "Region" :: Maybe (ResourceRecordSetRegion), "GeoLocation" :: Maybe (GeoLocation), "Failover" :: Maybe (ResourceRecordSetFailover), "MultiValueAnswer" :: Maybe (ResourceRecordSetMultiValueAnswer), "TTL" :: Maybe (TTL), "ResourceRecords" :: Maybe (ResourceRecords), "AliasTarget" :: Maybe (AliasTarget), "HealthCheckId" :: Maybe (HealthCheckId), "TrafficPolicyInstanceId" :: Maybe (TrafficPolicyInstanceId) }
 ```
 
 <p>Information about the resource record set to create or delete.</p>
@@ -6541,7 +6541,7 @@ Constructs ResourceRecordSet from required parameters
 #### `newResourceRecordSet'`
 
 ``` purescript
-newResourceRecordSet' :: DNSName -> RRType -> ({ "Name" :: DNSName, "Type" :: RRType, "SetIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier), "Weight" :: NullOrUndefined (ResourceRecordSetWeight), "Region" :: NullOrUndefined (ResourceRecordSetRegion), "GeoLocation" :: NullOrUndefined (GeoLocation), "Failover" :: NullOrUndefined (ResourceRecordSetFailover), "MultiValueAnswer" :: NullOrUndefined (ResourceRecordSetMultiValueAnswer), "TTL" :: NullOrUndefined (TTL), "ResourceRecords" :: NullOrUndefined (ResourceRecords), "AliasTarget" :: NullOrUndefined (AliasTarget), "HealthCheckId" :: NullOrUndefined (HealthCheckId), "TrafficPolicyInstanceId" :: NullOrUndefined (TrafficPolicyInstanceId) } -> { "Name" :: DNSName, "Type" :: RRType, "SetIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier), "Weight" :: NullOrUndefined (ResourceRecordSetWeight), "Region" :: NullOrUndefined (ResourceRecordSetRegion), "GeoLocation" :: NullOrUndefined (GeoLocation), "Failover" :: NullOrUndefined (ResourceRecordSetFailover), "MultiValueAnswer" :: NullOrUndefined (ResourceRecordSetMultiValueAnswer), "TTL" :: NullOrUndefined (TTL), "ResourceRecords" :: NullOrUndefined (ResourceRecords), "AliasTarget" :: NullOrUndefined (AliasTarget), "HealthCheckId" :: NullOrUndefined (HealthCheckId), "TrafficPolicyInstanceId" :: NullOrUndefined (TrafficPolicyInstanceId) }) -> ResourceRecordSet
+newResourceRecordSet' :: DNSName -> RRType -> ({ "Name" :: DNSName, "Type" :: RRType, "SetIdentifier" :: Maybe (ResourceRecordSetIdentifier), "Weight" :: Maybe (ResourceRecordSetWeight), "Region" :: Maybe (ResourceRecordSetRegion), "GeoLocation" :: Maybe (GeoLocation), "Failover" :: Maybe (ResourceRecordSetFailover), "MultiValueAnswer" :: Maybe (ResourceRecordSetMultiValueAnswer), "TTL" :: Maybe (TTL), "ResourceRecords" :: Maybe (ResourceRecords), "AliasTarget" :: Maybe (AliasTarget), "HealthCheckId" :: Maybe (HealthCheckId), "TrafficPolicyInstanceId" :: Maybe (TrafficPolicyInstanceId) } -> { "Name" :: DNSName, "Type" :: RRType, "SetIdentifier" :: Maybe (ResourceRecordSetIdentifier), "Weight" :: Maybe (ResourceRecordSetWeight), "Region" :: Maybe (ResourceRecordSetRegion), "GeoLocation" :: Maybe (GeoLocation), "Failover" :: Maybe (ResourceRecordSetFailover), "MultiValueAnswer" :: Maybe (ResourceRecordSetMultiValueAnswer), "TTL" :: Maybe (TTL), "ResourceRecords" :: Maybe (ResourceRecords), "AliasTarget" :: Maybe (AliasTarget), "HealthCheckId" :: Maybe (HealthCheckId), "TrafficPolicyInstanceId" :: Maybe (TrafficPolicyInstanceId) }) -> ResourceRecordSet
 ```
 
 Constructs ResourceRecordSet's fields from required parameters
@@ -6662,7 +6662,7 @@ Encode ResourceRecords
 
 ``` purescript
 newtype ResourceTagSet
-  = ResourceTagSet { "ResourceType" :: NullOrUndefined (TagResourceType), "ResourceId" :: NullOrUndefined (TagResourceId), "Tags" :: NullOrUndefined (TagList) }
+  = ResourceTagSet { "ResourceType" :: Maybe (TagResourceType), "ResourceId" :: Maybe (TagResourceId), "Tags" :: Maybe (TagList) }
 ```
 
 <p>A complex type containing a resource and its associated tags.</p>
@@ -6687,7 +6687,7 @@ Constructs ResourceTagSet from required parameters
 #### `newResourceTagSet'`
 
 ``` purescript
-newResourceTagSet' :: ({ "ResourceType" :: NullOrUndefined (TagResourceType), "ResourceId" :: NullOrUndefined (TagResourceId), "Tags" :: NullOrUndefined (TagList) } -> { "ResourceType" :: NullOrUndefined (TagResourceType), "ResourceId" :: NullOrUndefined (TagResourceId), "Tags" :: NullOrUndefined (TagList) }) -> ResourceTagSet
+newResourceTagSet' :: ({ "ResourceType" :: Maybe (TagResourceType), "ResourceId" :: Maybe (TagResourceId), "Tags" :: Maybe (TagList) } -> { "ResourceType" :: Maybe (TagResourceType), "ResourceId" :: Maybe (TagResourceId), "Tags" :: Maybe (TagList) }) -> ResourceTagSet
 ```
 
 Constructs ResourceTagSet's fields from required parameters
@@ -6842,7 +6842,7 @@ Encode Status
 
 ``` purescript
 newtype StatusReport
-  = StatusReport { "Status" :: NullOrUndefined (Status), "CheckedTime" :: NullOrUndefined (TimeStamp) }
+  = StatusReport { "Status" :: Maybe (Status), "CheckedTime" :: Maybe (TimeStamp) }
 ```
 
 <p>A complex type that contains the status that one Amazon Route 53 health checker reports and the time of the health check.</p>
@@ -6867,7 +6867,7 @@ Constructs StatusReport from required parameters
 #### `newStatusReport'`
 
 ``` purescript
-newStatusReport' :: ({ "Status" :: NullOrUndefined (Status), "CheckedTime" :: NullOrUndefined (TimeStamp) } -> { "Status" :: NullOrUndefined (Status), "CheckedTime" :: NullOrUndefined (TimeStamp) }) -> StatusReport
+newStatusReport' :: ({ "Status" :: Maybe (Status), "CheckedTime" :: Maybe (TimeStamp) } -> { "Status" :: Maybe (Status), "CheckedTime" :: Maybe (TimeStamp) }) -> StatusReport
 ```
 
 Constructs StatusReport's fields from required parameters
@@ -6908,7 +6908,7 @@ Encode TTL
 
 ``` purescript
 newtype Tag
-  = Tag { "Key" :: NullOrUndefined (TagKey), "Value" :: NullOrUndefined (TagValue) }
+  = Tag { "Key" :: Maybe (TagKey), "Value" :: Maybe (TagValue) }
 ```
 
 <p>A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.</p>
@@ -6933,7 +6933,7 @@ Constructs Tag from required parameters
 #### `newTag'`
 
 ``` purescript
-newTag' :: ({ "Key" :: NullOrUndefined (TagKey), "Value" :: NullOrUndefined (TagValue) } -> { "Key" :: NullOrUndefined (TagKey), "Value" :: NullOrUndefined (TagValue) }) -> Tag
+newTag' :: ({ "Key" :: Maybe (TagKey), "Value" :: Maybe (TagValue) } -> { "Key" :: Maybe (TagKey), "Value" :: Maybe (TagValue) }) -> Tag
 ```
 
 Constructs Tag's fields from required parameters
@@ -7054,7 +7054,7 @@ Encode TagValue
 
 ``` purescript
 newtype TestDNSAnswerRequest
-  = TestDNSAnswerRequest { "HostedZoneId" :: ResourceId, "RecordName" :: DNSName, "RecordType" :: RRType, "ResolverIP" :: NullOrUndefined (IPAddress), "EDNS0ClientSubnetIP" :: NullOrUndefined (IPAddress), "EDNS0ClientSubnetMask" :: NullOrUndefined (SubnetMask) }
+  = TestDNSAnswerRequest { "HostedZoneId" :: ResourceId, "RecordName" :: DNSName, "RecordType" :: RRType, "ResolverIP" :: Maybe (IPAddress), "EDNS0ClientSubnetIP" :: Maybe (IPAddress), "EDNS0ClientSubnetMask" :: Maybe (SubnetMask) }
 ```
 
 <p>Gets the value that Amazon Route 53 returns in response to a DNS request for a specified record name and type. You can optionally specify the IP address of a DNS resolver, an EDNS0 client subnet IP address, and a subnet mask. </p>
@@ -7079,7 +7079,7 @@ Constructs TestDNSAnswerRequest from required parameters
 #### `newTestDNSAnswerRequest'`
 
 ``` purescript
-newTestDNSAnswerRequest' :: ResourceId -> DNSName -> RRType -> ({ "HostedZoneId" :: ResourceId, "RecordName" :: DNSName, "RecordType" :: RRType, "ResolverIP" :: NullOrUndefined (IPAddress), "EDNS0ClientSubnetIP" :: NullOrUndefined (IPAddress), "EDNS0ClientSubnetMask" :: NullOrUndefined (SubnetMask) } -> { "HostedZoneId" :: ResourceId, "RecordName" :: DNSName, "RecordType" :: RRType, "ResolverIP" :: NullOrUndefined (IPAddress), "EDNS0ClientSubnetIP" :: NullOrUndefined (IPAddress), "EDNS0ClientSubnetMask" :: NullOrUndefined (SubnetMask) }) -> TestDNSAnswerRequest
+newTestDNSAnswerRequest' :: ResourceId -> DNSName -> RRType -> ({ "HostedZoneId" :: ResourceId, "RecordName" :: DNSName, "RecordType" :: RRType, "ResolverIP" :: Maybe (IPAddress), "EDNS0ClientSubnetIP" :: Maybe (IPAddress), "EDNS0ClientSubnetMask" :: Maybe (SubnetMask) } -> { "HostedZoneId" :: ResourceId, "RecordName" :: DNSName, "RecordType" :: RRType, "ResolverIP" :: Maybe (IPAddress), "EDNS0ClientSubnetIP" :: Maybe (IPAddress), "EDNS0ClientSubnetMask" :: Maybe (SubnetMask) }) -> TestDNSAnswerRequest
 ```
 
 Constructs TestDNSAnswerRequest's fields from required parameters
@@ -7138,7 +7138,7 @@ Encode Threshold
 
 ``` purescript
 newtype ThrottlingException
-  = ThrottlingException { message :: NullOrUndefined (ErrorMessage) }
+  = ThrottlingException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The limit on the number of requests per second was exceeded.</p>
@@ -7163,7 +7163,7 @@ Constructs ThrottlingException from required parameters
 #### `newThrottlingException'`
 
 ``` purescript
-newThrottlingException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> ThrottlingException
+newThrottlingException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> ThrottlingException
 ```
 
 Constructs ThrottlingException's fields from required parameters
@@ -7188,7 +7188,7 @@ Encode TimeStamp
 
 ``` purescript
 newtype TooManyHealthChecks
-  = TooManyHealthChecks { message :: NullOrUndefined (ErrorMessage) }
+  = TooManyHealthChecks { message :: Maybe (ErrorMessage) }
 ```
 
 <p>This health check can't be created because the current account has reached the limit on the number of active health checks.</p> <p>For information about default limits, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>For information about how to get the current limit for an account, see <a>GetAccountLimit</a>. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p> <p>You have reached the maximum number of active health checks for an AWS account. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
@@ -7213,7 +7213,7 @@ Constructs TooManyHealthChecks from required parameters
 #### `newTooManyHealthChecks'`
 
 ``` purescript
-newTooManyHealthChecks' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> TooManyHealthChecks
+newTooManyHealthChecks' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> TooManyHealthChecks
 ```
 
 Constructs TooManyHealthChecks's fields from required parameters
@@ -7222,7 +7222,7 @@ Constructs TooManyHealthChecks's fields from required parameters
 
 ``` purescript
 newtype TooManyHostedZones
-  = TooManyHostedZones { message :: NullOrUndefined (ErrorMessage) }
+  = TooManyHostedZones { message :: Maybe (ErrorMessage) }
 ```
 
 <p>This operation can't be completed either because the current account has reached the limit on the number of hosted zones or because you've reached the limit on the number of hosted zones that can be associated with a reusable delegation set.</p> <p>For information about default limits, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>To get the current limit on hosted zones that can be created by an account, see <a>GetAccountLimit</a>.</p> <p>To get the current limit on hosted zones that can be associated with a reusable delegation set, see <a>GetReusableDelegationSetLimit</a>.</p> <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
@@ -7247,7 +7247,7 @@ Constructs TooManyHostedZones from required parameters
 #### `newTooManyHostedZones'`
 
 ``` purescript
-newTooManyHostedZones' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> TooManyHostedZones
+newTooManyHostedZones' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> TooManyHostedZones
 ```
 
 Constructs TooManyHostedZones's fields from required parameters
@@ -7256,7 +7256,7 @@ Constructs TooManyHostedZones's fields from required parameters
 
 ``` purescript
 newtype TooManyTrafficPolicies
-  = TooManyTrafficPolicies { message :: NullOrUndefined (ErrorMessage) }
+  = TooManyTrafficPolicies { message :: Maybe (ErrorMessage) }
 ```
 
 <p>This traffic policy can't be created because the current account has reached the limit on the number of traffic policies.</p> <p>For information about default limits, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>To get the current limit for an account, see <a>GetAccountLimit</a>. </p> <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
@@ -7281,7 +7281,7 @@ Constructs TooManyTrafficPolicies from required parameters
 #### `newTooManyTrafficPolicies'`
 
 ``` purescript
-newTooManyTrafficPolicies' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> TooManyTrafficPolicies
+newTooManyTrafficPolicies' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> TooManyTrafficPolicies
 ```
 
 Constructs TooManyTrafficPolicies's fields from required parameters
@@ -7290,7 +7290,7 @@ Constructs TooManyTrafficPolicies's fields from required parameters
 
 ``` purescript
 newtype TooManyTrafficPolicyInstances
-  = TooManyTrafficPolicyInstances { message :: NullOrUndefined (ErrorMessage) }
+  = TooManyTrafficPolicyInstances { message :: Maybe (ErrorMessage) }
 ```
 
 <p>This traffic policy instance can't be created because the current account has reached the limit on the number of traffic policy instances.</p> <p>For information about default limits, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>For information about how to get the current limit for an account, see <a>GetAccountLimit</a>.</p> <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
@@ -7315,7 +7315,7 @@ Constructs TooManyTrafficPolicyInstances from required parameters
 #### `newTooManyTrafficPolicyInstances'`
 
 ``` purescript
-newTooManyTrafficPolicyInstances' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> TooManyTrafficPolicyInstances
+newTooManyTrafficPolicyInstances' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> TooManyTrafficPolicyInstances
 ```
 
 Constructs TooManyTrafficPolicyInstances's fields from required parameters
@@ -7324,7 +7324,7 @@ Constructs TooManyTrafficPolicyInstances's fields from required parameters
 
 ``` purescript
 newtype TooManyTrafficPolicyVersionsForCurrentPolicy
-  = TooManyTrafficPolicyVersionsForCurrentPolicy { message :: NullOrUndefined (ErrorMessage) }
+  = TooManyTrafficPolicyVersionsForCurrentPolicy { message :: Maybe (ErrorMessage) }
 ```
 
 <p>This traffic policy version can't be created because you've reached the limit of 1000 on the number of versions that you can create for the current traffic policy.</p> <p>To create more traffic policy versions, you can use <a>GetTrafficPolicy</a> to get the traffic policy document for a specified traffic policy version, and then use <a>CreateTrafficPolicy</a> to create a new traffic policy using the traffic policy document.</p>
@@ -7349,7 +7349,7 @@ Constructs TooManyTrafficPolicyVersionsForCurrentPolicy from required parameters
 #### `newTooManyTrafficPolicyVersionsForCurrentPolicy'`
 
 ``` purescript
-newTooManyTrafficPolicyVersionsForCurrentPolicy' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> TooManyTrafficPolicyVersionsForCurrentPolicy
+newTooManyTrafficPolicyVersionsForCurrentPolicy' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> TooManyTrafficPolicyVersionsForCurrentPolicy
 ```
 
 Constructs TooManyTrafficPolicyVersionsForCurrentPolicy's fields from required parameters
@@ -7358,7 +7358,7 @@ Constructs TooManyTrafficPolicyVersionsForCurrentPolicy's fields from required p
 
 ``` purescript
 newtype TooManyVPCAssociationAuthorizations
-  = TooManyVPCAssociationAuthorizations { message :: NullOrUndefined (ErrorMessage) }
+  = TooManyVPCAssociationAuthorizations { message :: Maybe (ErrorMessage) }
 ```
 
 <p>You've created the maximum number of authorizations that can be created for the specified hosted zone. To authorize another VPC to be associated with the hosted zone, submit a <code>DeleteVPCAssociationAuthorization</code> request to remove an existing authorization. To get a list of existing authorizations, submit a <code>ListVPCAssociationAuthorizations</code> request.</p>
@@ -7383,7 +7383,7 @@ Constructs TooManyVPCAssociationAuthorizations from required parameters
 #### `newTooManyVPCAssociationAuthorizations'`
 
 ``` purescript
-newTooManyVPCAssociationAuthorizations' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> TooManyVPCAssociationAuthorizations
+newTooManyVPCAssociationAuthorizations' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> TooManyVPCAssociationAuthorizations
 ```
 
 Constructs TooManyVPCAssociationAuthorizations's fields from required parameters
@@ -7408,7 +7408,7 @@ Encode TrafficPolicies
 
 ``` purescript
 newtype TrafficPolicy
-  = TrafficPolicy { "Id" :: TrafficPolicyId, "Version" :: TrafficPolicyVersion, "Name" :: TrafficPolicyName, "Type" :: RRType, "Document" :: TrafficPolicyDocument, "Comment" :: NullOrUndefined (TrafficPolicyComment) }
+  = TrafficPolicy { "Id" :: TrafficPolicyId, "Version" :: TrafficPolicyVersion, "Name" :: TrafficPolicyName, "Type" :: RRType, "Document" :: TrafficPolicyDocument, "Comment" :: Maybe (TrafficPolicyComment) }
 ```
 
 <p>A complex type that contains settings for a traffic policy.</p>
@@ -7433,7 +7433,7 @@ Constructs TrafficPolicy from required parameters
 #### `newTrafficPolicy'`
 
 ``` purescript
-newTrafficPolicy' :: TrafficPolicyDocument -> TrafficPolicyId -> TrafficPolicyName -> RRType -> TrafficPolicyVersion -> ({ "Id" :: TrafficPolicyId, "Version" :: TrafficPolicyVersion, "Name" :: TrafficPolicyName, "Type" :: RRType, "Document" :: TrafficPolicyDocument, "Comment" :: NullOrUndefined (TrafficPolicyComment) } -> { "Id" :: TrafficPolicyId, "Version" :: TrafficPolicyVersion, "Name" :: TrafficPolicyName, "Type" :: RRType, "Document" :: TrafficPolicyDocument, "Comment" :: NullOrUndefined (TrafficPolicyComment) }) -> TrafficPolicy
+newTrafficPolicy' :: TrafficPolicyDocument -> TrafficPolicyId -> TrafficPolicyName -> RRType -> TrafficPolicyVersion -> ({ "Id" :: TrafficPolicyId, "Version" :: TrafficPolicyVersion, "Name" :: TrafficPolicyName, "Type" :: RRType, "Document" :: TrafficPolicyDocument, "Comment" :: Maybe (TrafficPolicyComment) } -> { "Id" :: TrafficPolicyId, "Version" :: TrafficPolicyVersion, "Name" :: TrafficPolicyName, "Type" :: RRType, "Document" :: TrafficPolicyDocument, "Comment" :: Maybe (TrafficPolicyComment) }) -> TrafficPolicy
 ```
 
 Constructs TrafficPolicy's fields from required parameters
@@ -7442,7 +7442,7 @@ Constructs TrafficPolicy's fields from required parameters
 
 ``` purescript
 newtype TrafficPolicyAlreadyExists
-  = TrafficPolicyAlreadyExists { message :: NullOrUndefined (ErrorMessage) }
+  = TrafficPolicyAlreadyExists { message :: Maybe (ErrorMessage) }
 ```
 
 <p>A traffic policy that has the same value for <code>Name</code> already exists.</p>
@@ -7467,7 +7467,7 @@ Constructs TrafficPolicyAlreadyExists from required parameters
 #### `newTrafficPolicyAlreadyExists'`
 
 ``` purescript
-newTrafficPolicyAlreadyExists' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> TrafficPolicyAlreadyExists
+newTrafficPolicyAlreadyExists' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> TrafficPolicyAlreadyExists
 ```
 
 Constructs TrafficPolicyAlreadyExists's fields from required parameters
@@ -7524,7 +7524,7 @@ Encode TrafficPolicyId
 
 ``` purescript
 newtype TrafficPolicyInUse
-  = TrafficPolicyInUse { message :: NullOrUndefined (ErrorMessage) }
+  = TrafficPolicyInUse { message :: Maybe (ErrorMessage) }
 ```
 
 <p>One or more traffic policy instances were created by using the specified traffic policy.</p>
@@ -7549,7 +7549,7 @@ Constructs TrafficPolicyInUse from required parameters
 #### `newTrafficPolicyInUse'`
 
 ``` purescript
-newTrafficPolicyInUse' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> TrafficPolicyInUse
+newTrafficPolicyInUse' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> TrafficPolicyInUse
 ```
 
 Constructs TrafficPolicyInUse's fields from required parameters
@@ -7592,7 +7592,7 @@ Constructs TrafficPolicyInstance's fields from required parameters
 
 ``` purescript
 newtype TrafficPolicyInstanceAlreadyExists
-  = TrafficPolicyInstanceAlreadyExists { message :: NullOrUndefined (ErrorMessage) }
+  = TrafficPolicyInstanceAlreadyExists { message :: Maybe (ErrorMessage) }
 ```
 
 <p>There is already a traffic policy instance with the specified ID.</p>
@@ -7617,7 +7617,7 @@ Constructs TrafficPolicyInstanceAlreadyExists from required parameters
 #### `newTrafficPolicyInstanceAlreadyExists'`
 
 ``` purescript
-newTrafficPolicyInstanceAlreadyExists' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> TrafficPolicyInstanceAlreadyExists
+newTrafficPolicyInstanceAlreadyExists' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> TrafficPolicyInstanceAlreadyExists
 ```
 
 Constructs TrafficPolicyInstanceAlreadyExists's fields from required parameters
@@ -7804,7 +7804,7 @@ Encode TransportProtocol
 
 ``` purescript
 newtype UpdateHealthCheckRequest
-  = UpdateHealthCheckRequest { "HealthCheckId" :: HealthCheckId, "HealthCheckVersion" :: NullOrUndefined (HealthCheckVersion), "IPAddress" :: NullOrUndefined (IPAddress), "Port" :: NullOrUndefined (Port), "ResourcePath" :: NullOrUndefined (ResourcePath), "FullyQualifiedDomainName" :: NullOrUndefined (FullyQualifiedDomainName), "SearchString" :: NullOrUndefined (SearchString), "FailureThreshold" :: NullOrUndefined (FailureThreshold), "Inverted" :: NullOrUndefined (Inverted), "HealthThreshold" :: NullOrUndefined (HealthThreshold), "ChildHealthChecks" :: NullOrUndefined (ChildHealthCheckList), "EnableSNI" :: NullOrUndefined (EnableSNI), "Regions" :: NullOrUndefined (HealthCheckRegionList), "AlarmIdentifier" :: NullOrUndefined (AlarmIdentifier), "InsufficientDataHealthStatus" :: NullOrUndefined (InsufficientDataHealthStatus), "ResetElements" :: NullOrUndefined (ResettableElementNameList) }
+  = UpdateHealthCheckRequest { "HealthCheckId" :: HealthCheckId, "HealthCheckVersion" :: Maybe (HealthCheckVersion), "IPAddress" :: Maybe (IPAddress), "Port" :: Maybe (Port), "ResourcePath" :: Maybe (ResourcePath), "FullyQualifiedDomainName" :: Maybe (FullyQualifiedDomainName), "SearchString" :: Maybe (SearchString), "FailureThreshold" :: Maybe (FailureThreshold), "Inverted" :: Maybe (Inverted), "HealthThreshold" :: Maybe (HealthThreshold), "ChildHealthChecks" :: Maybe (ChildHealthCheckList), "EnableSNI" :: Maybe (EnableSNI), "Regions" :: Maybe (HealthCheckRegionList), "AlarmIdentifier" :: Maybe (AlarmIdentifier), "InsufficientDataHealthStatus" :: Maybe (InsufficientDataHealthStatus), "ResetElements" :: Maybe (ResettableElementNameList) }
 ```
 
 <p>A complex type that contains information about a request to update a health check.</p>
@@ -7829,7 +7829,7 @@ Constructs UpdateHealthCheckRequest from required parameters
 #### `newUpdateHealthCheckRequest'`
 
 ``` purescript
-newUpdateHealthCheckRequest' :: HealthCheckId -> ({ "HealthCheckId" :: HealthCheckId, "HealthCheckVersion" :: NullOrUndefined (HealthCheckVersion), "IPAddress" :: NullOrUndefined (IPAddress), "Port" :: NullOrUndefined (Port), "ResourcePath" :: NullOrUndefined (ResourcePath), "FullyQualifiedDomainName" :: NullOrUndefined (FullyQualifiedDomainName), "SearchString" :: NullOrUndefined (SearchString), "FailureThreshold" :: NullOrUndefined (FailureThreshold), "Inverted" :: NullOrUndefined (Inverted), "HealthThreshold" :: NullOrUndefined (HealthThreshold), "ChildHealthChecks" :: NullOrUndefined (ChildHealthCheckList), "EnableSNI" :: NullOrUndefined (EnableSNI), "Regions" :: NullOrUndefined (HealthCheckRegionList), "AlarmIdentifier" :: NullOrUndefined (AlarmIdentifier), "InsufficientDataHealthStatus" :: NullOrUndefined (InsufficientDataHealthStatus), "ResetElements" :: NullOrUndefined (ResettableElementNameList) } -> { "HealthCheckId" :: HealthCheckId, "HealthCheckVersion" :: NullOrUndefined (HealthCheckVersion), "IPAddress" :: NullOrUndefined (IPAddress), "Port" :: NullOrUndefined (Port), "ResourcePath" :: NullOrUndefined (ResourcePath), "FullyQualifiedDomainName" :: NullOrUndefined (FullyQualifiedDomainName), "SearchString" :: NullOrUndefined (SearchString), "FailureThreshold" :: NullOrUndefined (FailureThreshold), "Inverted" :: NullOrUndefined (Inverted), "HealthThreshold" :: NullOrUndefined (HealthThreshold), "ChildHealthChecks" :: NullOrUndefined (ChildHealthCheckList), "EnableSNI" :: NullOrUndefined (EnableSNI), "Regions" :: NullOrUndefined (HealthCheckRegionList), "AlarmIdentifier" :: NullOrUndefined (AlarmIdentifier), "InsufficientDataHealthStatus" :: NullOrUndefined (InsufficientDataHealthStatus), "ResetElements" :: NullOrUndefined (ResettableElementNameList) }) -> UpdateHealthCheckRequest
+newUpdateHealthCheckRequest' :: HealthCheckId -> ({ "HealthCheckId" :: HealthCheckId, "HealthCheckVersion" :: Maybe (HealthCheckVersion), "IPAddress" :: Maybe (IPAddress), "Port" :: Maybe (Port), "ResourcePath" :: Maybe (ResourcePath), "FullyQualifiedDomainName" :: Maybe (FullyQualifiedDomainName), "SearchString" :: Maybe (SearchString), "FailureThreshold" :: Maybe (FailureThreshold), "Inverted" :: Maybe (Inverted), "HealthThreshold" :: Maybe (HealthThreshold), "ChildHealthChecks" :: Maybe (ChildHealthCheckList), "EnableSNI" :: Maybe (EnableSNI), "Regions" :: Maybe (HealthCheckRegionList), "AlarmIdentifier" :: Maybe (AlarmIdentifier), "InsufficientDataHealthStatus" :: Maybe (InsufficientDataHealthStatus), "ResetElements" :: Maybe (ResettableElementNameList) } -> { "HealthCheckId" :: HealthCheckId, "HealthCheckVersion" :: Maybe (HealthCheckVersion), "IPAddress" :: Maybe (IPAddress), "Port" :: Maybe (Port), "ResourcePath" :: Maybe (ResourcePath), "FullyQualifiedDomainName" :: Maybe (FullyQualifiedDomainName), "SearchString" :: Maybe (SearchString), "FailureThreshold" :: Maybe (FailureThreshold), "Inverted" :: Maybe (Inverted), "HealthThreshold" :: Maybe (HealthThreshold), "ChildHealthChecks" :: Maybe (ChildHealthCheckList), "EnableSNI" :: Maybe (EnableSNI), "Regions" :: Maybe (HealthCheckRegionList), "AlarmIdentifier" :: Maybe (AlarmIdentifier), "InsufficientDataHealthStatus" :: Maybe (InsufficientDataHealthStatus), "ResetElements" :: Maybe (ResettableElementNameList) }) -> UpdateHealthCheckRequest
 ```
 
 Constructs UpdateHealthCheckRequest's fields from required parameters
@@ -7870,7 +7870,7 @@ Constructs UpdateHealthCheckResponse's fields from required parameters
 
 ``` purescript
 newtype UpdateHostedZoneCommentRequest
-  = UpdateHostedZoneCommentRequest { "Id" :: ResourceId, "Comment" :: NullOrUndefined (ResourceDescription) }
+  = UpdateHostedZoneCommentRequest { "Id" :: ResourceId, "Comment" :: Maybe (ResourceDescription) }
 ```
 
 <p>A request to update the comment for a hosted zone.</p>
@@ -7895,7 +7895,7 @@ Constructs UpdateHostedZoneCommentRequest from required parameters
 #### `newUpdateHostedZoneCommentRequest'`
 
 ``` purescript
-newUpdateHostedZoneCommentRequest' :: ResourceId -> ({ "Id" :: ResourceId, "Comment" :: NullOrUndefined (ResourceDescription) } -> { "Id" :: ResourceId, "Comment" :: NullOrUndefined (ResourceDescription) }) -> UpdateHostedZoneCommentRequest
+newUpdateHostedZoneCommentRequest' :: ResourceId -> ({ "Id" :: ResourceId, "Comment" :: Maybe (ResourceDescription) } -> { "Id" :: ResourceId, "Comment" :: Maybe (ResourceDescription) }) -> UpdateHostedZoneCommentRequest
 ```
 
 Constructs UpdateHostedZoneCommentRequest's fields from required parameters
@@ -8090,7 +8090,7 @@ Encode UsageCount
 
 ``` purescript
 newtype VPC
-  = VPC { "VPCRegion" :: NullOrUndefined (VPCRegion), "VPCId" :: NullOrUndefined (VPCId) }
+  = VPC { "VPCRegion" :: Maybe (VPCRegion), "VPCId" :: Maybe (VPCId) }
 ```
 
 <p>(Private hosted zones only) A complex type that contains information about an Amazon VPC.</p>
@@ -8115,7 +8115,7 @@ Constructs VPC from required parameters
 #### `newVPC'`
 
 ``` purescript
-newVPC' :: ({ "VPCRegion" :: NullOrUndefined (VPCRegion), "VPCId" :: NullOrUndefined (VPCId) } -> { "VPCRegion" :: NullOrUndefined (VPCRegion), "VPCId" :: NullOrUndefined (VPCId) }) -> VPC
+newVPC' :: ({ "VPCRegion" :: Maybe (VPCRegion), "VPCId" :: Maybe (VPCId) } -> { "VPCRegion" :: Maybe (VPCRegion), "VPCId" :: Maybe (VPCId) }) -> VPC
 ```
 
 Constructs VPC's fields from required parameters
@@ -8124,7 +8124,7 @@ Constructs VPC's fields from required parameters
 
 ``` purescript
 newtype VPCAssociationAuthorizationNotFound
-  = VPCAssociationAuthorizationNotFound { message :: NullOrUndefined (ErrorMessage) }
+  = VPCAssociationAuthorizationNotFound { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The VPC that you specified is not authorized to be associated with the hosted zone.</p>
@@ -8149,7 +8149,7 @@ Constructs VPCAssociationAuthorizationNotFound from required parameters
 #### `newVPCAssociationAuthorizationNotFound'`
 
 ``` purescript
-newVPCAssociationAuthorizationNotFound' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> VPCAssociationAuthorizationNotFound
+newVPCAssociationAuthorizationNotFound' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> VPCAssociationAuthorizationNotFound
 ```
 
 Constructs VPCAssociationAuthorizationNotFound's fields from required parameters
@@ -8158,7 +8158,7 @@ Constructs VPCAssociationAuthorizationNotFound's fields from required parameters
 
 ``` purescript
 newtype VPCAssociationNotFound
-  = VPCAssociationNotFound { message :: NullOrUndefined (ErrorMessage) }
+  = VPCAssociationNotFound { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The specified VPC and hosted zone are not currently associated.</p>
@@ -8183,7 +8183,7 @@ Constructs VPCAssociationNotFound from required parameters
 #### `newVPCAssociationNotFound'`
 
 ``` purescript
-newVPCAssociationNotFound' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> VPCAssociationNotFound
+newVPCAssociationNotFound' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> VPCAssociationNotFound
 ```
 
 Constructs VPCAssociationNotFound's fields from required parameters

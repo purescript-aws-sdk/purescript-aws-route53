@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -125,7 +124,7 @@ instance encodeAssociateVPCComment :: Encode AssociateVPCComment where encode = 
 newtype AssociateVPCWithHostedZoneRequest = AssociateVPCWithHostedZoneRequest 
   { "HostedZoneId" :: (ResourceId)
   , "VPC" :: (VPC)
-  , "Comment" :: NullOrUndefined (AssociateVPCComment)
+  , "Comment" :: Maybe (AssociateVPCComment)
   }
 derive instance newtypeAssociateVPCWithHostedZoneRequest :: Newtype AssociateVPCWithHostedZoneRequest _
 derive instance repGenericAssociateVPCWithHostedZoneRequest :: Generic AssociateVPCWithHostedZoneRequest _
@@ -135,12 +134,12 @@ instance encodeAssociateVPCWithHostedZoneRequest :: Encode AssociateVPCWithHoste
 
 -- | Constructs AssociateVPCWithHostedZoneRequest from required parameters
 newAssociateVPCWithHostedZoneRequest :: ResourceId -> VPC -> AssociateVPCWithHostedZoneRequest
-newAssociateVPCWithHostedZoneRequest _HostedZoneId _VPC = AssociateVPCWithHostedZoneRequest { "HostedZoneId": _HostedZoneId, "VPC": _VPC, "Comment": (NullOrUndefined Nothing) }
+newAssociateVPCWithHostedZoneRequest _HostedZoneId _VPC = AssociateVPCWithHostedZoneRequest { "HostedZoneId": _HostedZoneId, "VPC": _VPC, "Comment": Nothing }
 
 -- | Constructs AssociateVPCWithHostedZoneRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAssociateVPCWithHostedZoneRequest' :: ResourceId -> VPC -> ( { "HostedZoneId" :: (ResourceId) , "VPC" :: (VPC) , "Comment" :: NullOrUndefined (AssociateVPCComment) } -> {"HostedZoneId" :: (ResourceId) , "VPC" :: (VPC) , "Comment" :: NullOrUndefined (AssociateVPCComment) } ) -> AssociateVPCWithHostedZoneRequest
-newAssociateVPCWithHostedZoneRequest' _HostedZoneId _VPC customize = (AssociateVPCWithHostedZoneRequest <<< customize) { "HostedZoneId": _HostedZoneId, "VPC": _VPC, "Comment": (NullOrUndefined Nothing) }
+newAssociateVPCWithHostedZoneRequest' :: ResourceId -> VPC -> ( { "HostedZoneId" :: (ResourceId) , "VPC" :: (VPC) , "Comment" :: Maybe (AssociateVPCComment) } -> {"HostedZoneId" :: (ResourceId) , "VPC" :: (VPC) , "Comment" :: Maybe (AssociateVPCComment) } ) -> AssociateVPCWithHostedZoneRequest
+newAssociateVPCWithHostedZoneRequest' _HostedZoneId _VPC customize = (AssociateVPCWithHostedZoneRequest <<< customize) { "HostedZoneId": _HostedZoneId, "VPC": _VPC, "Comment": Nothing }
 
 
 
@@ -198,7 +197,7 @@ instance encodeChangeAction :: Encode ChangeAction where encode = genericEncode 
 
 -- | <p>The information for a change request.</p>
 newtype ChangeBatch = ChangeBatch 
-  { "Comment" :: NullOrUndefined (ResourceDescription)
+  { "Comment" :: Maybe (ResourceDescription)
   , "Changes" :: (Changes)
   }
 derive instance newtypeChangeBatch :: Newtype ChangeBatch _
@@ -209,12 +208,12 @@ instance encodeChangeBatch :: Encode ChangeBatch where encode = genericEncode op
 
 -- | Constructs ChangeBatch from required parameters
 newChangeBatch :: Changes -> ChangeBatch
-newChangeBatch _Changes = ChangeBatch { "Changes": _Changes, "Comment": (NullOrUndefined Nothing) }
+newChangeBatch _Changes = ChangeBatch { "Changes": _Changes, "Comment": Nothing }
 
 -- | Constructs ChangeBatch's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newChangeBatch' :: Changes -> ( { "Comment" :: NullOrUndefined (ResourceDescription) , "Changes" :: (Changes) } -> {"Comment" :: NullOrUndefined (ResourceDescription) , "Changes" :: (Changes) } ) -> ChangeBatch
-newChangeBatch' _Changes customize = (ChangeBatch <<< customize) { "Changes": _Changes, "Comment": (NullOrUndefined Nothing) }
+newChangeBatch' :: Changes -> ( { "Comment" :: Maybe (ResourceDescription) , "Changes" :: (Changes) } -> {"Comment" :: Maybe (ResourceDescription) , "Changes" :: (Changes) } ) -> ChangeBatch
+newChangeBatch' _Changes customize = (ChangeBatch <<< customize) { "Changes": _Changes, "Comment": Nothing }
 
 
 
@@ -223,7 +222,7 @@ newtype ChangeInfo = ChangeInfo
   { "Id" :: (ResourceId)
   , "Status" :: (ChangeStatus)
   , "SubmittedAt" :: (TimeStamp)
-  , "Comment" :: NullOrUndefined (ResourceDescription)
+  , "Comment" :: Maybe (ResourceDescription)
   }
 derive instance newtypeChangeInfo :: Newtype ChangeInfo _
 derive instance repGenericChangeInfo :: Generic ChangeInfo _
@@ -233,12 +232,12 @@ instance encodeChangeInfo :: Encode ChangeInfo where encode = genericEncode opti
 
 -- | Constructs ChangeInfo from required parameters
 newChangeInfo :: ResourceId -> ChangeStatus -> TimeStamp -> ChangeInfo
-newChangeInfo _Id _Status _SubmittedAt = ChangeInfo { "Id": _Id, "Status": _Status, "SubmittedAt": _SubmittedAt, "Comment": (NullOrUndefined Nothing) }
+newChangeInfo _Id _Status _SubmittedAt = ChangeInfo { "Id": _Id, "Status": _Status, "SubmittedAt": _SubmittedAt, "Comment": Nothing }
 
 -- | Constructs ChangeInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newChangeInfo' :: ResourceId -> ChangeStatus -> TimeStamp -> ( { "Id" :: (ResourceId) , "Status" :: (ChangeStatus) , "SubmittedAt" :: (TimeStamp) , "Comment" :: NullOrUndefined (ResourceDescription) } -> {"Id" :: (ResourceId) , "Status" :: (ChangeStatus) , "SubmittedAt" :: (TimeStamp) , "Comment" :: NullOrUndefined (ResourceDescription) } ) -> ChangeInfo
-newChangeInfo' _Id _Status _SubmittedAt customize = (ChangeInfo <<< customize) { "Id": _Id, "Status": _Status, "SubmittedAt": _SubmittedAt, "Comment": (NullOrUndefined Nothing) }
+newChangeInfo' :: ResourceId -> ChangeStatus -> TimeStamp -> ( { "Id" :: (ResourceId) , "Status" :: (ChangeStatus) , "SubmittedAt" :: (TimeStamp) , "Comment" :: Maybe (ResourceDescription) } -> {"Id" :: (ResourceId) , "Status" :: (ChangeStatus) , "SubmittedAt" :: (TimeStamp) , "Comment" :: Maybe (ResourceDescription) } ) -> ChangeInfo
+newChangeInfo' _Id _Status _SubmittedAt customize = (ChangeInfo <<< customize) { "Id": _Id, "Status": _Status, "SubmittedAt": _SubmittedAt, "Comment": Nothing }
 
 
 
@@ -298,8 +297,8 @@ instance encodeChangeStatus :: Encode ChangeStatus where encode = genericEncode 
 newtype ChangeTagsForResourceRequest = ChangeTagsForResourceRequest 
   { "ResourceType" :: (TagResourceType)
   , "ResourceId" :: (TagResourceId)
-  , "AddTags" :: NullOrUndefined (TagList)
-  , "RemoveTagKeys" :: NullOrUndefined (TagKeyList)
+  , "AddTags" :: Maybe (TagList)
+  , "RemoveTagKeys" :: Maybe (TagKeyList)
   }
 derive instance newtypeChangeTagsForResourceRequest :: Newtype ChangeTagsForResourceRequest _
 derive instance repGenericChangeTagsForResourceRequest :: Generic ChangeTagsForResourceRequest _
@@ -309,12 +308,12 @@ instance encodeChangeTagsForResourceRequest :: Encode ChangeTagsForResourceReque
 
 -- | Constructs ChangeTagsForResourceRequest from required parameters
 newChangeTagsForResourceRequest :: TagResourceId -> TagResourceType -> ChangeTagsForResourceRequest
-newChangeTagsForResourceRequest _ResourceId _ResourceType = ChangeTagsForResourceRequest { "ResourceId": _ResourceId, "ResourceType": _ResourceType, "AddTags": (NullOrUndefined Nothing), "RemoveTagKeys": (NullOrUndefined Nothing) }
+newChangeTagsForResourceRequest _ResourceId _ResourceType = ChangeTagsForResourceRequest { "ResourceId": _ResourceId, "ResourceType": _ResourceType, "AddTags": Nothing, "RemoveTagKeys": Nothing }
 
 -- | Constructs ChangeTagsForResourceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newChangeTagsForResourceRequest' :: TagResourceId -> TagResourceType -> ( { "ResourceType" :: (TagResourceType) , "ResourceId" :: (TagResourceId) , "AddTags" :: NullOrUndefined (TagList) , "RemoveTagKeys" :: NullOrUndefined (TagKeyList) } -> {"ResourceType" :: (TagResourceType) , "ResourceId" :: (TagResourceId) , "AddTags" :: NullOrUndefined (TagList) , "RemoveTagKeys" :: NullOrUndefined (TagKeyList) } ) -> ChangeTagsForResourceRequest
-newChangeTagsForResourceRequest' _ResourceId _ResourceType customize = (ChangeTagsForResourceRequest <<< customize) { "ResourceId": _ResourceId, "ResourceType": _ResourceType, "AddTags": (NullOrUndefined Nothing), "RemoveTagKeys": (NullOrUndefined Nothing) }
+newChangeTagsForResourceRequest' :: TagResourceId -> TagResourceType -> ( { "ResourceType" :: (TagResourceType) , "ResourceId" :: (TagResourceId) , "AddTags" :: Maybe (TagList) , "RemoveTagKeys" :: Maybe (TagKeyList) } -> {"ResourceType" :: (TagResourceType) , "ResourceId" :: (TagResourceId) , "AddTags" :: Maybe (TagList) , "RemoveTagKeys" :: Maybe (TagKeyList) } ) -> ChangeTagsForResourceRequest
+newChangeTagsForResourceRequest' _ResourceId _ResourceType customize = (ChangeTagsForResourceRequest <<< customize) { "ResourceId": _ResourceId, "ResourceType": _ResourceType, "AddTags": Nothing, "RemoveTagKeys": Nothing }
 
 
 
@@ -364,7 +363,7 @@ newtype CloudWatchAlarmConfiguration = CloudWatchAlarmConfiguration
   , "MetricName" :: (MetricName)
   , "Namespace" :: (Namespace)
   , "Statistic" :: (Statistic)
-  , "Dimensions" :: NullOrUndefined (DimensionList)
+  , "Dimensions" :: Maybe (DimensionList)
   }
 derive instance newtypeCloudWatchAlarmConfiguration :: Newtype CloudWatchAlarmConfiguration _
 derive instance repGenericCloudWatchAlarmConfiguration :: Generic CloudWatchAlarmConfiguration _
@@ -374,12 +373,12 @@ instance encodeCloudWatchAlarmConfiguration :: Encode CloudWatchAlarmConfigurati
 
 -- | Constructs CloudWatchAlarmConfiguration from required parameters
 newCloudWatchAlarmConfiguration :: ComparisonOperator -> EvaluationPeriods -> MetricName -> Namespace -> Period -> Statistic -> Threshold -> CloudWatchAlarmConfiguration
-newCloudWatchAlarmConfiguration _ComparisonOperator _EvaluationPeriods _MetricName _Namespace _Period _Statistic _Threshold = CloudWatchAlarmConfiguration { "ComparisonOperator": _ComparisonOperator, "EvaluationPeriods": _EvaluationPeriods, "MetricName": _MetricName, "Namespace": _Namespace, "Period": _Period, "Statistic": _Statistic, "Threshold": _Threshold, "Dimensions": (NullOrUndefined Nothing) }
+newCloudWatchAlarmConfiguration _ComparisonOperator _EvaluationPeriods _MetricName _Namespace _Period _Statistic _Threshold = CloudWatchAlarmConfiguration { "ComparisonOperator": _ComparisonOperator, "EvaluationPeriods": _EvaluationPeriods, "MetricName": _MetricName, "Namespace": _Namespace, "Period": _Period, "Statistic": _Statistic, "Threshold": _Threshold, "Dimensions": Nothing }
 
 -- | Constructs CloudWatchAlarmConfiguration's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCloudWatchAlarmConfiguration' :: ComparisonOperator -> EvaluationPeriods -> MetricName -> Namespace -> Period -> Statistic -> Threshold -> ( { "EvaluationPeriods" :: (EvaluationPeriods) , "Threshold" :: (Threshold) , "ComparisonOperator" :: (ComparisonOperator) , "Period" :: (Period) , "MetricName" :: (MetricName) , "Namespace" :: (Namespace) , "Statistic" :: (Statistic) , "Dimensions" :: NullOrUndefined (DimensionList) } -> {"EvaluationPeriods" :: (EvaluationPeriods) , "Threshold" :: (Threshold) , "ComparisonOperator" :: (ComparisonOperator) , "Period" :: (Period) , "MetricName" :: (MetricName) , "Namespace" :: (Namespace) , "Statistic" :: (Statistic) , "Dimensions" :: NullOrUndefined (DimensionList) } ) -> CloudWatchAlarmConfiguration
-newCloudWatchAlarmConfiguration' _ComparisonOperator _EvaluationPeriods _MetricName _Namespace _Period _Statistic _Threshold customize = (CloudWatchAlarmConfiguration <<< customize) { "ComparisonOperator": _ComparisonOperator, "EvaluationPeriods": _EvaluationPeriods, "MetricName": _MetricName, "Namespace": _Namespace, "Period": _Period, "Statistic": _Statistic, "Threshold": _Threshold, "Dimensions": (NullOrUndefined Nothing) }
+newCloudWatchAlarmConfiguration' :: ComparisonOperator -> EvaluationPeriods -> MetricName -> Namespace -> Period -> Statistic -> Threshold -> ( { "EvaluationPeriods" :: (EvaluationPeriods) , "Threshold" :: (Threshold) , "ComparisonOperator" :: (ComparisonOperator) , "Period" :: (Period) , "MetricName" :: (MetricName) , "Namespace" :: (Namespace) , "Statistic" :: (Statistic) , "Dimensions" :: Maybe (DimensionList) } -> {"EvaluationPeriods" :: (EvaluationPeriods) , "Threshold" :: (Threshold) , "ComparisonOperator" :: (ComparisonOperator) , "Period" :: (Period) , "MetricName" :: (MetricName) , "Namespace" :: (Namespace) , "Statistic" :: (Statistic) , "Dimensions" :: Maybe (DimensionList) } ) -> CloudWatchAlarmConfiguration
+newCloudWatchAlarmConfiguration' _ComparisonOperator _EvaluationPeriods _MetricName _Namespace _Period _Statistic _Threshold customize = (CloudWatchAlarmConfiguration <<< customize) { "ComparisonOperator": _ComparisonOperator, "EvaluationPeriods": _EvaluationPeriods, "MetricName": _MetricName, "Namespace": _Namespace, "Period": _Period, "Statistic": _Statistic, "Threshold": _Threshold, "Dimensions": Nothing }
 
 
 
@@ -412,7 +411,7 @@ instance encodeComparisonOperator :: Encode ComparisonOperator where encode = ge
 
 -- | <p>Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request. </p>
 newtype ConcurrentModification = ConcurrentModification 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeConcurrentModification :: Newtype ConcurrentModification _
 derive instance repGenericConcurrentModification :: Generic ConcurrentModification _
@@ -422,18 +421,18 @@ instance encodeConcurrentModification :: Encode ConcurrentModification where enc
 
 -- | Constructs ConcurrentModification from required parameters
 newConcurrentModification :: ConcurrentModification
-newConcurrentModification  = ConcurrentModification { "message": (NullOrUndefined Nothing) }
+newConcurrentModification  = ConcurrentModification { "message": Nothing }
 
 -- | Constructs ConcurrentModification's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newConcurrentModification' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> ConcurrentModification
-newConcurrentModification'  customize = (ConcurrentModification <<< customize) { "message": (NullOrUndefined Nothing) }
+newConcurrentModification' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> ConcurrentModification
+newConcurrentModification'  customize = (ConcurrentModification <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The cause of this error depends on whether you're trying to create a public or a private hosted zone:</p> <ul> <li> <p> <b>Public hosted zone:</b> Two hosted zones that have the same name or that have a parent/child relationship (example.com and test.example.com) can't have any common name servers. You tried to create a hosted zone that has the same name as an existing hosted zone or that's the parent or child of an existing hosted zone, and you specified a delegation set that shares one or more name servers with the existing hosted zone. For more information, see <a>CreateReusableDelegationSet</a>.</p> </li> <li> <p> <b>Private hosted zone:</b> You specified an Amazon VPC that you're already using for another hosted zone, and the domain that you specified for one of the hosted zones is a subdomain of the domain that you specified for the other hosted zone. For example, you can't use the same Amazon VPC for the hosted zones for example.com and test.example.com.</p> </li> </ul>
 newtype ConflictingDomainExists = ConflictingDomainExists 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeConflictingDomainExists :: Newtype ConflictingDomainExists _
 derive instance repGenericConflictingDomainExists :: Generic ConflictingDomainExists _
@@ -443,18 +442,18 @@ instance encodeConflictingDomainExists :: Encode ConflictingDomainExists where e
 
 -- | Constructs ConflictingDomainExists from required parameters
 newConflictingDomainExists :: ConflictingDomainExists
-newConflictingDomainExists  = ConflictingDomainExists { "message": (NullOrUndefined Nothing) }
+newConflictingDomainExists  = ConflictingDomainExists { "message": Nothing }
 
 -- | Constructs ConflictingDomainExists's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newConflictingDomainExists' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> ConflictingDomainExists
-newConflictingDomainExists'  customize = (ConflictingDomainExists <<< customize) { "message": (NullOrUndefined Nothing) }
+newConflictingDomainExists' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> ConflictingDomainExists
+newConflictingDomainExists'  customize = (ConflictingDomainExists <<< customize) { "message": Nothing }
 
 
 
 -- | <p>You tried to update a traffic policy instance by using a traffic policy version that has a different DNS type than the current type for the instance. You specified the type in the JSON document in the <code>CreateTrafficPolicy</code> or <code>CreateTrafficPolicyVersion</code>request. </p>
 newtype ConflictingTypes = ConflictingTypes 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeConflictingTypes :: Newtype ConflictingTypes _
 derive instance repGenericConflictingTypes :: Generic ConflictingTypes _
@@ -464,12 +463,12 @@ instance encodeConflictingTypes :: Encode ConflictingTypes where encode = generi
 
 -- | Constructs ConflictingTypes from required parameters
 newConflictingTypes :: ConflictingTypes
-newConflictingTypes  = ConflictingTypes { "message": (NullOrUndefined Nothing) }
+newConflictingTypes  = ConflictingTypes { "message": Nothing }
 
 -- | Constructs ConflictingTypes's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newConflictingTypes' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> ConflictingTypes
-newConflictingTypes'  customize = (ConflictingTypes <<< customize) { "message": (NullOrUndefined Nothing) }
+newConflictingTypes' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> ConflictingTypes
+newConflictingTypes'  customize = (ConflictingTypes <<< customize) { "message": Nothing }
 
 
 
@@ -520,10 +519,10 @@ newCreateHealthCheckResponse' _HealthCheck _Location customize = (CreateHealthCh
 -- | <p>A complex type that contains information about the request to create a hosted zone.</p>
 newtype CreateHostedZoneRequest = CreateHostedZoneRequest 
   { "Name" :: (DNSName)
-  , "VPC" :: NullOrUndefined (VPC)
+  , "VPC" :: Maybe (VPC)
   , "CallerReference" :: (Nonce)
-  , "HostedZoneConfig" :: NullOrUndefined (HostedZoneConfig)
-  , "DelegationSetId" :: NullOrUndefined (ResourceId)
+  , "HostedZoneConfig" :: Maybe (HostedZoneConfig)
+  , "DelegationSetId" :: Maybe (ResourceId)
   }
 derive instance newtypeCreateHostedZoneRequest :: Newtype CreateHostedZoneRequest _
 derive instance repGenericCreateHostedZoneRequest :: Generic CreateHostedZoneRequest _
@@ -533,12 +532,12 @@ instance encodeCreateHostedZoneRequest :: Encode CreateHostedZoneRequest where e
 
 -- | Constructs CreateHostedZoneRequest from required parameters
 newCreateHostedZoneRequest :: Nonce -> DNSName -> CreateHostedZoneRequest
-newCreateHostedZoneRequest _CallerReference _Name = CreateHostedZoneRequest { "CallerReference": _CallerReference, "Name": _Name, "DelegationSetId": (NullOrUndefined Nothing), "HostedZoneConfig": (NullOrUndefined Nothing), "VPC": (NullOrUndefined Nothing) }
+newCreateHostedZoneRequest _CallerReference _Name = CreateHostedZoneRequest { "CallerReference": _CallerReference, "Name": _Name, "DelegationSetId": Nothing, "HostedZoneConfig": Nothing, "VPC": Nothing }
 
 -- | Constructs CreateHostedZoneRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateHostedZoneRequest' :: Nonce -> DNSName -> ( { "Name" :: (DNSName) , "VPC" :: NullOrUndefined (VPC) , "CallerReference" :: (Nonce) , "HostedZoneConfig" :: NullOrUndefined (HostedZoneConfig) , "DelegationSetId" :: NullOrUndefined (ResourceId) } -> {"Name" :: (DNSName) , "VPC" :: NullOrUndefined (VPC) , "CallerReference" :: (Nonce) , "HostedZoneConfig" :: NullOrUndefined (HostedZoneConfig) , "DelegationSetId" :: NullOrUndefined (ResourceId) } ) -> CreateHostedZoneRequest
-newCreateHostedZoneRequest' _CallerReference _Name customize = (CreateHostedZoneRequest <<< customize) { "CallerReference": _CallerReference, "Name": _Name, "DelegationSetId": (NullOrUndefined Nothing), "HostedZoneConfig": (NullOrUndefined Nothing), "VPC": (NullOrUndefined Nothing) }
+newCreateHostedZoneRequest' :: Nonce -> DNSName -> ( { "Name" :: (DNSName) , "VPC" :: Maybe (VPC) , "CallerReference" :: (Nonce) , "HostedZoneConfig" :: Maybe (HostedZoneConfig) , "DelegationSetId" :: Maybe (ResourceId) } -> {"Name" :: (DNSName) , "VPC" :: Maybe (VPC) , "CallerReference" :: (Nonce) , "HostedZoneConfig" :: Maybe (HostedZoneConfig) , "DelegationSetId" :: Maybe (ResourceId) } ) -> CreateHostedZoneRequest
+newCreateHostedZoneRequest' _CallerReference _Name customize = (CreateHostedZoneRequest <<< customize) { "CallerReference": _CallerReference, "Name": _Name, "DelegationSetId": Nothing, "HostedZoneConfig": Nothing, "VPC": Nothing }
 
 
 
@@ -547,7 +546,7 @@ newtype CreateHostedZoneResponse = CreateHostedZoneResponse
   { "HostedZone" :: (HostedZone)
   , "ChangeInfo" :: (ChangeInfo)
   , "DelegationSet" :: (DelegationSet)
-  , "VPC" :: NullOrUndefined (VPC)
+  , "VPC" :: Maybe (VPC)
   , "Location" :: (ResourceURI)
   }
 derive instance newtypeCreateHostedZoneResponse :: Newtype CreateHostedZoneResponse _
@@ -558,12 +557,12 @@ instance encodeCreateHostedZoneResponse :: Encode CreateHostedZoneResponse where
 
 -- | Constructs CreateHostedZoneResponse from required parameters
 newCreateHostedZoneResponse :: ChangeInfo -> DelegationSet -> HostedZone -> ResourceURI -> CreateHostedZoneResponse
-newCreateHostedZoneResponse _ChangeInfo _DelegationSet _HostedZone _Location = CreateHostedZoneResponse { "ChangeInfo": _ChangeInfo, "DelegationSet": _DelegationSet, "HostedZone": _HostedZone, "Location": _Location, "VPC": (NullOrUndefined Nothing) }
+newCreateHostedZoneResponse _ChangeInfo _DelegationSet _HostedZone _Location = CreateHostedZoneResponse { "ChangeInfo": _ChangeInfo, "DelegationSet": _DelegationSet, "HostedZone": _HostedZone, "Location": _Location, "VPC": Nothing }
 
 -- | Constructs CreateHostedZoneResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateHostedZoneResponse' :: ChangeInfo -> DelegationSet -> HostedZone -> ResourceURI -> ( { "HostedZone" :: (HostedZone) , "ChangeInfo" :: (ChangeInfo) , "DelegationSet" :: (DelegationSet) , "VPC" :: NullOrUndefined (VPC) , "Location" :: (ResourceURI) } -> {"HostedZone" :: (HostedZone) , "ChangeInfo" :: (ChangeInfo) , "DelegationSet" :: (DelegationSet) , "VPC" :: NullOrUndefined (VPC) , "Location" :: (ResourceURI) } ) -> CreateHostedZoneResponse
-newCreateHostedZoneResponse' _ChangeInfo _DelegationSet _HostedZone _Location customize = (CreateHostedZoneResponse <<< customize) { "ChangeInfo": _ChangeInfo, "DelegationSet": _DelegationSet, "HostedZone": _HostedZone, "Location": _Location, "VPC": (NullOrUndefined Nothing) }
+newCreateHostedZoneResponse' :: ChangeInfo -> DelegationSet -> HostedZone -> ResourceURI -> ( { "HostedZone" :: (HostedZone) , "ChangeInfo" :: (ChangeInfo) , "DelegationSet" :: (DelegationSet) , "VPC" :: Maybe (VPC) , "Location" :: (ResourceURI) } -> {"HostedZone" :: (HostedZone) , "ChangeInfo" :: (ChangeInfo) , "DelegationSet" :: (DelegationSet) , "VPC" :: Maybe (VPC) , "Location" :: (ResourceURI) } ) -> CreateHostedZoneResponse
+newCreateHostedZoneResponse' _ChangeInfo _DelegationSet _HostedZone _Location customize = (CreateHostedZoneResponse <<< customize) { "ChangeInfo": _ChangeInfo, "DelegationSet": _DelegationSet, "HostedZone": _HostedZone, "Location": _Location, "VPC": Nothing }
 
 
 
@@ -611,7 +610,7 @@ newCreateQueryLoggingConfigResponse' _Location _QueryLoggingConfig customize = (
 
 newtype CreateReusableDelegationSetRequest = CreateReusableDelegationSetRequest 
   { "CallerReference" :: (Nonce)
-  , "HostedZoneId" :: NullOrUndefined (ResourceId)
+  , "HostedZoneId" :: Maybe (ResourceId)
   }
 derive instance newtypeCreateReusableDelegationSetRequest :: Newtype CreateReusableDelegationSetRequest _
 derive instance repGenericCreateReusableDelegationSetRequest :: Generic CreateReusableDelegationSetRequest _
@@ -621,12 +620,12 @@ instance encodeCreateReusableDelegationSetRequest :: Encode CreateReusableDelega
 
 -- | Constructs CreateReusableDelegationSetRequest from required parameters
 newCreateReusableDelegationSetRequest :: Nonce -> CreateReusableDelegationSetRequest
-newCreateReusableDelegationSetRequest _CallerReference = CreateReusableDelegationSetRequest { "CallerReference": _CallerReference, "HostedZoneId": (NullOrUndefined Nothing) }
+newCreateReusableDelegationSetRequest _CallerReference = CreateReusableDelegationSetRequest { "CallerReference": _CallerReference, "HostedZoneId": Nothing }
 
 -- | Constructs CreateReusableDelegationSetRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateReusableDelegationSetRequest' :: Nonce -> ( { "CallerReference" :: (Nonce) , "HostedZoneId" :: NullOrUndefined (ResourceId) } -> {"CallerReference" :: (Nonce) , "HostedZoneId" :: NullOrUndefined (ResourceId) } ) -> CreateReusableDelegationSetRequest
-newCreateReusableDelegationSetRequest' _CallerReference customize = (CreateReusableDelegationSetRequest <<< customize) { "CallerReference": _CallerReference, "HostedZoneId": (NullOrUndefined Nothing) }
+newCreateReusableDelegationSetRequest' :: Nonce -> ( { "CallerReference" :: (Nonce) , "HostedZoneId" :: Maybe (ResourceId) } -> {"CallerReference" :: (Nonce) , "HostedZoneId" :: Maybe (ResourceId) } ) -> CreateReusableDelegationSetRequest
+newCreateReusableDelegationSetRequest' _CallerReference customize = (CreateReusableDelegationSetRequest <<< customize) { "CallerReference": _CallerReference, "HostedZoneId": Nothing }
 
 
 
@@ -702,7 +701,7 @@ newCreateTrafficPolicyInstanceResponse' _Location _TrafficPolicyInstance customi
 newtype CreateTrafficPolicyRequest = CreateTrafficPolicyRequest 
   { "Name" :: (TrafficPolicyName)
   , "Document" :: (TrafficPolicyDocument)
-  , "Comment" :: NullOrUndefined (TrafficPolicyComment)
+  , "Comment" :: Maybe (TrafficPolicyComment)
   }
 derive instance newtypeCreateTrafficPolicyRequest :: Newtype CreateTrafficPolicyRequest _
 derive instance repGenericCreateTrafficPolicyRequest :: Generic CreateTrafficPolicyRequest _
@@ -712,12 +711,12 @@ instance encodeCreateTrafficPolicyRequest :: Encode CreateTrafficPolicyRequest w
 
 -- | Constructs CreateTrafficPolicyRequest from required parameters
 newCreateTrafficPolicyRequest :: TrafficPolicyDocument -> TrafficPolicyName -> CreateTrafficPolicyRequest
-newCreateTrafficPolicyRequest _Document _Name = CreateTrafficPolicyRequest { "Document": _Document, "Name": _Name, "Comment": (NullOrUndefined Nothing) }
+newCreateTrafficPolicyRequest _Document _Name = CreateTrafficPolicyRequest { "Document": _Document, "Name": _Name, "Comment": Nothing }
 
 -- | Constructs CreateTrafficPolicyRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateTrafficPolicyRequest' :: TrafficPolicyDocument -> TrafficPolicyName -> ( { "Name" :: (TrafficPolicyName) , "Document" :: (TrafficPolicyDocument) , "Comment" :: NullOrUndefined (TrafficPolicyComment) } -> {"Name" :: (TrafficPolicyName) , "Document" :: (TrafficPolicyDocument) , "Comment" :: NullOrUndefined (TrafficPolicyComment) } ) -> CreateTrafficPolicyRequest
-newCreateTrafficPolicyRequest' _Document _Name customize = (CreateTrafficPolicyRequest <<< customize) { "Document": _Document, "Name": _Name, "Comment": (NullOrUndefined Nothing) }
+newCreateTrafficPolicyRequest' :: TrafficPolicyDocument -> TrafficPolicyName -> ( { "Name" :: (TrafficPolicyName) , "Document" :: (TrafficPolicyDocument) , "Comment" :: Maybe (TrafficPolicyComment) } -> {"Name" :: (TrafficPolicyName) , "Document" :: (TrafficPolicyDocument) , "Comment" :: Maybe (TrafficPolicyComment) } ) -> CreateTrafficPolicyRequest
+newCreateTrafficPolicyRequest' _Document _Name customize = (CreateTrafficPolicyRequest <<< customize) { "Document": _Document, "Name": _Name, "Comment": Nothing }
 
 
 
@@ -747,7 +746,7 @@ newCreateTrafficPolicyResponse' _Location _TrafficPolicy customize = (CreateTraf
 newtype CreateTrafficPolicyVersionRequest = CreateTrafficPolicyVersionRequest 
   { "Id" :: (TrafficPolicyId)
   , "Document" :: (TrafficPolicyDocument)
-  , "Comment" :: NullOrUndefined (TrafficPolicyComment)
+  , "Comment" :: Maybe (TrafficPolicyComment)
   }
 derive instance newtypeCreateTrafficPolicyVersionRequest :: Newtype CreateTrafficPolicyVersionRequest _
 derive instance repGenericCreateTrafficPolicyVersionRequest :: Generic CreateTrafficPolicyVersionRequest _
@@ -757,12 +756,12 @@ instance encodeCreateTrafficPolicyVersionRequest :: Encode CreateTrafficPolicyVe
 
 -- | Constructs CreateTrafficPolicyVersionRequest from required parameters
 newCreateTrafficPolicyVersionRequest :: TrafficPolicyDocument -> TrafficPolicyId -> CreateTrafficPolicyVersionRequest
-newCreateTrafficPolicyVersionRequest _Document _Id = CreateTrafficPolicyVersionRequest { "Document": _Document, "Id": _Id, "Comment": (NullOrUndefined Nothing) }
+newCreateTrafficPolicyVersionRequest _Document _Id = CreateTrafficPolicyVersionRequest { "Document": _Document, "Id": _Id, "Comment": Nothing }
 
 -- | Constructs CreateTrafficPolicyVersionRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateTrafficPolicyVersionRequest' :: TrafficPolicyDocument -> TrafficPolicyId -> ( { "Id" :: (TrafficPolicyId) , "Document" :: (TrafficPolicyDocument) , "Comment" :: NullOrUndefined (TrafficPolicyComment) } -> {"Id" :: (TrafficPolicyId) , "Document" :: (TrafficPolicyDocument) , "Comment" :: NullOrUndefined (TrafficPolicyComment) } ) -> CreateTrafficPolicyVersionRequest
-newCreateTrafficPolicyVersionRequest' _Document _Id customize = (CreateTrafficPolicyVersionRequest <<< customize) { "Document": _Document, "Id": _Id, "Comment": (NullOrUndefined Nothing) }
+newCreateTrafficPolicyVersionRequest' :: TrafficPolicyDocument -> TrafficPolicyId -> ( { "Id" :: (TrafficPolicyId) , "Document" :: (TrafficPolicyDocument) , "Comment" :: Maybe (TrafficPolicyComment) } -> {"Id" :: (TrafficPolicyId) , "Document" :: (TrafficPolicyDocument) , "Comment" :: Maybe (TrafficPolicyComment) } ) -> CreateTrafficPolicyVersionRequest
+newCreateTrafficPolicyVersionRequest' _Document _Id customize = (CreateTrafficPolicyVersionRequest <<< customize) { "Document": _Document, "Id": _Id, "Comment": Nothing }
 
 
 
@@ -852,8 +851,8 @@ instance encodeDNSRCode :: Encode DNSRCode where encode = genericEncode options
 
 -- | <p>A complex type that lists the name servers in a delegation set, as well as the <code>CallerReference</code> and the <code>ID</code> for the delegation set.</p>
 newtype DelegationSet = DelegationSet 
-  { "Id" :: NullOrUndefined (ResourceId)
-  , "CallerReference" :: NullOrUndefined (Nonce)
+  { "Id" :: Maybe (ResourceId)
+  , "CallerReference" :: Maybe (Nonce)
   , "NameServers" :: (DelegationSetNameServers)
   }
 derive instance newtypeDelegationSet :: Newtype DelegationSet _
@@ -864,18 +863,18 @@ instance encodeDelegationSet :: Encode DelegationSet where encode = genericEncod
 
 -- | Constructs DelegationSet from required parameters
 newDelegationSet :: DelegationSetNameServers -> DelegationSet
-newDelegationSet _NameServers = DelegationSet { "NameServers": _NameServers, "CallerReference": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing) }
+newDelegationSet _NameServers = DelegationSet { "NameServers": _NameServers, "CallerReference": Nothing, "Id": Nothing }
 
 -- | Constructs DelegationSet's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDelegationSet' :: DelegationSetNameServers -> ( { "Id" :: NullOrUndefined (ResourceId) , "CallerReference" :: NullOrUndefined (Nonce) , "NameServers" :: (DelegationSetNameServers) } -> {"Id" :: NullOrUndefined (ResourceId) , "CallerReference" :: NullOrUndefined (Nonce) , "NameServers" :: (DelegationSetNameServers) } ) -> DelegationSet
-newDelegationSet' _NameServers customize = (DelegationSet <<< customize) { "NameServers": _NameServers, "CallerReference": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing) }
+newDelegationSet' :: DelegationSetNameServers -> ( { "Id" :: Maybe (ResourceId) , "CallerReference" :: Maybe (Nonce) , "NameServers" :: (DelegationSetNameServers) } -> {"Id" :: Maybe (ResourceId) , "CallerReference" :: Maybe (Nonce) , "NameServers" :: (DelegationSetNameServers) } ) -> DelegationSet
+newDelegationSet' _NameServers customize = (DelegationSet <<< customize) { "NameServers": _NameServers, "CallerReference": Nothing, "Id": Nothing }
 
 
 
 -- | <p>A delegation set with the same owner and caller reference combination has already been created.</p>
 newtype DelegationSetAlreadyCreated = DelegationSetAlreadyCreated 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeDelegationSetAlreadyCreated :: Newtype DelegationSetAlreadyCreated _
 derive instance repGenericDelegationSetAlreadyCreated :: Generic DelegationSetAlreadyCreated _
@@ -885,18 +884,18 @@ instance encodeDelegationSetAlreadyCreated :: Encode DelegationSetAlreadyCreated
 
 -- | Constructs DelegationSetAlreadyCreated from required parameters
 newDelegationSetAlreadyCreated :: DelegationSetAlreadyCreated
-newDelegationSetAlreadyCreated  = DelegationSetAlreadyCreated { "message": (NullOrUndefined Nothing) }
+newDelegationSetAlreadyCreated  = DelegationSetAlreadyCreated { "message": Nothing }
 
 -- | Constructs DelegationSetAlreadyCreated's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDelegationSetAlreadyCreated' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> DelegationSetAlreadyCreated
-newDelegationSetAlreadyCreated'  customize = (DelegationSetAlreadyCreated <<< customize) { "message": (NullOrUndefined Nothing) }
+newDelegationSetAlreadyCreated' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> DelegationSetAlreadyCreated
+newDelegationSetAlreadyCreated'  customize = (DelegationSetAlreadyCreated <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The specified delegation set has already been marked as reusable.</p>
 newtype DelegationSetAlreadyReusable = DelegationSetAlreadyReusable 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeDelegationSetAlreadyReusable :: Newtype DelegationSetAlreadyReusable _
 derive instance repGenericDelegationSetAlreadyReusable :: Generic DelegationSetAlreadyReusable _
@@ -906,18 +905,18 @@ instance encodeDelegationSetAlreadyReusable :: Encode DelegationSetAlreadyReusab
 
 -- | Constructs DelegationSetAlreadyReusable from required parameters
 newDelegationSetAlreadyReusable :: DelegationSetAlreadyReusable
-newDelegationSetAlreadyReusable  = DelegationSetAlreadyReusable { "message": (NullOrUndefined Nothing) }
+newDelegationSetAlreadyReusable  = DelegationSetAlreadyReusable { "message": Nothing }
 
 -- | Constructs DelegationSetAlreadyReusable's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDelegationSetAlreadyReusable' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> DelegationSetAlreadyReusable
-newDelegationSetAlreadyReusable'  customize = (DelegationSetAlreadyReusable <<< customize) { "message": (NullOrUndefined Nothing) }
+newDelegationSetAlreadyReusable' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> DelegationSetAlreadyReusable
+newDelegationSetAlreadyReusable'  customize = (DelegationSetAlreadyReusable <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The specified delegation contains associated hosted zones which must be deleted before the reusable delegation set can be deleted.</p>
 newtype DelegationSetInUse = DelegationSetInUse 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeDelegationSetInUse :: Newtype DelegationSetInUse _
 derive instance repGenericDelegationSetInUse :: Generic DelegationSetInUse _
@@ -927,12 +926,12 @@ instance encodeDelegationSetInUse :: Encode DelegationSetInUse where encode = ge
 
 -- | Constructs DelegationSetInUse from required parameters
 newDelegationSetInUse :: DelegationSetInUse
-newDelegationSetInUse  = DelegationSetInUse { "message": (NullOrUndefined Nothing) }
+newDelegationSetInUse  = DelegationSetInUse { "message": Nothing }
 
 -- | Constructs DelegationSetInUse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDelegationSetInUse' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> DelegationSetInUse
-newDelegationSetInUse'  customize = (DelegationSetInUse <<< customize) { "message": (NullOrUndefined Nothing) }
+newDelegationSetInUse' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> DelegationSetInUse
+newDelegationSetInUse'  customize = (DelegationSetInUse <<< customize) { "message": Nothing }
 
 
 
@@ -947,7 +946,7 @@ instance encodeDelegationSetNameServers :: Encode DelegationSetNameServers where
 
 -- | <p>You can create a hosted zone that has the same name as an existing hosted zone (example.com is common), but there is a limit to the number of hosted zones that have the same name. If you get this error, Amazon Route 53 has reached that limit. If you own the domain name and Amazon Route 53 generates this error, contact Customer Support.</p>
 newtype DelegationSetNotAvailable = DelegationSetNotAvailable 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeDelegationSetNotAvailable :: Newtype DelegationSetNotAvailable _
 derive instance repGenericDelegationSetNotAvailable :: Generic DelegationSetNotAvailable _
@@ -957,18 +956,18 @@ instance encodeDelegationSetNotAvailable :: Encode DelegationSetNotAvailable whe
 
 -- | Constructs DelegationSetNotAvailable from required parameters
 newDelegationSetNotAvailable :: DelegationSetNotAvailable
-newDelegationSetNotAvailable  = DelegationSetNotAvailable { "message": (NullOrUndefined Nothing) }
+newDelegationSetNotAvailable  = DelegationSetNotAvailable { "message": Nothing }
 
 -- | Constructs DelegationSetNotAvailable's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDelegationSetNotAvailable' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> DelegationSetNotAvailable
-newDelegationSetNotAvailable'  customize = (DelegationSetNotAvailable <<< customize) { "message": (NullOrUndefined Nothing) }
+newDelegationSetNotAvailable' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> DelegationSetNotAvailable
+newDelegationSetNotAvailable'  customize = (DelegationSetNotAvailable <<< customize) { "message": Nothing }
 
 
 
 -- | <p>A reusable delegation set with the specified ID does not exist.</p>
 newtype DelegationSetNotReusable = DelegationSetNotReusable 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeDelegationSetNotReusable :: Newtype DelegationSetNotReusable _
 derive instance repGenericDelegationSetNotReusable :: Generic DelegationSetNotReusable _
@@ -978,12 +977,12 @@ instance encodeDelegationSetNotReusable :: Encode DelegationSetNotReusable where
 
 -- | Constructs DelegationSetNotReusable from required parameters
 newDelegationSetNotReusable :: DelegationSetNotReusable
-newDelegationSetNotReusable  = DelegationSetNotReusable { "message": (NullOrUndefined Nothing) }
+newDelegationSetNotReusable  = DelegationSetNotReusable { "message": Nothing }
 
 -- | Constructs DelegationSetNotReusable's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDelegationSetNotReusable' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> DelegationSetNotReusable
-newDelegationSetNotReusable'  customize = (DelegationSetNotReusable <<< customize) { "message": (NullOrUndefined Nothing) }
+newDelegationSetNotReusable' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> DelegationSetNotReusable
+newDelegationSetNotReusable'  customize = (DelegationSetNotReusable <<< customize) { "message": Nothing }
 
 
 
@@ -1277,7 +1276,7 @@ instance encodeDisassociateVPCComment :: Encode DisassociateVPCComment where enc
 newtype DisassociateVPCFromHostedZoneRequest = DisassociateVPCFromHostedZoneRequest 
   { "HostedZoneId" :: (ResourceId)
   , "VPC" :: (VPC)
-  , "Comment" :: NullOrUndefined (DisassociateVPCComment)
+  , "Comment" :: Maybe (DisassociateVPCComment)
   }
 derive instance newtypeDisassociateVPCFromHostedZoneRequest :: Newtype DisassociateVPCFromHostedZoneRequest _
 derive instance repGenericDisassociateVPCFromHostedZoneRequest :: Generic DisassociateVPCFromHostedZoneRequest _
@@ -1287,12 +1286,12 @@ instance encodeDisassociateVPCFromHostedZoneRequest :: Encode DisassociateVPCFro
 
 -- | Constructs DisassociateVPCFromHostedZoneRequest from required parameters
 newDisassociateVPCFromHostedZoneRequest :: ResourceId -> VPC -> DisassociateVPCFromHostedZoneRequest
-newDisassociateVPCFromHostedZoneRequest _HostedZoneId _VPC = DisassociateVPCFromHostedZoneRequest { "HostedZoneId": _HostedZoneId, "VPC": _VPC, "Comment": (NullOrUndefined Nothing) }
+newDisassociateVPCFromHostedZoneRequest _HostedZoneId _VPC = DisassociateVPCFromHostedZoneRequest { "HostedZoneId": _HostedZoneId, "VPC": _VPC, "Comment": Nothing }
 
 -- | Constructs DisassociateVPCFromHostedZoneRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDisassociateVPCFromHostedZoneRequest' :: ResourceId -> VPC -> ( { "HostedZoneId" :: (ResourceId) , "VPC" :: (VPC) , "Comment" :: NullOrUndefined (DisassociateVPCComment) } -> {"HostedZoneId" :: (ResourceId) , "VPC" :: (VPC) , "Comment" :: NullOrUndefined (DisassociateVPCComment) } ) -> DisassociateVPCFromHostedZoneRequest
-newDisassociateVPCFromHostedZoneRequest' _HostedZoneId _VPC customize = (DisassociateVPCFromHostedZoneRequest <<< customize) { "HostedZoneId": _HostedZoneId, "VPC": _VPC, "Comment": (NullOrUndefined Nothing) }
+newDisassociateVPCFromHostedZoneRequest' :: ResourceId -> VPC -> ( { "HostedZoneId" :: (ResourceId) , "VPC" :: (VPC) , "Comment" :: Maybe (DisassociateVPCComment) } -> {"HostedZoneId" :: (ResourceId) , "VPC" :: (VPC) , "Comment" :: Maybe (DisassociateVPCComment) } ) -> DisassociateVPCFromHostedZoneRequest
+newDisassociateVPCFromHostedZoneRequest' _HostedZoneId _VPC customize = (DisassociateVPCFromHostedZoneRequest <<< customize) { "HostedZoneId": _HostedZoneId, "VPC": _VPC, "Comment": Nothing }
 
 
 
@@ -1373,9 +1372,9 @@ instance encodeFullyQualifiedDomainName :: Encode FullyQualifiedDomainName where
 
 -- | <p>A complex type that contains information about a geo location.</p>
 newtype GeoLocation = GeoLocation 
-  { "ContinentCode" :: NullOrUndefined (GeoLocationContinentCode)
-  , "CountryCode" :: NullOrUndefined (GeoLocationCountryCode)
-  , "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode)
+  { "ContinentCode" :: Maybe (GeoLocationContinentCode)
+  , "CountryCode" :: Maybe (GeoLocationCountryCode)
+  , "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode)
   }
 derive instance newtypeGeoLocation :: Newtype GeoLocation _
 derive instance repGenericGeoLocation :: Generic GeoLocation _
@@ -1385,12 +1384,12 @@ instance encodeGeoLocation :: Encode GeoLocation where encode = genericEncode op
 
 -- | Constructs GeoLocation from required parameters
 newGeoLocation :: GeoLocation
-newGeoLocation  = GeoLocation { "ContinentCode": (NullOrUndefined Nothing), "CountryCode": (NullOrUndefined Nothing), "SubdivisionCode": (NullOrUndefined Nothing) }
+newGeoLocation  = GeoLocation { "ContinentCode": Nothing, "CountryCode": Nothing, "SubdivisionCode": Nothing }
 
 -- | Constructs GeoLocation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGeoLocation' :: ( { "ContinentCode" :: NullOrUndefined (GeoLocationContinentCode) , "CountryCode" :: NullOrUndefined (GeoLocationCountryCode) , "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode) } -> {"ContinentCode" :: NullOrUndefined (GeoLocationContinentCode) , "CountryCode" :: NullOrUndefined (GeoLocationCountryCode) , "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode) } ) -> GeoLocation
-newGeoLocation'  customize = (GeoLocation <<< customize) { "ContinentCode": (NullOrUndefined Nothing), "CountryCode": (NullOrUndefined Nothing), "SubdivisionCode": (NullOrUndefined Nothing) }
+newGeoLocation' :: ( { "ContinentCode" :: Maybe (GeoLocationContinentCode) , "CountryCode" :: Maybe (GeoLocationCountryCode) , "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode) } -> {"ContinentCode" :: Maybe (GeoLocationContinentCode) , "CountryCode" :: Maybe (GeoLocationCountryCode) , "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode) } ) -> GeoLocation
+newGeoLocation'  customize = (GeoLocation <<< customize) { "ContinentCode": Nothing, "CountryCode": Nothing, "SubdivisionCode": Nothing }
 
 
 
@@ -1432,12 +1431,12 @@ instance encodeGeoLocationCountryName :: Encode GeoLocationCountryName where enc
 
 -- | <p>A complex type that contains the codes and full continent, country, and subdivision names for the specified <code>geolocation</code> code.</p>
 newtype GeoLocationDetails = GeoLocationDetails 
-  { "ContinentCode" :: NullOrUndefined (GeoLocationContinentCode)
-  , "ContinentName" :: NullOrUndefined (GeoLocationContinentName)
-  , "CountryCode" :: NullOrUndefined (GeoLocationCountryCode)
-  , "CountryName" :: NullOrUndefined (GeoLocationCountryName)
-  , "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode)
-  , "SubdivisionName" :: NullOrUndefined (GeoLocationSubdivisionName)
+  { "ContinentCode" :: Maybe (GeoLocationContinentCode)
+  , "ContinentName" :: Maybe (GeoLocationContinentName)
+  , "CountryCode" :: Maybe (GeoLocationCountryCode)
+  , "CountryName" :: Maybe (GeoLocationCountryName)
+  , "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode)
+  , "SubdivisionName" :: Maybe (GeoLocationSubdivisionName)
   }
 derive instance newtypeGeoLocationDetails :: Newtype GeoLocationDetails _
 derive instance repGenericGeoLocationDetails :: Generic GeoLocationDetails _
@@ -1447,12 +1446,12 @@ instance encodeGeoLocationDetails :: Encode GeoLocationDetails where encode = ge
 
 -- | Constructs GeoLocationDetails from required parameters
 newGeoLocationDetails :: GeoLocationDetails
-newGeoLocationDetails  = GeoLocationDetails { "ContinentCode": (NullOrUndefined Nothing), "ContinentName": (NullOrUndefined Nothing), "CountryCode": (NullOrUndefined Nothing), "CountryName": (NullOrUndefined Nothing), "SubdivisionCode": (NullOrUndefined Nothing), "SubdivisionName": (NullOrUndefined Nothing) }
+newGeoLocationDetails  = GeoLocationDetails { "ContinentCode": Nothing, "ContinentName": Nothing, "CountryCode": Nothing, "CountryName": Nothing, "SubdivisionCode": Nothing, "SubdivisionName": Nothing }
 
 -- | Constructs GeoLocationDetails's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGeoLocationDetails' :: ( { "ContinentCode" :: NullOrUndefined (GeoLocationContinentCode) , "ContinentName" :: NullOrUndefined (GeoLocationContinentName) , "CountryCode" :: NullOrUndefined (GeoLocationCountryCode) , "CountryName" :: NullOrUndefined (GeoLocationCountryName) , "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode) , "SubdivisionName" :: NullOrUndefined (GeoLocationSubdivisionName) } -> {"ContinentCode" :: NullOrUndefined (GeoLocationContinentCode) , "ContinentName" :: NullOrUndefined (GeoLocationContinentName) , "CountryCode" :: NullOrUndefined (GeoLocationCountryCode) , "CountryName" :: NullOrUndefined (GeoLocationCountryName) , "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode) , "SubdivisionName" :: NullOrUndefined (GeoLocationSubdivisionName) } ) -> GeoLocationDetails
-newGeoLocationDetails'  customize = (GeoLocationDetails <<< customize) { "ContinentCode": (NullOrUndefined Nothing), "ContinentName": (NullOrUndefined Nothing), "CountryCode": (NullOrUndefined Nothing), "CountryName": (NullOrUndefined Nothing), "SubdivisionCode": (NullOrUndefined Nothing), "SubdivisionName": (NullOrUndefined Nothing) }
+newGeoLocationDetails' :: ( { "ContinentCode" :: Maybe (GeoLocationContinentCode) , "ContinentName" :: Maybe (GeoLocationContinentName) , "CountryCode" :: Maybe (GeoLocationCountryCode) , "CountryName" :: Maybe (GeoLocationCountryName) , "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode) , "SubdivisionName" :: Maybe (GeoLocationSubdivisionName) } -> {"ContinentCode" :: Maybe (GeoLocationContinentCode) , "ContinentName" :: Maybe (GeoLocationContinentName) , "CountryCode" :: Maybe (GeoLocationCountryCode) , "CountryName" :: Maybe (GeoLocationCountryName) , "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode) , "SubdivisionName" :: Maybe (GeoLocationSubdivisionName) } ) -> GeoLocationDetails
+newGeoLocationDetails'  customize = (GeoLocationDetails <<< customize) { "ContinentCode": Nothing, "ContinentName": Nothing, "CountryCode": Nothing, "CountryName": Nothing, "SubdivisionCode": Nothing, "SubdivisionName": Nothing }
 
 
 
@@ -1599,9 +1598,9 @@ newGetCheckerIpRangesResponse' _CheckerIpRanges customize = (GetCheckerIpRangesR
 
 -- | <p>A request for information about whether a specified geographic location is supported for Amazon Route 53 geolocation resource record sets.</p>
 newtype GetGeoLocationRequest = GetGeoLocationRequest 
-  { "ContinentCode" :: NullOrUndefined (GeoLocationContinentCode)
-  , "CountryCode" :: NullOrUndefined (GeoLocationCountryCode)
-  , "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode)
+  { "ContinentCode" :: Maybe (GeoLocationContinentCode)
+  , "CountryCode" :: Maybe (GeoLocationCountryCode)
+  , "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode)
   }
 derive instance newtypeGetGeoLocationRequest :: Newtype GetGeoLocationRequest _
 derive instance repGenericGetGeoLocationRequest :: Generic GetGeoLocationRequest _
@@ -1611,12 +1610,12 @@ instance encodeGetGeoLocationRequest :: Encode GetGeoLocationRequest where encod
 
 -- | Constructs GetGeoLocationRequest from required parameters
 newGetGeoLocationRequest :: GetGeoLocationRequest
-newGetGeoLocationRequest  = GetGeoLocationRequest { "ContinentCode": (NullOrUndefined Nothing), "CountryCode": (NullOrUndefined Nothing), "SubdivisionCode": (NullOrUndefined Nothing) }
+newGetGeoLocationRequest  = GetGeoLocationRequest { "ContinentCode": Nothing, "CountryCode": Nothing, "SubdivisionCode": Nothing }
 
 -- | Constructs GetGeoLocationRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetGeoLocationRequest' :: ( { "ContinentCode" :: NullOrUndefined (GeoLocationContinentCode) , "CountryCode" :: NullOrUndefined (GeoLocationCountryCode) , "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode) } -> {"ContinentCode" :: NullOrUndefined (GeoLocationContinentCode) , "CountryCode" :: NullOrUndefined (GeoLocationCountryCode) , "SubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode) } ) -> GetGeoLocationRequest
-newGetGeoLocationRequest'  customize = (GetGeoLocationRequest <<< customize) { "ContinentCode": (NullOrUndefined Nothing), "CountryCode": (NullOrUndefined Nothing), "SubdivisionCode": (NullOrUndefined Nothing) }
+newGetGeoLocationRequest' :: ( { "ContinentCode" :: Maybe (GeoLocationContinentCode) , "CountryCode" :: Maybe (GeoLocationCountryCode) , "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode) } -> {"ContinentCode" :: Maybe (GeoLocationContinentCode) , "CountryCode" :: Maybe (GeoLocationCountryCode) , "SubdivisionCode" :: Maybe (GeoLocationSubdivisionCode) } ) -> GetGeoLocationRequest
+newGetGeoLocationRequest'  customize = (GetGeoLocationRequest <<< customize) { "ContinentCode": Nothing, "CountryCode": Nothing, "SubdivisionCode": Nothing }
 
 
 
@@ -1897,8 +1896,8 @@ newGetHostedZoneRequest' _Id customize = (GetHostedZoneRequest <<< customize) { 
 -- | <p>A complex type that contain the response to a <code>GetHostedZone</code> request.</p>
 newtype GetHostedZoneResponse = GetHostedZoneResponse 
   { "HostedZone" :: (HostedZone)
-  , "DelegationSet" :: NullOrUndefined (DelegationSet)
-  , "VPCs" :: NullOrUndefined (VPCs)
+  , "DelegationSet" :: Maybe (DelegationSet)
+  , "VPCs" :: Maybe (VPCs)
   }
 derive instance newtypeGetHostedZoneResponse :: Newtype GetHostedZoneResponse _
 derive instance repGenericGetHostedZoneResponse :: Generic GetHostedZoneResponse _
@@ -1908,12 +1907,12 @@ instance encodeGetHostedZoneResponse :: Encode GetHostedZoneResponse where encod
 
 -- | Constructs GetHostedZoneResponse from required parameters
 newGetHostedZoneResponse :: HostedZone -> GetHostedZoneResponse
-newGetHostedZoneResponse _HostedZone = GetHostedZoneResponse { "HostedZone": _HostedZone, "DelegationSet": (NullOrUndefined Nothing), "VPCs": (NullOrUndefined Nothing) }
+newGetHostedZoneResponse _HostedZone = GetHostedZoneResponse { "HostedZone": _HostedZone, "DelegationSet": Nothing, "VPCs": Nothing }
 
 -- | Constructs GetHostedZoneResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetHostedZoneResponse' :: HostedZone -> ( { "HostedZone" :: (HostedZone) , "DelegationSet" :: NullOrUndefined (DelegationSet) , "VPCs" :: NullOrUndefined (VPCs) } -> {"HostedZone" :: (HostedZone) , "DelegationSet" :: NullOrUndefined (DelegationSet) , "VPCs" :: NullOrUndefined (VPCs) } ) -> GetHostedZoneResponse
-newGetHostedZoneResponse' _HostedZone customize = (GetHostedZoneResponse <<< customize) { "HostedZone": _HostedZone, "DelegationSet": (NullOrUndefined Nothing), "VPCs": (NullOrUndefined Nothing) }
+newGetHostedZoneResponse' :: HostedZone -> ( { "HostedZone" :: (HostedZone) , "DelegationSet" :: Maybe (DelegationSet) , "VPCs" :: Maybe (VPCs) } -> {"HostedZone" :: (HostedZone) , "DelegationSet" :: Maybe (DelegationSet) , "VPCs" :: Maybe (VPCs) } ) -> GetHostedZoneResponse
+newGetHostedZoneResponse' _HostedZone customize = (GetHostedZoneResponse <<< customize) { "HostedZone": _HostedZone, "DelegationSet": Nothing, "VPCs": Nothing }
 
 
 
@@ -2163,10 +2162,10 @@ newGetTrafficPolicyResponse' _TrafficPolicy customize = (GetTrafficPolicyRespons
 newtype HealthCheck = HealthCheck 
   { "Id" :: (HealthCheckId)
   , "CallerReference" :: (HealthCheckNonce)
-  , "LinkedService" :: NullOrUndefined (LinkedService)
+  , "LinkedService" :: Maybe (LinkedService)
   , "HealthCheckConfig" :: (HealthCheckConfig)
   , "HealthCheckVersion" :: (HealthCheckVersion)
-  , "CloudWatchAlarmConfiguration" :: NullOrUndefined (CloudWatchAlarmConfiguration)
+  , "CloudWatchAlarmConfiguration" :: Maybe (CloudWatchAlarmConfiguration)
   }
 derive instance newtypeHealthCheck :: Newtype HealthCheck _
 derive instance repGenericHealthCheck :: Generic HealthCheck _
@@ -2176,18 +2175,18 @@ instance encodeHealthCheck :: Encode HealthCheck where encode = genericEncode op
 
 -- | Constructs HealthCheck from required parameters
 newHealthCheck :: HealthCheckNonce -> HealthCheckConfig -> HealthCheckVersion -> HealthCheckId -> HealthCheck
-newHealthCheck _CallerReference _HealthCheckConfig _HealthCheckVersion _Id = HealthCheck { "CallerReference": _CallerReference, "HealthCheckConfig": _HealthCheckConfig, "HealthCheckVersion": _HealthCheckVersion, "Id": _Id, "CloudWatchAlarmConfiguration": (NullOrUndefined Nothing), "LinkedService": (NullOrUndefined Nothing) }
+newHealthCheck _CallerReference _HealthCheckConfig _HealthCheckVersion _Id = HealthCheck { "CallerReference": _CallerReference, "HealthCheckConfig": _HealthCheckConfig, "HealthCheckVersion": _HealthCheckVersion, "Id": _Id, "CloudWatchAlarmConfiguration": Nothing, "LinkedService": Nothing }
 
 -- | Constructs HealthCheck's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHealthCheck' :: HealthCheckNonce -> HealthCheckConfig -> HealthCheckVersion -> HealthCheckId -> ( { "Id" :: (HealthCheckId) , "CallerReference" :: (HealthCheckNonce) , "LinkedService" :: NullOrUndefined (LinkedService) , "HealthCheckConfig" :: (HealthCheckConfig) , "HealthCheckVersion" :: (HealthCheckVersion) , "CloudWatchAlarmConfiguration" :: NullOrUndefined (CloudWatchAlarmConfiguration) } -> {"Id" :: (HealthCheckId) , "CallerReference" :: (HealthCheckNonce) , "LinkedService" :: NullOrUndefined (LinkedService) , "HealthCheckConfig" :: (HealthCheckConfig) , "HealthCheckVersion" :: (HealthCheckVersion) , "CloudWatchAlarmConfiguration" :: NullOrUndefined (CloudWatchAlarmConfiguration) } ) -> HealthCheck
-newHealthCheck' _CallerReference _HealthCheckConfig _HealthCheckVersion _Id customize = (HealthCheck <<< customize) { "CallerReference": _CallerReference, "HealthCheckConfig": _HealthCheckConfig, "HealthCheckVersion": _HealthCheckVersion, "Id": _Id, "CloudWatchAlarmConfiguration": (NullOrUndefined Nothing), "LinkedService": (NullOrUndefined Nothing) }
+newHealthCheck' :: HealthCheckNonce -> HealthCheckConfig -> HealthCheckVersion -> HealthCheckId -> ( { "Id" :: (HealthCheckId) , "CallerReference" :: (HealthCheckNonce) , "LinkedService" :: Maybe (LinkedService) , "HealthCheckConfig" :: (HealthCheckConfig) , "HealthCheckVersion" :: (HealthCheckVersion) , "CloudWatchAlarmConfiguration" :: Maybe (CloudWatchAlarmConfiguration) } -> {"Id" :: (HealthCheckId) , "CallerReference" :: (HealthCheckNonce) , "LinkedService" :: Maybe (LinkedService) , "HealthCheckConfig" :: (HealthCheckConfig) , "HealthCheckVersion" :: (HealthCheckVersion) , "CloudWatchAlarmConfiguration" :: Maybe (CloudWatchAlarmConfiguration) } ) -> HealthCheck
+newHealthCheck' _CallerReference _HealthCheckConfig _HealthCheckVersion _Id customize = (HealthCheck <<< customize) { "CallerReference": _CallerReference, "HealthCheckConfig": _HealthCheckConfig, "HealthCheckVersion": _HealthCheckVersion, "Id": _Id, "CloudWatchAlarmConfiguration": Nothing, "LinkedService": Nothing }
 
 
 
 -- | <p> The health check you're attempting to create already exists. Amazon Route 53 returns this error when you submit a request that has the following values:</p> <ul> <li> <p>The same value for <code>CallerReference</code> as an existing health check, and one or more values that differ from the existing health check that has the same caller reference.</p> </li> <li> <p>The same value for <code>CallerReference</code> as a health check that you created and later deleted, regardless of the other settings in the request.</p> </li> </ul>
 newtype HealthCheckAlreadyExists = HealthCheckAlreadyExists 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeHealthCheckAlreadyExists :: Newtype HealthCheckAlreadyExists _
 derive instance repGenericHealthCheckAlreadyExists :: Generic HealthCheckAlreadyExists _
@@ -2197,33 +2196,33 @@ instance encodeHealthCheckAlreadyExists :: Encode HealthCheckAlreadyExists where
 
 -- | Constructs HealthCheckAlreadyExists from required parameters
 newHealthCheckAlreadyExists :: HealthCheckAlreadyExists
-newHealthCheckAlreadyExists  = HealthCheckAlreadyExists { "message": (NullOrUndefined Nothing) }
+newHealthCheckAlreadyExists  = HealthCheckAlreadyExists { "message": Nothing }
 
 -- | Constructs HealthCheckAlreadyExists's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHealthCheckAlreadyExists' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> HealthCheckAlreadyExists
-newHealthCheckAlreadyExists'  customize = (HealthCheckAlreadyExists <<< customize) { "message": (NullOrUndefined Nothing) }
+newHealthCheckAlreadyExists' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> HealthCheckAlreadyExists
+newHealthCheckAlreadyExists'  customize = (HealthCheckAlreadyExists <<< customize) { "message": Nothing }
 
 
 
 -- | <p>A complex type that contains information about the health check.</p>
 newtype HealthCheckConfig = HealthCheckConfig 
-  { "IPAddress" :: NullOrUndefined (IPAddress)
-  , "Port" :: NullOrUndefined (Port)
+  { "IPAddress" :: Maybe (IPAddress)
+  , "Port" :: Maybe (Port)
   , "Type" :: (HealthCheckType)
-  , "ResourcePath" :: NullOrUndefined (ResourcePath)
-  , "FullyQualifiedDomainName" :: NullOrUndefined (FullyQualifiedDomainName)
-  , "SearchString" :: NullOrUndefined (SearchString)
-  , "RequestInterval" :: NullOrUndefined (RequestInterval)
-  , "FailureThreshold" :: NullOrUndefined (FailureThreshold)
-  , "MeasureLatency" :: NullOrUndefined (MeasureLatency)
-  , "Inverted" :: NullOrUndefined (Inverted)
-  , "HealthThreshold" :: NullOrUndefined (HealthThreshold)
-  , "ChildHealthChecks" :: NullOrUndefined (ChildHealthCheckList)
-  , "EnableSNI" :: NullOrUndefined (EnableSNI)
-  , "Regions" :: NullOrUndefined (HealthCheckRegionList)
-  , "AlarmIdentifier" :: NullOrUndefined (AlarmIdentifier)
-  , "InsufficientDataHealthStatus" :: NullOrUndefined (InsufficientDataHealthStatus)
+  , "ResourcePath" :: Maybe (ResourcePath)
+  , "FullyQualifiedDomainName" :: Maybe (FullyQualifiedDomainName)
+  , "SearchString" :: Maybe (SearchString)
+  , "RequestInterval" :: Maybe (RequestInterval)
+  , "FailureThreshold" :: Maybe (FailureThreshold)
+  , "MeasureLatency" :: Maybe (MeasureLatency)
+  , "Inverted" :: Maybe (Inverted)
+  , "HealthThreshold" :: Maybe (HealthThreshold)
+  , "ChildHealthChecks" :: Maybe (ChildHealthCheckList)
+  , "EnableSNI" :: Maybe (EnableSNI)
+  , "Regions" :: Maybe (HealthCheckRegionList)
+  , "AlarmIdentifier" :: Maybe (AlarmIdentifier)
+  , "InsufficientDataHealthStatus" :: Maybe (InsufficientDataHealthStatus)
   }
 derive instance newtypeHealthCheckConfig :: Newtype HealthCheckConfig _
 derive instance repGenericHealthCheckConfig :: Generic HealthCheckConfig _
@@ -2233,12 +2232,12 @@ instance encodeHealthCheckConfig :: Encode HealthCheckConfig where encode = gene
 
 -- | Constructs HealthCheckConfig from required parameters
 newHealthCheckConfig :: HealthCheckType -> HealthCheckConfig
-newHealthCheckConfig _Type = HealthCheckConfig { "Type": _Type, "AlarmIdentifier": (NullOrUndefined Nothing), "ChildHealthChecks": (NullOrUndefined Nothing), "EnableSNI": (NullOrUndefined Nothing), "FailureThreshold": (NullOrUndefined Nothing), "FullyQualifiedDomainName": (NullOrUndefined Nothing), "HealthThreshold": (NullOrUndefined Nothing), "IPAddress": (NullOrUndefined Nothing), "InsufficientDataHealthStatus": (NullOrUndefined Nothing), "Inverted": (NullOrUndefined Nothing), "MeasureLatency": (NullOrUndefined Nothing), "Port": (NullOrUndefined Nothing), "Regions": (NullOrUndefined Nothing), "RequestInterval": (NullOrUndefined Nothing), "ResourcePath": (NullOrUndefined Nothing), "SearchString": (NullOrUndefined Nothing) }
+newHealthCheckConfig _Type = HealthCheckConfig { "Type": _Type, "AlarmIdentifier": Nothing, "ChildHealthChecks": Nothing, "EnableSNI": Nothing, "FailureThreshold": Nothing, "FullyQualifiedDomainName": Nothing, "HealthThreshold": Nothing, "IPAddress": Nothing, "InsufficientDataHealthStatus": Nothing, "Inverted": Nothing, "MeasureLatency": Nothing, "Port": Nothing, "Regions": Nothing, "RequestInterval": Nothing, "ResourcePath": Nothing, "SearchString": Nothing }
 
 -- | Constructs HealthCheckConfig's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHealthCheckConfig' :: HealthCheckType -> ( { "IPAddress" :: NullOrUndefined (IPAddress) , "Port" :: NullOrUndefined (Port) , "Type" :: (HealthCheckType) , "ResourcePath" :: NullOrUndefined (ResourcePath) , "FullyQualifiedDomainName" :: NullOrUndefined (FullyQualifiedDomainName) , "SearchString" :: NullOrUndefined (SearchString) , "RequestInterval" :: NullOrUndefined (RequestInterval) , "FailureThreshold" :: NullOrUndefined (FailureThreshold) , "MeasureLatency" :: NullOrUndefined (MeasureLatency) , "Inverted" :: NullOrUndefined (Inverted) , "HealthThreshold" :: NullOrUndefined (HealthThreshold) , "ChildHealthChecks" :: NullOrUndefined (ChildHealthCheckList) , "EnableSNI" :: NullOrUndefined (EnableSNI) , "Regions" :: NullOrUndefined (HealthCheckRegionList) , "AlarmIdentifier" :: NullOrUndefined (AlarmIdentifier) , "InsufficientDataHealthStatus" :: NullOrUndefined (InsufficientDataHealthStatus) } -> {"IPAddress" :: NullOrUndefined (IPAddress) , "Port" :: NullOrUndefined (Port) , "Type" :: (HealthCheckType) , "ResourcePath" :: NullOrUndefined (ResourcePath) , "FullyQualifiedDomainName" :: NullOrUndefined (FullyQualifiedDomainName) , "SearchString" :: NullOrUndefined (SearchString) , "RequestInterval" :: NullOrUndefined (RequestInterval) , "FailureThreshold" :: NullOrUndefined (FailureThreshold) , "MeasureLatency" :: NullOrUndefined (MeasureLatency) , "Inverted" :: NullOrUndefined (Inverted) , "HealthThreshold" :: NullOrUndefined (HealthThreshold) , "ChildHealthChecks" :: NullOrUndefined (ChildHealthCheckList) , "EnableSNI" :: NullOrUndefined (EnableSNI) , "Regions" :: NullOrUndefined (HealthCheckRegionList) , "AlarmIdentifier" :: NullOrUndefined (AlarmIdentifier) , "InsufficientDataHealthStatus" :: NullOrUndefined (InsufficientDataHealthStatus) } ) -> HealthCheckConfig
-newHealthCheckConfig' _Type customize = (HealthCheckConfig <<< customize) { "Type": _Type, "AlarmIdentifier": (NullOrUndefined Nothing), "ChildHealthChecks": (NullOrUndefined Nothing), "EnableSNI": (NullOrUndefined Nothing), "FailureThreshold": (NullOrUndefined Nothing), "FullyQualifiedDomainName": (NullOrUndefined Nothing), "HealthThreshold": (NullOrUndefined Nothing), "IPAddress": (NullOrUndefined Nothing), "InsufficientDataHealthStatus": (NullOrUndefined Nothing), "Inverted": (NullOrUndefined Nothing), "MeasureLatency": (NullOrUndefined Nothing), "Port": (NullOrUndefined Nothing), "Regions": (NullOrUndefined Nothing), "RequestInterval": (NullOrUndefined Nothing), "ResourcePath": (NullOrUndefined Nothing), "SearchString": (NullOrUndefined Nothing) }
+newHealthCheckConfig' :: HealthCheckType -> ( { "IPAddress" :: Maybe (IPAddress) , "Port" :: Maybe (Port) , "Type" :: (HealthCheckType) , "ResourcePath" :: Maybe (ResourcePath) , "FullyQualifiedDomainName" :: Maybe (FullyQualifiedDomainName) , "SearchString" :: Maybe (SearchString) , "RequestInterval" :: Maybe (RequestInterval) , "FailureThreshold" :: Maybe (FailureThreshold) , "MeasureLatency" :: Maybe (MeasureLatency) , "Inverted" :: Maybe (Inverted) , "HealthThreshold" :: Maybe (HealthThreshold) , "ChildHealthChecks" :: Maybe (ChildHealthCheckList) , "EnableSNI" :: Maybe (EnableSNI) , "Regions" :: Maybe (HealthCheckRegionList) , "AlarmIdentifier" :: Maybe (AlarmIdentifier) , "InsufficientDataHealthStatus" :: Maybe (InsufficientDataHealthStatus) } -> {"IPAddress" :: Maybe (IPAddress) , "Port" :: Maybe (Port) , "Type" :: (HealthCheckType) , "ResourcePath" :: Maybe (ResourcePath) , "FullyQualifiedDomainName" :: Maybe (FullyQualifiedDomainName) , "SearchString" :: Maybe (SearchString) , "RequestInterval" :: Maybe (RequestInterval) , "FailureThreshold" :: Maybe (FailureThreshold) , "MeasureLatency" :: Maybe (MeasureLatency) , "Inverted" :: Maybe (Inverted) , "HealthThreshold" :: Maybe (HealthThreshold) , "ChildHealthChecks" :: Maybe (ChildHealthCheckList) , "EnableSNI" :: Maybe (EnableSNI) , "Regions" :: Maybe (HealthCheckRegionList) , "AlarmIdentifier" :: Maybe (AlarmIdentifier) , "InsufficientDataHealthStatus" :: Maybe (InsufficientDataHealthStatus) } ) -> HealthCheckConfig
+newHealthCheckConfig' _Type customize = (HealthCheckConfig <<< customize) { "Type": _Type, "AlarmIdentifier": Nothing, "ChildHealthChecks": Nothing, "EnableSNI": Nothing, "FailureThreshold": Nothing, "FullyQualifiedDomainName": Nothing, "HealthThreshold": Nothing, "IPAddress": Nothing, "InsufficientDataHealthStatus": Nothing, "Inverted": Nothing, "MeasureLatency": Nothing, "Port": Nothing, "Regions": Nothing, "RequestInterval": Nothing, "ResourcePath": Nothing, "SearchString": Nothing }
 
 
 
@@ -2262,7 +2261,7 @@ instance encodeHealthCheckId :: Encode HealthCheckId where encode = genericEncod
 
 -- | <p>This error code is not in use.</p>
 newtype HealthCheckInUse = HealthCheckInUse 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeHealthCheckInUse :: Newtype HealthCheckInUse _
 derive instance repGenericHealthCheckInUse :: Generic HealthCheckInUse _
@@ -2272,12 +2271,12 @@ instance encodeHealthCheckInUse :: Encode HealthCheckInUse where encode = generi
 
 -- | Constructs HealthCheckInUse from required parameters
 newHealthCheckInUse :: HealthCheckInUse
-newHealthCheckInUse  = HealthCheckInUse { "message": (NullOrUndefined Nothing) }
+newHealthCheckInUse  = HealthCheckInUse { "message": Nothing }
 
 -- | Constructs HealthCheckInUse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHealthCheckInUse' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> HealthCheckInUse
-newHealthCheckInUse'  customize = (HealthCheckInUse <<< customize) { "message": (NullOrUndefined Nothing) }
+newHealthCheckInUse' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> HealthCheckInUse
+newHealthCheckInUse'  customize = (HealthCheckInUse <<< customize) { "message": Nothing }
 
 
 
@@ -2292,9 +2291,9 @@ instance encodeHealthCheckNonce :: Encode HealthCheckNonce where encode = generi
 
 -- | <p>A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker.</p>
 newtype HealthCheckObservation = HealthCheckObservation 
-  { "Region" :: NullOrUndefined (HealthCheckRegion)
-  , "IPAddress" :: NullOrUndefined (IPAddress)
-  , "StatusReport" :: NullOrUndefined (StatusReport)
+  { "Region" :: Maybe (HealthCheckRegion)
+  , "IPAddress" :: Maybe (IPAddress)
+  , "StatusReport" :: Maybe (StatusReport)
   }
 derive instance newtypeHealthCheckObservation :: Newtype HealthCheckObservation _
 derive instance repGenericHealthCheckObservation :: Generic HealthCheckObservation _
@@ -2304,12 +2303,12 @@ instance encodeHealthCheckObservation :: Encode HealthCheckObservation where enc
 
 -- | Constructs HealthCheckObservation from required parameters
 newHealthCheckObservation :: HealthCheckObservation
-newHealthCheckObservation  = HealthCheckObservation { "IPAddress": (NullOrUndefined Nothing), "Region": (NullOrUndefined Nothing), "StatusReport": (NullOrUndefined Nothing) }
+newHealthCheckObservation  = HealthCheckObservation { "IPAddress": Nothing, "Region": Nothing, "StatusReport": Nothing }
 
 -- | Constructs HealthCheckObservation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHealthCheckObservation' :: ( { "Region" :: NullOrUndefined (HealthCheckRegion) , "IPAddress" :: NullOrUndefined (IPAddress) , "StatusReport" :: NullOrUndefined (StatusReport) } -> {"Region" :: NullOrUndefined (HealthCheckRegion) , "IPAddress" :: NullOrUndefined (IPAddress) , "StatusReport" :: NullOrUndefined (StatusReport) } ) -> HealthCheckObservation
-newHealthCheckObservation'  customize = (HealthCheckObservation <<< customize) { "IPAddress": (NullOrUndefined Nothing), "Region": (NullOrUndefined Nothing), "StatusReport": (NullOrUndefined Nothing) }
+newHealthCheckObservation' :: ( { "Region" :: Maybe (HealthCheckRegion) , "IPAddress" :: Maybe (IPAddress) , "StatusReport" :: Maybe (StatusReport) } -> {"Region" :: Maybe (HealthCheckRegion) , "IPAddress" :: Maybe (IPAddress) , "StatusReport" :: Maybe (StatusReport) } ) -> HealthCheckObservation
+newHealthCheckObservation'  customize = (HealthCheckObservation <<< customize) { "IPAddress": Nothing, "Region": Nothing, "StatusReport": Nothing }
 
 
 
@@ -2360,7 +2359,7 @@ instance encodeHealthCheckVersion :: Encode HealthCheckVersion where encode = ge
 
 -- | <p>The value of <code>HealthCheckVersion</code> in the request doesn't match the value of <code>HealthCheckVersion</code> in the health check.</p>
 newtype HealthCheckVersionMismatch = HealthCheckVersionMismatch 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeHealthCheckVersionMismatch :: Newtype HealthCheckVersionMismatch _
 derive instance repGenericHealthCheckVersionMismatch :: Generic HealthCheckVersionMismatch _
@@ -2370,12 +2369,12 @@ instance encodeHealthCheckVersionMismatch :: Encode HealthCheckVersionMismatch w
 
 -- | Constructs HealthCheckVersionMismatch from required parameters
 newHealthCheckVersionMismatch :: HealthCheckVersionMismatch
-newHealthCheckVersionMismatch  = HealthCheckVersionMismatch { "message": (NullOrUndefined Nothing) }
+newHealthCheckVersionMismatch  = HealthCheckVersionMismatch { "message": Nothing }
 
 -- | Constructs HealthCheckVersionMismatch's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHealthCheckVersionMismatch' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> HealthCheckVersionMismatch
-newHealthCheckVersionMismatch'  customize = (HealthCheckVersionMismatch <<< customize) { "message": (NullOrUndefined Nothing) }
+newHealthCheckVersionMismatch' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> HealthCheckVersionMismatch
+newHealthCheckVersionMismatch'  customize = (HealthCheckVersionMismatch <<< customize) { "message": Nothing }
 
 
 
@@ -2402,9 +2401,9 @@ newtype HostedZone = HostedZone
   { "Id" :: (ResourceId)
   , "Name" :: (DNSName)
   , "CallerReference" :: (Nonce)
-  , "Config" :: NullOrUndefined (HostedZoneConfig)
-  , "ResourceRecordSetCount" :: NullOrUndefined (HostedZoneRRSetCount)
-  , "LinkedService" :: NullOrUndefined (LinkedService)
+  , "Config" :: Maybe (HostedZoneConfig)
+  , "ResourceRecordSetCount" :: Maybe (HostedZoneRRSetCount)
+  , "LinkedService" :: Maybe (LinkedService)
   }
 derive instance newtypeHostedZone :: Newtype HostedZone _
 derive instance repGenericHostedZone :: Generic HostedZone _
@@ -2414,18 +2413,18 @@ instance encodeHostedZone :: Encode HostedZone where encode = genericEncode opti
 
 -- | Constructs HostedZone from required parameters
 newHostedZone :: Nonce -> ResourceId -> DNSName -> HostedZone
-newHostedZone _CallerReference _Id _Name = HostedZone { "CallerReference": _CallerReference, "Id": _Id, "Name": _Name, "Config": (NullOrUndefined Nothing), "LinkedService": (NullOrUndefined Nothing), "ResourceRecordSetCount": (NullOrUndefined Nothing) }
+newHostedZone _CallerReference _Id _Name = HostedZone { "CallerReference": _CallerReference, "Id": _Id, "Name": _Name, "Config": Nothing, "LinkedService": Nothing, "ResourceRecordSetCount": Nothing }
 
 -- | Constructs HostedZone's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHostedZone' :: Nonce -> ResourceId -> DNSName -> ( { "Id" :: (ResourceId) , "Name" :: (DNSName) , "CallerReference" :: (Nonce) , "Config" :: NullOrUndefined (HostedZoneConfig) , "ResourceRecordSetCount" :: NullOrUndefined (HostedZoneRRSetCount) , "LinkedService" :: NullOrUndefined (LinkedService) } -> {"Id" :: (ResourceId) , "Name" :: (DNSName) , "CallerReference" :: (Nonce) , "Config" :: NullOrUndefined (HostedZoneConfig) , "ResourceRecordSetCount" :: NullOrUndefined (HostedZoneRRSetCount) , "LinkedService" :: NullOrUndefined (LinkedService) } ) -> HostedZone
-newHostedZone' _CallerReference _Id _Name customize = (HostedZone <<< customize) { "CallerReference": _CallerReference, "Id": _Id, "Name": _Name, "Config": (NullOrUndefined Nothing), "LinkedService": (NullOrUndefined Nothing), "ResourceRecordSetCount": (NullOrUndefined Nothing) }
+newHostedZone' :: Nonce -> ResourceId -> DNSName -> ( { "Id" :: (ResourceId) , "Name" :: (DNSName) , "CallerReference" :: (Nonce) , "Config" :: Maybe (HostedZoneConfig) , "ResourceRecordSetCount" :: Maybe (HostedZoneRRSetCount) , "LinkedService" :: Maybe (LinkedService) } -> {"Id" :: (ResourceId) , "Name" :: (DNSName) , "CallerReference" :: (Nonce) , "Config" :: Maybe (HostedZoneConfig) , "ResourceRecordSetCount" :: Maybe (HostedZoneRRSetCount) , "LinkedService" :: Maybe (LinkedService) } ) -> HostedZone
+newHostedZone' _CallerReference _Id _Name customize = (HostedZone <<< customize) { "CallerReference": _CallerReference, "Id": _Id, "Name": _Name, "Config": Nothing, "LinkedService": Nothing, "ResourceRecordSetCount": Nothing }
 
 
 
 -- | <p>The hosted zone you're trying to create already exists. Amazon Route 53 returns this error when a hosted zone has already been created with the specified <code>CallerReference</code>.</p>
 newtype HostedZoneAlreadyExists = HostedZoneAlreadyExists 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeHostedZoneAlreadyExists :: Newtype HostedZoneAlreadyExists _
 derive instance repGenericHostedZoneAlreadyExists :: Generic HostedZoneAlreadyExists _
@@ -2435,19 +2434,19 @@ instance encodeHostedZoneAlreadyExists :: Encode HostedZoneAlreadyExists where e
 
 -- | Constructs HostedZoneAlreadyExists from required parameters
 newHostedZoneAlreadyExists :: HostedZoneAlreadyExists
-newHostedZoneAlreadyExists  = HostedZoneAlreadyExists { "message": (NullOrUndefined Nothing) }
+newHostedZoneAlreadyExists  = HostedZoneAlreadyExists { "message": Nothing }
 
 -- | Constructs HostedZoneAlreadyExists's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHostedZoneAlreadyExists' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> HostedZoneAlreadyExists
-newHostedZoneAlreadyExists'  customize = (HostedZoneAlreadyExists <<< customize) { "message": (NullOrUndefined Nothing) }
+newHostedZoneAlreadyExists' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> HostedZoneAlreadyExists
+newHostedZoneAlreadyExists'  customize = (HostedZoneAlreadyExists <<< customize) { "message": Nothing }
 
 
 
 -- | <p>A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the <code>HostedZoneConfig</code> and <code>Comment</code> elements.</p>
 newtype HostedZoneConfig = HostedZoneConfig 
-  { "Comment" :: NullOrUndefined (ResourceDescription)
-  , "PrivateZone" :: NullOrUndefined (IsPrivateZone)
+  { "Comment" :: Maybe (ResourceDescription)
+  , "PrivateZone" :: Maybe (IsPrivateZone)
   }
 derive instance newtypeHostedZoneConfig :: Newtype HostedZoneConfig _
 derive instance repGenericHostedZoneConfig :: Generic HostedZoneConfig _
@@ -2457,12 +2456,12 @@ instance encodeHostedZoneConfig :: Encode HostedZoneConfig where encode = generi
 
 -- | Constructs HostedZoneConfig from required parameters
 newHostedZoneConfig :: HostedZoneConfig
-newHostedZoneConfig  = HostedZoneConfig { "Comment": (NullOrUndefined Nothing), "PrivateZone": (NullOrUndefined Nothing) }
+newHostedZoneConfig  = HostedZoneConfig { "Comment": Nothing, "PrivateZone": Nothing }
 
 -- | Constructs HostedZoneConfig's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHostedZoneConfig' :: ( { "Comment" :: NullOrUndefined (ResourceDescription) , "PrivateZone" :: NullOrUndefined (IsPrivateZone) } -> {"Comment" :: NullOrUndefined (ResourceDescription) , "PrivateZone" :: NullOrUndefined (IsPrivateZone) } ) -> HostedZoneConfig
-newHostedZoneConfig'  customize = (HostedZoneConfig <<< customize) { "Comment": (NullOrUndefined Nothing), "PrivateZone": (NullOrUndefined Nothing) }
+newHostedZoneConfig' :: ( { "Comment" :: Maybe (ResourceDescription) , "PrivateZone" :: Maybe (IsPrivateZone) } -> {"Comment" :: Maybe (ResourceDescription) , "PrivateZone" :: Maybe (IsPrivateZone) } ) -> HostedZoneConfig
+newHostedZoneConfig'  customize = (HostedZoneConfig <<< customize) { "Comment": Nothing, "PrivateZone": Nothing }
 
 
 
@@ -2508,7 +2507,7 @@ instance encodeHostedZoneLimitType :: Encode HostedZoneLimitType where encode = 
 
 -- | <p>The hosted zone contains resource records that are not SOA or NS records.</p>
 newtype HostedZoneNotEmpty = HostedZoneNotEmpty 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeHostedZoneNotEmpty :: Newtype HostedZoneNotEmpty _
 derive instance repGenericHostedZoneNotEmpty :: Generic HostedZoneNotEmpty _
@@ -2518,18 +2517,18 @@ instance encodeHostedZoneNotEmpty :: Encode HostedZoneNotEmpty where encode = ge
 
 -- | Constructs HostedZoneNotEmpty from required parameters
 newHostedZoneNotEmpty :: HostedZoneNotEmpty
-newHostedZoneNotEmpty  = HostedZoneNotEmpty { "message": (NullOrUndefined Nothing) }
+newHostedZoneNotEmpty  = HostedZoneNotEmpty { "message": Nothing }
 
 -- | Constructs HostedZoneNotEmpty's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHostedZoneNotEmpty' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> HostedZoneNotEmpty
-newHostedZoneNotEmpty'  customize = (HostedZoneNotEmpty <<< customize) { "message": (NullOrUndefined Nothing) }
+newHostedZoneNotEmpty' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> HostedZoneNotEmpty
+newHostedZoneNotEmpty'  customize = (HostedZoneNotEmpty <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The specified HostedZone can't be found.</p>
 newtype HostedZoneNotFound = HostedZoneNotFound 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeHostedZoneNotFound :: Newtype HostedZoneNotFound _
 derive instance repGenericHostedZoneNotFound :: Generic HostedZoneNotFound _
@@ -2539,18 +2538,18 @@ instance encodeHostedZoneNotFound :: Encode HostedZoneNotFound where encode = ge
 
 -- | Constructs HostedZoneNotFound from required parameters
 newHostedZoneNotFound :: HostedZoneNotFound
-newHostedZoneNotFound  = HostedZoneNotFound { "message": (NullOrUndefined Nothing) }
+newHostedZoneNotFound  = HostedZoneNotFound { "message": Nothing }
 
 -- | Constructs HostedZoneNotFound's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHostedZoneNotFound' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> HostedZoneNotFound
-newHostedZoneNotFound'  customize = (HostedZoneNotFound <<< customize) { "message": (NullOrUndefined Nothing) }
+newHostedZoneNotFound' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> HostedZoneNotFound
+newHostedZoneNotFound'  customize = (HostedZoneNotFound <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The specified hosted zone is a public hosted zone, not a private hosted zone.</p>
 newtype HostedZoneNotPrivate = HostedZoneNotPrivate 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeHostedZoneNotPrivate :: Newtype HostedZoneNotPrivate _
 derive instance repGenericHostedZoneNotPrivate :: Generic HostedZoneNotPrivate _
@@ -2560,12 +2559,12 @@ instance encodeHostedZoneNotPrivate :: Encode HostedZoneNotPrivate where encode 
 
 -- | Constructs HostedZoneNotPrivate from required parameters
 newHostedZoneNotPrivate :: HostedZoneNotPrivate
-newHostedZoneNotPrivate  = HostedZoneNotPrivate { "message": (NullOrUndefined Nothing) }
+newHostedZoneNotPrivate  = HostedZoneNotPrivate { "message": Nothing }
 
 -- | Constructs HostedZoneNotPrivate's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHostedZoneNotPrivate' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> HostedZoneNotPrivate
-newHostedZoneNotPrivate'  customize = (HostedZoneNotPrivate <<< customize) { "message": (NullOrUndefined Nothing) }
+newHostedZoneNotPrivate' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> HostedZoneNotPrivate
+newHostedZoneNotPrivate'  customize = (HostedZoneNotPrivate <<< customize) { "message": Nothing }
 
 
 
@@ -2607,7 +2606,7 @@ instance encodeIPAddressCidr :: Encode IPAddressCidr where encode = genericEncod
 
 -- | <p>The resource you're trying to access is unsupported on this Amazon Route 53 endpoint.</p>
 newtype IncompatibleVersion = IncompatibleVersion 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeIncompatibleVersion :: Newtype IncompatibleVersion _
 derive instance repGenericIncompatibleVersion :: Generic IncompatibleVersion _
@@ -2617,18 +2616,18 @@ instance encodeIncompatibleVersion :: Encode IncompatibleVersion where encode = 
 
 -- | Constructs IncompatibleVersion from required parameters
 newIncompatibleVersion :: IncompatibleVersion
-newIncompatibleVersion  = IncompatibleVersion { "message": (NullOrUndefined Nothing) }
+newIncompatibleVersion  = IncompatibleVersion { "message": Nothing }
 
 -- | Constructs IncompatibleVersion's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newIncompatibleVersion' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> IncompatibleVersion
-newIncompatibleVersion'  customize = (IncompatibleVersion <<< customize) { "message": (NullOrUndefined Nothing) }
+newIncompatibleVersion' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> IncompatibleVersion
+newIncompatibleVersion'  customize = (IncompatibleVersion <<< customize) { "message": Nothing }
 
 
 
 -- | <p>Amazon Route 53 doesn't have the permissions required to create log streams and send query logs to log streams. Possible causes include the following:</p> <ul> <li> <p>There is no resource policy that specifies the log group ARN in the value for <code>Resource</code>.</p> </li> <li> <p>The resource policy that includes the log group ARN in the value for <code>Resource</code> doesn't have the necessary permissions.</p> </li> <li> <p>The resource policy hasn't finished propagating yet.</p> </li> </ul>
 newtype InsufficientCloudWatchLogsResourcePolicy = InsufficientCloudWatchLogsResourcePolicy 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInsufficientCloudWatchLogsResourcePolicy :: Newtype InsufficientCloudWatchLogsResourcePolicy _
 derive instance repGenericInsufficientCloudWatchLogsResourcePolicy :: Generic InsufficientCloudWatchLogsResourcePolicy _
@@ -2638,12 +2637,12 @@ instance encodeInsufficientCloudWatchLogsResourcePolicy :: Encode InsufficientCl
 
 -- | Constructs InsufficientCloudWatchLogsResourcePolicy from required parameters
 newInsufficientCloudWatchLogsResourcePolicy :: InsufficientCloudWatchLogsResourcePolicy
-newInsufficientCloudWatchLogsResourcePolicy  = InsufficientCloudWatchLogsResourcePolicy { "message": (NullOrUndefined Nothing) }
+newInsufficientCloudWatchLogsResourcePolicy  = InsufficientCloudWatchLogsResourcePolicy { "message": Nothing }
 
 -- | Constructs InsufficientCloudWatchLogsResourcePolicy's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInsufficientCloudWatchLogsResourcePolicy' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> InsufficientCloudWatchLogsResourcePolicy
-newInsufficientCloudWatchLogsResourcePolicy'  customize = (InsufficientCloudWatchLogsResourcePolicy <<< customize) { "message": (NullOrUndefined Nothing) }
+newInsufficientCloudWatchLogsResourcePolicy' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> InsufficientCloudWatchLogsResourcePolicy
+newInsufficientCloudWatchLogsResourcePolicy'  customize = (InsufficientCloudWatchLogsResourcePolicy <<< customize) { "message": Nothing }
 
 
 
@@ -2658,7 +2657,7 @@ instance encodeInsufficientDataHealthStatus :: Encode InsufficientDataHealthStat
 
 -- | <p>Parameter name is invalid.</p>
 newtype InvalidArgument = InvalidArgument 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidArgument :: Newtype InvalidArgument _
 derive instance repGenericInvalidArgument :: Generic InvalidArgument _
@@ -2668,19 +2667,19 @@ instance encodeInvalidArgument :: Encode InvalidArgument where encode = genericE
 
 -- | Constructs InvalidArgument from required parameters
 newInvalidArgument :: InvalidArgument
-newInvalidArgument  = InvalidArgument { "message": (NullOrUndefined Nothing) }
+newInvalidArgument  = InvalidArgument { "message": Nothing }
 
 -- | Constructs InvalidArgument's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidArgument' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidArgument
-newInvalidArgument'  customize = (InvalidArgument <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidArgument' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> InvalidArgument
+newInvalidArgument'  customize = (InvalidArgument <<< customize) { "message": Nothing }
 
 
 
 -- | <p>This exception contains a list of messages that might contain one or more error messages. Each error message indicates one error in the change batch.</p>
 newtype InvalidChangeBatch = InvalidChangeBatch 
-  { "messages" :: NullOrUndefined (ErrorMessages)
-  , "message" :: NullOrUndefined (ErrorMessage)
+  { "messages" :: Maybe (ErrorMessages)
+  , "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidChangeBatch :: Newtype InvalidChangeBatch _
 derive instance repGenericInvalidChangeBatch :: Generic InvalidChangeBatch _
@@ -2690,18 +2689,18 @@ instance encodeInvalidChangeBatch :: Encode InvalidChangeBatch where encode = ge
 
 -- | Constructs InvalidChangeBatch from required parameters
 newInvalidChangeBatch :: InvalidChangeBatch
-newInvalidChangeBatch  = InvalidChangeBatch { "message": (NullOrUndefined Nothing), "messages": (NullOrUndefined Nothing) }
+newInvalidChangeBatch  = InvalidChangeBatch { "message": Nothing, "messages": Nothing }
 
 -- | Constructs InvalidChangeBatch's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidChangeBatch' :: ( { "messages" :: NullOrUndefined (ErrorMessages) , "message" :: NullOrUndefined (ErrorMessage) } -> {"messages" :: NullOrUndefined (ErrorMessages) , "message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidChangeBatch
-newInvalidChangeBatch'  customize = (InvalidChangeBatch <<< customize) { "message": (NullOrUndefined Nothing), "messages": (NullOrUndefined Nothing) }
+newInvalidChangeBatch' :: ( { "messages" :: Maybe (ErrorMessages) , "message" :: Maybe (ErrorMessage) } -> {"messages" :: Maybe (ErrorMessages) , "message" :: Maybe (ErrorMessage) } ) -> InvalidChangeBatch
+newInvalidChangeBatch'  customize = (InvalidChangeBatch <<< customize) { "message": Nothing, "messages": Nothing }
 
 
 
 -- | <p>The specified domain name is not valid.</p>
 newtype InvalidDomainName = InvalidDomainName 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidDomainName :: Newtype InvalidDomainName _
 derive instance repGenericInvalidDomainName :: Generic InvalidDomainName _
@@ -2711,18 +2710,18 @@ instance encodeInvalidDomainName :: Encode InvalidDomainName where encode = gene
 
 -- | Constructs InvalidDomainName from required parameters
 newInvalidDomainName :: InvalidDomainName
-newInvalidDomainName  = InvalidDomainName { "message": (NullOrUndefined Nothing) }
+newInvalidDomainName  = InvalidDomainName { "message": Nothing }
 
 -- | Constructs InvalidDomainName's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidDomainName' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidDomainName
-newInvalidDomainName'  customize = (InvalidDomainName <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidDomainName' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> InvalidDomainName
+newInvalidDomainName'  customize = (InvalidDomainName <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The input is not valid.</p>
 newtype InvalidInput = InvalidInput 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidInput :: Newtype InvalidInput _
 derive instance repGenericInvalidInput :: Generic InvalidInput _
@@ -2732,18 +2731,18 @@ instance encodeInvalidInput :: Encode InvalidInput where encode = genericEncode 
 
 -- | Constructs InvalidInput from required parameters
 newInvalidInput :: InvalidInput
-newInvalidInput  = InvalidInput { "message": (NullOrUndefined Nothing) }
+newInvalidInput  = InvalidInput { "message": Nothing }
 
 -- | Constructs InvalidInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidInput' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidInput
-newInvalidInput'  customize = (InvalidInput <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidInput' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> InvalidInput
+newInvalidInput'  customize = (InvalidInput <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The value that you specified to get the second or subsequent page of results is invalid.</p>
 newtype InvalidPaginationToken = InvalidPaginationToken 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidPaginationToken :: Newtype InvalidPaginationToken _
 derive instance repGenericInvalidPaginationToken :: Generic InvalidPaginationToken _
@@ -2753,18 +2752,18 @@ instance encodeInvalidPaginationToken :: Encode InvalidPaginationToken where enc
 
 -- | Constructs InvalidPaginationToken from required parameters
 newInvalidPaginationToken :: InvalidPaginationToken
-newInvalidPaginationToken  = InvalidPaginationToken { "message": (NullOrUndefined Nothing) }
+newInvalidPaginationToken  = InvalidPaginationToken { "message": Nothing }
 
 -- | Constructs InvalidPaginationToken's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidPaginationToken' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidPaginationToken
-newInvalidPaginationToken'  customize = (InvalidPaginationToken <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidPaginationToken' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> InvalidPaginationToken
+newInvalidPaginationToken'  customize = (InvalidPaginationToken <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The format of the traffic policy document that you specified in the <code>Document</code> element is invalid.</p>
 newtype InvalidTrafficPolicyDocument = InvalidTrafficPolicyDocument 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidTrafficPolicyDocument :: Newtype InvalidTrafficPolicyDocument _
 derive instance repGenericInvalidTrafficPolicyDocument :: Generic InvalidTrafficPolicyDocument _
@@ -2774,18 +2773,18 @@ instance encodeInvalidTrafficPolicyDocument :: Encode InvalidTrafficPolicyDocume
 
 -- | Constructs InvalidTrafficPolicyDocument from required parameters
 newInvalidTrafficPolicyDocument :: InvalidTrafficPolicyDocument
-newInvalidTrafficPolicyDocument  = InvalidTrafficPolicyDocument { "message": (NullOrUndefined Nothing) }
+newInvalidTrafficPolicyDocument  = InvalidTrafficPolicyDocument { "message": Nothing }
 
 -- | Constructs InvalidTrafficPolicyDocument's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidTrafficPolicyDocument' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidTrafficPolicyDocument
-newInvalidTrafficPolicyDocument'  customize = (InvalidTrafficPolicyDocument <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidTrafficPolicyDocument' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> InvalidTrafficPolicyDocument
+newInvalidTrafficPolicyDocument'  customize = (InvalidTrafficPolicyDocument <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The VPC ID that you specified either isn't a valid ID or the current account is not authorized to access this VPC.</p>
 newtype InvalidVPCId = InvalidVPCId 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidVPCId :: Newtype InvalidVPCId _
 derive instance repGenericInvalidVPCId :: Generic InvalidVPCId _
@@ -2795,12 +2794,12 @@ instance encodeInvalidVPCId :: Encode InvalidVPCId where encode = genericEncode 
 
 -- | Constructs InvalidVPCId from required parameters
 newInvalidVPCId :: InvalidVPCId
-newInvalidVPCId  = InvalidVPCId { "message": (NullOrUndefined Nothing) }
+newInvalidVPCId  = InvalidVPCId { "message": Nothing }
 
 -- | Constructs InvalidVPCId's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidVPCId' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidVPCId
-newInvalidVPCId'  customize = (InvalidVPCId <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidVPCId' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> InvalidVPCId
+newInvalidVPCId'  customize = (InvalidVPCId <<< customize) { "message": Nothing }
 
 
 
@@ -2824,7 +2823,7 @@ instance encodeIsPrivateZone :: Encode IsPrivateZone where encode = genericEncod
 
 -- | <p>The VPC that you're trying to disassociate from the private hosted zone is the last VPC that is associated with the hosted zone. Amazon Route 53 doesn't support disassociating the last VPC from a hosted zone.</p>
 newtype LastVPCAssociation = LastVPCAssociation 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeLastVPCAssociation :: Newtype LastVPCAssociation _
 derive instance repGenericLastVPCAssociation :: Generic LastVPCAssociation _
@@ -2834,12 +2833,12 @@ instance encodeLastVPCAssociation :: Encode LastVPCAssociation where encode = ge
 
 -- | Constructs LastVPCAssociation from required parameters
 newLastVPCAssociation :: LastVPCAssociation
-newLastVPCAssociation  = LastVPCAssociation { "message": (NullOrUndefined Nothing) }
+newLastVPCAssociation  = LastVPCAssociation { "message": Nothing }
 
 -- | Constructs LastVPCAssociation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLastVPCAssociation' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> LastVPCAssociation
-newLastVPCAssociation'  customize = (LastVPCAssociation <<< customize) { "message": (NullOrUndefined Nothing) }
+newLastVPCAssociation' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> LastVPCAssociation
+newLastVPCAssociation'  customize = (LastVPCAssociation <<< customize) { "message": Nothing }
 
 
 
@@ -2854,7 +2853,7 @@ instance encodeLimitValue :: Encode LimitValue where encode = genericEncode opti
 
 -- | <p>This operation can't be completed either because the current account has reached the limit on reusable delegation sets that it can create or because you've reached the limit on the number of Amazon VPCs that you can associate with a private hosted zone. To get the current limit on the number of reusable delegation sets, see <a>GetAccountLimit</a>. To get the current limit on the number of Amazon VPCs that you can associate with a private hosted zone, see <a>GetHostedZoneLimit</a>. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
 newtype LimitsExceeded = LimitsExceeded 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeLimitsExceeded :: Newtype LimitsExceeded _
 derive instance repGenericLimitsExceeded :: Generic LimitsExceeded _
@@ -2864,19 +2863,19 @@ instance encodeLimitsExceeded :: Encode LimitsExceeded where encode = genericEnc
 
 -- | Constructs LimitsExceeded from required parameters
 newLimitsExceeded :: LimitsExceeded
-newLimitsExceeded  = LimitsExceeded { "message": (NullOrUndefined Nothing) }
+newLimitsExceeded  = LimitsExceeded { "message": Nothing }
 
 -- | Constructs LimitsExceeded's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLimitsExceeded' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> LimitsExceeded
-newLimitsExceeded'  customize = (LimitsExceeded <<< customize) { "message": (NullOrUndefined Nothing) }
+newLimitsExceeded' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> LimitsExceeded
+newLimitsExceeded'  customize = (LimitsExceeded <<< customize) { "message": Nothing }
 
 
 
 -- | <p>If a health check or hosted zone was created by another service, <code>LinkedService</code> is a complex type that describes the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. </p>
 newtype LinkedService = LinkedService 
-  { "ServicePrincipal" :: NullOrUndefined (ServicePrincipal)
-  , "Description" :: NullOrUndefined (ResourceDescription)
+  { "ServicePrincipal" :: Maybe (ServicePrincipal)
+  , "Description" :: Maybe (ResourceDescription)
   }
 derive instance newtypeLinkedService :: Newtype LinkedService _
 derive instance repGenericLinkedService :: Generic LinkedService _
@@ -2886,21 +2885,21 @@ instance encodeLinkedService :: Encode LinkedService where encode = genericEncod
 
 -- | Constructs LinkedService from required parameters
 newLinkedService :: LinkedService
-newLinkedService  = LinkedService { "Description": (NullOrUndefined Nothing), "ServicePrincipal": (NullOrUndefined Nothing) }
+newLinkedService  = LinkedService { "Description": Nothing, "ServicePrincipal": Nothing }
 
 -- | Constructs LinkedService's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLinkedService' :: ( { "ServicePrincipal" :: NullOrUndefined (ServicePrincipal) , "Description" :: NullOrUndefined (ResourceDescription) } -> {"ServicePrincipal" :: NullOrUndefined (ServicePrincipal) , "Description" :: NullOrUndefined (ResourceDescription) } ) -> LinkedService
-newLinkedService'  customize = (LinkedService <<< customize) { "Description": (NullOrUndefined Nothing), "ServicePrincipal": (NullOrUndefined Nothing) }
+newLinkedService' :: ( { "ServicePrincipal" :: Maybe (ServicePrincipal) , "Description" :: Maybe (ResourceDescription) } -> {"ServicePrincipal" :: Maybe (ServicePrincipal) , "Description" :: Maybe (ResourceDescription) } ) -> LinkedService
+newLinkedService'  customize = (LinkedService <<< customize) { "Description": Nothing, "ServicePrincipal": Nothing }
 
 
 
 -- | <p>A request to get a list of geographic locations that Amazon Route 53 supports for geolocation resource record sets. </p>
 newtype ListGeoLocationsRequest = ListGeoLocationsRequest 
-  { "StartContinentCode" :: NullOrUndefined (GeoLocationContinentCode)
-  , "StartCountryCode" :: NullOrUndefined (GeoLocationCountryCode)
-  , "StartSubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode)
-  , "MaxItems" :: NullOrUndefined (PageMaxItems)
+  { "StartContinentCode" :: Maybe (GeoLocationContinentCode)
+  , "StartCountryCode" :: Maybe (GeoLocationCountryCode)
+  , "StartSubdivisionCode" :: Maybe (GeoLocationSubdivisionCode)
+  , "MaxItems" :: Maybe (PageMaxItems)
   }
 derive instance newtypeListGeoLocationsRequest :: Newtype ListGeoLocationsRequest _
 derive instance repGenericListGeoLocationsRequest :: Generic ListGeoLocationsRequest _
@@ -2910,12 +2909,12 @@ instance encodeListGeoLocationsRequest :: Encode ListGeoLocationsRequest where e
 
 -- | Constructs ListGeoLocationsRequest from required parameters
 newListGeoLocationsRequest :: ListGeoLocationsRequest
-newListGeoLocationsRequest  = ListGeoLocationsRequest { "MaxItems": (NullOrUndefined Nothing), "StartContinentCode": (NullOrUndefined Nothing), "StartCountryCode": (NullOrUndefined Nothing), "StartSubdivisionCode": (NullOrUndefined Nothing) }
+newListGeoLocationsRequest  = ListGeoLocationsRequest { "MaxItems": Nothing, "StartContinentCode": Nothing, "StartCountryCode": Nothing, "StartSubdivisionCode": Nothing }
 
 -- | Constructs ListGeoLocationsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListGeoLocationsRequest' :: ( { "StartContinentCode" :: NullOrUndefined (GeoLocationContinentCode) , "StartCountryCode" :: NullOrUndefined (GeoLocationCountryCode) , "StartSubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode) , "MaxItems" :: NullOrUndefined (PageMaxItems) } -> {"StartContinentCode" :: NullOrUndefined (GeoLocationContinentCode) , "StartCountryCode" :: NullOrUndefined (GeoLocationCountryCode) , "StartSubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode) , "MaxItems" :: NullOrUndefined (PageMaxItems) } ) -> ListGeoLocationsRequest
-newListGeoLocationsRequest'  customize = (ListGeoLocationsRequest <<< customize) { "MaxItems": (NullOrUndefined Nothing), "StartContinentCode": (NullOrUndefined Nothing), "StartCountryCode": (NullOrUndefined Nothing), "StartSubdivisionCode": (NullOrUndefined Nothing) }
+newListGeoLocationsRequest' :: ( { "StartContinentCode" :: Maybe (GeoLocationContinentCode) , "StartCountryCode" :: Maybe (GeoLocationCountryCode) , "StartSubdivisionCode" :: Maybe (GeoLocationSubdivisionCode) , "MaxItems" :: Maybe (PageMaxItems) } -> {"StartContinentCode" :: Maybe (GeoLocationContinentCode) , "StartCountryCode" :: Maybe (GeoLocationCountryCode) , "StartSubdivisionCode" :: Maybe (GeoLocationSubdivisionCode) , "MaxItems" :: Maybe (PageMaxItems) } ) -> ListGeoLocationsRequest
+newListGeoLocationsRequest'  customize = (ListGeoLocationsRequest <<< customize) { "MaxItems": Nothing, "StartContinentCode": Nothing, "StartCountryCode": Nothing, "StartSubdivisionCode": Nothing }
 
 
 
@@ -2923,9 +2922,9 @@ newListGeoLocationsRequest'  customize = (ListGeoLocationsRequest <<< customize)
 newtype ListGeoLocationsResponse = ListGeoLocationsResponse 
   { "GeoLocationDetailsList" :: (GeoLocationDetailsList)
   , "IsTruncated" :: (PageTruncated)
-  , "NextContinentCode" :: NullOrUndefined (GeoLocationContinentCode)
-  , "NextCountryCode" :: NullOrUndefined (GeoLocationCountryCode)
-  , "NextSubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode)
+  , "NextContinentCode" :: Maybe (GeoLocationContinentCode)
+  , "NextCountryCode" :: Maybe (GeoLocationCountryCode)
+  , "NextSubdivisionCode" :: Maybe (GeoLocationSubdivisionCode)
   , "MaxItems" :: (PageMaxItems)
   }
 derive instance newtypeListGeoLocationsResponse :: Newtype ListGeoLocationsResponse _
@@ -2936,19 +2935,19 @@ instance encodeListGeoLocationsResponse :: Encode ListGeoLocationsResponse where
 
 -- | Constructs ListGeoLocationsResponse from required parameters
 newListGeoLocationsResponse :: GeoLocationDetailsList -> PageTruncated -> PageMaxItems -> ListGeoLocationsResponse
-newListGeoLocationsResponse _GeoLocationDetailsList _IsTruncated _MaxItems = ListGeoLocationsResponse { "GeoLocationDetailsList": _GeoLocationDetailsList, "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "NextContinentCode": (NullOrUndefined Nothing), "NextCountryCode": (NullOrUndefined Nothing), "NextSubdivisionCode": (NullOrUndefined Nothing) }
+newListGeoLocationsResponse _GeoLocationDetailsList _IsTruncated _MaxItems = ListGeoLocationsResponse { "GeoLocationDetailsList": _GeoLocationDetailsList, "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "NextContinentCode": Nothing, "NextCountryCode": Nothing, "NextSubdivisionCode": Nothing }
 
 -- | Constructs ListGeoLocationsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListGeoLocationsResponse' :: GeoLocationDetailsList -> PageTruncated -> PageMaxItems -> ( { "GeoLocationDetailsList" :: (GeoLocationDetailsList) , "IsTruncated" :: (PageTruncated) , "NextContinentCode" :: NullOrUndefined (GeoLocationContinentCode) , "NextCountryCode" :: NullOrUndefined (GeoLocationCountryCode) , "NextSubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode) , "MaxItems" :: (PageMaxItems) } -> {"GeoLocationDetailsList" :: (GeoLocationDetailsList) , "IsTruncated" :: (PageTruncated) , "NextContinentCode" :: NullOrUndefined (GeoLocationContinentCode) , "NextCountryCode" :: NullOrUndefined (GeoLocationCountryCode) , "NextSubdivisionCode" :: NullOrUndefined (GeoLocationSubdivisionCode) , "MaxItems" :: (PageMaxItems) } ) -> ListGeoLocationsResponse
-newListGeoLocationsResponse' _GeoLocationDetailsList _IsTruncated _MaxItems customize = (ListGeoLocationsResponse <<< customize) { "GeoLocationDetailsList": _GeoLocationDetailsList, "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "NextContinentCode": (NullOrUndefined Nothing), "NextCountryCode": (NullOrUndefined Nothing), "NextSubdivisionCode": (NullOrUndefined Nothing) }
+newListGeoLocationsResponse' :: GeoLocationDetailsList -> PageTruncated -> PageMaxItems -> ( { "GeoLocationDetailsList" :: (GeoLocationDetailsList) , "IsTruncated" :: (PageTruncated) , "NextContinentCode" :: Maybe (GeoLocationContinentCode) , "NextCountryCode" :: Maybe (GeoLocationCountryCode) , "NextSubdivisionCode" :: Maybe (GeoLocationSubdivisionCode) , "MaxItems" :: (PageMaxItems) } -> {"GeoLocationDetailsList" :: (GeoLocationDetailsList) , "IsTruncated" :: (PageTruncated) , "NextContinentCode" :: Maybe (GeoLocationContinentCode) , "NextCountryCode" :: Maybe (GeoLocationCountryCode) , "NextSubdivisionCode" :: Maybe (GeoLocationSubdivisionCode) , "MaxItems" :: (PageMaxItems) } ) -> ListGeoLocationsResponse
+newListGeoLocationsResponse' _GeoLocationDetailsList _IsTruncated _MaxItems customize = (ListGeoLocationsResponse <<< customize) { "GeoLocationDetailsList": _GeoLocationDetailsList, "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "NextContinentCode": Nothing, "NextCountryCode": Nothing, "NextSubdivisionCode": Nothing }
 
 
 
 -- | <p>A request to retrieve a list of the health checks that are associated with the current AWS account.</p>
 newtype ListHealthChecksRequest = ListHealthChecksRequest 
-  { "Marker" :: NullOrUndefined (PageMarker)
-  , "MaxItems" :: NullOrUndefined (PageMaxItems)
+  { "Marker" :: Maybe (PageMarker)
+  , "MaxItems" :: Maybe (PageMaxItems)
   }
 derive instance newtypeListHealthChecksRequest :: Newtype ListHealthChecksRequest _
 derive instance repGenericListHealthChecksRequest :: Generic ListHealthChecksRequest _
@@ -2958,12 +2957,12 @@ instance encodeListHealthChecksRequest :: Encode ListHealthChecksRequest where e
 
 -- | Constructs ListHealthChecksRequest from required parameters
 newListHealthChecksRequest :: ListHealthChecksRequest
-newListHealthChecksRequest  = ListHealthChecksRequest { "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListHealthChecksRequest  = ListHealthChecksRequest { "Marker": Nothing, "MaxItems": Nothing }
 
 -- | Constructs ListHealthChecksRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListHealthChecksRequest' :: ( { "Marker" :: NullOrUndefined (PageMarker) , "MaxItems" :: NullOrUndefined (PageMaxItems) } -> {"Marker" :: NullOrUndefined (PageMarker) , "MaxItems" :: NullOrUndefined (PageMaxItems) } ) -> ListHealthChecksRequest
-newListHealthChecksRequest'  customize = (ListHealthChecksRequest <<< customize) { "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListHealthChecksRequest' :: ( { "Marker" :: Maybe (PageMarker) , "MaxItems" :: Maybe (PageMaxItems) } -> {"Marker" :: Maybe (PageMarker) , "MaxItems" :: Maybe (PageMaxItems) } ) -> ListHealthChecksRequest
+newListHealthChecksRequest'  customize = (ListHealthChecksRequest <<< customize) { "Marker": Nothing, "MaxItems": Nothing }
 
 
 
@@ -2972,7 +2971,7 @@ newtype ListHealthChecksResponse = ListHealthChecksResponse
   { "HealthChecks" :: (HealthChecks)
   , "Marker" :: (PageMarker)
   , "IsTruncated" :: (PageTruncated)
-  , "NextMarker" :: NullOrUndefined (PageMarker)
+  , "NextMarker" :: Maybe (PageMarker)
   , "MaxItems" :: (PageMaxItems)
   }
 derive instance newtypeListHealthChecksResponse :: Newtype ListHealthChecksResponse _
@@ -2983,20 +2982,20 @@ instance encodeListHealthChecksResponse :: Encode ListHealthChecksResponse where
 
 -- | Constructs ListHealthChecksResponse from required parameters
 newListHealthChecksResponse :: HealthChecks -> PageTruncated -> PageMarker -> PageMaxItems -> ListHealthChecksResponse
-newListHealthChecksResponse _HealthChecks _IsTruncated _Marker _MaxItems = ListHealthChecksResponse { "HealthChecks": _HealthChecks, "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "NextMarker": (NullOrUndefined Nothing) }
+newListHealthChecksResponse _HealthChecks _IsTruncated _Marker _MaxItems = ListHealthChecksResponse { "HealthChecks": _HealthChecks, "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "NextMarker": Nothing }
 
 -- | Constructs ListHealthChecksResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListHealthChecksResponse' :: HealthChecks -> PageTruncated -> PageMarker -> PageMaxItems -> ( { "HealthChecks" :: (HealthChecks) , "Marker" :: (PageMarker) , "IsTruncated" :: (PageTruncated) , "NextMarker" :: NullOrUndefined (PageMarker) , "MaxItems" :: (PageMaxItems) } -> {"HealthChecks" :: (HealthChecks) , "Marker" :: (PageMarker) , "IsTruncated" :: (PageTruncated) , "NextMarker" :: NullOrUndefined (PageMarker) , "MaxItems" :: (PageMaxItems) } ) -> ListHealthChecksResponse
-newListHealthChecksResponse' _HealthChecks _IsTruncated _Marker _MaxItems customize = (ListHealthChecksResponse <<< customize) { "HealthChecks": _HealthChecks, "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "NextMarker": (NullOrUndefined Nothing) }
+newListHealthChecksResponse' :: HealthChecks -> PageTruncated -> PageMarker -> PageMaxItems -> ( { "HealthChecks" :: (HealthChecks) , "Marker" :: (PageMarker) , "IsTruncated" :: (PageTruncated) , "NextMarker" :: Maybe (PageMarker) , "MaxItems" :: (PageMaxItems) } -> {"HealthChecks" :: (HealthChecks) , "Marker" :: (PageMarker) , "IsTruncated" :: (PageTruncated) , "NextMarker" :: Maybe (PageMarker) , "MaxItems" :: (PageMaxItems) } ) -> ListHealthChecksResponse
+newListHealthChecksResponse' _HealthChecks _IsTruncated _Marker _MaxItems customize = (ListHealthChecksResponse <<< customize) { "HealthChecks": _HealthChecks, "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "NextMarker": Nothing }
 
 
 
 -- | <p>Retrieves a list of the public and private hosted zones that are associated with the current AWS account in ASCII order by domain name. </p>
 newtype ListHostedZonesByNameRequest = ListHostedZonesByNameRequest 
-  { "DNSName" :: NullOrUndefined (DNSName)
-  , "HostedZoneId" :: NullOrUndefined (ResourceId)
-  , "MaxItems" :: NullOrUndefined (PageMaxItems)
+  { "DNSName" :: Maybe (DNSName)
+  , "HostedZoneId" :: Maybe (ResourceId)
+  , "MaxItems" :: Maybe (PageMaxItems)
   }
 derive instance newtypeListHostedZonesByNameRequest :: Newtype ListHostedZonesByNameRequest _
 derive instance repGenericListHostedZonesByNameRequest :: Generic ListHostedZonesByNameRequest _
@@ -3006,23 +3005,23 @@ instance encodeListHostedZonesByNameRequest :: Encode ListHostedZonesByNameReque
 
 -- | Constructs ListHostedZonesByNameRequest from required parameters
 newListHostedZonesByNameRequest :: ListHostedZonesByNameRequest
-newListHostedZonesByNameRequest  = ListHostedZonesByNameRequest { "DNSName": (NullOrUndefined Nothing), "HostedZoneId": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListHostedZonesByNameRequest  = ListHostedZonesByNameRequest { "DNSName": Nothing, "HostedZoneId": Nothing, "MaxItems": Nothing }
 
 -- | Constructs ListHostedZonesByNameRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListHostedZonesByNameRequest' :: ( { "DNSName" :: NullOrUndefined (DNSName) , "HostedZoneId" :: NullOrUndefined (ResourceId) , "MaxItems" :: NullOrUndefined (PageMaxItems) } -> {"DNSName" :: NullOrUndefined (DNSName) , "HostedZoneId" :: NullOrUndefined (ResourceId) , "MaxItems" :: NullOrUndefined (PageMaxItems) } ) -> ListHostedZonesByNameRequest
-newListHostedZonesByNameRequest'  customize = (ListHostedZonesByNameRequest <<< customize) { "DNSName": (NullOrUndefined Nothing), "HostedZoneId": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListHostedZonesByNameRequest' :: ( { "DNSName" :: Maybe (DNSName) , "HostedZoneId" :: Maybe (ResourceId) , "MaxItems" :: Maybe (PageMaxItems) } -> {"DNSName" :: Maybe (DNSName) , "HostedZoneId" :: Maybe (ResourceId) , "MaxItems" :: Maybe (PageMaxItems) } ) -> ListHostedZonesByNameRequest
+newListHostedZonesByNameRequest'  customize = (ListHostedZonesByNameRequest <<< customize) { "DNSName": Nothing, "HostedZoneId": Nothing, "MaxItems": Nothing }
 
 
 
 -- | <p>A complex type that contains the response information for the request.</p>
 newtype ListHostedZonesByNameResponse = ListHostedZonesByNameResponse 
   { "HostedZones" :: (HostedZones)
-  , "DNSName" :: NullOrUndefined (DNSName)
-  , "HostedZoneId" :: NullOrUndefined (ResourceId)
+  , "DNSName" :: Maybe (DNSName)
+  , "HostedZoneId" :: Maybe (ResourceId)
   , "IsTruncated" :: (PageTruncated)
-  , "NextDNSName" :: NullOrUndefined (DNSName)
-  , "NextHostedZoneId" :: NullOrUndefined (ResourceId)
+  , "NextDNSName" :: Maybe (DNSName)
+  , "NextHostedZoneId" :: Maybe (ResourceId)
   , "MaxItems" :: (PageMaxItems)
   }
 derive instance newtypeListHostedZonesByNameResponse :: Newtype ListHostedZonesByNameResponse _
@@ -3033,20 +3032,20 @@ instance encodeListHostedZonesByNameResponse :: Encode ListHostedZonesByNameResp
 
 -- | Constructs ListHostedZonesByNameResponse from required parameters
 newListHostedZonesByNameResponse :: HostedZones -> PageTruncated -> PageMaxItems -> ListHostedZonesByNameResponse
-newListHostedZonesByNameResponse _HostedZones _IsTruncated _MaxItems = ListHostedZonesByNameResponse { "HostedZones": _HostedZones, "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "DNSName": (NullOrUndefined Nothing), "HostedZoneId": (NullOrUndefined Nothing), "NextDNSName": (NullOrUndefined Nothing), "NextHostedZoneId": (NullOrUndefined Nothing) }
+newListHostedZonesByNameResponse _HostedZones _IsTruncated _MaxItems = ListHostedZonesByNameResponse { "HostedZones": _HostedZones, "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "DNSName": Nothing, "HostedZoneId": Nothing, "NextDNSName": Nothing, "NextHostedZoneId": Nothing }
 
 -- | Constructs ListHostedZonesByNameResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListHostedZonesByNameResponse' :: HostedZones -> PageTruncated -> PageMaxItems -> ( { "HostedZones" :: (HostedZones) , "DNSName" :: NullOrUndefined (DNSName) , "HostedZoneId" :: NullOrUndefined (ResourceId) , "IsTruncated" :: (PageTruncated) , "NextDNSName" :: NullOrUndefined (DNSName) , "NextHostedZoneId" :: NullOrUndefined (ResourceId) , "MaxItems" :: (PageMaxItems) } -> {"HostedZones" :: (HostedZones) , "DNSName" :: NullOrUndefined (DNSName) , "HostedZoneId" :: NullOrUndefined (ResourceId) , "IsTruncated" :: (PageTruncated) , "NextDNSName" :: NullOrUndefined (DNSName) , "NextHostedZoneId" :: NullOrUndefined (ResourceId) , "MaxItems" :: (PageMaxItems) } ) -> ListHostedZonesByNameResponse
-newListHostedZonesByNameResponse' _HostedZones _IsTruncated _MaxItems customize = (ListHostedZonesByNameResponse <<< customize) { "HostedZones": _HostedZones, "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "DNSName": (NullOrUndefined Nothing), "HostedZoneId": (NullOrUndefined Nothing), "NextDNSName": (NullOrUndefined Nothing), "NextHostedZoneId": (NullOrUndefined Nothing) }
+newListHostedZonesByNameResponse' :: HostedZones -> PageTruncated -> PageMaxItems -> ( { "HostedZones" :: (HostedZones) , "DNSName" :: Maybe (DNSName) , "HostedZoneId" :: Maybe (ResourceId) , "IsTruncated" :: (PageTruncated) , "NextDNSName" :: Maybe (DNSName) , "NextHostedZoneId" :: Maybe (ResourceId) , "MaxItems" :: (PageMaxItems) } -> {"HostedZones" :: (HostedZones) , "DNSName" :: Maybe (DNSName) , "HostedZoneId" :: Maybe (ResourceId) , "IsTruncated" :: (PageTruncated) , "NextDNSName" :: Maybe (DNSName) , "NextHostedZoneId" :: Maybe (ResourceId) , "MaxItems" :: (PageMaxItems) } ) -> ListHostedZonesByNameResponse
+newListHostedZonesByNameResponse' _HostedZones _IsTruncated _MaxItems customize = (ListHostedZonesByNameResponse <<< customize) { "HostedZones": _HostedZones, "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "DNSName": Nothing, "HostedZoneId": Nothing, "NextDNSName": Nothing, "NextHostedZoneId": Nothing }
 
 
 
 -- | <p>A request to retrieve a list of the public and private hosted zones that are associated with the current AWS account.</p>
 newtype ListHostedZonesRequest = ListHostedZonesRequest 
-  { "Marker" :: NullOrUndefined (PageMarker)
-  , "MaxItems" :: NullOrUndefined (PageMaxItems)
-  , "DelegationSetId" :: NullOrUndefined (ResourceId)
+  { "Marker" :: Maybe (PageMarker)
+  , "MaxItems" :: Maybe (PageMaxItems)
+  , "DelegationSetId" :: Maybe (ResourceId)
   }
 derive instance newtypeListHostedZonesRequest :: Newtype ListHostedZonesRequest _
 derive instance repGenericListHostedZonesRequest :: Generic ListHostedZonesRequest _
@@ -3056,12 +3055,12 @@ instance encodeListHostedZonesRequest :: Encode ListHostedZonesRequest where enc
 
 -- | Constructs ListHostedZonesRequest from required parameters
 newListHostedZonesRequest :: ListHostedZonesRequest
-newListHostedZonesRequest  = ListHostedZonesRequest { "DelegationSetId": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListHostedZonesRequest  = ListHostedZonesRequest { "DelegationSetId": Nothing, "Marker": Nothing, "MaxItems": Nothing }
 
 -- | Constructs ListHostedZonesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListHostedZonesRequest' :: ( { "Marker" :: NullOrUndefined (PageMarker) , "MaxItems" :: NullOrUndefined (PageMaxItems) , "DelegationSetId" :: NullOrUndefined (ResourceId) } -> {"Marker" :: NullOrUndefined (PageMarker) , "MaxItems" :: NullOrUndefined (PageMaxItems) , "DelegationSetId" :: NullOrUndefined (ResourceId) } ) -> ListHostedZonesRequest
-newListHostedZonesRequest'  customize = (ListHostedZonesRequest <<< customize) { "DelegationSetId": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListHostedZonesRequest' :: ( { "Marker" :: Maybe (PageMarker) , "MaxItems" :: Maybe (PageMaxItems) , "DelegationSetId" :: Maybe (ResourceId) } -> {"Marker" :: Maybe (PageMarker) , "MaxItems" :: Maybe (PageMaxItems) , "DelegationSetId" :: Maybe (ResourceId) } ) -> ListHostedZonesRequest
+newListHostedZonesRequest'  customize = (ListHostedZonesRequest <<< customize) { "DelegationSetId": Nothing, "Marker": Nothing, "MaxItems": Nothing }
 
 
 
@@ -3069,7 +3068,7 @@ newtype ListHostedZonesResponse = ListHostedZonesResponse
   { "HostedZones" :: (HostedZones)
   , "Marker" :: (PageMarker)
   , "IsTruncated" :: (PageTruncated)
-  , "NextMarker" :: NullOrUndefined (PageMarker)
+  , "NextMarker" :: Maybe (PageMarker)
   , "MaxItems" :: (PageMaxItems)
   }
 derive instance newtypeListHostedZonesResponse :: Newtype ListHostedZonesResponse _
@@ -3080,19 +3079,19 @@ instance encodeListHostedZonesResponse :: Encode ListHostedZonesResponse where e
 
 -- | Constructs ListHostedZonesResponse from required parameters
 newListHostedZonesResponse :: HostedZones -> PageTruncated -> PageMarker -> PageMaxItems -> ListHostedZonesResponse
-newListHostedZonesResponse _HostedZones _IsTruncated _Marker _MaxItems = ListHostedZonesResponse { "HostedZones": _HostedZones, "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "NextMarker": (NullOrUndefined Nothing) }
+newListHostedZonesResponse _HostedZones _IsTruncated _Marker _MaxItems = ListHostedZonesResponse { "HostedZones": _HostedZones, "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "NextMarker": Nothing }
 
 -- | Constructs ListHostedZonesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListHostedZonesResponse' :: HostedZones -> PageTruncated -> PageMarker -> PageMaxItems -> ( { "HostedZones" :: (HostedZones) , "Marker" :: (PageMarker) , "IsTruncated" :: (PageTruncated) , "NextMarker" :: NullOrUndefined (PageMarker) , "MaxItems" :: (PageMaxItems) } -> {"HostedZones" :: (HostedZones) , "Marker" :: (PageMarker) , "IsTruncated" :: (PageTruncated) , "NextMarker" :: NullOrUndefined (PageMarker) , "MaxItems" :: (PageMaxItems) } ) -> ListHostedZonesResponse
-newListHostedZonesResponse' _HostedZones _IsTruncated _Marker _MaxItems customize = (ListHostedZonesResponse <<< customize) { "HostedZones": _HostedZones, "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "NextMarker": (NullOrUndefined Nothing) }
+newListHostedZonesResponse' :: HostedZones -> PageTruncated -> PageMarker -> PageMaxItems -> ( { "HostedZones" :: (HostedZones) , "Marker" :: (PageMarker) , "IsTruncated" :: (PageTruncated) , "NextMarker" :: Maybe (PageMarker) , "MaxItems" :: (PageMaxItems) } -> {"HostedZones" :: (HostedZones) , "Marker" :: (PageMarker) , "IsTruncated" :: (PageTruncated) , "NextMarker" :: Maybe (PageMarker) , "MaxItems" :: (PageMaxItems) } ) -> ListHostedZonesResponse
+newListHostedZonesResponse' _HostedZones _IsTruncated _Marker _MaxItems customize = (ListHostedZonesResponse <<< customize) { "HostedZones": _HostedZones, "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "NextMarker": Nothing }
 
 
 
 newtype ListQueryLoggingConfigsRequest = ListQueryLoggingConfigsRequest 
-  { "HostedZoneId" :: NullOrUndefined (ResourceId)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
+  { "HostedZoneId" :: Maybe (ResourceId)
+  , "NextToken" :: Maybe (PaginationToken)
+  , "MaxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeListQueryLoggingConfigsRequest :: Newtype ListQueryLoggingConfigsRequest _
 derive instance repGenericListQueryLoggingConfigsRequest :: Generic ListQueryLoggingConfigsRequest _
@@ -3102,18 +3101,18 @@ instance encodeListQueryLoggingConfigsRequest :: Encode ListQueryLoggingConfigsR
 
 -- | Constructs ListQueryLoggingConfigsRequest from required parameters
 newListQueryLoggingConfigsRequest :: ListQueryLoggingConfigsRequest
-newListQueryLoggingConfigsRequest  = ListQueryLoggingConfigsRequest { "HostedZoneId": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListQueryLoggingConfigsRequest  = ListQueryLoggingConfigsRequest { "HostedZoneId": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListQueryLoggingConfigsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListQueryLoggingConfigsRequest' :: ( { "HostedZoneId" :: NullOrUndefined (ResourceId) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (MaxResults) } -> {"HostedZoneId" :: NullOrUndefined (ResourceId) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (MaxResults) } ) -> ListQueryLoggingConfigsRequest
-newListQueryLoggingConfigsRequest'  customize = (ListQueryLoggingConfigsRequest <<< customize) { "HostedZoneId": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListQueryLoggingConfigsRequest' :: ( { "HostedZoneId" :: Maybe (ResourceId) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (MaxResults) } -> {"HostedZoneId" :: Maybe (ResourceId) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (MaxResults) } ) -> ListQueryLoggingConfigsRequest
+newListQueryLoggingConfigsRequest'  customize = (ListQueryLoggingConfigsRequest <<< customize) { "HostedZoneId": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListQueryLoggingConfigsResponse = ListQueryLoggingConfigsResponse 
   { "QueryLoggingConfigs" :: (QueryLoggingConfigs)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
+  , "NextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeListQueryLoggingConfigsResponse :: Newtype ListQueryLoggingConfigsResponse _
 derive instance repGenericListQueryLoggingConfigsResponse :: Generic ListQueryLoggingConfigsResponse _
@@ -3123,22 +3122,22 @@ instance encodeListQueryLoggingConfigsResponse :: Encode ListQueryLoggingConfigs
 
 -- | Constructs ListQueryLoggingConfigsResponse from required parameters
 newListQueryLoggingConfigsResponse :: QueryLoggingConfigs -> ListQueryLoggingConfigsResponse
-newListQueryLoggingConfigsResponse _QueryLoggingConfigs = ListQueryLoggingConfigsResponse { "QueryLoggingConfigs": _QueryLoggingConfigs, "NextToken": (NullOrUndefined Nothing) }
+newListQueryLoggingConfigsResponse _QueryLoggingConfigs = ListQueryLoggingConfigsResponse { "QueryLoggingConfigs": _QueryLoggingConfigs, "NextToken": Nothing }
 
 -- | Constructs ListQueryLoggingConfigsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListQueryLoggingConfigsResponse' :: QueryLoggingConfigs -> ( { "QueryLoggingConfigs" :: (QueryLoggingConfigs) , "NextToken" :: NullOrUndefined (PaginationToken) } -> {"QueryLoggingConfigs" :: (QueryLoggingConfigs) , "NextToken" :: NullOrUndefined (PaginationToken) } ) -> ListQueryLoggingConfigsResponse
-newListQueryLoggingConfigsResponse' _QueryLoggingConfigs customize = (ListQueryLoggingConfigsResponse <<< customize) { "QueryLoggingConfigs": _QueryLoggingConfigs, "NextToken": (NullOrUndefined Nothing) }
+newListQueryLoggingConfigsResponse' :: QueryLoggingConfigs -> ( { "QueryLoggingConfigs" :: (QueryLoggingConfigs) , "NextToken" :: Maybe (PaginationToken) } -> {"QueryLoggingConfigs" :: (QueryLoggingConfigs) , "NextToken" :: Maybe (PaginationToken) } ) -> ListQueryLoggingConfigsResponse
+newListQueryLoggingConfigsResponse' _QueryLoggingConfigs customize = (ListQueryLoggingConfigsResponse <<< customize) { "QueryLoggingConfigs": _QueryLoggingConfigs, "NextToken": Nothing }
 
 
 
 -- | <p>A request for the resource record sets that are associated with a specified hosted zone.</p>
 newtype ListResourceRecordSetsRequest = ListResourceRecordSetsRequest 
   { "HostedZoneId" :: (ResourceId)
-  , "StartRecordName" :: NullOrUndefined (DNSName)
-  , "StartRecordType" :: NullOrUndefined (RRType)
-  , "StartRecordIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier)
-  , "MaxItems" :: NullOrUndefined (PageMaxItems)
+  , "StartRecordName" :: Maybe (DNSName)
+  , "StartRecordType" :: Maybe (RRType)
+  , "StartRecordIdentifier" :: Maybe (ResourceRecordSetIdentifier)
+  , "MaxItems" :: Maybe (PageMaxItems)
   }
 derive instance newtypeListResourceRecordSetsRequest :: Newtype ListResourceRecordSetsRequest _
 derive instance repGenericListResourceRecordSetsRequest :: Generic ListResourceRecordSetsRequest _
@@ -3148,12 +3147,12 @@ instance encodeListResourceRecordSetsRequest :: Encode ListResourceRecordSetsReq
 
 -- | Constructs ListResourceRecordSetsRequest from required parameters
 newListResourceRecordSetsRequest :: ResourceId -> ListResourceRecordSetsRequest
-newListResourceRecordSetsRequest _HostedZoneId = ListResourceRecordSetsRequest { "HostedZoneId": _HostedZoneId, "MaxItems": (NullOrUndefined Nothing), "StartRecordIdentifier": (NullOrUndefined Nothing), "StartRecordName": (NullOrUndefined Nothing), "StartRecordType": (NullOrUndefined Nothing) }
+newListResourceRecordSetsRequest _HostedZoneId = ListResourceRecordSetsRequest { "HostedZoneId": _HostedZoneId, "MaxItems": Nothing, "StartRecordIdentifier": Nothing, "StartRecordName": Nothing, "StartRecordType": Nothing }
 
 -- | Constructs ListResourceRecordSetsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListResourceRecordSetsRequest' :: ResourceId -> ( { "HostedZoneId" :: (ResourceId) , "StartRecordName" :: NullOrUndefined (DNSName) , "StartRecordType" :: NullOrUndefined (RRType) , "StartRecordIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier) , "MaxItems" :: NullOrUndefined (PageMaxItems) } -> {"HostedZoneId" :: (ResourceId) , "StartRecordName" :: NullOrUndefined (DNSName) , "StartRecordType" :: NullOrUndefined (RRType) , "StartRecordIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier) , "MaxItems" :: NullOrUndefined (PageMaxItems) } ) -> ListResourceRecordSetsRequest
-newListResourceRecordSetsRequest' _HostedZoneId customize = (ListResourceRecordSetsRequest <<< customize) { "HostedZoneId": _HostedZoneId, "MaxItems": (NullOrUndefined Nothing), "StartRecordIdentifier": (NullOrUndefined Nothing), "StartRecordName": (NullOrUndefined Nothing), "StartRecordType": (NullOrUndefined Nothing) }
+newListResourceRecordSetsRequest' :: ResourceId -> ( { "HostedZoneId" :: (ResourceId) , "StartRecordName" :: Maybe (DNSName) , "StartRecordType" :: Maybe (RRType) , "StartRecordIdentifier" :: Maybe (ResourceRecordSetIdentifier) , "MaxItems" :: Maybe (PageMaxItems) } -> {"HostedZoneId" :: (ResourceId) , "StartRecordName" :: Maybe (DNSName) , "StartRecordType" :: Maybe (RRType) , "StartRecordIdentifier" :: Maybe (ResourceRecordSetIdentifier) , "MaxItems" :: Maybe (PageMaxItems) } ) -> ListResourceRecordSetsRequest
+newListResourceRecordSetsRequest' _HostedZoneId customize = (ListResourceRecordSetsRequest <<< customize) { "HostedZoneId": _HostedZoneId, "MaxItems": Nothing, "StartRecordIdentifier": Nothing, "StartRecordName": Nothing, "StartRecordType": Nothing }
 
 
 
@@ -3161,9 +3160,9 @@ newListResourceRecordSetsRequest' _HostedZoneId customize = (ListResourceRecordS
 newtype ListResourceRecordSetsResponse = ListResourceRecordSetsResponse 
   { "ResourceRecordSets" :: (ResourceRecordSets)
   , "IsTruncated" :: (PageTruncated)
-  , "NextRecordName" :: NullOrUndefined (DNSName)
-  , "NextRecordType" :: NullOrUndefined (RRType)
-  , "NextRecordIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier)
+  , "NextRecordName" :: Maybe (DNSName)
+  , "NextRecordType" :: Maybe (RRType)
+  , "NextRecordIdentifier" :: Maybe (ResourceRecordSetIdentifier)
   , "MaxItems" :: (PageMaxItems)
   }
 derive instance newtypeListResourceRecordSetsResponse :: Newtype ListResourceRecordSetsResponse _
@@ -3174,19 +3173,19 @@ instance encodeListResourceRecordSetsResponse :: Encode ListResourceRecordSetsRe
 
 -- | Constructs ListResourceRecordSetsResponse from required parameters
 newListResourceRecordSetsResponse :: PageTruncated -> PageMaxItems -> ResourceRecordSets -> ListResourceRecordSetsResponse
-newListResourceRecordSetsResponse _IsTruncated _MaxItems _ResourceRecordSets = ListResourceRecordSetsResponse { "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "ResourceRecordSets": _ResourceRecordSets, "NextRecordIdentifier": (NullOrUndefined Nothing), "NextRecordName": (NullOrUndefined Nothing), "NextRecordType": (NullOrUndefined Nothing) }
+newListResourceRecordSetsResponse _IsTruncated _MaxItems _ResourceRecordSets = ListResourceRecordSetsResponse { "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "ResourceRecordSets": _ResourceRecordSets, "NextRecordIdentifier": Nothing, "NextRecordName": Nothing, "NextRecordType": Nothing }
 
 -- | Constructs ListResourceRecordSetsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListResourceRecordSetsResponse' :: PageTruncated -> PageMaxItems -> ResourceRecordSets -> ( { "ResourceRecordSets" :: (ResourceRecordSets) , "IsTruncated" :: (PageTruncated) , "NextRecordName" :: NullOrUndefined (DNSName) , "NextRecordType" :: NullOrUndefined (RRType) , "NextRecordIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier) , "MaxItems" :: (PageMaxItems) } -> {"ResourceRecordSets" :: (ResourceRecordSets) , "IsTruncated" :: (PageTruncated) , "NextRecordName" :: NullOrUndefined (DNSName) , "NextRecordType" :: NullOrUndefined (RRType) , "NextRecordIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier) , "MaxItems" :: (PageMaxItems) } ) -> ListResourceRecordSetsResponse
-newListResourceRecordSetsResponse' _IsTruncated _MaxItems _ResourceRecordSets customize = (ListResourceRecordSetsResponse <<< customize) { "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "ResourceRecordSets": _ResourceRecordSets, "NextRecordIdentifier": (NullOrUndefined Nothing), "NextRecordName": (NullOrUndefined Nothing), "NextRecordType": (NullOrUndefined Nothing) }
+newListResourceRecordSetsResponse' :: PageTruncated -> PageMaxItems -> ResourceRecordSets -> ( { "ResourceRecordSets" :: (ResourceRecordSets) , "IsTruncated" :: (PageTruncated) , "NextRecordName" :: Maybe (DNSName) , "NextRecordType" :: Maybe (RRType) , "NextRecordIdentifier" :: Maybe (ResourceRecordSetIdentifier) , "MaxItems" :: (PageMaxItems) } -> {"ResourceRecordSets" :: (ResourceRecordSets) , "IsTruncated" :: (PageTruncated) , "NextRecordName" :: Maybe (DNSName) , "NextRecordType" :: Maybe (RRType) , "NextRecordIdentifier" :: Maybe (ResourceRecordSetIdentifier) , "MaxItems" :: (PageMaxItems) } ) -> ListResourceRecordSetsResponse
+newListResourceRecordSetsResponse' _IsTruncated _MaxItems _ResourceRecordSets customize = (ListResourceRecordSetsResponse <<< customize) { "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "ResourceRecordSets": _ResourceRecordSets, "NextRecordIdentifier": Nothing, "NextRecordName": Nothing, "NextRecordType": Nothing }
 
 
 
 -- | <p>A request to get a list of the reusable delegation sets that are associated with the current AWS account.</p>
 newtype ListReusableDelegationSetsRequest = ListReusableDelegationSetsRequest 
-  { "Marker" :: NullOrUndefined (PageMarker)
-  , "MaxItems" :: NullOrUndefined (PageMaxItems)
+  { "Marker" :: Maybe (PageMarker)
+  , "MaxItems" :: Maybe (PageMaxItems)
   }
 derive instance newtypeListReusableDelegationSetsRequest :: Newtype ListReusableDelegationSetsRequest _
 derive instance repGenericListReusableDelegationSetsRequest :: Generic ListReusableDelegationSetsRequest _
@@ -3196,12 +3195,12 @@ instance encodeListReusableDelegationSetsRequest :: Encode ListReusableDelegatio
 
 -- | Constructs ListReusableDelegationSetsRequest from required parameters
 newListReusableDelegationSetsRequest :: ListReusableDelegationSetsRequest
-newListReusableDelegationSetsRequest  = ListReusableDelegationSetsRequest { "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListReusableDelegationSetsRequest  = ListReusableDelegationSetsRequest { "Marker": Nothing, "MaxItems": Nothing }
 
 -- | Constructs ListReusableDelegationSetsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListReusableDelegationSetsRequest' :: ( { "Marker" :: NullOrUndefined (PageMarker) , "MaxItems" :: NullOrUndefined (PageMaxItems) } -> {"Marker" :: NullOrUndefined (PageMarker) , "MaxItems" :: NullOrUndefined (PageMaxItems) } ) -> ListReusableDelegationSetsRequest
-newListReusableDelegationSetsRequest'  customize = (ListReusableDelegationSetsRequest <<< customize) { "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListReusableDelegationSetsRequest' :: ( { "Marker" :: Maybe (PageMarker) , "MaxItems" :: Maybe (PageMaxItems) } -> {"Marker" :: Maybe (PageMarker) , "MaxItems" :: Maybe (PageMaxItems) } ) -> ListReusableDelegationSetsRequest
+newListReusableDelegationSetsRequest'  customize = (ListReusableDelegationSetsRequest <<< customize) { "Marker": Nothing, "MaxItems": Nothing }
 
 
 
@@ -3210,7 +3209,7 @@ newtype ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse
   { "DelegationSets" :: (DelegationSets)
   , "Marker" :: (PageMarker)
   , "IsTruncated" :: (PageTruncated)
-  , "NextMarker" :: NullOrUndefined (PageMarker)
+  , "NextMarker" :: Maybe (PageMarker)
   , "MaxItems" :: (PageMaxItems)
   }
 derive instance newtypeListReusableDelegationSetsResponse :: Newtype ListReusableDelegationSetsResponse _
@@ -3221,12 +3220,12 @@ instance encodeListReusableDelegationSetsResponse :: Encode ListReusableDelegati
 
 -- | Constructs ListReusableDelegationSetsResponse from required parameters
 newListReusableDelegationSetsResponse :: DelegationSets -> PageTruncated -> PageMarker -> PageMaxItems -> ListReusableDelegationSetsResponse
-newListReusableDelegationSetsResponse _DelegationSets _IsTruncated _Marker _MaxItems = ListReusableDelegationSetsResponse { "DelegationSets": _DelegationSets, "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "NextMarker": (NullOrUndefined Nothing) }
+newListReusableDelegationSetsResponse _DelegationSets _IsTruncated _Marker _MaxItems = ListReusableDelegationSetsResponse { "DelegationSets": _DelegationSets, "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "NextMarker": Nothing }
 
 -- | Constructs ListReusableDelegationSetsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListReusableDelegationSetsResponse' :: DelegationSets -> PageTruncated -> PageMarker -> PageMaxItems -> ( { "DelegationSets" :: (DelegationSets) , "Marker" :: (PageMarker) , "IsTruncated" :: (PageTruncated) , "NextMarker" :: NullOrUndefined (PageMarker) , "MaxItems" :: (PageMaxItems) } -> {"DelegationSets" :: (DelegationSets) , "Marker" :: (PageMarker) , "IsTruncated" :: (PageTruncated) , "NextMarker" :: NullOrUndefined (PageMarker) , "MaxItems" :: (PageMaxItems) } ) -> ListReusableDelegationSetsResponse
-newListReusableDelegationSetsResponse' _DelegationSets _IsTruncated _Marker _MaxItems customize = (ListReusableDelegationSetsResponse <<< customize) { "DelegationSets": _DelegationSets, "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "NextMarker": (NullOrUndefined Nothing) }
+newListReusableDelegationSetsResponse' :: DelegationSets -> PageTruncated -> PageMarker -> PageMaxItems -> ( { "DelegationSets" :: (DelegationSets) , "Marker" :: (PageMarker) , "IsTruncated" :: (PageTruncated) , "NextMarker" :: Maybe (PageMarker) , "MaxItems" :: (PageMaxItems) } -> {"DelegationSets" :: (DelegationSets) , "Marker" :: (PageMarker) , "IsTruncated" :: (PageTruncated) , "NextMarker" :: Maybe (PageMarker) , "MaxItems" :: (PageMaxItems) } ) -> ListReusableDelegationSetsResponse
+newListReusableDelegationSetsResponse' _DelegationSets _IsTruncated _Marker _MaxItems customize = (ListReusableDelegationSetsResponse <<< customize) { "DelegationSets": _DelegationSets, "IsTruncated": _IsTruncated, "Marker": _Marker, "MaxItems": _MaxItems, "NextMarker": Nothing }
 
 
 
@@ -3318,8 +3317,8 @@ newListTagsForResourcesResponse' _ResourceTagSets customize = (ListTagsForResour
 
 -- | <p>A complex type that contains the information about the request to list the traffic policies that are associated with the current AWS account.</p>
 newtype ListTrafficPoliciesRequest = ListTrafficPoliciesRequest 
-  { "TrafficPolicyIdMarker" :: NullOrUndefined (TrafficPolicyId)
-  , "MaxItems" :: NullOrUndefined (PageMaxItems)
+  { "TrafficPolicyIdMarker" :: Maybe (TrafficPolicyId)
+  , "MaxItems" :: Maybe (PageMaxItems)
   }
 derive instance newtypeListTrafficPoliciesRequest :: Newtype ListTrafficPoliciesRequest _
 derive instance repGenericListTrafficPoliciesRequest :: Generic ListTrafficPoliciesRequest _
@@ -3329,12 +3328,12 @@ instance encodeListTrafficPoliciesRequest :: Encode ListTrafficPoliciesRequest w
 
 -- | Constructs ListTrafficPoliciesRequest from required parameters
 newListTrafficPoliciesRequest :: ListTrafficPoliciesRequest
-newListTrafficPoliciesRequest  = ListTrafficPoliciesRequest { "MaxItems": (NullOrUndefined Nothing), "TrafficPolicyIdMarker": (NullOrUndefined Nothing) }
+newListTrafficPoliciesRequest  = ListTrafficPoliciesRequest { "MaxItems": Nothing, "TrafficPolicyIdMarker": Nothing }
 
 -- | Constructs ListTrafficPoliciesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTrafficPoliciesRequest' :: ( { "TrafficPolicyIdMarker" :: NullOrUndefined (TrafficPolicyId) , "MaxItems" :: NullOrUndefined (PageMaxItems) } -> {"TrafficPolicyIdMarker" :: NullOrUndefined (TrafficPolicyId) , "MaxItems" :: NullOrUndefined (PageMaxItems) } ) -> ListTrafficPoliciesRequest
-newListTrafficPoliciesRequest'  customize = (ListTrafficPoliciesRequest <<< customize) { "MaxItems": (NullOrUndefined Nothing), "TrafficPolicyIdMarker": (NullOrUndefined Nothing) }
+newListTrafficPoliciesRequest' :: ( { "TrafficPolicyIdMarker" :: Maybe (TrafficPolicyId) , "MaxItems" :: Maybe (PageMaxItems) } -> {"TrafficPolicyIdMarker" :: Maybe (TrafficPolicyId) , "MaxItems" :: Maybe (PageMaxItems) } ) -> ListTrafficPoliciesRequest
+newListTrafficPoliciesRequest'  customize = (ListTrafficPoliciesRequest <<< customize) { "MaxItems": Nothing, "TrafficPolicyIdMarker": Nothing }
 
 
 
@@ -3365,9 +3364,9 @@ newListTrafficPoliciesResponse' _IsTruncated _MaxItems _TrafficPolicyIdMarker _T
 -- | <p>A request for the traffic policy instances that you created in a specified hosted zone.</p>
 newtype ListTrafficPolicyInstancesByHostedZoneRequest = ListTrafficPolicyInstancesByHostedZoneRequest 
   { "HostedZoneId" :: (ResourceId)
-  , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName)
-  , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType)
-  , "MaxItems" :: NullOrUndefined (PageMaxItems)
+  , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName)
+  , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType)
+  , "MaxItems" :: Maybe (PageMaxItems)
   }
 derive instance newtypeListTrafficPolicyInstancesByHostedZoneRequest :: Newtype ListTrafficPolicyInstancesByHostedZoneRequest _
 derive instance repGenericListTrafficPolicyInstancesByHostedZoneRequest :: Generic ListTrafficPolicyInstancesByHostedZoneRequest _
@@ -3377,20 +3376,20 @@ instance encodeListTrafficPolicyInstancesByHostedZoneRequest :: Encode ListTraff
 
 -- | Constructs ListTrafficPolicyInstancesByHostedZoneRequest from required parameters
 newListTrafficPolicyInstancesByHostedZoneRequest :: ResourceId -> ListTrafficPolicyInstancesByHostedZoneRequest
-newListTrafficPolicyInstancesByHostedZoneRequest _HostedZoneId = ListTrafficPolicyInstancesByHostedZoneRequest { "HostedZoneId": _HostedZoneId, "MaxItems": (NullOrUndefined Nothing), "TrafficPolicyInstanceNameMarker": (NullOrUndefined Nothing), "TrafficPolicyInstanceTypeMarker": (NullOrUndefined Nothing) }
+newListTrafficPolicyInstancesByHostedZoneRequest _HostedZoneId = ListTrafficPolicyInstancesByHostedZoneRequest { "HostedZoneId": _HostedZoneId, "MaxItems": Nothing, "TrafficPolicyInstanceNameMarker": Nothing, "TrafficPolicyInstanceTypeMarker": Nothing }
 
 -- | Constructs ListTrafficPolicyInstancesByHostedZoneRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTrafficPolicyInstancesByHostedZoneRequest' :: ResourceId -> ( { "HostedZoneId" :: (ResourceId) , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName) , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType) , "MaxItems" :: NullOrUndefined (PageMaxItems) } -> {"HostedZoneId" :: (ResourceId) , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName) , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType) , "MaxItems" :: NullOrUndefined (PageMaxItems) } ) -> ListTrafficPolicyInstancesByHostedZoneRequest
-newListTrafficPolicyInstancesByHostedZoneRequest' _HostedZoneId customize = (ListTrafficPolicyInstancesByHostedZoneRequest <<< customize) { "HostedZoneId": _HostedZoneId, "MaxItems": (NullOrUndefined Nothing), "TrafficPolicyInstanceNameMarker": (NullOrUndefined Nothing), "TrafficPolicyInstanceTypeMarker": (NullOrUndefined Nothing) }
+newListTrafficPolicyInstancesByHostedZoneRequest' :: ResourceId -> ( { "HostedZoneId" :: (ResourceId) , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName) , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType) , "MaxItems" :: Maybe (PageMaxItems) } -> {"HostedZoneId" :: (ResourceId) , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName) , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType) , "MaxItems" :: Maybe (PageMaxItems) } ) -> ListTrafficPolicyInstancesByHostedZoneRequest
+newListTrafficPolicyInstancesByHostedZoneRequest' _HostedZoneId customize = (ListTrafficPolicyInstancesByHostedZoneRequest <<< customize) { "HostedZoneId": _HostedZoneId, "MaxItems": Nothing, "TrafficPolicyInstanceNameMarker": Nothing, "TrafficPolicyInstanceTypeMarker": Nothing }
 
 
 
 -- | <p>A complex type that contains the response information for the request.</p>
 newtype ListTrafficPolicyInstancesByHostedZoneResponse = ListTrafficPolicyInstancesByHostedZoneResponse 
   { "TrafficPolicyInstances" :: (TrafficPolicyInstances)
-  , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName)
-  , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType)
+  , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName)
+  , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType)
   , "IsTruncated" :: (PageTruncated)
   , "MaxItems" :: (PageMaxItems)
   }
@@ -3402,12 +3401,12 @@ instance encodeListTrafficPolicyInstancesByHostedZoneResponse :: Encode ListTraf
 
 -- | Constructs ListTrafficPolicyInstancesByHostedZoneResponse from required parameters
 newListTrafficPolicyInstancesByHostedZoneResponse :: PageTruncated -> PageMaxItems -> TrafficPolicyInstances -> ListTrafficPolicyInstancesByHostedZoneResponse
-newListTrafficPolicyInstancesByHostedZoneResponse _IsTruncated _MaxItems _TrafficPolicyInstances = ListTrafficPolicyInstancesByHostedZoneResponse { "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "TrafficPolicyInstances": _TrafficPolicyInstances, "TrafficPolicyInstanceNameMarker": (NullOrUndefined Nothing), "TrafficPolicyInstanceTypeMarker": (NullOrUndefined Nothing) }
+newListTrafficPolicyInstancesByHostedZoneResponse _IsTruncated _MaxItems _TrafficPolicyInstances = ListTrafficPolicyInstancesByHostedZoneResponse { "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "TrafficPolicyInstances": _TrafficPolicyInstances, "TrafficPolicyInstanceNameMarker": Nothing, "TrafficPolicyInstanceTypeMarker": Nothing }
 
 -- | Constructs ListTrafficPolicyInstancesByHostedZoneResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTrafficPolicyInstancesByHostedZoneResponse' :: PageTruncated -> PageMaxItems -> TrafficPolicyInstances -> ( { "TrafficPolicyInstances" :: (TrafficPolicyInstances) , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName) , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType) , "IsTruncated" :: (PageTruncated) , "MaxItems" :: (PageMaxItems) } -> {"TrafficPolicyInstances" :: (TrafficPolicyInstances) , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName) , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType) , "IsTruncated" :: (PageTruncated) , "MaxItems" :: (PageMaxItems) } ) -> ListTrafficPolicyInstancesByHostedZoneResponse
-newListTrafficPolicyInstancesByHostedZoneResponse' _IsTruncated _MaxItems _TrafficPolicyInstances customize = (ListTrafficPolicyInstancesByHostedZoneResponse <<< customize) { "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "TrafficPolicyInstances": _TrafficPolicyInstances, "TrafficPolicyInstanceNameMarker": (NullOrUndefined Nothing), "TrafficPolicyInstanceTypeMarker": (NullOrUndefined Nothing) }
+newListTrafficPolicyInstancesByHostedZoneResponse' :: PageTruncated -> PageMaxItems -> TrafficPolicyInstances -> ( { "TrafficPolicyInstances" :: (TrafficPolicyInstances) , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName) , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType) , "IsTruncated" :: (PageTruncated) , "MaxItems" :: (PageMaxItems) } -> {"TrafficPolicyInstances" :: (TrafficPolicyInstances) , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName) , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType) , "IsTruncated" :: (PageTruncated) , "MaxItems" :: (PageMaxItems) } ) -> ListTrafficPolicyInstancesByHostedZoneResponse
+newListTrafficPolicyInstancesByHostedZoneResponse' _IsTruncated _MaxItems _TrafficPolicyInstances customize = (ListTrafficPolicyInstancesByHostedZoneResponse <<< customize) { "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "TrafficPolicyInstances": _TrafficPolicyInstances, "TrafficPolicyInstanceNameMarker": Nothing, "TrafficPolicyInstanceTypeMarker": Nothing }
 
 
 
@@ -3415,10 +3414,10 @@ newListTrafficPolicyInstancesByHostedZoneResponse' _IsTruncated _MaxItems _Traff
 newtype ListTrafficPolicyInstancesByPolicyRequest = ListTrafficPolicyInstancesByPolicyRequest 
   { "TrafficPolicyId" :: (TrafficPolicyId)
   , "TrafficPolicyVersion" :: (TrafficPolicyVersion)
-  , "HostedZoneIdMarker" :: NullOrUndefined (ResourceId)
-  , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName)
-  , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType)
-  , "MaxItems" :: NullOrUndefined (PageMaxItems)
+  , "HostedZoneIdMarker" :: Maybe (ResourceId)
+  , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName)
+  , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType)
+  , "MaxItems" :: Maybe (PageMaxItems)
   }
 derive instance newtypeListTrafficPolicyInstancesByPolicyRequest :: Newtype ListTrafficPolicyInstancesByPolicyRequest _
 derive instance repGenericListTrafficPolicyInstancesByPolicyRequest :: Generic ListTrafficPolicyInstancesByPolicyRequest _
@@ -3428,21 +3427,21 @@ instance encodeListTrafficPolicyInstancesByPolicyRequest :: Encode ListTrafficPo
 
 -- | Constructs ListTrafficPolicyInstancesByPolicyRequest from required parameters
 newListTrafficPolicyInstancesByPolicyRequest :: TrafficPolicyId -> TrafficPolicyVersion -> ListTrafficPolicyInstancesByPolicyRequest
-newListTrafficPolicyInstancesByPolicyRequest _TrafficPolicyId _TrafficPolicyVersion = ListTrafficPolicyInstancesByPolicyRequest { "TrafficPolicyId": _TrafficPolicyId, "TrafficPolicyVersion": _TrafficPolicyVersion, "HostedZoneIdMarker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing), "TrafficPolicyInstanceNameMarker": (NullOrUndefined Nothing), "TrafficPolicyInstanceTypeMarker": (NullOrUndefined Nothing) }
+newListTrafficPolicyInstancesByPolicyRequest _TrafficPolicyId _TrafficPolicyVersion = ListTrafficPolicyInstancesByPolicyRequest { "TrafficPolicyId": _TrafficPolicyId, "TrafficPolicyVersion": _TrafficPolicyVersion, "HostedZoneIdMarker": Nothing, "MaxItems": Nothing, "TrafficPolicyInstanceNameMarker": Nothing, "TrafficPolicyInstanceTypeMarker": Nothing }
 
 -- | Constructs ListTrafficPolicyInstancesByPolicyRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTrafficPolicyInstancesByPolicyRequest' :: TrafficPolicyId -> TrafficPolicyVersion -> ( { "TrafficPolicyId" :: (TrafficPolicyId) , "TrafficPolicyVersion" :: (TrafficPolicyVersion) , "HostedZoneIdMarker" :: NullOrUndefined (ResourceId) , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName) , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType) , "MaxItems" :: NullOrUndefined (PageMaxItems) } -> {"TrafficPolicyId" :: (TrafficPolicyId) , "TrafficPolicyVersion" :: (TrafficPolicyVersion) , "HostedZoneIdMarker" :: NullOrUndefined (ResourceId) , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName) , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType) , "MaxItems" :: NullOrUndefined (PageMaxItems) } ) -> ListTrafficPolicyInstancesByPolicyRequest
-newListTrafficPolicyInstancesByPolicyRequest' _TrafficPolicyId _TrafficPolicyVersion customize = (ListTrafficPolicyInstancesByPolicyRequest <<< customize) { "TrafficPolicyId": _TrafficPolicyId, "TrafficPolicyVersion": _TrafficPolicyVersion, "HostedZoneIdMarker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing), "TrafficPolicyInstanceNameMarker": (NullOrUndefined Nothing), "TrafficPolicyInstanceTypeMarker": (NullOrUndefined Nothing) }
+newListTrafficPolicyInstancesByPolicyRequest' :: TrafficPolicyId -> TrafficPolicyVersion -> ( { "TrafficPolicyId" :: (TrafficPolicyId) , "TrafficPolicyVersion" :: (TrafficPolicyVersion) , "HostedZoneIdMarker" :: Maybe (ResourceId) , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName) , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType) , "MaxItems" :: Maybe (PageMaxItems) } -> {"TrafficPolicyId" :: (TrafficPolicyId) , "TrafficPolicyVersion" :: (TrafficPolicyVersion) , "HostedZoneIdMarker" :: Maybe (ResourceId) , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName) , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType) , "MaxItems" :: Maybe (PageMaxItems) } ) -> ListTrafficPolicyInstancesByPolicyRequest
+newListTrafficPolicyInstancesByPolicyRequest' _TrafficPolicyId _TrafficPolicyVersion customize = (ListTrafficPolicyInstancesByPolicyRequest <<< customize) { "TrafficPolicyId": _TrafficPolicyId, "TrafficPolicyVersion": _TrafficPolicyVersion, "HostedZoneIdMarker": Nothing, "MaxItems": Nothing, "TrafficPolicyInstanceNameMarker": Nothing, "TrafficPolicyInstanceTypeMarker": Nothing }
 
 
 
 -- | <p>A complex type that contains the response information for the request.</p>
 newtype ListTrafficPolicyInstancesByPolicyResponse = ListTrafficPolicyInstancesByPolicyResponse 
   { "TrafficPolicyInstances" :: (TrafficPolicyInstances)
-  , "HostedZoneIdMarker" :: NullOrUndefined (ResourceId)
-  , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName)
-  , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType)
+  , "HostedZoneIdMarker" :: Maybe (ResourceId)
+  , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName)
+  , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType)
   , "IsTruncated" :: (PageTruncated)
   , "MaxItems" :: (PageMaxItems)
   }
@@ -3454,21 +3453,21 @@ instance encodeListTrafficPolicyInstancesByPolicyResponse :: Encode ListTrafficP
 
 -- | Constructs ListTrafficPolicyInstancesByPolicyResponse from required parameters
 newListTrafficPolicyInstancesByPolicyResponse :: PageTruncated -> PageMaxItems -> TrafficPolicyInstances -> ListTrafficPolicyInstancesByPolicyResponse
-newListTrafficPolicyInstancesByPolicyResponse _IsTruncated _MaxItems _TrafficPolicyInstances = ListTrafficPolicyInstancesByPolicyResponse { "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "TrafficPolicyInstances": _TrafficPolicyInstances, "HostedZoneIdMarker": (NullOrUndefined Nothing), "TrafficPolicyInstanceNameMarker": (NullOrUndefined Nothing), "TrafficPolicyInstanceTypeMarker": (NullOrUndefined Nothing) }
+newListTrafficPolicyInstancesByPolicyResponse _IsTruncated _MaxItems _TrafficPolicyInstances = ListTrafficPolicyInstancesByPolicyResponse { "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "TrafficPolicyInstances": _TrafficPolicyInstances, "HostedZoneIdMarker": Nothing, "TrafficPolicyInstanceNameMarker": Nothing, "TrafficPolicyInstanceTypeMarker": Nothing }
 
 -- | Constructs ListTrafficPolicyInstancesByPolicyResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTrafficPolicyInstancesByPolicyResponse' :: PageTruncated -> PageMaxItems -> TrafficPolicyInstances -> ( { "TrafficPolicyInstances" :: (TrafficPolicyInstances) , "HostedZoneIdMarker" :: NullOrUndefined (ResourceId) , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName) , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType) , "IsTruncated" :: (PageTruncated) , "MaxItems" :: (PageMaxItems) } -> {"TrafficPolicyInstances" :: (TrafficPolicyInstances) , "HostedZoneIdMarker" :: NullOrUndefined (ResourceId) , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName) , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType) , "IsTruncated" :: (PageTruncated) , "MaxItems" :: (PageMaxItems) } ) -> ListTrafficPolicyInstancesByPolicyResponse
-newListTrafficPolicyInstancesByPolicyResponse' _IsTruncated _MaxItems _TrafficPolicyInstances customize = (ListTrafficPolicyInstancesByPolicyResponse <<< customize) { "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "TrafficPolicyInstances": _TrafficPolicyInstances, "HostedZoneIdMarker": (NullOrUndefined Nothing), "TrafficPolicyInstanceNameMarker": (NullOrUndefined Nothing), "TrafficPolicyInstanceTypeMarker": (NullOrUndefined Nothing) }
+newListTrafficPolicyInstancesByPolicyResponse' :: PageTruncated -> PageMaxItems -> TrafficPolicyInstances -> ( { "TrafficPolicyInstances" :: (TrafficPolicyInstances) , "HostedZoneIdMarker" :: Maybe (ResourceId) , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName) , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType) , "IsTruncated" :: (PageTruncated) , "MaxItems" :: (PageMaxItems) } -> {"TrafficPolicyInstances" :: (TrafficPolicyInstances) , "HostedZoneIdMarker" :: Maybe (ResourceId) , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName) , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType) , "IsTruncated" :: (PageTruncated) , "MaxItems" :: (PageMaxItems) } ) -> ListTrafficPolicyInstancesByPolicyResponse
+newListTrafficPolicyInstancesByPolicyResponse' _IsTruncated _MaxItems _TrafficPolicyInstances customize = (ListTrafficPolicyInstancesByPolicyResponse <<< customize) { "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "TrafficPolicyInstances": _TrafficPolicyInstances, "HostedZoneIdMarker": Nothing, "TrafficPolicyInstanceNameMarker": Nothing, "TrafficPolicyInstanceTypeMarker": Nothing }
 
 
 
 -- | <p>A request to get information about the traffic policy instances that you created by using the current AWS account.</p>
 newtype ListTrafficPolicyInstancesRequest = ListTrafficPolicyInstancesRequest 
-  { "HostedZoneIdMarker" :: NullOrUndefined (ResourceId)
-  , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName)
-  , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType)
-  , "MaxItems" :: NullOrUndefined (PageMaxItems)
+  { "HostedZoneIdMarker" :: Maybe (ResourceId)
+  , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName)
+  , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType)
+  , "MaxItems" :: Maybe (PageMaxItems)
   }
 derive instance newtypeListTrafficPolicyInstancesRequest :: Newtype ListTrafficPolicyInstancesRequest _
 derive instance repGenericListTrafficPolicyInstancesRequest :: Generic ListTrafficPolicyInstancesRequest _
@@ -3478,21 +3477,21 @@ instance encodeListTrafficPolicyInstancesRequest :: Encode ListTrafficPolicyInst
 
 -- | Constructs ListTrafficPolicyInstancesRequest from required parameters
 newListTrafficPolicyInstancesRequest :: ListTrafficPolicyInstancesRequest
-newListTrafficPolicyInstancesRequest  = ListTrafficPolicyInstancesRequest { "HostedZoneIdMarker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing), "TrafficPolicyInstanceNameMarker": (NullOrUndefined Nothing), "TrafficPolicyInstanceTypeMarker": (NullOrUndefined Nothing) }
+newListTrafficPolicyInstancesRequest  = ListTrafficPolicyInstancesRequest { "HostedZoneIdMarker": Nothing, "MaxItems": Nothing, "TrafficPolicyInstanceNameMarker": Nothing, "TrafficPolicyInstanceTypeMarker": Nothing }
 
 -- | Constructs ListTrafficPolicyInstancesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTrafficPolicyInstancesRequest' :: ( { "HostedZoneIdMarker" :: NullOrUndefined (ResourceId) , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName) , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType) , "MaxItems" :: NullOrUndefined (PageMaxItems) } -> {"HostedZoneIdMarker" :: NullOrUndefined (ResourceId) , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName) , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType) , "MaxItems" :: NullOrUndefined (PageMaxItems) } ) -> ListTrafficPolicyInstancesRequest
-newListTrafficPolicyInstancesRequest'  customize = (ListTrafficPolicyInstancesRequest <<< customize) { "HostedZoneIdMarker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing), "TrafficPolicyInstanceNameMarker": (NullOrUndefined Nothing), "TrafficPolicyInstanceTypeMarker": (NullOrUndefined Nothing) }
+newListTrafficPolicyInstancesRequest' :: ( { "HostedZoneIdMarker" :: Maybe (ResourceId) , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName) , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType) , "MaxItems" :: Maybe (PageMaxItems) } -> {"HostedZoneIdMarker" :: Maybe (ResourceId) , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName) , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType) , "MaxItems" :: Maybe (PageMaxItems) } ) -> ListTrafficPolicyInstancesRequest
+newListTrafficPolicyInstancesRequest'  customize = (ListTrafficPolicyInstancesRequest <<< customize) { "HostedZoneIdMarker": Nothing, "MaxItems": Nothing, "TrafficPolicyInstanceNameMarker": Nothing, "TrafficPolicyInstanceTypeMarker": Nothing }
 
 
 
 -- | <p>A complex type that contains the response information for the request.</p>
 newtype ListTrafficPolicyInstancesResponse = ListTrafficPolicyInstancesResponse 
   { "TrafficPolicyInstances" :: (TrafficPolicyInstances)
-  , "HostedZoneIdMarker" :: NullOrUndefined (ResourceId)
-  , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName)
-  , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType)
+  , "HostedZoneIdMarker" :: Maybe (ResourceId)
+  , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName)
+  , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType)
   , "IsTruncated" :: (PageTruncated)
   , "MaxItems" :: (PageMaxItems)
   }
@@ -3504,20 +3503,20 @@ instance encodeListTrafficPolicyInstancesResponse :: Encode ListTrafficPolicyIns
 
 -- | Constructs ListTrafficPolicyInstancesResponse from required parameters
 newListTrafficPolicyInstancesResponse :: PageTruncated -> PageMaxItems -> TrafficPolicyInstances -> ListTrafficPolicyInstancesResponse
-newListTrafficPolicyInstancesResponse _IsTruncated _MaxItems _TrafficPolicyInstances = ListTrafficPolicyInstancesResponse { "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "TrafficPolicyInstances": _TrafficPolicyInstances, "HostedZoneIdMarker": (NullOrUndefined Nothing), "TrafficPolicyInstanceNameMarker": (NullOrUndefined Nothing), "TrafficPolicyInstanceTypeMarker": (NullOrUndefined Nothing) }
+newListTrafficPolicyInstancesResponse _IsTruncated _MaxItems _TrafficPolicyInstances = ListTrafficPolicyInstancesResponse { "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "TrafficPolicyInstances": _TrafficPolicyInstances, "HostedZoneIdMarker": Nothing, "TrafficPolicyInstanceNameMarker": Nothing, "TrafficPolicyInstanceTypeMarker": Nothing }
 
 -- | Constructs ListTrafficPolicyInstancesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTrafficPolicyInstancesResponse' :: PageTruncated -> PageMaxItems -> TrafficPolicyInstances -> ( { "TrafficPolicyInstances" :: (TrafficPolicyInstances) , "HostedZoneIdMarker" :: NullOrUndefined (ResourceId) , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName) , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType) , "IsTruncated" :: (PageTruncated) , "MaxItems" :: (PageMaxItems) } -> {"TrafficPolicyInstances" :: (TrafficPolicyInstances) , "HostedZoneIdMarker" :: NullOrUndefined (ResourceId) , "TrafficPolicyInstanceNameMarker" :: NullOrUndefined (DNSName) , "TrafficPolicyInstanceTypeMarker" :: NullOrUndefined (RRType) , "IsTruncated" :: (PageTruncated) , "MaxItems" :: (PageMaxItems) } ) -> ListTrafficPolicyInstancesResponse
-newListTrafficPolicyInstancesResponse' _IsTruncated _MaxItems _TrafficPolicyInstances customize = (ListTrafficPolicyInstancesResponse <<< customize) { "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "TrafficPolicyInstances": _TrafficPolicyInstances, "HostedZoneIdMarker": (NullOrUndefined Nothing), "TrafficPolicyInstanceNameMarker": (NullOrUndefined Nothing), "TrafficPolicyInstanceTypeMarker": (NullOrUndefined Nothing) }
+newListTrafficPolicyInstancesResponse' :: PageTruncated -> PageMaxItems -> TrafficPolicyInstances -> ( { "TrafficPolicyInstances" :: (TrafficPolicyInstances) , "HostedZoneIdMarker" :: Maybe (ResourceId) , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName) , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType) , "IsTruncated" :: (PageTruncated) , "MaxItems" :: (PageMaxItems) } -> {"TrafficPolicyInstances" :: (TrafficPolicyInstances) , "HostedZoneIdMarker" :: Maybe (ResourceId) , "TrafficPolicyInstanceNameMarker" :: Maybe (DNSName) , "TrafficPolicyInstanceTypeMarker" :: Maybe (RRType) , "IsTruncated" :: (PageTruncated) , "MaxItems" :: (PageMaxItems) } ) -> ListTrafficPolicyInstancesResponse
+newListTrafficPolicyInstancesResponse' _IsTruncated _MaxItems _TrafficPolicyInstances customize = (ListTrafficPolicyInstancesResponse <<< customize) { "IsTruncated": _IsTruncated, "MaxItems": _MaxItems, "TrafficPolicyInstances": _TrafficPolicyInstances, "HostedZoneIdMarker": Nothing, "TrafficPolicyInstanceNameMarker": Nothing, "TrafficPolicyInstanceTypeMarker": Nothing }
 
 
 
 -- | <p>A complex type that contains the information about the request to list your traffic policies.</p>
 newtype ListTrafficPolicyVersionsRequest = ListTrafficPolicyVersionsRequest 
   { "Id" :: (TrafficPolicyId)
-  , "TrafficPolicyVersionMarker" :: NullOrUndefined (TrafficPolicyVersionMarker)
-  , "MaxItems" :: NullOrUndefined (PageMaxItems)
+  , "TrafficPolicyVersionMarker" :: Maybe (TrafficPolicyVersionMarker)
+  , "MaxItems" :: Maybe (PageMaxItems)
   }
 derive instance newtypeListTrafficPolicyVersionsRequest :: Newtype ListTrafficPolicyVersionsRequest _
 derive instance repGenericListTrafficPolicyVersionsRequest :: Generic ListTrafficPolicyVersionsRequest _
@@ -3527,12 +3526,12 @@ instance encodeListTrafficPolicyVersionsRequest :: Encode ListTrafficPolicyVersi
 
 -- | Constructs ListTrafficPolicyVersionsRequest from required parameters
 newListTrafficPolicyVersionsRequest :: TrafficPolicyId -> ListTrafficPolicyVersionsRequest
-newListTrafficPolicyVersionsRequest _Id = ListTrafficPolicyVersionsRequest { "Id": _Id, "MaxItems": (NullOrUndefined Nothing), "TrafficPolicyVersionMarker": (NullOrUndefined Nothing) }
+newListTrafficPolicyVersionsRequest _Id = ListTrafficPolicyVersionsRequest { "Id": _Id, "MaxItems": Nothing, "TrafficPolicyVersionMarker": Nothing }
 
 -- | Constructs ListTrafficPolicyVersionsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTrafficPolicyVersionsRequest' :: TrafficPolicyId -> ( { "Id" :: (TrafficPolicyId) , "TrafficPolicyVersionMarker" :: NullOrUndefined (TrafficPolicyVersionMarker) , "MaxItems" :: NullOrUndefined (PageMaxItems) } -> {"Id" :: (TrafficPolicyId) , "TrafficPolicyVersionMarker" :: NullOrUndefined (TrafficPolicyVersionMarker) , "MaxItems" :: NullOrUndefined (PageMaxItems) } ) -> ListTrafficPolicyVersionsRequest
-newListTrafficPolicyVersionsRequest' _Id customize = (ListTrafficPolicyVersionsRequest <<< customize) { "Id": _Id, "MaxItems": (NullOrUndefined Nothing), "TrafficPolicyVersionMarker": (NullOrUndefined Nothing) }
+newListTrafficPolicyVersionsRequest' :: TrafficPolicyId -> ( { "Id" :: (TrafficPolicyId) , "TrafficPolicyVersionMarker" :: Maybe (TrafficPolicyVersionMarker) , "MaxItems" :: Maybe (PageMaxItems) } -> {"Id" :: (TrafficPolicyId) , "TrafficPolicyVersionMarker" :: Maybe (TrafficPolicyVersionMarker) , "MaxItems" :: Maybe (PageMaxItems) } ) -> ListTrafficPolicyVersionsRequest
+newListTrafficPolicyVersionsRequest' _Id customize = (ListTrafficPolicyVersionsRequest <<< customize) { "Id": _Id, "MaxItems": Nothing, "TrafficPolicyVersionMarker": Nothing }
 
 
 
@@ -3563,8 +3562,8 @@ newListTrafficPolicyVersionsResponse' _IsTruncated _MaxItems _TrafficPolicies _T
 -- | <p>A complex type that contains information about that can be associated with your hosted zone.</p>
 newtype ListVPCAssociationAuthorizationsRequest = ListVPCAssociationAuthorizationsRequest 
   { "HostedZoneId" :: (ResourceId)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
+  , "NextToken" :: Maybe (PaginationToken)
+  , "MaxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeListVPCAssociationAuthorizationsRequest :: Newtype ListVPCAssociationAuthorizationsRequest _
 derive instance repGenericListVPCAssociationAuthorizationsRequest :: Generic ListVPCAssociationAuthorizationsRequest _
@@ -3574,19 +3573,19 @@ instance encodeListVPCAssociationAuthorizationsRequest :: Encode ListVPCAssociat
 
 -- | Constructs ListVPCAssociationAuthorizationsRequest from required parameters
 newListVPCAssociationAuthorizationsRequest :: ResourceId -> ListVPCAssociationAuthorizationsRequest
-newListVPCAssociationAuthorizationsRequest _HostedZoneId = ListVPCAssociationAuthorizationsRequest { "HostedZoneId": _HostedZoneId, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListVPCAssociationAuthorizationsRequest _HostedZoneId = ListVPCAssociationAuthorizationsRequest { "HostedZoneId": _HostedZoneId, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListVPCAssociationAuthorizationsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListVPCAssociationAuthorizationsRequest' :: ResourceId -> ( { "HostedZoneId" :: (ResourceId) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (MaxResults) } -> {"HostedZoneId" :: (ResourceId) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (MaxResults) } ) -> ListVPCAssociationAuthorizationsRequest
-newListVPCAssociationAuthorizationsRequest' _HostedZoneId customize = (ListVPCAssociationAuthorizationsRequest <<< customize) { "HostedZoneId": _HostedZoneId, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListVPCAssociationAuthorizationsRequest' :: ResourceId -> ( { "HostedZoneId" :: (ResourceId) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (MaxResults) } -> {"HostedZoneId" :: (ResourceId) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (MaxResults) } ) -> ListVPCAssociationAuthorizationsRequest
+newListVPCAssociationAuthorizationsRequest' _HostedZoneId customize = (ListVPCAssociationAuthorizationsRequest <<< customize) { "HostedZoneId": _HostedZoneId, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>A complex type that contains the response information for the request.</p>
 newtype ListVPCAssociationAuthorizationsResponse = ListVPCAssociationAuthorizationsResponse 
   { "HostedZoneId" :: (ResourceId)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
+  , "NextToken" :: Maybe (PaginationToken)
   , "VPCs" :: (VPCs)
   }
 derive instance newtypeListVPCAssociationAuthorizationsResponse :: Newtype ListVPCAssociationAuthorizationsResponse _
@@ -3597,12 +3596,12 @@ instance encodeListVPCAssociationAuthorizationsResponse :: Encode ListVPCAssocia
 
 -- | Constructs ListVPCAssociationAuthorizationsResponse from required parameters
 newListVPCAssociationAuthorizationsResponse :: ResourceId -> VPCs -> ListVPCAssociationAuthorizationsResponse
-newListVPCAssociationAuthorizationsResponse _HostedZoneId _VPCs = ListVPCAssociationAuthorizationsResponse { "HostedZoneId": _HostedZoneId, "VPCs": _VPCs, "NextToken": (NullOrUndefined Nothing) }
+newListVPCAssociationAuthorizationsResponse _HostedZoneId _VPCs = ListVPCAssociationAuthorizationsResponse { "HostedZoneId": _HostedZoneId, "VPCs": _VPCs, "NextToken": Nothing }
 
 -- | Constructs ListVPCAssociationAuthorizationsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListVPCAssociationAuthorizationsResponse' :: ResourceId -> VPCs -> ( { "HostedZoneId" :: (ResourceId) , "NextToken" :: NullOrUndefined (PaginationToken) , "VPCs" :: (VPCs) } -> {"HostedZoneId" :: (ResourceId) , "NextToken" :: NullOrUndefined (PaginationToken) , "VPCs" :: (VPCs) } ) -> ListVPCAssociationAuthorizationsResponse
-newListVPCAssociationAuthorizationsResponse' _HostedZoneId _VPCs customize = (ListVPCAssociationAuthorizationsResponse <<< customize) { "HostedZoneId": _HostedZoneId, "VPCs": _VPCs, "NextToken": (NullOrUndefined Nothing) }
+newListVPCAssociationAuthorizationsResponse' :: ResourceId -> VPCs -> ( { "HostedZoneId" :: (ResourceId) , "NextToken" :: Maybe (PaginationToken) , "VPCs" :: (VPCs) } -> {"HostedZoneId" :: (ResourceId) , "NextToken" :: Maybe (PaginationToken) , "VPCs" :: (VPCs) } ) -> ListVPCAssociationAuthorizationsResponse
+newListVPCAssociationAuthorizationsResponse' _HostedZoneId _VPCs customize = (ListVPCAssociationAuthorizationsResponse <<< customize) { "HostedZoneId": _HostedZoneId, "VPCs": _VPCs, "NextToken": Nothing }
 
 
 
@@ -3662,7 +3661,7 @@ instance encodeNamespace :: Encode Namespace where encode = genericEncode option
 
 -- | <p>A change with the specified change ID does not exist.</p>
 newtype NoSuchChange = NoSuchChange 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeNoSuchChange :: Newtype NoSuchChange _
 derive instance repGenericNoSuchChange :: Generic NoSuchChange _
@@ -3672,18 +3671,18 @@ instance encodeNoSuchChange :: Encode NoSuchChange where encode = genericEncode 
 
 -- | Constructs NoSuchChange from required parameters
 newNoSuchChange :: NoSuchChange
-newNoSuchChange  = NoSuchChange { "message": (NullOrUndefined Nothing) }
+newNoSuchChange  = NoSuchChange { "message": Nothing }
 
 -- | Constructs NoSuchChange's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNoSuchChange' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> NoSuchChange
-newNoSuchChange'  customize = (NoSuchChange <<< customize) { "message": (NullOrUndefined Nothing) }
+newNoSuchChange' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> NoSuchChange
+newNoSuchChange'  customize = (NoSuchChange <<< customize) { "message": Nothing }
 
 
 
 -- | <p>There is no CloudWatch Logs log group with the specified ARN.</p>
 newtype NoSuchCloudWatchLogsLogGroup = NoSuchCloudWatchLogsLogGroup 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeNoSuchCloudWatchLogsLogGroup :: Newtype NoSuchCloudWatchLogsLogGroup _
 derive instance repGenericNoSuchCloudWatchLogsLogGroup :: Generic NoSuchCloudWatchLogsLogGroup _
@@ -3693,18 +3692,18 @@ instance encodeNoSuchCloudWatchLogsLogGroup :: Encode NoSuchCloudWatchLogsLogGro
 
 -- | Constructs NoSuchCloudWatchLogsLogGroup from required parameters
 newNoSuchCloudWatchLogsLogGroup :: NoSuchCloudWatchLogsLogGroup
-newNoSuchCloudWatchLogsLogGroup  = NoSuchCloudWatchLogsLogGroup { "message": (NullOrUndefined Nothing) }
+newNoSuchCloudWatchLogsLogGroup  = NoSuchCloudWatchLogsLogGroup { "message": Nothing }
 
 -- | Constructs NoSuchCloudWatchLogsLogGroup's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNoSuchCloudWatchLogsLogGroup' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> NoSuchCloudWatchLogsLogGroup
-newNoSuchCloudWatchLogsLogGroup'  customize = (NoSuchCloudWatchLogsLogGroup <<< customize) { "message": (NullOrUndefined Nothing) }
+newNoSuchCloudWatchLogsLogGroup' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> NoSuchCloudWatchLogsLogGroup
+newNoSuchCloudWatchLogsLogGroup'  customize = (NoSuchCloudWatchLogsLogGroup <<< customize) { "message": Nothing }
 
 
 
 -- | <p>A reusable delegation set with the specified ID does not exist.</p>
 newtype NoSuchDelegationSet = NoSuchDelegationSet 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeNoSuchDelegationSet :: Newtype NoSuchDelegationSet _
 derive instance repGenericNoSuchDelegationSet :: Generic NoSuchDelegationSet _
@@ -3714,18 +3713,18 @@ instance encodeNoSuchDelegationSet :: Encode NoSuchDelegationSet where encode = 
 
 -- | Constructs NoSuchDelegationSet from required parameters
 newNoSuchDelegationSet :: NoSuchDelegationSet
-newNoSuchDelegationSet  = NoSuchDelegationSet { "message": (NullOrUndefined Nothing) }
+newNoSuchDelegationSet  = NoSuchDelegationSet { "message": Nothing }
 
 -- | Constructs NoSuchDelegationSet's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNoSuchDelegationSet' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> NoSuchDelegationSet
-newNoSuchDelegationSet'  customize = (NoSuchDelegationSet <<< customize) { "message": (NullOrUndefined Nothing) }
+newNoSuchDelegationSet' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> NoSuchDelegationSet
+newNoSuchDelegationSet'  customize = (NoSuchDelegationSet <<< customize) { "message": Nothing }
 
 
 
 -- | <p>Amazon Route 53 doesn't support the specified geolocation.</p>
 newtype NoSuchGeoLocation = NoSuchGeoLocation 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeNoSuchGeoLocation :: Newtype NoSuchGeoLocation _
 derive instance repGenericNoSuchGeoLocation :: Generic NoSuchGeoLocation _
@@ -3735,18 +3734,18 @@ instance encodeNoSuchGeoLocation :: Encode NoSuchGeoLocation where encode = gene
 
 -- | Constructs NoSuchGeoLocation from required parameters
 newNoSuchGeoLocation :: NoSuchGeoLocation
-newNoSuchGeoLocation  = NoSuchGeoLocation { "message": (NullOrUndefined Nothing) }
+newNoSuchGeoLocation  = NoSuchGeoLocation { "message": Nothing }
 
 -- | Constructs NoSuchGeoLocation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNoSuchGeoLocation' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> NoSuchGeoLocation
-newNoSuchGeoLocation'  customize = (NoSuchGeoLocation <<< customize) { "message": (NullOrUndefined Nothing) }
+newNoSuchGeoLocation' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> NoSuchGeoLocation
+newNoSuchGeoLocation'  customize = (NoSuchGeoLocation <<< customize) { "message": Nothing }
 
 
 
 -- | <p>No health check exists with the ID that you specified in the <code>DeleteHealthCheck</code> request.</p>
 newtype NoSuchHealthCheck = NoSuchHealthCheck 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeNoSuchHealthCheck :: Newtype NoSuchHealthCheck _
 derive instance repGenericNoSuchHealthCheck :: Generic NoSuchHealthCheck _
@@ -3756,18 +3755,18 @@ instance encodeNoSuchHealthCheck :: Encode NoSuchHealthCheck where encode = gene
 
 -- | Constructs NoSuchHealthCheck from required parameters
 newNoSuchHealthCheck :: NoSuchHealthCheck
-newNoSuchHealthCheck  = NoSuchHealthCheck { "message": (NullOrUndefined Nothing) }
+newNoSuchHealthCheck  = NoSuchHealthCheck { "message": Nothing }
 
 -- | Constructs NoSuchHealthCheck's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNoSuchHealthCheck' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> NoSuchHealthCheck
-newNoSuchHealthCheck'  customize = (NoSuchHealthCheck <<< customize) { "message": (NullOrUndefined Nothing) }
+newNoSuchHealthCheck' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> NoSuchHealthCheck
+newNoSuchHealthCheck'  customize = (NoSuchHealthCheck <<< customize) { "message": Nothing }
 
 
 
 -- | <p>No hosted zone exists with the ID that you specified.</p>
 newtype NoSuchHostedZone = NoSuchHostedZone 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeNoSuchHostedZone :: Newtype NoSuchHostedZone _
 derive instance repGenericNoSuchHostedZone :: Generic NoSuchHostedZone _
@@ -3777,18 +3776,18 @@ instance encodeNoSuchHostedZone :: Encode NoSuchHostedZone where encode = generi
 
 -- | Constructs NoSuchHostedZone from required parameters
 newNoSuchHostedZone :: NoSuchHostedZone
-newNoSuchHostedZone  = NoSuchHostedZone { "message": (NullOrUndefined Nothing) }
+newNoSuchHostedZone  = NoSuchHostedZone { "message": Nothing }
 
 -- | Constructs NoSuchHostedZone's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNoSuchHostedZone' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> NoSuchHostedZone
-newNoSuchHostedZone'  customize = (NoSuchHostedZone <<< customize) { "message": (NullOrUndefined Nothing) }
+newNoSuchHostedZone' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> NoSuchHostedZone
+newNoSuchHostedZone'  customize = (NoSuchHostedZone <<< customize) { "message": Nothing }
 
 
 
 -- | <p>There is no DNS query logging configuration with the specified ID.</p>
 newtype NoSuchQueryLoggingConfig = NoSuchQueryLoggingConfig 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeNoSuchQueryLoggingConfig :: Newtype NoSuchQueryLoggingConfig _
 derive instance repGenericNoSuchQueryLoggingConfig :: Generic NoSuchQueryLoggingConfig _
@@ -3798,18 +3797,18 @@ instance encodeNoSuchQueryLoggingConfig :: Encode NoSuchQueryLoggingConfig where
 
 -- | Constructs NoSuchQueryLoggingConfig from required parameters
 newNoSuchQueryLoggingConfig :: NoSuchQueryLoggingConfig
-newNoSuchQueryLoggingConfig  = NoSuchQueryLoggingConfig { "message": (NullOrUndefined Nothing) }
+newNoSuchQueryLoggingConfig  = NoSuchQueryLoggingConfig { "message": Nothing }
 
 -- | Constructs NoSuchQueryLoggingConfig's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNoSuchQueryLoggingConfig' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> NoSuchQueryLoggingConfig
-newNoSuchQueryLoggingConfig'  customize = (NoSuchQueryLoggingConfig <<< customize) { "message": (NullOrUndefined Nothing) }
+newNoSuchQueryLoggingConfig' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> NoSuchQueryLoggingConfig
+newNoSuchQueryLoggingConfig'  customize = (NoSuchQueryLoggingConfig <<< customize) { "message": Nothing }
 
 
 
 -- | <p>No traffic policy exists with the specified ID.</p>
 newtype NoSuchTrafficPolicy = NoSuchTrafficPolicy 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeNoSuchTrafficPolicy :: Newtype NoSuchTrafficPolicy _
 derive instance repGenericNoSuchTrafficPolicy :: Generic NoSuchTrafficPolicy _
@@ -3819,18 +3818,18 @@ instance encodeNoSuchTrafficPolicy :: Encode NoSuchTrafficPolicy where encode = 
 
 -- | Constructs NoSuchTrafficPolicy from required parameters
 newNoSuchTrafficPolicy :: NoSuchTrafficPolicy
-newNoSuchTrafficPolicy  = NoSuchTrafficPolicy { "message": (NullOrUndefined Nothing) }
+newNoSuchTrafficPolicy  = NoSuchTrafficPolicy { "message": Nothing }
 
 -- | Constructs NoSuchTrafficPolicy's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNoSuchTrafficPolicy' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> NoSuchTrafficPolicy
-newNoSuchTrafficPolicy'  customize = (NoSuchTrafficPolicy <<< customize) { "message": (NullOrUndefined Nothing) }
+newNoSuchTrafficPolicy' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> NoSuchTrafficPolicy
+newNoSuchTrafficPolicy'  customize = (NoSuchTrafficPolicy <<< customize) { "message": Nothing }
 
 
 
 -- | <p>No traffic policy instance exists with the specified ID.</p>
 newtype NoSuchTrafficPolicyInstance = NoSuchTrafficPolicyInstance 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeNoSuchTrafficPolicyInstance :: Newtype NoSuchTrafficPolicyInstance _
 derive instance repGenericNoSuchTrafficPolicyInstance :: Generic NoSuchTrafficPolicyInstance _
@@ -3840,12 +3839,12 @@ instance encodeNoSuchTrafficPolicyInstance :: Encode NoSuchTrafficPolicyInstance
 
 -- | Constructs NoSuchTrafficPolicyInstance from required parameters
 newNoSuchTrafficPolicyInstance :: NoSuchTrafficPolicyInstance
-newNoSuchTrafficPolicyInstance  = NoSuchTrafficPolicyInstance { "message": (NullOrUndefined Nothing) }
+newNoSuchTrafficPolicyInstance  = NoSuchTrafficPolicyInstance { "message": Nothing }
 
 -- | Constructs NoSuchTrafficPolicyInstance's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNoSuchTrafficPolicyInstance' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> NoSuchTrafficPolicyInstance
-newNoSuchTrafficPolicyInstance'  customize = (NoSuchTrafficPolicyInstance <<< customize) { "message": (NullOrUndefined Nothing) }
+newNoSuchTrafficPolicyInstance' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> NoSuchTrafficPolicyInstance
+newNoSuchTrafficPolicyInstance'  customize = (NoSuchTrafficPolicyInstance <<< customize) { "message": Nothing }
 
 
 
@@ -3860,7 +3859,7 @@ instance encodeNonce :: Encode Nonce where encode = genericEncode options
 
 -- | <p>Associating the specified VPC with the specified hosted zone has not been authorized.</p>
 newtype NotAuthorizedException = NotAuthorizedException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeNotAuthorizedException :: Newtype NotAuthorizedException _
 derive instance repGenericNotAuthorizedException :: Generic NotAuthorizedException _
@@ -3870,12 +3869,12 @@ instance encodeNotAuthorizedException :: Encode NotAuthorizedException where enc
 
 -- | Constructs NotAuthorizedException from required parameters
 newNotAuthorizedException :: NotAuthorizedException
-newNotAuthorizedException  = NotAuthorizedException { "message": (NullOrUndefined Nothing) }
+newNotAuthorizedException  = NotAuthorizedException { "message": Nothing }
 
 -- | Constructs NotAuthorizedException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNotAuthorizedException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> NotAuthorizedException
-newNotAuthorizedException'  customize = (NotAuthorizedException <<< customize) { "message": (NullOrUndefined Nothing) }
+newNotAuthorizedException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> NotAuthorizedException
+newNotAuthorizedException'  customize = (NotAuthorizedException <<< customize) { "message": Nothing }
 
 
 
@@ -3935,7 +3934,7 @@ instance encodePort :: Encode Port where encode = genericEncode options
 
 -- | <p>If Amazon Route 53 can't process a request before the next request arrives, it will reject subsequent requests for the same hosted zone and return an <code>HTTP 400 error</code> (<code>Bad request</code>). If Amazon Route 53 returns this error repeatedly for the same request, we recommend that you wait, in intervals of increasing duration, before you try the request again.</p>
 newtype PriorRequestNotComplete = PriorRequestNotComplete 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypePriorRequestNotComplete :: Newtype PriorRequestNotComplete _
 derive instance repGenericPriorRequestNotComplete :: Generic PriorRequestNotComplete _
@@ -3945,18 +3944,18 @@ instance encodePriorRequestNotComplete :: Encode PriorRequestNotComplete where e
 
 -- | Constructs PriorRequestNotComplete from required parameters
 newPriorRequestNotComplete :: PriorRequestNotComplete
-newPriorRequestNotComplete  = PriorRequestNotComplete { "message": (NullOrUndefined Nothing) }
+newPriorRequestNotComplete  = PriorRequestNotComplete { "message": Nothing }
 
 -- | Constructs PriorRequestNotComplete's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPriorRequestNotComplete' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> PriorRequestNotComplete
-newPriorRequestNotComplete'  customize = (PriorRequestNotComplete <<< customize) { "message": (NullOrUndefined Nothing) }
+newPriorRequestNotComplete' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> PriorRequestNotComplete
+newPriorRequestNotComplete'  customize = (PriorRequestNotComplete <<< customize) { "message": Nothing }
 
 
 
 -- | <p>You're trying to associate a VPC with a public hosted zone. Amazon Route 53 doesn't support associating a VPC with a public hosted zone.</p>
 newtype PublicZoneVPCAssociation = PublicZoneVPCAssociation 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypePublicZoneVPCAssociation :: Newtype PublicZoneVPCAssociation _
 derive instance repGenericPublicZoneVPCAssociation :: Generic PublicZoneVPCAssociation _
@@ -3966,12 +3965,12 @@ instance encodePublicZoneVPCAssociation :: Encode PublicZoneVPCAssociation where
 
 -- | Constructs PublicZoneVPCAssociation from required parameters
 newPublicZoneVPCAssociation :: PublicZoneVPCAssociation
-newPublicZoneVPCAssociation  = PublicZoneVPCAssociation { "message": (NullOrUndefined Nothing) }
+newPublicZoneVPCAssociation  = PublicZoneVPCAssociation { "message": Nothing }
 
 -- | Constructs PublicZoneVPCAssociation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPublicZoneVPCAssociation' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> PublicZoneVPCAssociation
-newPublicZoneVPCAssociation'  customize = (PublicZoneVPCAssociation <<< customize) { "message": (NullOrUndefined Nothing) }
+newPublicZoneVPCAssociation' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> PublicZoneVPCAssociation
+newPublicZoneVPCAssociation'  customize = (PublicZoneVPCAssociation <<< customize) { "message": Nothing }
 
 
 
@@ -4000,7 +3999,7 @@ newQueryLoggingConfig' _CloudWatchLogsLogGroupArn _HostedZoneId _Id customize = 
 
 -- | <p>You can create only one query logging configuration for a hosted zone, and a query logging configuration already exists for this hosted zone.</p>
 newtype QueryLoggingConfigAlreadyExists = QueryLoggingConfigAlreadyExists 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeQueryLoggingConfigAlreadyExists :: Newtype QueryLoggingConfigAlreadyExists _
 derive instance repGenericQueryLoggingConfigAlreadyExists :: Generic QueryLoggingConfigAlreadyExists _
@@ -4010,12 +4009,12 @@ instance encodeQueryLoggingConfigAlreadyExists :: Encode QueryLoggingConfigAlrea
 
 -- | Constructs QueryLoggingConfigAlreadyExists from required parameters
 newQueryLoggingConfigAlreadyExists :: QueryLoggingConfigAlreadyExists
-newQueryLoggingConfigAlreadyExists  = QueryLoggingConfigAlreadyExists { "message": (NullOrUndefined Nothing) }
+newQueryLoggingConfigAlreadyExists  = QueryLoggingConfigAlreadyExists { "message": Nothing }
 
 -- | Constructs QueryLoggingConfigAlreadyExists's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newQueryLoggingConfigAlreadyExists' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> QueryLoggingConfigAlreadyExists
-newQueryLoggingConfigAlreadyExists'  customize = (QueryLoggingConfigAlreadyExists <<< customize) { "message": (NullOrUndefined Nothing) }
+newQueryLoggingConfigAlreadyExists' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> QueryLoggingConfigAlreadyExists
+newQueryLoggingConfigAlreadyExists'  customize = (QueryLoggingConfigAlreadyExists <<< customize) { "message": Nothing }
 
 
 
@@ -4153,17 +4152,17 @@ newResourceRecord' _Value customize = (ResourceRecord <<< customize) { "Value": 
 newtype ResourceRecordSet = ResourceRecordSet 
   { "Name" :: (DNSName)
   , "Type" :: (RRType)
-  , "SetIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier)
-  , "Weight" :: NullOrUndefined (ResourceRecordSetWeight)
-  , "Region" :: NullOrUndefined (ResourceRecordSetRegion)
-  , "GeoLocation" :: NullOrUndefined (GeoLocation)
-  , "Failover" :: NullOrUndefined (ResourceRecordSetFailover)
-  , "MultiValueAnswer" :: NullOrUndefined (ResourceRecordSetMultiValueAnswer)
-  , "TTL" :: NullOrUndefined (TTL)
-  , "ResourceRecords" :: NullOrUndefined (ResourceRecords)
-  , "AliasTarget" :: NullOrUndefined (AliasTarget)
-  , "HealthCheckId" :: NullOrUndefined (HealthCheckId)
-  , "TrafficPolicyInstanceId" :: NullOrUndefined (TrafficPolicyInstanceId)
+  , "SetIdentifier" :: Maybe (ResourceRecordSetIdentifier)
+  , "Weight" :: Maybe (ResourceRecordSetWeight)
+  , "Region" :: Maybe (ResourceRecordSetRegion)
+  , "GeoLocation" :: Maybe (GeoLocation)
+  , "Failover" :: Maybe (ResourceRecordSetFailover)
+  , "MultiValueAnswer" :: Maybe (ResourceRecordSetMultiValueAnswer)
+  , "TTL" :: Maybe (TTL)
+  , "ResourceRecords" :: Maybe (ResourceRecords)
+  , "AliasTarget" :: Maybe (AliasTarget)
+  , "HealthCheckId" :: Maybe (HealthCheckId)
+  , "TrafficPolicyInstanceId" :: Maybe (TrafficPolicyInstanceId)
   }
 derive instance newtypeResourceRecordSet :: Newtype ResourceRecordSet _
 derive instance repGenericResourceRecordSet :: Generic ResourceRecordSet _
@@ -4173,12 +4172,12 @@ instance encodeResourceRecordSet :: Encode ResourceRecordSet where encode = gene
 
 -- | Constructs ResourceRecordSet from required parameters
 newResourceRecordSet :: DNSName -> RRType -> ResourceRecordSet
-newResourceRecordSet _Name _Type = ResourceRecordSet { "Name": _Name, "Type": _Type, "AliasTarget": (NullOrUndefined Nothing), "Failover": (NullOrUndefined Nothing), "GeoLocation": (NullOrUndefined Nothing), "HealthCheckId": (NullOrUndefined Nothing), "MultiValueAnswer": (NullOrUndefined Nothing), "Region": (NullOrUndefined Nothing), "ResourceRecords": (NullOrUndefined Nothing), "SetIdentifier": (NullOrUndefined Nothing), "TTL": (NullOrUndefined Nothing), "TrafficPolicyInstanceId": (NullOrUndefined Nothing), "Weight": (NullOrUndefined Nothing) }
+newResourceRecordSet _Name _Type = ResourceRecordSet { "Name": _Name, "Type": _Type, "AliasTarget": Nothing, "Failover": Nothing, "GeoLocation": Nothing, "HealthCheckId": Nothing, "MultiValueAnswer": Nothing, "Region": Nothing, "ResourceRecords": Nothing, "SetIdentifier": Nothing, "TTL": Nothing, "TrafficPolicyInstanceId": Nothing, "Weight": Nothing }
 
 -- | Constructs ResourceRecordSet's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceRecordSet' :: DNSName -> RRType -> ( { "Name" :: (DNSName) , "Type" :: (RRType) , "SetIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier) , "Weight" :: NullOrUndefined (ResourceRecordSetWeight) , "Region" :: NullOrUndefined (ResourceRecordSetRegion) , "GeoLocation" :: NullOrUndefined (GeoLocation) , "Failover" :: NullOrUndefined (ResourceRecordSetFailover) , "MultiValueAnswer" :: NullOrUndefined (ResourceRecordSetMultiValueAnswer) , "TTL" :: NullOrUndefined (TTL) , "ResourceRecords" :: NullOrUndefined (ResourceRecords) , "AliasTarget" :: NullOrUndefined (AliasTarget) , "HealthCheckId" :: NullOrUndefined (HealthCheckId) , "TrafficPolicyInstanceId" :: NullOrUndefined (TrafficPolicyInstanceId) } -> {"Name" :: (DNSName) , "Type" :: (RRType) , "SetIdentifier" :: NullOrUndefined (ResourceRecordSetIdentifier) , "Weight" :: NullOrUndefined (ResourceRecordSetWeight) , "Region" :: NullOrUndefined (ResourceRecordSetRegion) , "GeoLocation" :: NullOrUndefined (GeoLocation) , "Failover" :: NullOrUndefined (ResourceRecordSetFailover) , "MultiValueAnswer" :: NullOrUndefined (ResourceRecordSetMultiValueAnswer) , "TTL" :: NullOrUndefined (TTL) , "ResourceRecords" :: NullOrUndefined (ResourceRecords) , "AliasTarget" :: NullOrUndefined (AliasTarget) , "HealthCheckId" :: NullOrUndefined (HealthCheckId) , "TrafficPolicyInstanceId" :: NullOrUndefined (TrafficPolicyInstanceId) } ) -> ResourceRecordSet
-newResourceRecordSet' _Name _Type customize = (ResourceRecordSet <<< customize) { "Name": _Name, "Type": _Type, "AliasTarget": (NullOrUndefined Nothing), "Failover": (NullOrUndefined Nothing), "GeoLocation": (NullOrUndefined Nothing), "HealthCheckId": (NullOrUndefined Nothing), "MultiValueAnswer": (NullOrUndefined Nothing), "Region": (NullOrUndefined Nothing), "ResourceRecords": (NullOrUndefined Nothing), "SetIdentifier": (NullOrUndefined Nothing), "TTL": (NullOrUndefined Nothing), "TrafficPolicyInstanceId": (NullOrUndefined Nothing), "Weight": (NullOrUndefined Nothing) }
+newResourceRecordSet' :: DNSName -> RRType -> ( { "Name" :: (DNSName) , "Type" :: (RRType) , "SetIdentifier" :: Maybe (ResourceRecordSetIdentifier) , "Weight" :: Maybe (ResourceRecordSetWeight) , "Region" :: Maybe (ResourceRecordSetRegion) , "GeoLocation" :: Maybe (GeoLocation) , "Failover" :: Maybe (ResourceRecordSetFailover) , "MultiValueAnswer" :: Maybe (ResourceRecordSetMultiValueAnswer) , "TTL" :: Maybe (TTL) , "ResourceRecords" :: Maybe (ResourceRecords) , "AliasTarget" :: Maybe (AliasTarget) , "HealthCheckId" :: Maybe (HealthCheckId) , "TrafficPolicyInstanceId" :: Maybe (TrafficPolicyInstanceId) } -> {"Name" :: (DNSName) , "Type" :: (RRType) , "SetIdentifier" :: Maybe (ResourceRecordSetIdentifier) , "Weight" :: Maybe (ResourceRecordSetWeight) , "Region" :: Maybe (ResourceRecordSetRegion) , "GeoLocation" :: Maybe (GeoLocation) , "Failover" :: Maybe (ResourceRecordSetFailover) , "MultiValueAnswer" :: Maybe (ResourceRecordSetMultiValueAnswer) , "TTL" :: Maybe (TTL) , "ResourceRecords" :: Maybe (ResourceRecords) , "AliasTarget" :: Maybe (AliasTarget) , "HealthCheckId" :: Maybe (HealthCheckId) , "TrafficPolicyInstanceId" :: Maybe (TrafficPolicyInstanceId) } ) -> ResourceRecordSet
+newResourceRecordSet' _Name _Type customize = (ResourceRecordSet <<< customize) { "Name": _Name, "Type": _Type, "AliasTarget": Nothing, "Failover": Nothing, "GeoLocation": Nothing, "HealthCheckId": Nothing, "MultiValueAnswer": Nothing, "Region": Nothing, "ResourceRecords": Nothing, "SetIdentifier": Nothing, "TTL": Nothing, "TrafficPolicyInstanceId": Nothing, "Weight": Nothing }
 
 
 
@@ -4247,9 +4246,9 @@ instance encodeResourceRecords :: Encode ResourceRecords where encode = genericE
 
 -- | <p>A complex type containing a resource and its associated tags.</p>
 newtype ResourceTagSet = ResourceTagSet 
-  { "ResourceType" :: NullOrUndefined (TagResourceType)
-  , "ResourceId" :: NullOrUndefined (TagResourceId)
-  , "Tags" :: NullOrUndefined (TagList)
+  { "ResourceType" :: Maybe (TagResourceType)
+  , "ResourceId" :: Maybe (TagResourceId)
+  , "Tags" :: Maybe (TagList)
   }
 derive instance newtypeResourceTagSet :: Newtype ResourceTagSet _
 derive instance repGenericResourceTagSet :: Generic ResourceTagSet _
@@ -4259,12 +4258,12 @@ instance encodeResourceTagSet :: Encode ResourceTagSet where encode = genericEnc
 
 -- | Constructs ResourceTagSet from required parameters
 newResourceTagSet :: ResourceTagSet
-newResourceTagSet  = ResourceTagSet { "ResourceId": (NullOrUndefined Nothing), "ResourceType": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newResourceTagSet  = ResourceTagSet { "ResourceId": Nothing, "ResourceType": Nothing, "Tags": Nothing }
 
 -- | Constructs ResourceTagSet's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceTagSet' :: ( { "ResourceType" :: NullOrUndefined (TagResourceType) , "ResourceId" :: NullOrUndefined (TagResourceId) , "Tags" :: NullOrUndefined (TagList) } -> {"ResourceType" :: NullOrUndefined (TagResourceType) , "ResourceId" :: NullOrUndefined (TagResourceId) , "Tags" :: NullOrUndefined (TagList) } ) -> ResourceTagSet
-newResourceTagSet'  customize = (ResourceTagSet <<< customize) { "ResourceId": (NullOrUndefined Nothing), "ResourceType": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newResourceTagSet' :: ( { "ResourceType" :: Maybe (TagResourceType) , "ResourceId" :: Maybe (TagResourceId) , "Tags" :: Maybe (TagList) } -> {"ResourceType" :: Maybe (TagResourceType) , "ResourceId" :: Maybe (TagResourceId) , "Tags" :: Maybe (TagList) } ) -> ResourceTagSet
+newResourceTagSet'  customize = (ResourceTagSet <<< customize) { "ResourceId": Nothing, "ResourceType": Nothing, "Tags": Nothing }
 
 
 
@@ -4355,8 +4354,8 @@ instance encodeStatus :: Encode Status where encode = genericEncode options
 
 -- | <p>A complex type that contains the status that one Amazon Route 53 health checker reports and the time of the health check.</p>
 newtype StatusReport = StatusReport 
-  { "Status" :: NullOrUndefined (Status)
-  , "CheckedTime" :: NullOrUndefined (TimeStamp)
+  { "Status" :: Maybe (Status)
+  , "CheckedTime" :: Maybe (TimeStamp)
   }
 derive instance newtypeStatusReport :: Newtype StatusReport _
 derive instance repGenericStatusReport :: Generic StatusReport _
@@ -4366,12 +4365,12 @@ instance encodeStatusReport :: Encode StatusReport where encode = genericEncode 
 
 -- | Constructs StatusReport from required parameters
 newStatusReport :: StatusReport
-newStatusReport  = StatusReport { "CheckedTime": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newStatusReport  = StatusReport { "CheckedTime": Nothing, "Status": Nothing }
 
 -- | Constructs StatusReport's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStatusReport' :: ( { "Status" :: NullOrUndefined (Status) , "CheckedTime" :: NullOrUndefined (TimeStamp) } -> {"Status" :: NullOrUndefined (Status) , "CheckedTime" :: NullOrUndefined (TimeStamp) } ) -> StatusReport
-newStatusReport'  customize = (StatusReport <<< customize) { "CheckedTime": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newStatusReport' :: ( { "Status" :: Maybe (Status) , "CheckedTime" :: Maybe (TimeStamp) } -> {"Status" :: Maybe (Status) , "CheckedTime" :: Maybe (TimeStamp) } ) -> StatusReport
+newStatusReport'  customize = (StatusReport <<< customize) { "CheckedTime": Nothing, "Status": Nothing }
 
 
 
@@ -4395,8 +4394,8 @@ instance encodeTTL :: Encode TTL where encode = genericEncode options
 
 -- | <p>A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.</p>
 newtype Tag = Tag 
-  { "Key" :: NullOrUndefined (TagKey)
-  , "Value" :: NullOrUndefined (TagValue)
+  { "Key" :: Maybe (TagKey)
+  , "Value" :: Maybe (TagValue)
   }
 derive instance newtypeTag :: Newtype Tag _
 derive instance repGenericTag :: Generic Tag _
@@ -4406,12 +4405,12 @@ instance encodeTag :: Encode Tag where encode = genericEncode options
 
 -- | Constructs Tag from required parameters
 newTag :: Tag
-newTag  = Tag { "Key": (NullOrUndefined Nothing), "Value": (NullOrUndefined Nothing) }
+newTag  = Tag { "Key": Nothing, "Value": Nothing }
 
 -- | Constructs Tag's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTag' :: ( { "Key" :: NullOrUndefined (TagKey) , "Value" :: NullOrUndefined (TagValue) } -> {"Key" :: NullOrUndefined (TagKey) , "Value" :: NullOrUndefined (TagValue) } ) -> Tag
-newTag'  customize = (Tag <<< customize) { "Key": (NullOrUndefined Nothing), "Value": (NullOrUndefined Nothing) }
+newTag' :: ( { "Key" :: Maybe (TagKey) , "Value" :: Maybe (TagValue) } -> {"Key" :: Maybe (TagKey) , "Value" :: Maybe (TagValue) } ) -> Tag
+newTag'  customize = (Tag <<< customize) { "Key": Nothing, "Value": Nothing }
 
 
 
@@ -4483,9 +4482,9 @@ newtype TestDNSAnswerRequest = TestDNSAnswerRequest
   { "HostedZoneId" :: (ResourceId)
   , "RecordName" :: (DNSName)
   , "RecordType" :: (RRType)
-  , "ResolverIP" :: NullOrUndefined (IPAddress)
-  , "EDNS0ClientSubnetIP" :: NullOrUndefined (IPAddress)
-  , "EDNS0ClientSubnetMask" :: NullOrUndefined (SubnetMask)
+  , "ResolverIP" :: Maybe (IPAddress)
+  , "EDNS0ClientSubnetIP" :: Maybe (IPAddress)
+  , "EDNS0ClientSubnetMask" :: Maybe (SubnetMask)
   }
 derive instance newtypeTestDNSAnswerRequest :: Newtype TestDNSAnswerRequest _
 derive instance repGenericTestDNSAnswerRequest :: Generic TestDNSAnswerRequest _
@@ -4495,12 +4494,12 @@ instance encodeTestDNSAnswerRequest :: Encode TestDNSAnswerRequest where encode 
 
 -- | Constructs TestDNSAnswerRequest from required parameters
 newTestDNSAnswerRequest :: ResourceId -> DNSName -> RRType -> TestDNSAnswerRequest
-newTestDNSAnswerRequest _HostedZoneId _RecordName _RecordType = TestDNSAnswerRequest { "HostedZoneId": _HostedZoneId, "RecordName": _RecordName, "RecordType": _RecordType, "EDNS0ClientSubnetIP": (NullOrUndefined Nothing), "EDNS0ClientSubnetMask": (NullOrUndefined Nothing), "ResolverIP": (NullOrUndefined Nothing) }
+newTestDNSAnswerRequest _HostedZoneId _RecordName _RecordType = TestDNSAnswerRequest { "HostedZoneId": _HostedZoneId, "RecordName": _RecordName, "RecordType": _RecordType, "EDNS0ClientSubnetIP": Nothing, "EDNS0ClientSubnetMask": Nothing, "ResolverIP": Nothing }
 
 -- | Constructs TestDNSAnswerRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTestDNSAnswerRequest' :: ResourceId -> DNSName -> RRType -> ( { "HostedZoneId" :: (ResourceId) , "RecordName" :: (DNSName) , "RecordType" :: (RRType) , "ResolverIP" :: NullOrUndefined (IPAddress) , "EDNS0ClientSubnetIP" :: NullOrUndefined (IPAddress) , "EDNS0ClientSubnetMask" :: NullOrUndefined (SubnetMask) } -> {"HostedZoneId" :: (ResourceId) , "RecordName" :: (DNSName) , "RecordType" :: (RRType) , "ResolverIP" :: NullOrUndefined (IPAddress) , "EDNS0ClientSubnetIP" :: NullOrUndefined (IPAddress) , "EDNS0ClientSubnetMask" :: NullOrUndefined (SubnetMask) } ) -> TestDNSAnswerRequest
-newTestDNSAnswerRequest' _HostedZoneId _RecordName _RecordType customize = (TestDNSAnswerRequest <<< customize) { "HostedZoneId": _HostedZoneId, "RecordName": _RecordName, "RecordType": _RecordType, "EDNS0ClientSubnetIP": (NullOrUndefined Nothing), "EDNS0ClientSubnetMask": (NullOrUndefined Nothing), "ResolverIP": (NullOrUndefined Nothing) }
+newTestDNSAnswerRequest' :: ResourceId -> DNSName -> RRType -> ( { "HostedZoneId" :: (ResourceId) , "RecordName" :: (DNSName) , "RecordType" :: (RRType) , "ResolverIP" :: Maybe (IPAddress) , "EDNS0ClientSubnetIP" :: Maybe (IPAddress) , "EDNS0ClientSubnetMask" :: Maybe (SubnetMask) } -> {"HostedZoneId" :: (ResourceId) , "RecordName" :: (DNSName) , "RecordType" :: (RRType) , "ResolverIP" :: Maybe (IPAddress) , "EDNS0ClientSubnetIP" :: Maybe (IPAddress) , "EDNS0ClientSubnetMask" :: Maybe (SubnetMask) } ) -> TestDNSAnswerRequest
+newTestDNSAnswerRequest' _HostedZoneId _RecordName _RecordType customize = (TestDNSAnswerRequest <<< customize) { "HostedZoneId": _HostedZoneId, "RecordName": _RecordName, "RecordType": _RecordType, "EDNS0ClientSubnetIP": Nothing, "EDNS0ClientSubnetMask": Nothing, "ResolverIP": Nothing }
 
 
 
@@ -4541,7 +4540,7 @@ instance encodeThreshold :: Encode Threshold where encode = genericEncode option
 
 -- | <p>The limit on the number of requests per second was exceeded.</p>
 newtype ThrottlingException = ThrottlingException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeThrottlingException :: Newtype ThrottlingException _
 derive instance repGenericThrottlingException :: Generic ThrottlingException _
@@ -4551,12 +4550,12 @@ instance encodeThrottlingException :: Encode ThrottlingException where encode = 
 
 -- | Constructs ThrottlingException from required parameters
 newThrottlingException :: ThrottlingException
-newThrottlingException  = ThrottlingException { "message": (NullOrUndefined Nothing) }
+newThrottlingException  = ThrottlingException { "message": Nothing }
 
 -- | Constructs ThrottlingException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newThrottlingException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> ThrottlingException
-newThrottlingException'  customize = (ThrottlingException <<< customize) { "message": (NullOrUndefined Nothing) }
+newThrottlingException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> ThrottlingException
+newThrottlingException'  customize = (ThrottlingException <<< customize) { "message": Nothing }
 
 
 
@@ -4571,7 +4570,7 @@ instance encodeTimeStamp :: Encode TimeStamp where encode = genericEncode option
 
 -- | <p>This health check can't be created because the current account has reached the limit on the number of active health checks.</p> <p>For information about default limits, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>For information about how to get the current limit for an account, see <a>GetAccountLimit</a>. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p> <p>You have reached the maximum number of active health checks for an AWS account. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
 newtype TooManyHealthChecks = TooManyHealthChecks 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeTooManyHealthChecks :: Newtype TooManyHealthChecks _
 derive instance repGenericTooManyHealthChecks :: Generic TooManyHealthChecks _
@@ -4581,18 +4580,18 @@ instance encodeTooManyHealthChecks :: Encode TooManyHealthChecks where encode = 
 
 -- | Constructs TooManyHealthChecks from required parameters
 newTooManyHealthChecks :: TooManyHealthChecks
-newTooManyHealthChecks  = TooManyHealthChecks { "message": (NullOrUndefined Nothing) }
+newTooManyHealthChecks  = TooManyHealthChecks { "message": Nothing }
 
 -- | Constructs TooManyHealthChecks's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyHealthChecks' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> TooManyHealthChecks
-newTooManyHealthChecks'  customize = (TooManyHealthChecks <<< customize) { "message": (NullOrUndefined Nothing) }
+newTooManyHealthChecks' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> TooManyHealthChecks
+newTooManyHealthChecks'  customize = (TooManyHealthChecks <<< customize) { "message": Nothing }
 
 
 
 -- | <p>This operation can't be completed either because the current account has reached the limit on the number of hosted zones or because you've reached the limit on the number of hosted zones that can be associated with a reusable delegation set.</p> <p>For information about default limits, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>To get the current limit on hosted zones that can be created by an account, see <a>GetAccountLimit</a>.</p> <p>To get the current limit on hosted zones that can be associated with a reusable delegation set, see <a>GetReusableDelegationSetLimit</a>.</p> <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
 newtype TooManyHostedZones = TooManyHostedZones 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeTooManyHostedZones :: Newtype TooManyHostedZones _
 derive instance repGenericTooManyHostedZones :: Generic TooManyHostedZones _
@@ -4602,18 +4601,18 @@ instance encodeTooManyHostedZones :: Encode TooManyHostedZones where encode = ge
 
 -- | Constructs TooManyHostedZones from required parameters
 newTooManyHostedZones :: TooManyHostedZones
-newTooManyHostedZones  = TooManyHostedZones { "message": (NullOrUndefined Nothing) }
+newTooManyHostedZones  = TooManyHostedZones { "message": Nothing }
 
 -- | Constructs TooManyHostedZones's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyHostedZones' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> TooManyHostedZones
-newTooManyHostedZones'  customize = (TooManyHostedZones <<< customize) { "message": (NullOrUndefined Nothing) }
+newTooManyHostedZones' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> TooManyHostedZones
+newTooManyHostedZones'  customize = (TooManyHostedZones <<< customize) { "message": Nothing }
 
 
 
 -- | <p>This traffic policy can't be created because the current account has reached the limit on the number of traffic policies.</p> <p>For information about default limits, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>To get the current limit for an account, see <a>GetAccountLimit</a>. </p> <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
 newtype TooManyTrafficPolicies = TooManyTrafficPolicies 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeTooManyTrafficPolicies :: Newtype TooManyTrafficPolicies _
 derive instance repGenericTooManyTrafficPolicies :: Generic TooManyTrafficPolicies _
@@ -4623,18 +4622,18 @@ instance encodeTooManyTrafficPolicies :: Encode TooManyTrafficPolicies where enc
 
 -- | Constructs TooManyTrafficPolicies from required parameters
 newTooManyTrafficPolicies :: TooManyTrafficPolicies
-newTooManyTrafficPolicies  = TooManyTrafficPolicies { "message": (NullOrUndefined Nothing) }
+newTooManyTrafficPolicies  = TooManyTrafficPolicies { "message": Nothing }
 
 -- | Constructs TooManyTrafficPolicies's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyTrafficPolicies' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> TooManyTrafficPolicies
-newTooManyTrafficPolicies'  customize = (TooManyTrafficPolicies <<< customize) { "message": (NullOrUndefined Nothing) }
+newTooManyTrafficPolicies' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> TooManyTrafficPolicies
+newTooManyTrafficPolicies'  customize = (TooManyTrafficPolicies <<< customize) { "message": Nothing }
 
 
 
 -- | <p>This traffic policy instance can't be created because the current account has reached the limit on the number of traffic policy instances.</p> <p>For information about default limits, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>For information about how to get the current limit for an account, see <a>GetAccountLimit</a>.</p> <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
 newtype TooManyTrafficPolicyInstances = TooManyTrafficPolicyInstances 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeTooManyTrafficPolicyInstances :: Newtype TooManyTrafficPolicyInstances _
 derive instance repGenericTooManyTrafficPolicyInstances :: Generic TooManyTrafficPolicyInstances _
@@ -4644,18 +4643,18 @@ instance encodeTooManyTrafficPolicyInstances :: Encode TooManyTrafficPolicyInsta
 
 -- | Constructs TooManyTrafficPolicyInstances from required parameters
 newTooManyTrafficPolicyInstances :: TooManyTrafficPolicyInstances
-newTooManyTrafficPolicyInstances  = TooManyTrafficPolicyInstances { "message": (NullOrUndefined Nothing) }
+newTooManyTrafficPolicyInstances  = TooManyTrafficPolicyInstances { "message": Nothing }
 
 -- | Constructs TooManyTrafficPolicyInstances's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyTrafficPolicyInstances' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> TooManyTrafficPolicyInstances
-newTooManyTrafficPolicyInstances'  customize = (TooManyTrafficPolicyInstances <<< customize) { "message": (NullOrUndefined Nothing) }
+newTooManyTrafficPolicyInstances' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> TooManyTrafficPolicyInstances
+newTooManyTrafficPolicyInstances'  customize = (TooManyTrafficPolicyInstances <<< customize) { "message": Nothing }
 
 
 
 -- | <p>This traffic policy version can't be created because you've reached the limit of 1000 on the number of versions that you can create for the current traffic policy.</p> <p>To create more traffic policy versions, you can use <a>GetTrafficPolicy</a> to get the traffic policy document for a specified traffic policy version, and then use <a>CreateTrafficPolicy</a> to create a new traffic policy using the traffic policy document.</p>
 newtype TooManyTrafficPolicyVersionsForCurrentPolicy = TooManyTrafficPolicyVersionsForCurrentPolicy 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeTooManyTrafficPolicyVersionsForCurrentPolicy :: Newtype TooManyTrafficPolicyVersionsForCurrentPolicy _
 derive instance repGenericTooManyTrafficPolicyVersionsForCurrentPolicy :: Generic TooManyTrafficPolicyVersionsForCurrentPolicy _
@@ -4665,18 +4664,18 @@ instance encodeTooManyTrafficPolicyVersionsForCurrentPolicy :: Encode TooManyTra
 
 -- | Constructs TooManyTrafficPolicyVersionsForCurrentPolicy from required parameters
 newTooManyTrafficPolicyVersionsForCurrentPolicy :: TooManyTrafficPolicyVersionsForCurrentPolicy
-newTooManyTrafficPolicyVersionsForCurrentPolicy  = TooManyTrafficPolicyVersionsForCurrentPolicy { "message": (NullOrUndefined Nothing) }
+newTooManyTrafficPolicyVersionsForCurrentPolicy  = TooManyTrafficPolicyVersionsForCurrentPolicy { "message": Nothing }
 
 -- | Constructs TooManyTrafficPolicyVersionsForCurrentPolicy's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyTrafficPolicyVersionsForCurrentPolicy' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> TooManyTrafficPolicyVersionsForCurrentPolicy
-newTooManyTrafficPolicyVersionsForCurrentPolicy'  customize = (TooManyTrafficPolicyVersionsForCurrentPolicy <<< customize) { "message": (NullOrUndefined Nothing) }
+newTooManyTrafficPolicyVersionsForCurrentPolicy' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> TooManyTrafficPolicyVersionsForCurrentPolicy
+newTooManyTrafficPolicyVersionsForCurrentPolicy'  customize = (TooManyTrafficPolicyVersionsForCurrentPolicy <<< customize) { "message": Nothing }
 
 
 
 -- | <p>You've created the maximum number of authorizations that can be created for the specified hosted zone. To authorize another VPC to be associated with the hosted zone, submit a <code>DeleteVPCAssociationAuthorization</code> request to remove an existing authorization. To get a list of existing authorizations, submit a <code>ListVPCAssociationAuthorizations</code> request.</p>
 newtype TooManyVPCAssociationAuthorizations = TooManyVPCAssociationAuthorizations 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeTooManyVPCAssociationAuthorizations :: Newtype TooManyVPCAssociationAuthorizations _
 derive instance repGenericTooManyVPCAssociationAuthorizations :: Generic TooManyVPCAssociationAuthorizations _
@@ -4686,12 +4685,12 @@ instance encodeTooManyVPCAssociationAuthorizations :: Encode TooManyVPCAssociati
 
 -- | Constructs TooManyVPCAssociationAuthorizations from required parameters
 newTooManyVPCAssociationAuthorizations :: TooManyVPCAssociationAuthorizations
-newTooManyVPCAssociationAuthorizations  = TooManyVPCAssociationAuthorizations { "message": (NullOrUndefined Nothing) }
+newTooManyVPCAssociationAuthorizations  = TooManyVPCAssociationAuthorizations { "message": Nothing }
 
 -- | Constructs TooManyVPCAssociationAuthorizations's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyVPCAssociationAuthorizations' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> TooManyVPCAssociationAuthorizations
-newTooManyVPCAssociationAuthorizations'  customize = (TooManyVPCAssociationAuthorizations <<< customize) { "message": (NullOrUndefined Nothing) }
+newTooManyVPCAssociationAuthorizations' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> TooManyVPCAssociationAuthorizations
+newTooManyVPCAssociationAuthorizations'  customize = (TooManyVPCAssociationAuthorizations <<< customize) { "message": Nothing }
 
 
 
@@ -4711,7 +4710,7 @@ newtype TrafficPolicy = TrafficPolicy
   , "Name" :: (TrafficPolicyName)
   , "Type" :: (RRType)
   , "Document" :: (TrafficPolicyDocument)
-  , "Comment" :: NullOrUndefined (TrafficPolicyComment)
+  , "Comment" :: Maybe (TrafficPolicyComment)
   }
 derive instance newtypeTrafficPolicy :: Newtype TrafficPolicy _
 derive instance repGenericTrafficPolicy :: Generic TrafficPolicy _
@@ -4721,18 +4720,18 @@ instance encodeTrafficPolicy :: Encode TrafficPolicy where encode = genericEncod
 
 -- | Constructs TrafficPolicy from required parameters
 newTrafficPolicy :: TrafficPolicyDocument -> TrafficPolicyId -> TrafficPolicyName -> RRType -> TrafficPolicyVersion -> TrafficPolicy
-newTrafficPolicy _Document _Id _Name _Type _Version = TrafficPolicy { "Document": _Document, "Id": _Id, "Name": _Name, "Type": _Type, "Version": _Version, "Comment": (NullOrUndefined Nothing) }
+newTrafficPolicy _Document _Id _Name _Type _Version = TrafficPolicy { "Document": _Document, "Id": _Id, "Name": _Name, "Type": _Type, "Version": _Version, "Comment": Nothing }
 
 -- | Constructs TrafficPolicy's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTrafficPolicy' :: TrafficPolicyDocument -> TrafficPolicyId -> TrafficPolicyName -> RRType -> TrafficPolicyVersion -> ( { "Id" :: (TrafficPolicyId) , "Version" :: (TrafficPolicyVersion) , "Name" :: (TrafficPolicyName) , "Type" :: (RRType) , "Document" :: (TrafficPolicyDocument) , "Comment" :: NullOrUndefined (TrafficPolicyComment) } -> {"Id" :: (TrafficPolicyId) , "Version" :: (TrafficPolicyVersion) , "Name" :: (TrafficPolicyName) , "Type" :: (RRType) , "Document" :: (TrafficPolicyDocument) , "Comment" :: NullOrUndefined (TrafficPolicyComment) } ) -> TrafficPolicy
-newTrafficPolicy' _Document _Id _Name _Type _Version customize = (TrafficPolicy <<< customize) { "Document": _Document, "Id": _Id, "Name": _Name, "Type": _Type, "Version": _Version, "Comment": (NullOrUndefined Nothing) }
+newTrafficPolicy' :: TrafficPolicyDocument -> TrafficPolicyId -> TrafficPolicyName -> RRType -> TrafficPolicyVersion -> ( { "Id" :: (TrafficPolicyId) , "Version" :: (TrafficPolicyVersion) , "Name" :: (TrafficPolicyName) , "Type" :: (RRType) , "Document" :: (TrafficPolicyDocument) , "Comment" :: Maybe (TrafficPolicyComment) } -> {"Id" :: (TrafficPolicyId) , "Version" :: (TrafficPolicyVersion) , "Name" :: (TrafficPolicyName) , "Type" :: (RRType) , "Document" :: (TrafficPolicyDocument) , "Comment" :: Maybe (TrafficPolicyComment) } ) -> TrafficPolicy
+newTrafficPolicy' _Document _Id _Name _Type _Version customize = (TrafficPolicy <<< customize) { "Document": _Document, "Id": _Id, "Name": _Name, "Type": _Type, "Version": _Version, "Comment": Nothing }
 
 
 
 -- | <p>A traffic policy that has the same value for <code>Name</code> already exists.</p>
 newtype TrafficPolicyAlreadyExists = TrafficPolicyAlreadyExists 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeTrafficPolicyAlreadyExists :: Newtype TrafficPolicyAlreadyExists _
 derive instance repGenericTrafficPolicyAlreadyExists :: Generic TrafficPolicyAlreadyExists _
@@ -4742,12 +4741,12 @@ instance encodeTrafficPolicyAlreadyExists :: Encode TrafficPolicyAlreadyExists w
 
 -- | Constructs TrafficPolicyAlreadyExists from required parameters
 newTrafficPolicyAlreadyExists :: TrafficPolicyAlreadyExists
-newTrafficPolicyAlreadyExists  = TrafficPolicyAlreadyExists { "message": (NullOrUndefined Nothing) }
+newTrafficPolicyAlreadyExists  = TrafficPolicyAlreadyExists { "message": Nothing }
 
 -- | Constructs TrafficPolicyAlreadyExists's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTrafficPolicyAlreadyExists' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> TrafficPolicyAlreadyExists
-newTrafficPolicyAlreadyExists'  customize = (TrafficPolicyAlreadyExists <<< customize) { "message": (NullOrUndefined Nothing) }
+newTrafficPolicyAlreadyExists' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> TrafficPolicyAlreadyExists
+newTrafficPolicyAlreadyExists'  customize = (TrafficPolicyAlreadyExists <<< customize) { "message": Nothing }
 
 
 
@@ -4780,7 +4779,7 @@ instance encodeTrafficPolicyId :: Encode TrafficPolicyId where encode = genericE
 
 -- | <p>One or more traffic policy instances were created by using the specified traffic policy.</p>
 newtype TrafficPolicyInUse = TrafficPolicyInUse 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeTrafficPolicyInUse :: Newtype TrafficPolicyInUse _
 derive instance repGenericTrafficPolicyInUse :: Generic TrafficPolicyInUse _
@@ -4790,12 +4789,12 @@ instance encodeTrafficPolicyInUse :: Encode TrafficPolicyInUse where encode = ge
 
 -- | Constructs TrafficPolicyInUse from required parameters
 newTrafficPolicyInUse :: TrafficPolicyInUse
-newTrafficPolicyInUse  = TrafficPolicyInUse { "message": (NullOrUndefined Nothing) }
+newTrafficPolicyInUse  = TrafficPolicyInUse { "message": Nothing }
 
 -- | Constructs TrafficPolicyInUse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTrafficPolicyInUse' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> TrafficPolicyInUse
-newTrafficPolicyInUse'  customize = (TrafficPolicyInUse <<< customize) { "message": (NullOrUndefined Nothing) }
+newTrafficPolicyInUse' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> TrafficPolicyInUse
+newTrafficPolicyInUse'  customize = (TrafficPolicyInUse <<< customize) { "message": Nothing }
 
 
 
@@ -4830,7 +4829,7 @@ newTrafficPolicyInstance' _HostedZoneId _Id _Message _Name _State _TTL _TrafficP
 
 -- | <p>There is already a traffic policy instance with the specified ID.</p>
 newtype TrafficPolicyInstanceAlreadyExists = TrafficPolicyInstanceAlreadyExists 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeTrafficPolicyInstanceAlreadyExists :: Newtype TrafficPolicyInstanceAlreadyExists _
 derive instance repGenericTrafficPolicyInstanceAlreadyExists :: Generic TrafficPolicyInstanceAlreadyExists _
@@ -4840,12 +4839,12 @@ instance encodeTrafficPolicyInstanceAlreadyExists :: Encode TrafficPolicyInstanc
 
 -- | Constructs TrafficPolicyInstanceAlreadyExists from required parameters
 newTrafficPolicyInstanceAlreadyExists :: TrafficPolicyInstanceAlreadyExists
-newTrafficPolicyInstanceAlreadyExists  = TrafficPolicyInstanceAlreadyExists { "message": (NullOrUndefined Nothing) }
+newTrafficPolicyInstanceAlreadyExists  = TrafficPolicyInstanceAlreadyExists { "message": Nothing }
 
 -- | Constructs TrafficPolicyInstanceAlreadyExists's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTrafficPolicyInstanceAlreadyExists' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> TrafficPolicyInstanceAlreadyExists
-newTrafficPolicyInstanceAlreadyExists'  customize = (TrafficPolicyInstanceAlreadyExists <<< customize) { "message": (NullOrUndefined Nothing) }
+newTrafficPolicyInstanceAlreadyExists' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> TrafficPolicyInstanceAlreadyExists
+newTrafficPolicyInstanceAlreadyExists'  customize = (TrafficPolicyInstanceAlreadyExists <<< customize) { "message": Nothing }
 
 
 
@@ -4958,21 +4957,21 @@ instance encodeTransportProtocol :: Encode TransportProtocol where encode = gene
 -- | <p>A complex type that contains information about a request to update a health check.</p>
 newtype UpdateHealthCheckRequest = UpdateHealthCheckRequest 
   { "HealthCheckId" :: (HealthCheckId)
-  , "HealthCheckVersion" :: NullOrUndefined (HealthCheckVersion)
-  , "IPAddress" :: NullOrUndefined (IPAddress)
-  , "Port" :: NullOrUndefined (Port)
-  , "ResourcePath" :: NullOrUndefined (ResourcePath)
-  , "FullyQualifiedDomainName" :: NullOrUndefined (FullyQualifiedDomainName)
-  , "SearchString" :: NullOrUndefined (SearchString)
-  , "FailureThreshold" :: NullOrUndefined (FailureThreshold)
-  , "Inverted" :: NullOrUndefined (Inverted)
-  , "HealthThreshold" :: NullOrUndefined (HealthThreshold)
-  , "ChildHealthChecks" :: NullOrUndefined (ChildHealthCheckList)
-  , "EnableSNI" :: NullOrUndefined (EnableSNI)
-  , "Regions" :: NullOrUndefined (HealthCheckRegionList)
-  , "AlarmIdentifier" :: NullOrUndefined (AlarmIdentifier)
-  , "InsufficientDataHealthStatus" :: NullOrUndefined (InsufficientDataHealthStatus)
-  , "ResetElements" :: NullOrUndefined (ResettableElementNameList)
+  , "HealthCheckVersion" :: Maybe (HealthCheckVersion)
+  , "IPAddress" :: Maybe (IPAddress)
+  , "Port" :: Maybe (Port)
+  , "ResourcePath" :: Maybe (ResourcePath)
+  , "FullyQualifiedDomainName" :: Maybe (FullyQualifiedDomainName)
+  , "SearchString" :: Maybe (SearchString)
+  , "FailureThreshold" :: Maybe (FailureThreshold)
+  , "Inverted" :: Maybe (Inverted)
+  , "HealthThreshold" :: Maybe (HealthThreshold)
+  , "ChildHealthChecks" :: Maybe (ChildHealthCheckList)
+  , "EnableSNI" :: Maybe (EnableSNI)
+  , "Regions" :: Maybe (HealthCheckRegionList)
+  , "AlarmIdentifier" :: Maybe (AlarmIdentifier)
+  , "InsufficientDataHealthStatus" :: Maybe (InsufficientDataHealthStatus)
+  , "ResetElements" :: Maybe (ResettableElementNameList)
   }
 derive instance newtypeUpdateHealthCheckRequest :: Newtype UpdateHealthCheckRequest _
 derive instance repGenericUpdateHealthCheckRequest :: Generic UpdateHealthCheckRequest _
@@ -4982,12 +4981,12 @@ instance encodeUpdateHealthCheckRequest :: Encode UpdateHealthCheckRequest where
 
 -- | Constructs UpdateHealthCheckRequest from required parameters
 newUpdateHealthCheckRequest :: HealthCheckId -> UpdateHealthCheckRequest
-newUpdateHealthCheckRequest _HealthCheckId = UpdateHealthCheckRequest { "HealthCheckId": _HealthCheckId, "AlarmIdentifier": (NullOrUndefined Nothing), "ChildHealthChecks": (NullOrUndefined Nothing), "EnableSNI": (NullOrUndefined Nothing), "FailureThreshold": (NullOrUndefined Nothing), "FullyQualifiedDomainName": (NullOrUndefined Nothing), "HealthCheckVersion": (NullOrUndefined Nothing), "HealthThreshold": (NullOrUndefined Nothing), "IPAddress": (NullOrUndefined Nothing), "InsufficientDataHealthStatus": (NullOrUndefined Nothing), "Inverted": (NullOrUndefined Nothing), "Port": (NullOrUndefined Nothing), "Regions": (NullOrUndefined Nothing), "ResetElements": (NullOrUndefined Nothing), "ResourcePath": (NullOrUndefined Nothing), "SearchString": (NullOrUndefined Nothing) }
+newUpdateHealthCheckRequest _HealthCheckId = UpdateHealthCheckRequest { "HealthCheckId": _HealthCheckId, "AlarmIdentifier": Nothing, "ChildHealthChecks": Nothing, "EnableSNI": Nothing, "FailureThreshold": Nothing, "FullyQualifiedDomainName": Nothing, "HealthCheckVersion": Nothing, "HealthThreshold": Nothing, "IPAddress": Nothing, "InsufficientDataHealthStatus": Nothing, "Inverted": Nothing, "Port": Nothing, "Regions": Nothing, "ResetElements": Nothing, "ResourcePath": Nothing, "SearchString": Nothing }
 
 -- | Constructs UpdateHealthCheckRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateHealthCheckRequest' :: HealthCheckId -> ( { "HealthCheckId" :: (HealthCheckId) , "HealthCheckVersion" :: NullOrUndefined (HealthCheckVersion) , "IPAddress" :: NullOrUndefined (IPAddress) , "Port" :: NullOrUndefined (Port) , "ResourcePath" :: NullOrUndefined (ResourcePath) , "FullyQualifiedDomainName" :: NullOrUndefined (FullyQualifiedDomainName) , "SearchString" :: NullOrUndefined (SearchString) , "FailureThreshold" :: NullOrUndefined (FailureThreshold) , "Inverted" :: NullOrUndefined (Inverted) , "HealthThreshold" :: NullOrUndefined (HealthThreshold) , "ChildHealthChecks" :: NullOrUndefined (ChildHealthCheckList) , "EnableSNI" :: NullOrUndefined (EnableSNI) , "Regions" :: NullOrUndefined (HealthCheckRegionList) , "AlarmIdentifier" :: NullOrUndefined (AlarmIdentifier) , "InsufficientDataHealthStatus" :: NullOrUndefined (InsufficientDataHealthStatus) , "ResetElements" :: NullOrUndefined (ResettableElementNameList) } -> {"HealthCheckId" :: (HealthCheckId) , "HealthCheckVersion" :: NullOrUndefined (HealthCheckVersion) , "IPAddress" :: NullOrUndefined (IPAddress) , "Port" :: NullOrUndefined (Port) , "ResourcePath" :: NullOrUndefined (ResourcePath) , "FullyQualifiedDomainName" :: NullOrUndefined (FullyQualifiedDomainName) , "SearchString" :: NullOrUndefined (SearchString) , "FailureThreshold" :: NullOrUndefined (FailureThreshold) , "Inverted" :: NullOrUndefined (Inverted) , "HealthThreshold" :: NullOrUndefined (HealthThreshold) , "ChildHealthChecks" :: NullOrUndefined (ChildHealthCheckList) , "EnableSNI" :: NullOrUndefined (EnableSNI) , "Regions" :: NullOrUndefined (HealthCheckRegionList) , "AlarmIdentifier" :: NullOrUndefined (AlarmIdentifier) , "InsufficientDataHealthStatus" :: NullOrUndefined (InsufficientDataHealthStatus) , "ResetElements" :: NullOrUndefined (ResettableElementNameList) } ) -> UpdateHealthCheckRequest
-newUpdateHealthCheckRequest' _HealthCheckId customize = (UpdateHealthCheckRequest <<< customize) { "HealthCheckId": _HealthCheckId, "AlarmIdentifier": (NullOrUndefined Nothing), "ChildHealthChecks": (NullOrUndefined Nothing), "EnableSNI": (NullOrUndefined Nothing), "FailureThreshold": (NullOrUndefined Nothing), "FullyQualifiedDomainName": (NullOrUndefined Nothing), "HealthCheckVersion": (NullOrUndefined Nothing), "HealthThreshold": (NullOrUndefined Nothing), "IPAddress": (NullOrUndefined Nothing), "InsufficientDataHealthStatus": (NullOrUndefined Nothing), "Inverted": (NullOrUndefined Nothing), "Port": (NullOrUndefined Nothing), "Regions": (NullOrUndefined Nothing), "ResetElements": (NullOrUndefined Nothing), "ResourcePath": (NullOrUndefined Nothing), "SearchString": (NullOrUndefined Nothing) }
+newUpdateHealthCheckRequest' :: HealthCheckId -> ( { "HealthCheckId" :: (HealthCheckId) , "HealthCheckVersion" :: Maybe (HealthCheckVersion) , "IPAddress" :: Maybe (IPAddress) , "Port" :: Maybe (Port) , "ResourcePath" :: Maybe (ResourcePath) , "FullyQualifiedDomainName" :: Maybe (FullyQualifiedDomainName) , "SearchString" :: Maybe (SearchString) , "FailureThreshold" :: Maybe (FailureThreshold) , "Inverted" :: Maybe (Inverted) , "HealthThreshold" :: Maybe (HealthThreshold) , "ChildHealthChecks" :: Maybe (ChildHealthCheckList) , "EnableSNI" :: Maybe (EnableSNI) , "Regions" :: Maybe (HealthCheckRegionList) , "AlarmIdentifier" :: Maybe (AlarmIdentifier) , "InsufficientDataHealthStatus" :: Maybe (InsufficientDataHealthStatus) , "ResetElements" :: Maybe (ResettableElementNameList) } -> {"HealthCheckId" :: (HealthCheckId) , "HealthCheckVersion" :: Maybe (HealthCheckVersion) , "IPAddress" :: Maybe (IPAddress) , "Port" :: Maybe (Port) , "ResourcePath" :: Maybe (ResourcePath) , "FullyQualifiedDomainName" :: Maybe (FullyQualifiedDomainName) , "SearchString" :: Maybe (SearchString) , "FailureThreshold" :: Maybe (FailureThreshold) , "Inverted" :: Maybe (Inverted) , "HealthThreshold" :: Maybe (HealthThreshold) , "ChildHealthChecks" :: Maybe (ChildHealthCheckList) , "EnableSNI" :: Maybe (EnableSNI) , "Regions" :: Maybe (HealthCheckRegionList) , "AlarmIdentifier" :: Maybe (AlarmIdentifier) , "InsufficientDataHealthStatus" :: Maybe (InsufficientDataHealthStatus) , "ResetElements" :: Maybe (ResettableElementNameList) } ) -> UpdateHealthCheckRequest
+newUpdateHealthCheckRequest' _HealthCheckId customize = (UpdateHealthCheckRequest <<< customize) { "HealthCheckId": _HealthCheckId, "AlarmIdentifier": Nothing, "ChildHealthChecks": Nothing, "EnableSNI": Nothing, "FailureThreshold": Nothing, "FullyQualifiedDomainName": Nothing, "HealthCheckVersion": Nothing, "HealthThreshold": Nothing, "IPAddress": Nothing, "InsufficientDataHealthStatus": Nothing, "Inverted": Nothing, "Port": Nothing, "Regions": Nothing, "ResetElements": Nothing, "ResourcePath": Nothing, "SearchString": Nothing }
 
 
 
@@ -5014,7 +5013,7 @@ newUpdateHealthCheckResponse' _HealthCheck customize = (UpdateHealthCheckRespons
 -- | <p>A request to update the comment for a hosted zone.</p>
 newtype UpdateHostedZoneCommentRequest = UpdateHostedZoneCommentRequest 
   { "Id" :: (ResourceId)
-  , "Comment" :: NullOrUndefined (ResourceDescription)
+  , "Comment" :: Maybe (ResourceDescription)
   }
 derive instance newtypeUpdateHostedZoneCommentRequest :: Newtype UpdateHostedZoneCommentRequest _
 derive instance repGenericUpdateHostedZoneCommentRequest :: Generic UpdateHostedZoneCommentRequest _
@@ -5024,12 +5023,12 @@ instance encodeUpdateHostedZoneCommentRequest :: Encode UpdateHostedZoneCommentR
 
 -- | Constructs UpdateHostedZoneCommentRequest from required parameters
 newUpdateHostedZoneCommentRequest :: ResourceId -> UpdateHostedZoneCommentRequest
-newUpdateHostedZoneCommentRequest _Id = UpdateHostedZoneCommentRequest { "Id": _Id, "Comment": (NullOrUndefined Nothing) }
+newUpdateHostedZoneCommentRequest _Id = UpdateHostedZoneCommentRequest { "Id": _Id, "Comment": Nothing }
 
 -- | Constructs UpdateHostedZoneCommentRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateHostedZoneCommentRequest' :: ResourceId -> ( { "Id" :: (ResourceId) , "Comment" :: NullOrUndefined (ResourceDescription) } -> {"Id" :: (ResourceId) , "Comment" :: NullOrUndefined (ResourceDescription) } ) -> UpdateHostedZoneCommentRequest
-newUpdateHostedZoneCommentRequest' _Id customize = (UpdateHostedZoneCommentRequest <<< customize) { "Id": _Id, "Comment": (NullOrUndefined Nothing) }
+newUpdateHostedZoneCommentRequest' :: ResourceId -> ( { "Id" :: (ResourceId) , "Comment" :: Maybe (ResourceDescription) } -> {"Id" :: (ResourceId) , "Comment" :: Maybe (ResourceDescription) } ) -> UpdateHostedZoneCommentRequest
+newUpdateHostedZoneCommentRequest' _Id customize = (UpdateHostedZoneCommentRequest <<< customize) { "Id": _Id, "Comment": Nothing }
 
 
 
@@ -5154,8 +5153,8 @@ instance encodeUsageCount :: Encode UsageCount where encode = genericEncode opti
 
 -- | <p>(Private hosted zones only) A complex type that contains information about an Amazon VPC.</p>
 newtype VPC = VPC 
-  { "VPCRegion" :: NullOrUndefined (VPCRegion)
-  , "VPCId" :: NullOrUndefined (VPCId)
+  { "VPCRegion" :: Maybe (VPCRegion)
+  , "VPCId" :: Maybe (VPCId)
   }
 derive instance newtypeVPC :: Newtype VPC _
 derive instance repGenericVPC :: Generic VPC _
@@ -5165,18 +5164,18 @@ instance encodeVPC :: Encode VPC where encode = genericEncode options
 
 -- | Constructs VPC from required parameters
 newVPC :: VPC
-newVPC  = VPC { "VPCId": (NullOrUndefined Nothing), "VPCRegion": (NullOrUndefined Nothing) }
+newVPC  = VPC { "VPCId": Nothing, "VPCRegion": Nothing }
 
 -- | Constructs VPC's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVPC' :: ( { "VPCRegion" :: NullOrUndefined (VPCRegion) , "VPCId" :: NullOrUndefined (VPCId) } -> {"VPCRegion" :: NullOrUndefined (VPCRegion) , "VPCId" :: NullOrUndefined (VPCId) } ) -> VPC
-newVPC'  customize = (VPC <<< customize) { "VPCId": (NullOrUndefined Nothing), "VPCRegion": (NullOrUndefined Nothing) }
+newVPC' :: ( { "VPCRegion" :: Maybe (VPCRegion) , "VPCId" :: Maybe (VPCId) } -> {"VPCRegion" :: Maybe (VPCRegion) , "VPCId" :: Maybe (VPCId) } ) -> VPC
+newVPC'  customize = (VPC <<< customize) { "VPCId": Nothing, "VPCRegion": Nothing }
 
 
 
 -- | <p>The VPC that you specified is not authorized to be associated with the hosted zone.</p>
 newtype VPCAssociationAuthorizationNotFound = VPCAssociationAuthorizationNotFound 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeVPCAssociationAuthorizationNotFound :: Newtype VPCAssociationAuthorizationNotFound _
 derive instance repGenericVPCAssociationAuthorizationNotFound :: Generic VPCAssociationAuthorizationNotFound _
@@ -5186,18 +5185,18 @@ instance encodeVPCAssociationAuthorizationNotFound :: Encode VPCAssociationAutho
 
 -- | Constructs VPCAssociationAuthorizationNotFound from required parameters
 newVPCAssociationAuthorizationNotFound :: VPCAssociationAuthorizationNotFound
-newVPCAssociationAuthorizationNotFound  = VPCAssociationAuthorizationNotFound { "message": (NullOrUndefined Nothing) }
+newVPCAssociationAuthorizationNotFound  = VPCAssociationAuthorizationNotFound { "message": Nothing }
 
 -- | Constructs VPCAssociationAuthorizationNotFound's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVPCAssociationAuthorizationNotFound' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> VPCAssociationAuthorizationNotFound
-newVPCAssociationAuthorizationNotFound'  customize = (VPCAssociationAuthorizationNotFound <<< customize) { "message": (NullOrUndefined Nothing) }
+newVPCAssociationAuthorizationNotFound' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> VPCAssociationAuthorizationNotFound
+newVPCAssociationAuthorizationNotFound'  customize = (VPCAssociationAuthorizationNotFound <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The specified VPC and hosted zone are not currently associated.</p>
 newtype VPCAssociationNotFound = VPCAssociationNotFound 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeVPCAssociationNotFound :: Newtype VPCAssociationNotFound _
 derive instance repGenericVPCAssociationNotFound :: Generic VPCAssociationNotFound _
@@ -5207,12 +5206,12 @@ instance encodeVPCAssociationNotFound :: Encode VPCAssociationNotFound where enc
 
 -- | Constructs VPCAssociationNotFound from required parameters
 newVPCAssociationNotFound :: VPCAssociationNotFound
-newVPCAssociationNotFound  = VPCAssociationNotFound { "message": (NullOrUndefined Nothing) }
+newVPCAssociationNotFound  = VPCAssociationNotFound { "message": Nothing }
 
 -- | Constructs VPCAssociationNotFound's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVPCAssociationNotFound' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> VPCAssociationNotFound
-newVPCAssociationNotFound'  customize = (VPCAssociationNotFound <<< customize) { "message": (NullOrUndefined Nothing) }
+newVPCAssociationNotFound' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> VPCAssociationNotFound
+newVPCAssociationNotFound'  customize = (VPCAssociationNotFound <<< customize) { "message": Nothing }
 
 
 
